@@ -30,6 +30,10 @@ public interface Player {
     // add buildings
     void add_Building(Building building);
 
+    public void add_Minions(MinionImpl minion);
+
+    public ArrayList<MinionImpl> getMinions();
+
     /* To be implemented in future */
     void getFarmers();
 
@@ -41,5 +45,5 @@ public interface Player {
 
     void upgradeKing(King king);
 
-
+    void attack(Player opponent);
 }

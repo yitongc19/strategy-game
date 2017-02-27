@@ -15,7 +15,8 @@ public class CupCakeWarrior extends MeleeMinion {
 //    private double attackSpeed;
 //    private int rangeOrMelee;
 
-    public CupCakeWarrior(double[] coords) {
+    public CupCakeWarrior(String name, double[] coords) {
+        this.minionName = name;
         this.hp = 500;
         this.atk = 30;
         this.armor = -9;

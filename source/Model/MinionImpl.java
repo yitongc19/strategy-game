@@ -10,6 +10,8 @@ import static java.lang.Math.sqrt;
  */
 public class MinionImpl implements Minion {
 
+    public PlayerImpl master;
+    public String minionName;
     public double hp;
     public double armor;
     public double atk;
@@ -246,7 +248,16 @@ public class MinionImpl implements Minion {
         target = chooseTarget(enemies);
 
         if (this.attackCounter == this.attackSpeed){
-            this.dmgCal(target);
+            double damage = this.dmgCal(target);
+            System.out.println(this.master.getPlayerName() + "'s " +
+                    this.minionName + " dealt " + damage + " damage to " +
+                    target.master.getPlayerName() + "'s " + target.minionName);
+        }
+    }
+
+    public void dieForHonor() {
+        if (this.hp <= 0) {
+            //destroy the minion?
         }
     }
 }
