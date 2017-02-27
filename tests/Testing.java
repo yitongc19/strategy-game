@@ -37,7 +37,6 @@ public class Testing {
         System.out.println(newcup1.hp);
         System.out.println(newcup1.dmgCal(newcup2));
         System.out.println(Arrays.toString(newcup6.chooseTarget(Enemies).Coords));
-        newcup6.attackCounter += 1;
 //        newcup6.performAttack(Enemies);
 
         int[] color = {10, 20, 30};
@@ -49,6 +48,9 @@ public class Testing {
         russell.add_Minions(newcup3);
         russell.add_Minions(newcup4);
         russell.add_Minions(newcup5);
-        soap.attack(russell);
+        while(newcup4.hp>0) {
+            newcup6.attackCounter += 1;
+            soap.attack(russell);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -205,6 +206,9 @@ public class MinionImpl implements Minion {
         return 0;
     }
 
+    public double atkDamageRandomModifier(double minCon, double maxCon) {
+        return ThreadLocalRandom.current().nextDouble(this.atk*minCon, this.atk*maxCon);
+    }
     public double dmgCal(MinionImpl enemy) {
         double armorModifer;
         double dmgTypeModifier = calDmgPercent(enemy);
@@ -215,7 +219,8 @@ public class MinionImpl implements Minion {
         } else {
             armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
         }
-        double dmgDealt = this.atk * armorModifer * dmgTypeModifier;
+        double realtimeAtk = atkDamageRandomModifier(0.8, 1.2);
+        double dmgDealt = realtimeAtk * armorModifer * dmgTypeModifier;
         enemy.hp -= dmgDealt;
         return dmgDealt;
     }
@@ -252,12 +257,16 @@ public class MinionImpl implements Minion {
             System.out.println(this.master.getPlayerName() + "'s " +
                     this.minionName + " dealt " + damage + " damage to " +
                     target.master.getPlayerName() + "'s " + target.minionName);
+            target.dieForHonor();
+            this.attackCounter = 0;
         }
     }
 
     public void dieForHonor() {
         if (this.hp <= 0) {
             //destroy the minion?
+            System.out.println(this.minionName + " died for an honorable cause!");
+            System.out.println("The King will remember him!");
         }
     }
 }
