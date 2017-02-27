@@ -80,6 +80,7 @@ public class PlayerImpl implements Player {
             MinionImpl soldier = iter.next();
             if (soldier.Coords[0] > 70) { // why it hangs for higher numbers...
                 System.out.println(soldier.minionName + " is gonna to fight for the King!");
+                myKing.add_Minions(soldier);
                 iter.remove();
             }
             soldier.performAttack(opponent.getMinions());
