@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
@@ -18,6 +20,7 @@ public class King {
 
     private int teamNum;
 
+    private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     //initialize Model.King!
     public King(int teamNum) {
         this.hp = 5000;
@@ -68,5 +71,14 @@ public class King {
 
     public void setAnimation() {
 
+    }
+
+    public ArrayList<MinionImpl> getMinions() {
+        return minions;
+    }
+
+    public void add_Minions(MinionImpl minion) {
+        this.minions.add(minion);
+        //reset minions' coord to king's lane here
     }
 }
