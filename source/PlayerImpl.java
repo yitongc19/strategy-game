@@ -85,4 +85,10 @@ public class PlayerImpl implements Player {
     public void upgradeKing(King king) {
 
     }
+
+//    public static void main(String[] args) {
+//        int[] color = {10, 20, 30};
+//        PlayerImpl soap = new PlayerImpl(1, "soap", color);
+//        System.out.println(soap.getScore());
+//    }
 }
