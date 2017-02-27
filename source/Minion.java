@@ -7,13 +7,13 @@ public interface Minion {
      */
 
     //Current Hp of the minion
-    float getHP();
+    double getHP();
 
     //Max Hp of the minion
-    float getMaxHp();
+    double getMaxHp();
 
     //Get attack damage of the minion
-    float getATK();
+    double getATK();
 
     /*
     Type of attack, among
@@ -27,7 +27,7 @@ public interface Minion {
     AtkType getAttackType();
 
     //Get armor of the minion
-    float getArmor();
+    double getArmor();
 
     /*
     Types of Armor, among
@@ -41,16 +41,16 @@ public interface Minion {
     ArmorType getArmorType();
 
     //Get attack speed of the minion, measured in seconds; e.g. 1 second per attack or 1.8 second per attack
-    float getAS();
+    double getAS();
 
     //0 for melee, 1 for ranged
     int range_melee();
 
     //movement sppeed of the minion
-    float move_speed();
+    double move_speed();
 
     //get health regen stats, usually 0
-    float health_regen();
+    double health_regen();
 
 
     /*
@@ -69,4 +69,8 @@ public interface Minion {
     //speicial abilities like auras, etc
     void setSpecial();
 
+    /*
+    Speical methods
+     */
+    double dmgCal(MinionImpl enemy);
 }

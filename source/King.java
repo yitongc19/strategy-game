@@ -4,49 +4,67 @@
 
 public class King {
 
-    private float hp;
+    private double hp;
 
-    private float armor;
+    private double armor;
 
-    private float atk;
+    private double atk;
 
-    private AtkType atkType = AtkType.Hero;
+    private AtkType atkType;
 
-    private ArmorType armorType = ArmorType.HeroArmor;
+    private ArmorType armorType;
 
+    private int teamNum;
+
+    //initialize King!
+    public King(int teamNum) {
+        this.hp = 5000;
+        this.armor = 10;
+        this.atk = 100;
+        this.atkType = AtkType.Hero;
+        this.armorType = ArmorType.HeroArmor;
+        this.teamNum = teamNum;
+
+    }
     /*
     Accessors
      */
-    public float getHp() {
-        return hp;
+    public double getHp() {
+        return this.hp;
     }
 
-    public float getAtk() {
-        return atk;
+    public double getAtk() {
+        return this.atk;
     }
 
     public AtkType getAtkType() {
-        return atkType;
+        return this.atkType;
     }
 
     public ArmorType getArmorType() {
-        return armorType;
+        return this.armorType;
     }
 
+    public int getTeam() {
+        return this.teamNum;
+    }
     /*
     Setters
      */
 
-    public void setHp(float hp) {
+    public void setHp(double hp) {
         this.hp = hp;
     }
 
-    public void setArmor(float armor) {
+    public void setArmor(double armor) {
         this.armor = armor;
     }
 
-    public void setAtk(float atk) {
+    public void setAtk(double atk) {
         this.atk = atk;
     }
 
+    public void setAnimation() {
+
+    }
 }

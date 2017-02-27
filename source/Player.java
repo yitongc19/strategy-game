@@ -11,15 +11,22 @@ public interface Player {
     //get gold
     Integer getGold();
 
-    //players' buildings
-    void add_Building(Building building);
-
     ArrayList getBuildings();
 
+    King getKing();
 
     Integer getScore();
 
-    void setScore();
+    // 1 for team 1, 2 for team 2
+    int getTeam();
+
+    //setter
+    void setScore(Integer score);
+
+    void setTeam(int teamNum);
+
+    // add buildings
+    void add_Building(Building building);
 
     /* To be implemented in future */
     void getFarmers();
@@ -31,4 +38,6 @@ public interface Player {
     ArrayList getMercenaries();
 
     void upgradeKing(King king);
+
+
 }
