@@ -1,3 +1,5 @@
+package cs257gameProj;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
