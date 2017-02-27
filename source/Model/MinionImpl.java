@@ -1,87 +1,75 @@
 package Model;
 
+import static java.lang.Math.pow;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
 public class MinionImpl implements Minion {
 
-    private double hp;
-    private double armor;
-    private double atk;
-    private double maxhp;
-    private ArmorType armorType;
-    private AtkType atkType;
-    private double moveSpeed;
-    private double healthRegen;
-    private double attackSpeed;
-    private int rangeOrMelee;
+    public double hp;
+    public double armor;
+    public double atk;
+    public double maxhp;
+    public ArmorType armorType;
+    public AtkType atkType;
+    public double moveSpeed;
+    public double healthRegen;
+    public double attackSpeed;
+    public int rangeOrMelee;
 
-    @Override
     public double getHP() {
         return this.hp;
     }
 
-    @Override
     public double getMaxHp() {
         return this.maxhp;
     }
 
-    @Override
     public double getATK() {
         return this.atk;
     }
 
-    @Override
     public AtkType getAttackType() {
         return this.atkType;
     }
 
-    @Override
     public double getArmor() {
         return this.armor;
     }
 
-    @Override
     public ArmorType getArmorType() {
         return this.armorType;
     }
 
-    @Override
     public double getAS() {
         return this.attackSpeed;
     }
 
-    @Override
     public int range_melee() {
         return this.rangeOrMelee;
     }
 
-    @Override
     public double move_speed() {
         return this.moveSpeed;
     }
 
-    @Override
     public double health_regen() {
         return this.healthRegen;
     }
 
-    @Override
     public void setStaticAnimation() {
 
     }
 
-    @Override
     public void setAtkAnimation() {
 
     }
 
-    @Override
     public void setProjectile() {
 
     }
 
-    @Override
     public void setSpecial() {
 
     }
@@ -193,16 +181,15 @@ public class MinionImpl implements Minion {
         return 0;
     }
 
-    @Override
     public double dmgCal(MinionImpl enemy) {
         double armorModifer;
         double dmgTypeModifier = calDmgPercent(enemy);
         assert(dmgTypeModifier!=0);
         double enemyArmor = enemy.getArmor();
         if (enemyArmor < 0) {
-            armorModifer = 2-0.94*(-enemyArmor);
+            armorModifer = 2-pow(0.84,(-enemyArmor));
         } else {
-            armorModifer = (enemyArmor*0.06)/(1+enemyArmor*0.06);
+            armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
         }
         return this.atk * armorModifer * dmgTypeModifier;
     }
