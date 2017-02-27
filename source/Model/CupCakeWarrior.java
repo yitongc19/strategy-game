@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by xingfanxia on 2/27/17.
  */
-public class CupCakeWarrior extends MinionImpl {
+public class CupCakeWarrior extends MeleeMinion {
 //    private double hp;
 //    private double armor;
 //    private double atk;
@@ -15,7 +15,7 @@ public class CupCakeWarrior extends MinionImpl {
 //    private double attackSpeed;
 //    private int rangeOrMelee;
 
-    public CupCakeWarrior() {
+    public CupCakeWarrior(double[] coords) {
         this.hp = 500;
         this.atk = 30;
         this.armor = -9;
@@ -26,7 +26,6 @@ public class CupCakeWarrior extends MinionImpl {
         this.healthRegen = 3;
         this.attackSpeed = 1;
         this.rangeOrMelee = 0;
+        this.Coords = coords;
     }
-
-
 }

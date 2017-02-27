@@ -1,6 +1,7 @@
 package Model;
 
 import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 /**
  * Created by xingfanxia on 2/25/17.
@@ -17,6 +18,7 @@ public class MinionImpl implements Minion {
     public double healthRegen;
     public double attackSpeed;
     public int rangeOrMelee;
+    public double[] Coords; //Coord on map
 
     public double getHP() {
         return this.hp;
@@ -56,6 +58,14 @@ public class MinionImpl implements Minion {
 
     public double health_regen() {
         return this.healthRegen;
+    }
+
+    public double[] getCoords() {
+        return Coords;
+    }
+
+    public void setCoords(double[] coords) {
+        Coords = coords;
     }
 
     public void setStaticAnimation() {
@@ -192,5 +202,9 @@ public class MinionImpl implements Minion {
             armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
         }
         return this.atk * armorModifer * dmgTypeModifier;
+    }
+
+    public double cal_distance(MinionImpl enemy) {
+        return sqrt(pow(this.Coords[0] - enemy.Coords[0], 2)+pow(this.Coords[1] - enemy.Coords[1], 2));
     }
 }

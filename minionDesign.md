@@ -6,6 +6,63 @@
 
 - Movement Speed
 
+- Attack Speed?
+
+  I am thinking to implement attack speed in this manner:
+
+  - The minions have its attack speed as `?` second per attack
+
+  - Built in minions or somewhere else have a attackFlag;
+
+  - The controller checks every 0.1 second to check thru all the unit whether any of them should attack, if attacked;
+
+    ```java
+    boolean attackFlag = False; //init in every minion
+    float attackCounter = 0;
+    //and a attack
+    public void attack() {
+      if (this.attackCounter == this.atkspeed){
+        Minion target = this.chooseTarget();
+        target.takeDmg(this.dmgCal(target));
+      }
+    }
+
+    //this function called per 0.1 sec
+    public void checkattack(ArrayList<Minion> MinionList) {
+      for (Minion warriors: MinionList){
+        warriors.attackConter += 0.1;
+      }
+    }
+    ```
+
+- TargetChoosing?
+
+  So have to add world coordinates into minion class?
+
+  And range minion and melee minion have different targeting, so two minion class of range/melee?
+
+  ```java
+  //Inside the map, the map should keep the minion list of all players like 
+  ArrayList<Minion> player1Army;
+  ArrayList<Minion> player2Army;
+
+  and inside Minion, there will be a target system:
+  public float cal_distance();
+
+  public Minion TargetChoosing(ArrayList<Minion> MinionList) {
+    float minDist = 9999999;
+    for (Minion warrior: MinionList){
+      float dist = cal_distance(this, warrior);
+      if ( dist< minDist) {
+        minDist = dist;
+        target = warrior;
+      }
+    }
+  }
+  ```
+
+  ​
+
 - Types:
 
   - Melee
