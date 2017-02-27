@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by xingfanxia on 2/26/17.
@@ -69,9 +70,19 @@ public class PlayerImpl implements Player {
         minion.master = this;
     }
 
+    public void remove_Minions(MinionImpl minion) {
+        this.minions.remove(minion);
+    }
+
     public void attack(Player opponent) {
-        for (MinionImpl solider:minions) {
-            solider.performAttack(opponent.getMinions());
+        Iterator<MinionImpl> iter = minions.iterator();
+        while (iter.hasNext()) {
+            MinionImpl soldier = iter.next();
+            if (soldier.Coords[0] > 70) { // why it hangs for higher numbers...
+                System.out.println(soldier.minionName + " is gonna to fight for the King!");
+                iter.remove();
+            }
+            soldier.performAttack(opponent.getMinions());
         }
     }
     public void getFarmers() {

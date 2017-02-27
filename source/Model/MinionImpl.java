@@ -26,6 +26,7 @@ public class MinionImpl implements Minion {
     public int rangeOrMelee;
     public double[] Coords; //Coord on map
     public double attackCounter = 0;
+    public boolean alive = true;
 
     public double getHP() {
         return this.hp;
@@ -234,7 +235,7 @@ public class MinionImpl implements Minion {
         double minDist = 9999999;
         for (MinionImpl warrior: enemies){
             double dist = cal_distance(warrior);
-            if (dist < minDist && dist < atkRange) {
+            if (dist < minDist) {
                 minDist = dist;
                 target = warrior;
             }
@@ -242,24 +243,28 @@ public class MinionImpl implements Minion {
         return target;
     }
 
-//    public MinionImpl rangeCheck(MinionImpl target) {
-//        if (cal_distance(target) < this.atkRange) {
-//            performAttack();
-//        }
-//    }
+    public void keepWalking() {
+        System.out.println(this.minionName + "keeps walking to approach enemy!");
+        this.Coords[0] += 1;
+
+    }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
         MinionImpl target = new MinionImpl();
         target = chooseTarget(enemies);
-
-        if (this.attackCounter == this.attackSpeed){
-            double damage = this.dmgCal(target);
-            System.out.println(this.master.getPlayerName() + "'s " +
-                    this.minionName + " dealt " + damage + " damage to " +
-                    target.master.getPlayerName() + "'s " + target.minionName);
-            target.dieForHonor();
-            this.attackCounter = 0;
+        if (cal_distance(target) > atkRange) {
+            keepWalking();
+        } else {
+            if (this.attackCounter == this.attackSpeed){
+                double damage = this.dmgCal(target);
+                System.out.println(this.master.getPlayerName() + "'s " +
+                        this.minionName + " dealt " + damage + " damage to " +
+                        target.master.getPlayerName() + "'s " + target.minionName);
+                target.dieForHonor();
+                this.attackCounter = 0;
+            }
         }
+
     }
 
     public void dieForHonor() {
@@ -267,6 +272,8 @@ public class MinionImpl implements Minion {
             //destroy the minion?
             System.out.println(this.minionName + " died for an honorable cause!");
             System.out.println("The King will remember him!");
+            this.alive = false;
+            this.master.remove_Minions(this);
         }
     }
 }

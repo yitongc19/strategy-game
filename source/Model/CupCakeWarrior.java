@@ -28,6 +28,6 @@ public class CupCakeWarrior extends MeleeMinion {
         this.attackSpeed = 1;
         this.rangeOrMelee = 0;
         this.Coords = coords;
-        this.atkRange = 100;
+        this.atkRange = 50;
     }
 }

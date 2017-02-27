@@ -14,7 +14,7 @@ public class Testing {
         double[] pos3 = {110, 150};
         double[] pos4 = {120, 130};
         double[] pos5 = {100, 180};
-        double[] pos6 = {100, 100};
+        double[] pos6 = {0, 100};
         ArrayList<MinionImpl> Enemies = new ArrayList<MinionImpl>();
 
 //        how to do variable naming with var in java
@@ -28,17 +28,6 @@ public class Testing {
         CupCakeWarrior newcup5 = new CupCakeWarrior("Cup Cake Warrior 5", pos5);
         CupCakeWarrior newcup6 = new CupCakeWarrior("Cup Cake Warrior 6", pos6);
 
-        Enemies.add(newcup1);
-        Enemies.add(newcup2);
-        Enemies.add(newcup3);
-        Enemies.add(newcup4);
-        Enemies.add(newcup5);
-        System.out.println(newcup1.getHP());
-        System.out.println(newcup1.hp);
-        System.out.println(newcup1.dmgCal(newcup2));
-        System.out.println(Arrays.toString(newcup6.chooseTarget(Enemies).Coords));
-//        newcup6.performAttack(Enemies);
-
         int[] color = {10, 20, 30};
         Model.PlayerImpl soap = new Model.PlayerImpl(1, "Yitong", color);
         Model.PlayerImpl russell = new Model.PlayerImpl(1, "Russell", color);
@@ -48,9 +37,11 @@ public class Testing {
         russell.add_Minions(newcup3);
         russell.add_Minions(newcup4);
         russell.add_Minions(newcup5);
-        while(newcup4.hp>0) {
-            newcup6.attackCounter += 1;
-            soap.attack(russell);
+        while(!russell.getMinions().isEmpty() && !soap.getMinions().isEmpty()) {
+                newcup6.attackCounter += 1;
+                soap.attack(russell);
         }
+
+
     }
 }
