@@ -1,3 +1,5 @@
+package Model;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
@@ -16,7 +18,7 @@ public class King {
 
     private int teamNum;
 
-    //initialize King!
+    //initialize Model.King!
     public King(int teamNum) {
         this.hp = 5000;
         this.armor = 10;

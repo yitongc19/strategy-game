@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 
 /**
@@ -86,9 +88,9 @@ public class PlayerImpl implements Player {
 
     }
 
-//    public static void main(String[] args) {
-//        int[] color = {10, 20, 30};
-//        PlayerImpl soap = new PlayerImpl(1, "soap", color);
-//        System.out.println(soap.getScore());
-//    }
+    public static void main(String[] args) {
+        int[] color = {10, 20, 30};
+        Model.PlayerImpl soap = new Model.PlayerImpl(1, "soap", color);
+        System.out.println(soap.getScore());
+    }
 }

@@ -1,4 +1,4 @@
-# Game Project: For the King
+# Game Project: For the Model.King
 
 >@author Xingfan Xia, Russel Smith, Yitong Cheng
 >@Project for CS257 Software Desgin
@@ -6,11 +6,11 @@
 
 ### Game Design and Concepts
 
-Our project is a PVP game called “For the King” with elements of turn-based games, RPG and tower defense games. This game is designed to provide a PVP experience with 2~8 players. Basically, the even number of players are divided into 2 teams fighting for their king. A particular round of the game will consist of 2 phases: building phase and fighting phase. 
+Our project is a PVP game called “For the Model.King” with elements of turn-based games, RPG and tower defense games. This game is designed to provide a PVP experience with 2~8 players. Basically, the even number of players are divided into 2 teams fighting for their king. A particular round of the game will consist of 2 phases: building phase and fighting phase. 
 
-In the building phase, each player receive gold from the system and they can choose what kind of buildings they want to build. Once every player is finished with their building selection, building phases ends and the fighting phase begins. At the start of the fight scene, buildings will spawn minions to fight. The fighting map is divided into 1~4 lanes depending on the number of players, each lane will have two players fighting each other. Each end of the lane will be the opposing player's base. Behind their base is a portal that teleports minions to fight for their King. Between their bases will be a lane of blood and fire where minions fight to death. For example, player 1 and player 2 will be against each other, if player 1 have better army and wins the fight which usually happened in the middle of the lane; his minions will march forward until they arrive the portal behind player 2’s base and get teleported to their King to fight the other King. The game ends if one King is defeated.
+In the building phase, each player receive gold from the system and they can choose what kind of buildings they want to build. Once every player is finished with their building selection, building phases ends and the fighting phase begins. At the start of the fight scene, buildings will spawn minions to fight. The fighting map is divided into 1~4 lanes depending on the number of players, each lane will have two players fighting each other. Each end of the lane will be the opposing player's base. Behind their base is a portal that teleports minions to fight for their Model.King. Between their bases will be a lane of blood and fire where minions fight to death. For example, player 1 and player 2 will be against each other, if player 1 have better army and wins the fight which usually happened in the middle of the lane; his minions will march forward until they arrive the portal behind player 2’s base and get teleported to their Model.King to fight the other Model.King. The game ends if one Model.King is defeated.
 
-The income for players at each round is consisted of two parts: salary and war. At the start of each round, player get their salary to build buildings. During the fighting phase, the player is rewarded for every enemy minion they killed by 1/15 of the building cost that spawns it. In addition, the player get special bonus (probably 1/10 ~ ⅕ of the building cost)  from the King for each minion that manages to survive to the portal and fight for their king. “Not only gold, but honor” says the King.
+The income for players at each round is consisted of two parts: salary and war. At the start of each round, player get their salary to build buildings. During the fighting phase, the player is rewarded for every enemy minion they killed by 1/15 of the building cost that spawns it. In addition, the player get special bonus (probably 1/10 ~ ⅕ of the building cost)  from the Model.King for each minion that manages to survive to the portal and fight for their king. “Not only gold, but honor” says the Model.King.
 
 There are 2 major categories of minions: melee or ranged; also each minion have a variety of attack type and armor type which counters each other. For example, a siege attack is effective against fort armor yet weak against other armor types. This provides a very tactical decision making experience for the players. The players not only need to figure out the their own army’s optimal positioning and ratio of melee and ranged minions but also to counter the opponent with effective strategies with his/her army composition in mind. 
 
@@ -20,8 +20,8 @@ If we have more time, we want to implement the following features as well to mak
   1. To recruit powerful mercenaries to join your army for one round whose greed for Arcane Crystal is beyond control.
   2. To learn powerful spells enabling the player to have direct impact on the battlefield. (You can even help your struggling teammates with this!)
   3. To have weapon or armor upgrades for their loyal minions so they can fight better.
-  4. To empower their king by upgrading his stats like attack damage, armor, health regen, etc. (As usual, the King will reward you with gold and honor!)
-  5. To summon King’s guard who were powerful units to protect the King in danger. (Well, a King always pays his debt)
+  4. To empower their king by upgrading his stats like attack damage, armor, health regen, etc. (As usual, the Model.King will reward you with gold and honor!)
+  5. To summon Model.King’s guard who were powerful units to protect the Model.King in danger. (Well, a Model.King always pays his debt)
 - Add a Pantheon building where each player can recruit one and only one hero unit of their choice. They behaves almost same as usual minions but with powerful aura abilities or devastating spells.
 - Add factions to the game, each player can choose their faction at the start of the game; each faction have unique minions, heroes and even special faction perks!
 
@@ -35,7 +35,7 @@ As we’ll be using the Model-View-Controller design pattern, we’ll need each 
   - A player class, keeping track of that player’s gold, score, and a list of buildings they have.
   - A building class, keeping track of that building’s position, with subclasses for each kind of building.
   - A minion class with subclasses for each kind of minion, with each subclass storing a unique behavior.
-  - A King class which stores all the data about the King including his health, health regen, attack damage, etc. (It’s all about the King right?)
+  - A Model.King class which stores all the data about the Model.King including his health, health regen, attack damage, etc. (It’s all about the Model.King right?)
 
 - Our controller will primarily be divided into two parts: 
 
@@ -60,9 +60,9 @@ We will be using the MVC (Model-View-Controller) design pattern in the general s
 
   ![Figure 1.0 Welcome Screen](Readme Images/Figure 1.0 Welcome Screen.png)
 
-- The game goes by rounds. In each round, all the players start by constructing buildings in their bases one by one. Figure(1.1) shows the control panel for a player. As can be seen in Figure(1.1), by clicking “See Map”, the player will be able to view the existing buildings of their team on the map, but will not see those buildings of the enemy team. Once a player finishes constructing buildings for the round, s/he can click on “Finish” and the game will show the next player’s control panel. 
+- The game goes by rounds. In each round, all the players start by constructing buildings in their bases one by one. Figure(1.1) shows the control panel for a player. As can be seen in Figure(1.1), by clicking “See View.Map”, the player will be able to view the existing buildings of their team on the map, but will not see those buildings of the enemy team. Once a player finishes constructing buildings for the round, s/he can click on “Finish” and the game will show the next player’s control panel. 
 
-  ![Figure 1.1  Player Building Phase](Readme Images/Figure 1.1  Player Building Phase.png)
+  ![Figure 1.1  Model.Player Model.Building Phase](Readme Images/Figure 1.1  Player Building Phase.png)
 
 - Once all the players are done with constructing buildings for the round, the last person clicking “Finish” will take everyone to the map in fighting phase in Figure(1.2), where minions will be spawned automatically. The minions will march toward the enemy side and attack any enemies they encounter on the way. 
 

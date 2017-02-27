@@ -1,6 +1,6 @@
 ## Basic Minions:
 
-### Minion Attributes:
+### Model.Minion Attributes:
 
 - Hit Points
 
@@ -51,7 +51,7 @@
   | **Chaos**  | 110%        | 110%         | 110%        | 110%       | 110%       | 110%     |
   | **Hero**   | 100%        | 100%         | 100%        | 100%       | 100%       | 100%     |
 
-###  Minion Category
+###  Model.Minion Category
 
 - Melee
   - Ursa (Single Tank)

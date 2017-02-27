@@ -1,3 +1,5 @@
+package View;
+
 import java.util.Observer;
 
 //the map interface, just display of the map

@@ -1,3 +1,5 @@
+package Model;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
@@ -86,8 +88,8 @@ public class MinionImpl implements Minion {
 
     private double calDmgPercent(MinionImpl enemy) {
         AtkType myAtkType = this.getAttackType();
-//        ArmorType myArmorType = this.armorType;
-//        AtkType enemyAtkType = enemy.atkType;
+//        Model.ArmorType myArmorType = this.armorType;
+//        Model.AtkType enemyAtkType = enemy.atkType;
         ArmorType enemyArmorType = enemy.getArmorType();
 
         switch(myAtkType) {
