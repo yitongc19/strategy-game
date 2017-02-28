@@ -75,15 +75,20 @@ public class PlayerImpl implements Player {
     }
 
     public void attack(Player opponent) {
-        Iterator<MinionImpl> iter = minions.iterator();
-        while (iter.hasNext()) {
-            MinionImpl soldier = iter.next();
-            if (soldier.Coords[0] > 70) { // why it hangs for higher numbers...
-                System.out.println(soldier.minionName + " is gonna to fight for the King!");
-                myKing.add_Minions(soldier);
-                iter.remove();
+        for (int i = 0; i < minions.size(); i += 1) {
+            if (minions.get(i).Coords[0] == 109) {
+                System.out.println("???");
             }
-            soldier.performAttack(opponent.getMinions());
+
+            if (minions.get(i).Coords[0] >= 100) { //why it hangs for higher numbers...
+                System.out.println(minions.get(i).minionName + " is gonna to fight for the King!");
+                myKing.add_Minions(minions.get(i));
+                minions.remove(i);
+                System.out.println(myKing.getMinions().size());
+                System.out.println(minions.size());
+                continue;
+            }
+            minions.get(i).performAttack(opponent.getMinions());
         }
     }
     public void getFarmers() {

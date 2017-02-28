@@ -12,6 +12,8 @@ public class King {
 
     private double armor;
 
+    private double maxHP;
+
     private double atk;
 
     private AtkType atkType;
@@ -53,6 +55,12 @@ public class King {
     public int getTeam() {
         return this.teamNum;
     }
+
+
+    public double getMaxHP() {
+        return maxHP;
+    }
+
     /*
     Setters
      */

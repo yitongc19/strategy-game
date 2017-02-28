@@ -244,9 +244,9 @@ public class MinionImpl implements Minion {
     }
 
     public void keepWalking() {
-        System.out.println(this.minionName + "keeps walking to approach enemy!");
-        this.Coords[0] += 1;
-
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to approach enemy!");
+        this.Coords[0] +=1;
+        System.out.println(this.Coords[0]);
     }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
@@ -270,7 +270,7 @@ public class MinionImpl implements Minion {
     public void dieForHonor() {
         if (this.hp <= 0) {
             //destroy the minion?
-            System.out.println(this.minionName + " died for an honorable cause!");
+            System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " died for an honorable cause!");
             System.out.println("The King will remember him!");
             this.alive = false;
             this.master.remove_Minions(this);
