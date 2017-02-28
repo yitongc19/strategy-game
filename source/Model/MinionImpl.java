@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -248,6 +249,9 @@ public class MinionImpl implements Minion {
     }
 
     public MinionImpl chooseTarget(ArrayList<MinionImpl> enemies) {
+        if (enemies.isEmpty()) {
+            return null;
+        }
         MinionImpl target = new MinionImpl();
         ArrayList<MinionImpl> temp = new ArrayList<MinionImpl>();
         double minDist = 9999999;
@@ -267,42 +271,79 @@ public class MinionImpl implements Minion {
         }
     }
 
+    public void chase(MinionImpl target) {
+        double xdiff = target.Coords[0] - this.Coords[0];
+        double ydiff = target.Coords[1] - this.Coords[1];
+
+        double dist = cal_distance(target);
+        double normalx = (xdiff/dist)*moveSpeed;
+        double normaly = (ydiff/dist)*moveSpeed;
+
+        this.Coords[0] += normalx;
+        this.Coords[1] += normaly;
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+
+    }
+
     public void keepWalking() {
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to approach enemy!");
-        this.Coords[0] +=1;
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + this.Coords[0]);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the king!");
+        if (this.master.getTeam() == 1) {
+            this.Coords[0] += moveSpeed;
+        } else {
+            this.Coords[0] -= moveSpeed;
+        }
+
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+        checkPortal();
     }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
-        MinionImpl target = new MinionImpl();
-        target = chooseTarget(enemies);
-        if (cal_distance(target) > atkRange) {
+        MinionImpl target;
+
+        if (enemies.isEmpty()) {
             keepWalking();
         } else {
-            if (this.attackCounter == this.attackSpeed){
-                double damage = this.dmgCal(target);
-                System.out.println(this.master.getPlayerName() + "'s " +
-                        this.minionName + " dealt " + damage + " damage to " +
-                        target.master.getPlayerName() + "'s " + target.minionName);
-                target.dieForHonor();
-                this.attackCounter = 0;
+            target = chooseTarget(enemies);
+            if (cal_distance(target) > atkRange) {
+                chase(target);
             } else {
-                return;
+                if (this.attackCounter >= this.attackSpeed){
+                    double damage = this.dmgCal(target);
+                    System.out.println(this.master.getPlayerName() + "'s " +
+                            this.minionName + " dealt " + damage + " damage to " +
+                            target.master.getPlayerName() + "'s " + target.minionName);
+                    target.dieForHonor();
+                    this.attackCounter = 0;
+                }
             }
         }
-
     }
 
     public boolean checkPortal() {
-        if (this.Coords[0] > 100) { //why it hangs for higher numbers...
-            System.out.println(this.minionName + " is gonna to fight for the King!");
-            this.master.myKing.add_Minions(this);
-            this.master.getMinions().remove(this);
-            System.out.println("king's minions: " + this.master.myKing.getMinions().size());
-            System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
-            return true;
+        double portalPos = 0;
+        if (this.master.getTeam() == 1) {
+            if (this.Coords[0] > 100) { //why it hangs for higher numbers...
+                System.out.println(this.minionName + " is gonna to fight for the King!");
+                this.master.myKing.add_Minions(this);
+                this.master.minions.remove(this);
+                System.out.println("king's minions: " + this.master.myKing.getMinions().size());
+                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+                return true;
+            }
+            return false;
+        } else {
+            if (portalPos < this.Coords[0]) { //why it hangs for higher numbers...
+                System.out.println(this.minionName + " is gonna to fight for the King!");
+                this.master.myKing.add_Minions(this);
+                this.master.minions.remove(this);
+                System.out.println("king's minions: " + this.master.myKing.getMinions().size());
+                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+                return true;
+            }
+            return false;
         }
-        return false;
     }
 
     public void dieForHonor() {
@@ -312,6 +353,7 @@ public class MinionImpl implements Minion {
             System.out.println("The King will remember him!");
             this.alive = false;
             this.master.remove_Minions(this);
+            this.manager.getAllInstances().remove(this);
         }
     }
 

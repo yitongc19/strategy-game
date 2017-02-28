@@ -11,12 +11,14 @@ public class Testing {
     public static void main(String[] args) {
         CombatManager manager = new CombatManager();
 
-        double[] pos1 = {100, 200};
-        double[] pos2 = {200, 300};
-        double[] pos3 = {110, 150};
+        double[] pos1 = {100, 100};
+        double[] pos2 = {80, 110};
+        double[] pos3 = {70, 120};
         double[] pos4 = {75, 130};
         double[] pos5 = {70, 100};
-        double[] pos6 = {50, 100};
+        double[] pos6 = {0, 110};
+        double[] pos7 = {10,120};
+        double[] pos8 = {10, 130};
         ArrayList<MinionImpl> Enemies = new ArrayList<MinionImpl>();
 
 //        how to do variable naming with var in java
@@ -27,7 +29,9 @@ public class Testing {
 
         int[] color = {10, 20, 30};
         PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
-        PlayerImpl russell = new PlayerImpl(1, "Russell", color);
+        PlayerImpl russell = new PlayerImpl(2, "Russell", color);
+        yitong.setOpponent(russell);
+//        russell.setOpponent(yitong);
 //        yitong.add_Minions(newcup6);
 //        yitong.add_Minions(newcup1);
 //        russell.add_Minions(newcup6);
@@ -42,12 +46,14 @@ public class Testing {
         CupCakeWarrior newcup4 = new CupCakeWarrior(manager, "Cup Cake Warrior 4", russell, pos4);
         CupCakeWarrior newcup5 = new CupCakeWarrior(manager, "Cup Cake Warrior 5", russell, pos5);
         CupCakeWarrior newcup6 = new CupCakeWarrior(manager, "Cup Cake Warrior 6", yitong, pos6);
-        CupCakeWarrior newcup7 = new CupCakeWarrior(manager, "Cup Cake Warrior 7", yitong, pos5);
-        ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos5);
-//        while (true) {
-//            yitong.attack(russell);
-//        }
-        manager.doCombat(yitong,russell);
+        CupCakeWarrior newcup7 = new CupCakeWarrior(manager, "Cup Cake Warrior 7", yitong, pos7);
+        ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos8);
+        while (true) {
+//            manager.doCombat(yitong,russell);
+            yitong.attack(russell);
+//            russell.attack(yitong);
+        }
+
 
     }
 }

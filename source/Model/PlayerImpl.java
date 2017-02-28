@@ -10,13 +10,14 @@ public class PlayerImpl implements Player {
     CombatManager manager = new CombatManager();
     private Integer gold;
     private ArrayList<Building> buildings = new ArrayList<Building>();
-    private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
+    public ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     public King myKing;
     private Integer myScore;
     private int teamNum;
     private String playerName;
     private int[] playerColor; //in rgba
 
+    public PlayerImpl opponent;
     public PlayerImpl(int teamNum, String playerName, int[] playerColor) {
         this.gold = 0;
         this.playerName = playerName;
@@ -24,6 +25,7 @@ public class PlayerImpl implements Player {
         this.playerColor = playerColor;
         this.myScore = 0;
         this.myKing = new King(teamNum);
+        this.opponent = opponent;
     }
 
     public Integer getGold() {
@@ -76,7 +78,7 @@ public class PlayerImpl implements Player {
     }
 
     public void attack(Player opponent) {
-        while(!this.getMinions().isEmpty() && !opponent.getMinions().isEmpty()) {
+        while(!this.getMinions().isEmpty() || !opponent.getMinions().isEmpty()) {
             manager.addAtkCounterToAll();
             for (int i = 0; i < minions.size(); i += 1) {
                 if (minions.get(i).Coords[0] == 109) {
@@ -90,6 +92,16 @@ public class PlayerImpl implements Player {
         }
         System.exit(0);
     }
+
+    public PlayerImpl getOpponent() {
+        return opponent;
+    }
+
+    public void setOpponent(PlayerImpl opponent) {
+        this.opponent = opponent;
+        opponent.opponent = this;
+    }
+
     public void getFarmers() {
 
     }
