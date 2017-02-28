@@ -15,7 +15,7 @@ public class CupCakeWarrior extends MeleeMinion {
 //    private double attackSpeed;
 //    private int rangeOrMelee;
 
-    public CupCakeWarrior(String name, PlayerImpl master, double[] coords) {
+    public CupCakeWarrior(CombatManager manager, String name, PlayerImpl master, double[] coords) {
         this.minionName = name;
         this.master = master;
         this.master.add_Minions(this);
@@ -31,5 +31,9 @@ public class CupCakeWarrior extends MeleeMinion {
         this.rangeOrMelee = 0;
         this.Coords = coords;
         this.atkRange = 50;
+        this.priority = 5;
+
+        this.manager = manager;
+        manager.instances.add(this);
     }
 }

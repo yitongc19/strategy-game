@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -12,6 +13,8 @@ import static java.lang.Math.sqrt;
  */
 public class MinionImpl implements Minion {
 
+//    static ArrayList<MinionImpl> instances = new ArrayList<MinionImpl>();
+    public CombatManager manager;
     public PlayerImpl master;
     public String minionName;
     public double hp;
@@ -29,6 +32,7 @@ public class MinionImpl implements Minion {
     public double attackCounter = 0;
     public boolean alive = true;
     public Random rand;
+    public int priority;
 
     public double getHP() {
         return this.hp;
@@ -100,6 +104,11 @@ public class MinionImpl implements Minion {
 
     public void setSpecial() {
 
+    }
+
+    public int compareTo(MinionImpl o)
+    {
+        return(priority - o.priority);
     }
 
     private double calDmgPercent(MinionImpl enemy) {
@@ -277,9 +286,23 @@ public class MinionImpl implements Minion {
                         target.master.getPlayerName() + "'s " + target.minionName);
                 target.dieForHonor();
                 this.attackCounter = 0;
+            } else {
+                return;
             }
         }
 
+    }
+
+    public boolean checkPortal() {
+        if (this.Coords[0] > 100) { //why it hangs for higher numbers...
+            System.out.println(this.minionName + " is gonna to fight for the King!");
+            this.master.myKing.add_Minions(this);
+            this.master.getMinions().remove(this);
+            System.out.println("king's minions: " + this.master.myKing.getMinions().size());
+            System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+            return true;
+        }
+        return false;
     }
 
     public void dieForHonor() {
@@ -291,4 +314,17 @@ public class MinionImpl implements Minion {
             this.master.remove_Minions(this);
         }
     }
+
+    public static Comparator<MinionImpl> byPriority()
+    {
+        return new Comparator<MinionImpl>()
+        {
+            @Override
+            public int compare(MinionImpl o1, MinionImpl o2)
+            {
+                return o1.priority - o2.priority;
+            }
+        };
+    }
+
 }

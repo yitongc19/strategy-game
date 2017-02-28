@@ -7,10 +7,11 @@ import java.util.Iterator;
  * Created by xingfanxia on 2/26/17.
  */
 public class PlayerImpl implements Player {
+    CombatManager manager = new CombatManager();
     private Integer gold;
     private ArrayList<Building> buildings = new ArrayList<Building>();
     private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
-    private King myKing;
+    public King myKing;
     private Integer myScore;
     private int teamNum;
     private String playerName;
@@ -75,21 +76,19 @@ public class PlayerImpl implements Player {
     }
 
     public void attack(Player opponent) {
-        for (int i = 0; i < minions.size(); i += 1) {
-            if (minions.get(i).Coords[0] == 109) {
-                System.out.println("???");
+        while(!this.getMinions().isEmpty() && !opponent.getMinions().isEmpty()) {
+            manager.addAtkCounterToAll();
+            for (int i = 0; i < minions.size(); i += 1) {
+                if (minions.get(i).Coords[0] == 109) {
+                    System.out.println("???");
+                }
+                if (minions.get(i).checkPortal()) {
+                    continue;
+                }
+                minions.get(i).performAttack(opponent.getMinions());
             }
-
-            if (minions.get(i).Coords[0] > 100) { //why it hangs for higher numbers...
-                System.out.println(minions.get(i).minionName + " is gonna to fight for the King!");
-                myKing.add_Minions(minions.get(i));
-                minions.remove(i);
-                System.out.println("king's minions: " + myKing.getMinions().size());
-                System.out.println("minions of " + this.getPlayerName()+ ": " + minions.size());
-                continue;
-            }
-            minions.get(i).performAttack(opponent.getMinions());
         }
+        System.exit(0);
     }
     public void getFarmers() {
 
