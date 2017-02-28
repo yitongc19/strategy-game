@@ -40,10 +40,11 @@ public class Testing {
         CupCakeWarrior newcup4 = new CupCakeWarrior("Cup Cake Warrior 4", russell, pos4);
         CupCakeWarrior newcup5 = new CupCakeWarrior("Cup Cake Warrior 5", russell, pos5);
         CupCakeWarrior newcup6 = new CupCakeWarrior("Cup Cake Warrior 6", yitong, pos6);
-//        CupCakeWarrior newcup7 = new CupCakeWarrior("Cup Cake Warrior 6", yitong, pos5);
+        CupCakeWarrior newcup7 = new CupCakeWarrior("Cup Cake Warrior 7", yitong, pos5);
 
         while(!russell.getMinions().isEmpty() && !yitong.getMinions().isEmpty()) {
             newcup6.attackCounter += 1;
+            newcup7.attackCounter += 1;
             yitong.attack(russell);
         }
 
