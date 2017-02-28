@@ -47,7 +47,5 @@ public class Testing {
             newcup7.attackCounter += 1;
             yitong.attack(russell);
         }
-
-
     }
 }

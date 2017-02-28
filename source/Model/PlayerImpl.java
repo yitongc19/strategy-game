@@ -80,12 +80,12 @@ public class PlayerImpl implements Player {
                 System.out.println("???");
             }
 
-            if (minions.get(i).Coords[0] >= 100) { //why it hangs for higher numbers...
+            if (minions.get(i).Coords[0] > 100) { //why it hangs for higher numbers...
                 System.out.println(minions.get(i).minionName + " is gonna to fight for the King!");
                 myKing.add_Minions(minions.get(i));
                 minions.remove(i);
-                System.out.println(myKing.getMinions().size());
-                System.out.println(minions.size());
+                System.out.println("king's minions: " + myKing.getMinions().size());
+                System.out.println("minions of " + this.getPlayerName()+ ": " + minions.size());
                 continue;
             }
             minions.get(i).performAttack(opponent.getMinions());

@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.pow;
@@ -27,6 +28,7 @@ public class MinionImpl implements Minion {
     public double[] Coords; //Coord on map
     public double attackCounter = 0;
     public boolean alive = true;
+    public Random rand;
 
     public double getHP() {
         return this.hp;
@@ -230,23 +232,36 @@ public class MinionImpl implements Minion {
         return sqrt(pow(this.Coords[0] - enemy.Coords[0], 2)+pow(this.Coords[1] - enemy.Coords[1], 2));
     }
 
+    private MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
+        this.rand = new Random();
+        MinionImpl randomMinion = mylist.get(this.rand.nextInt(mylist.size()));
+        return randomMinion;
+    }
+
     public MinionImpl chooseTarget(ArrayList<MinionImpl> enemies) {
         MinionImpl target = new MinionImpl();
+        ArrayList<MinionImpl> temp = new ArrayList<MinionImpl>();
         double minDist = 9999999;
         for (MinionImpl warrior: enemies){
             double dist = cal_distance(warrior);
             if (dist < minDist) {
                 minDist = dist;
                 target = warrior;
+            } else if (dist == minDist) {
+                temp.add(warrior);
             }
         }
-        return target;
+        if (!temp.isEmpty()) {
+            return randomTarget(temp);
+        } else {
+            return target;
+        }
     }
 
     public void keepWalking() {
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to approach enemy!");
         this.Coords[0] +=1;
-        System.out.println(this.Coords[0]);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + this.Coords[0]);
     }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
