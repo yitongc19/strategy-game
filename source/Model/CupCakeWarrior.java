@@ -35,5 +35,7 @@ public class CupCakeWarrior extends MeleeMinion {
 
         this.manager = manager;
         manager.instances.add(this);
+
+        //set the Frames
     }
 }

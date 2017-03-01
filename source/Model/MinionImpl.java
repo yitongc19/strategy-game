@@ -35,6 +35,10 @@ public class MinionImpl implements Minion {
     public Random rand;
     public int priority;
 
+    public String stillFrame;
+    public String moveFrame;
+    public String attackFrame;
+
     public double getHP() {
         return this.hp;
     }

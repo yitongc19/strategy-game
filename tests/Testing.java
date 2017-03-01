@@ -18,8 +18,9 @@ public class Testing {
         double[] pos5 = {70, 100};
         double[] pos6 = {0, 110};
         double[] pos7 = {10,120};
-        double[] pos8 = {10, 130};
-        ArrayList<MinionImpl> Enemies = new ArrayList<MinionImpl>();
+        double[] pos8 = {13, 130};
+        double[] pos9 = {12, 130};
+        double[] pos10 = {16, 130};
 
 //        how to do variable naming with var in java
 //        for (int i = 1; i < 7; i += 1) {
@@ -39,7 +40,9 @@ public class Testing {
         CupCakeWarrior newcup5 = new CupCakeWarrior(manager, "Cup Cake Warrior 5", russell, pos5);
         CupCakeWarrior newcup6 = new CupCakeWarrior(manager, "Cup Cake Warrior 6", yitong, pos6);
         CupCakeWarrior newcup7 = new CupCakeWarrior(manager, "Cup Cake Warrior 7", yitong, pos7);
-        ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos8);
+        CupCakeWarrior newcup8 = new CupCakeWarrior(manager, "Cup Cake Warrior 8", yitong, pos8);
+        ShieldKnight newcup9 = new ShieldKnight(manager, "Shield Knight 2", yitong, pos9);
+        ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos10);
         while (true) {
             manager.doCombat(yitong,russell);
 //            yitong.attack(russell);
