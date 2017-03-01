@@ -288,7 +288,7 @@ public class MinionImpl implements Minion {
     }
 
     public void keepWalking() {
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the king!");
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the " + this.master.myKing.kingName + " !");
         if (this.master.getTeam() == 1) {
             this.Coords[0] += moveSpeed;
         } else {
@@ -322,23 +322,22 @@ public class MinionImpl implements Minion {
     }
 
     public boolean checkPortal() {
-        double portalPos = 0;
         if (this.master.getTeam() == 1) {
             if (this.Coords[0] > 100) { //why it hangs for higher numbers...
                 System.out.println(this.minionName + " is gonna to fight for the King!");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                System.out.println("king's minions: " + this.master.myKing.getMinions().size());
+                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 return true;
             }
             return false;
         } else {
-            if (portalPos < this.Coords[0]) { //why it hangs for higher numbers...
-                System.out.println(this.minionName + " is gonna to fight for the King!");
+            if (this.Coords[0] < 0) { //why it hangs for higher numbers...
+                System.out.println(this.minionName + " is gonna to fight for the " + this.master.myKing.kingName + " !");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                System.out.println("king's minions: " + this.master.myKing.getMinions().size());
+                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 return true;
             }
@@ -350,7 +349,7 @@ public class MinionImpl implements Minion {
         if (this.hp <= 0) {
             //destroy the minion?
             System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " died for an honorable cause!");
-            System.out.println("The King will remember him!");
+            System.out.println("The " + this.master.myKing.kingName + " will remember him!");
             this.alive = false;
             this.master.remove_Minions(this);
             this.manager.getAllInstances().remove(this);

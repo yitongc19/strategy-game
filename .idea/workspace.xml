@@ -3,15 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="576a70ec-bad4-44a2-a9ab-a0b87713ba49" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarrior.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarrior.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$2.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnight.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnight.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/Game Project/Testing.class" afterPath="$PROJECT_DIR$/build/test/Game Project/Testing.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/CombatManager.java" afterPath="$PROJECT_DIR$/source/Model/CombatManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" afterPath="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/King.java" afterPath="$PROJECT_DIR$/source/Model/King.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/MinionImpl.java" afterPath="$PROJECT_DIR$/source/Model/MinionImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/PlayerImpl.java" afterPath="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/ShieldKnight.java" afterPath="$PROJECT_DIR$/source/Model/ShieldKnight.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Testing.java" afterPath="$PROJECT_DIR$/tests/Testing.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="332" column="28" lean-forward="true" selection-start-line="332" selection-start-column="28" selection-end-line="332" selection-end-column="28" />
+            <state relative-caret-position="298">
+              <caret line="342" column="13" lean-forward="true" selection-start-line="342" selection-start-column="13" selection-end-line="342" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7159#7171#0" expanded="true" />
@@ -58,12 +63,46 @@
       <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Model/King.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="59" column="18" lean-forward="false" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+            <state relative-caret-position="585">
+              <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
-                <element signature="e#362#374#0" expanded="true" />
-                <element signature="e#1021#1022#0" expanded="true" />
-                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#391#403#0" expanded="true" />
+                <element signature="e#1179#1180#0" expanded="true" />
+                <element signature="e#1207#1208#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShieldKnight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CupCakeWarrior.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#571#583#0" expanded="true" />
+                <marker date="1488339281000" expanded="true" signature="1736:1781" ph="..." />
               </folding>
             </state>
           </provider>
@@ -72,14 +111,14 @@
       <file leaf-file-name="CombatManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+            <state relative-caret-position="538">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#309#321#0" expanded="true" />
                 <element signature="e#442#443#0" expanded="true" />
                 <element signature="e#474#475#0" expanded="true" />
-                <element signature="e#1487#1499#0" expanded="true" />
+                <element signature="e#1488#1500#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,61 +127,13 @@
       <file leaf-file-name="PlayerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="1005">
+              <caret line="89" column="8" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#293#303#0" expanded="true" />
                 <element signature="e#363#375#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#2433#2434#0" expanded="true" />
-                <element signature="e#2464#2465#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Testing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#571#583#0" expanded="true" />
-                <marker date="1488322094000" expanded="true" signature="2055:2100" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CupCakeWarrior.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShieldKnight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Model/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="33" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,6 +154,8 @@
       <find>for</find>
       <find>range</find>
       <find>range;</find>
+      <find>king</find>
+      <find>King</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,13 +192,13 @@
         <option value="$PROJECT_DIR$/source/Model/Testing.java" />
         <option value="$PROJECT_DIR$/source/Testing.java" />
         <option value="$PROJECT_DIR$/source/Model/Player.java" />
-        <option value="$PROJECT_DIR$/source/Model/King.java" />
         <option value="$PROJECT_DIR$/source/Model/combatManager.java" />
-        <option value="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" />
-        <option value="$PROJECT_DIR$/source/Model/ShieldKnight.java" />
-        <option value="$PROJECT_DIR$/tests/Testing.java" />
         <option value="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
+        <option value="$PROJECT_DIR$/source/Model/King.java" />
         <option value="$PROJECT_DIR$/source/Model/CombatManager.java" />
+        <option value="$PROJECT_DIR$/tests/Testing.java" />
+        <option value="$PROJECT_DIR$/source/Model/ShieldKnight.java" />
+        <option value="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" />
         <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
       </list>
     </option>
@@ -850,12 +843,12 @@
       <updated>1488071357816</updated>
       <workItem from="1488071359133" duration="9483000" />
       <workItem from="1488173207597" duration="906000" />
-      <workItem from="1488175955721" duration="32920000" />
+      <workItem from="1488175955721" duration="34676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43309000" />
+    <option name="totallyTimeSpent" value="45065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="414" y="23" width="1912" height="1177" extended-state="0" />
@@ -919,7 +912,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960835" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17041296" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1705021" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994455" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -933,24 +926,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/source/Model/MinionImpl.java</url>
-          <line>303</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/source/Model/MinionImpl.java</url>
-          <line>252</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -997,8 +976,8 @@
           <caret line="58" column="31" lean-forward="false" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
           <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding>
-            <element signature="e#1255#1256#0" expanded="false" />
-            <element signature="e#1285#1286#0" expanded="false" />
+            <element signature="e#1413#1414#0" expanded="false" />
+            <element signature="e#1443#1444#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1171,37 +1150,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="33" />
+        <state relative-caret-position="553">
+          <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="59" column="18" lean-forward="false" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
-          <folding>
-            <element signature="e#362#374#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,55 +1164,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="89" column="8" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#293#303#0" expanded="true" />
+            <element signature="e#363#375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="538">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#309#321#0" expanded="true" />
             <element signature="e#442#443#0" expanded="true" />
             <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#1487#1499#0" expanded="true" />
+            <element signature="e#1488#1500#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#571#583#0" expanded="true" />
-            <marker date="1488322094000" expanded="true" signature="2055:2100" ph="..." />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
+    <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#293#303#0" expanded="true" />
-            <element signature="e#363#375#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2464#2465#0" expanded="true" />
+            <element signature="e#391#403#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="332" column="28" lean-forward="true" selection-start-line="332" selection-start-column="28" selection-end-line="332" selection-end-column="28" />
+        <state relative-caret-position="298">
+          <caret line="342" column="13" lean-forward="true" selection-start-line="342" selection-start-column="13" selection-end-line="342" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7159#7171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#571#583#0" expanded="true" />
+            <marker date="1488339281000" expanded="true" signature="1736:1781" ph="..." />
           </folding>
         </state>
       </provider>

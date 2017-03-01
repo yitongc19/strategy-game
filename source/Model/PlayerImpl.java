@@ -81,9 +81,6 @@ public class PlayerImpl implements Player {
         while(!this.getMinions().isEmpty() || !opponent.getMinions().isEmpty()) {
             manager.addAtkCounterToAll();
             for (int i = 0; i < minions.size(); i += 1) {
-                if (minions.get(i).Coords[0] == 109) {
-                    System.out.println("???");
-                }
                 if (minions.get(i).checkPortal()) {
                     continue;
                 }

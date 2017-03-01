@@ -31,14 +31,6 @@ public class Testing {
         PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
         PlayerImpl russell = new PlayerImpl(2, "Russell", color);
         yitong.setOpponent(russell);
-//        russell.setOpponent(yitong);
-//        yitong.add_Minions(newcup6);
-//        yitong.add_Minions(newcup1);
-//        russell.add_Minions(newcup6);
-//        russell.add_Minions(newcup2);
-//        russell.add_Minions(newcup3);
-//        russell.add_Minions(newcup4);
-//        russell.add_Minions(newcup5);
 
         CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior 1", russell, pos1);
         CupCakeWarrior newcup2 = new CupCakeWarrior(manager, "Cup Cake Warrior 2", russell, pos2);
@@ -49,8 +41,8 @@ public class Testing {
         CupCakeWarrior newcup7 = new CupCakeWarrior(manager, "Cup Cake Warrior 7", yitong, pos7);
         ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos8);
         while (true) {
-//            manager.doCombat(yitong,russell);
-            yitong.attack(russell);
+            manager.doCombat(yitong,russell);
+//            yitong.attack(russell);
 //            russell.attack(yitong);
         }
 

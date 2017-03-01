@@ -22,6 +22,8 @@ public class King {
 
     private int teamNum;
 
+    public String kingName;
+
     private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     //initialize Model.King!
     public King(int teamNum) {
@@ -32,6 +34,11 @@ public class King {
         this.armorType = ArmorType.HeroArmor;
         this.teamNum = teamNum;
 
+        if (this.teamNum == 1) {
+            kingName = "Archangel";
+        } else {
+            kingName = "Diablo";
+        }
     }
     /*
     Accessors

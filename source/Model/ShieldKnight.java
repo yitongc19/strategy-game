@@ -9,8 +9,8 @@ public class ShieldKnight extends MeleeMinion {
         this.minionName = name;
         this.master = master;
         this.master.add_Minions(this);
-        this.hp = 700;
-        this.atk = 10;
+        this.hp = 800;
+        this.atk = 15;
         this.armor = 10;
         this.maxhp = 500;
         this.armorType = ArmorType.HeavyArmor;
@@ -20,7 +20,7 @@ public class ShieldKnight extends MeleeMinion {
         this.attackSpeed = 1;
         this.rangeOrMelee = 0;
         this.Coords = coords;
-        this.atkRange = 50;
+        this.atkRange = 5;
         this.priority = 9;
 
         this.manager = manager;

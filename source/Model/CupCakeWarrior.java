@@ -23,14 +23,14 @@ public class CupCakeWarrior extends MeleeMinion {
         this.atk = 30;
         this.armor = -2;
         this.maxhp = 500;
-        this.armorType = ArmorType.HeavyArmor;
+        this.armorType = ArmorType.LightArmor;
         this.atkType = AtkType.Normal;
         this.moveSpeed = 2;
         this.healthRegen = 3;
         this.attackSpeed = 1;
         this.rangeOrMelee = 0;
         this.Coords = coords;
-        this.atkRange = 50;
+        this.atkRange = 10;
         this.priority = 5;
 
         this.manager = manager;
