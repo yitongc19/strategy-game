@@ -107,11 +107,6 @@ public class MinionImpl implements Minion {
 
     }
 
-    public int compareTo(MinionImpl o)
-    {
-        return(priority - o.priority);
-    }
-
     private double calDmgPercent(MinionImpl enemy) {
         AtkType myAtkType = this.getAttackType();
 //        Model.ArmorType myArmorType = this.armorType;

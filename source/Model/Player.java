@@ -44,6 +44,4 @@ public interface Player {
     ArrayList getMercenaries();
 
     void upgradeKing(King king);
-
-    void attack(Player opponent);
 }

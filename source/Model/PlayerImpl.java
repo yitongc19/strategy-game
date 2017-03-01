@@ -77,18 +77,18 @@ public class PlayerImpl implements Player {
         this.minions.remove(minion);
     }
 
-    public void attack(Player opponent) {
-        while(!this.getMinions().isEmpty() || !opponent.getMinions().isEmpty()) {
-            manager.addAtkCounterToAll();
-            for (int i = 0; i < minions.size(); i += 1) {
-                if (minions.get(i).checkPortal()) {
-                    continue;
-                }
-                minions.get(i).performAttack(opponent.getMinions());
-            }
-        }
-        System.exit(0);
-    }
+//    public void attack(Player opponent) {
+//        while(!this.getMinions().isE mpty() || !opponent.getMinions().isEmpty()) {
+//            manager.addAtkCounterToAll();
+//            for (int i = 0; i < minions.size(); i += 1) {
+//                if (minions.get(i).checkPortal()) {
+//                    continue;
+//                }
+//                minions.get(i).performAttack(opponent.getMinions());
+//            }
+//        }
+//        System.exit(0);
+//    }
 
     public PlayerImpl getOpponent() {
         return opponent;
