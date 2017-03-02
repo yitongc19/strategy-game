@@ -34,10 +34,14 @@ public class MinionImpl implements Minion {
     public boolean alive = true;
     public Random rand;
     public int priority;
+    public King myKing;
 
+    public double randomMinConst;
+    public double randomMaxConst;
     public String stillFrame;
     public String moveFrame;
     public String attackFrame;
+    public MinionImpl upgradeTo;
 
     public double getHP() {
         return this.hp;
@@ -111,7 +115,7 @@ public class MinionImpl implements Minion {
 
     }
 
-    private double calDmgPercent(MinionImpl enemy) {
+    public double calDmgPercent(MinionImpl enemy) {
         AtkType myAtkType = this.getAttackType();
 //        Model.ArmorType myArmorType = this.armorType;
 //        Model.AtkType enemyAtkType = enemy.atkType;
@@ -221,6 +225,7 @@ public class MinionImpl implements Minion {
     public double atkDamageRandomModifier(double minCon, double maxCon) {
         return ThreadLocalRandom.current().nextDouble(this.atk*minCon, this.atk*maxCon);
     }
+
     public double dmgCal(MinionImpl enemy) {
         double armorModifer;
         double dmgTypeModifier = calDmgPercent(enemy);
@@ -231,7 +236,7 @@ public class MinionImpl implements Minion {
         } else {
             armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
         }
-        double realtimeAtk = atkDamageRandomModifier(0.8, 1.2);
+        double realtimeAtk = atkDamageRandomModifier(randomMinConst, randomMaxConst);
         double dmgDealt = realtimeAtk * armorModifer * dmgTypeModifier;
         enemy.hp -= dmgDealt;
         return dmgDealt;
@@ -241,7 +246,7 @@ public class MinionImpl implements Minion {
         return sqrt(pow(this.Coords[0] - enemy.Coords[0], 2)+pow(this.Coords[1] - enemy.Coords[1], 2));
     }
 
-    private MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
+    public MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
         this.rand = new Random();
         MinionImpl randomMinion = mylist.get(this.rand.nextInt(mylist.size()));
         return randomMinion;
@@ -313,7 +318,7 @@ public class MinionImpl implements Minion {
                     System.out.println(this.master.getPlayerName() + "'s " +
                             this.minionName + " dealt " + damage + " damage to " +
                             target.master.getPlayerName() + "'s " + target.minionName);
-                    target.dieForHonor();
+//                    target.dieForHonor();
                     this.attackCounter = 0;
                 }
             }
@@ -367,4 +372,7 @@ public class MinionImpl implements Minion {
         };
     }
 
+    public double getHealthPercent() {
+        return this.hp/this.maxhp;
+    }
 }

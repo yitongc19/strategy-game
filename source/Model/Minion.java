@@ -75,4 +75,6 @@ public interface Minion {
     Speical methods
      */
     double dmgCal(MinionImpl enemy);
+
+    double getHealthPercent();
 }

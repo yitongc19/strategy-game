@@ -58,6 +58,13 @@ public class CombatManager {
                 }
                 playerSoldiers.get(i).performAttack(playerSoldiers.get(i).master.opponent.getMinions());
             }
+
+            for (int i = 0; i < playerSoldiers.size(); i += 1) {
+                playerSoldiers.get(i).dieForHonor();
+            }
+        }
+        for (MinionImpl each:instances) {
+            System.out.println(each.myKing.kingName + "'s :" + each.minionName + "'s hp is" + each.hp);
         }
         System.exit(0);
 

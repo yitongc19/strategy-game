@@ -8,7 +8,7 @@ import java.util.Iterator;
  */
 public class PlayerImpl implements Player {
     CombatManager manager = new CombatManager();
-    private Integer gold;
+    public Integer gold;
     private ArrayList<Building> buildings = new ArrayList<Building>();
     public ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     public King myKing;

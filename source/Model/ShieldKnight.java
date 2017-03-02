@@ -12,17 +12,18 @@ public class ShieldKnight extends MeleeMinion {
         this.hp = 600;
         this.atk = 15;
         this.armor = 10;
-        this.maxhp = 500;
+        this.maxhp = 600;
         this.armorType = ArmorType.HeavyArmor;
         this.atkType = AtkType.Normal;
-        this.moveSpeed = 2;
+        this.moveSpeed = 1.5;
         this.healthRegen = 3;
         this.attackSpeed = 1;
         this.rangeOrMelee = 0;
         this.Coords = coords;
         this.atkRange = 5;
         this.priority = 9;
-
+        this.randomMinConst = 0.99;
+        this.randomMaxConst = 1.01;
         this.manager = manager;
         manager.instances.add(this);
     }

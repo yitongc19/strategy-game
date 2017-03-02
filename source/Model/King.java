@@ -35,9 +35,9 @@ public class King {
         this.teamNum = teamNum;
 
         if (this.teamNum == 1) {
-            kingName = "Archangel";
+            kingName = "Titans";
         } else {
-            kingName = "Diablo";
+            kingName = "Old Gods";
         }
     }
     /*
@@ -94,6 +94,7 @@ public class King {
 
     public void add_Minions(MinionImpl minion) {
         this.minions.add(minion);
+        minion.myKing = this;
         //reset minions' coord to king's lane here
     }
 }

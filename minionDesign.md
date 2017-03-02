@@ -2,6 +2,22 @@
 
 ### Model.Minion Attributes:
 
+- To implement special damage abilities or something else:  
+  Overrides whatever method in MinionImpl should do the trick.
+  Like a radiance effect could be achieved by adding a new function called `Radiance(double dmg, double radius)` which damages all enemy minions that are in the radius. 
+
+  ```java
+  public void Radiance(double dmg, double radius, MinionImpl) {
+    for (each:enemies) {
+      if (cal_distance(each) < radius) {
+        each.hp -= dmg;
+      }
+    }
+  }
+  ```
+
+  A `CritStrike(double chance, double critMultiplier) ` could be added in the `dmgCal` to modify the attack damage.
+
 - Hit Points
 
 - Movement Speed
