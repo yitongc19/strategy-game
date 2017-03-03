@@ -1,6 +1,6 @@
 ## Basic Minions:
 
-### Model.Minion Attributes:
+### Minion Attributes:
 
 - To implement special damage abilities or something else:  
   Overrides whatever method in MinionImpl should do the trick.
@@ -124,7 +124,7 @@
   | **Chaos**  | 110%        | 110%         | 110%        | 110%       | 110%       | 110%     |
   | **Hero**   | 100%        | 100%         | 100%        | 100%       | 100%       | 100%     |
 
-###  Model.Minion Category
+###  Minion Category
 
 - Melee
   - Ursa (Single Tank)

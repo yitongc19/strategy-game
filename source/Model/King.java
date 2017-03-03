@@ -24,6 +24,7 @@ public class King {
 
     public String kingName;
 
+    public double[] kingArmyPos;
     private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     //initialize Model.King!
     public King(int teamNum) {
@@ -36,8 +37,10 @@ public class King {
 
         if (this.teamNum == 1) {
             kingName = "Titans";
+            this.kingArmyPos = new double[]{0, 500}; //to be set
         } else {
             kingName = "Old Gods";
+            this.kingArmyPos = new double[]{100, 500};
         }
     }
     /*

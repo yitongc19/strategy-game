@@ -34,7 +34,7 @@ public class MinionImpl implements Minion {
     public boolean alive = true;
     public Random rand;
     public int priority;
-    public King myKing;
+    public King myKing = null;
 
     public double randomMinConst;
     public double randomMaxConst;
@@ -331,6 +331,7 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the King!");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
+                this.setCoords(this.myKing.kingArmyPos);
                 System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 return true;
@@ -341,6 +342,7 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the " + this.master.myKing.kingName + " !");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
+                this.setCoords(this.myKing.kingArmyPos);
                 System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 return true;

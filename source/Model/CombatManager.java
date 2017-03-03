@@ -35,17 +35,18 @@ public class CombatManager {
         System.out.print("] \n");
     }
     public void doCombat(PlayerImpl player1, PlayerImpl player2) {
-
-        ArrayList<MinionImpl> player1Army = player1.getMinions();
-        ArrayList<MinionImpl> player2Army = player2.getMinions();
-
-        Collections.sort(player1Army, Collections.reverseOrder(byPriority()));
-        Collections.sort(player2Army, Collections.reverseOrder(byPriority()));
+//        ArrayList<MinionImpl> King1Armry = player1.getKing().getMinions();
+//        ArrayList<MinionImpl> King2Armry = player2.getKing().getMinions();
+//        ArrayList<MinionImpl> player1Army = player1.getMinions();
+//        ArrayList<MinionImpl> player2Army = player2.getMinions();
+//
+//        Collections.sort(player1Army, Collections.reverseOrder(byPriority()));
+//        Collections.sort(player2Army, Collections.reverseOrder(byPriority()));
 
         Collections.sort(instances, Collections.reverseOrder(byPriority()));
         printMinions(instances);
 
-        while (!player1.getMinions().isEmpty() || !player2.getMinions().isEmpty()) {
+//        while (!player1.getMinions().isEmpty() || !player2.getMinions().isEmpty()) {
 
             ArrayList<MinionImpl> playerSoldiers = new ArrayList<MinionImpl>();
             playerSoldiers.addAll(player1.getMinions());
@@ -62,7 +63,12 @@ public class CombatManager {
             for (int i = 0; i < playerSoldiers.size(); i += 1) {
                 playerSoldiers.get(i).dieForHonor();
             }
-        }
+
+            if (!player1.getKing().getMinions().isEmpty() || !player2.getKing().getMinions().isEmpty()) {
+                
+            }
+
+//        }
         for (MinionImpl each:instances) {
             System.out.println(each.myKing.kingName + "'s :" + each.minionName + "'s hp is" + each.hp);
         }
