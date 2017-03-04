@@ -434,6 +434,9 @@ public class MinionImpl implements Minion {
             this.alive = false;
             this.master.remove_Minions(this);
             this.manager.getAllInstances().remove(this);
+            if (this.myKing != null) {
+                this.myKing.getMinions().remove(this);
+            }
         }
     }
 

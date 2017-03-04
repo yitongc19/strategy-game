@@ -53,7 +53,7 @@ public class Testing {
             manager.doCombat(yitong,russell);
 //            yitong.attack(russell);
 //            russell.attack(yitong);
-            runs++;
+//            runs++;
         }
     }
 }

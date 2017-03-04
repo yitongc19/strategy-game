@@ -24,6 +24,7 @@ public class CombatManager {
         for (MinionImpl minion:this.getAllInstances()) {
             minion.attackCounter += 0.1;
         }
+
     }
 
     private void printMinions(ArrayList<MinionImpl> minions) {
@@ -35,16 +36,8 @@ public class CombatManager {
         System.out.print("] \n");
     }
     public void doCombat(PlayerImpl player1, PlayerImpl player2) {
-//        ArrayList<MinionImpl> King1Armry = player1.getKing().getMinions();
-//        ArrayList<MinionImpl> King2Armry = player2.getKing().getMinions();
-//        ArrayList<MinionImpl> player1Army = player1.getMinions();
-//        ArrayList<MinionImpl> player2Army = player2.getMinions();
-//
-//        Collections.sort(player1Army, Collections.reverseOrder(byPriority()));
-//        Collections.sort(player2Army, Collections.reverseOrder(byPriority()));
         player1.getKing().setOpponetKing(player2.getKing());
         Collections.sort(instances, Collections.reverseOrder(byPriority()));
-//        printMinions(instances);
 
 //        while (!player1.getMinions().isEmpty() || !player2.getMinions().isEmpty()) {
 
@@ -61,7 +54,10 @@ public class CombatManager {
                 instances.get(i).performAttack(instances.get(i).master.opponent.getMinions());
 
             }
-
+            player1.getKing().atkCounter += 0.1;
+            player2.getKing().atkCounter += 0.1;
+            player1.getKing().kingFight();
+            player2.getKing().kingFight();
             for (int i = 0; i < instances.size(); i += 1) {
                 instances.get(i).dieForHonor();
             }

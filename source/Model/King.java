@@ -1,6 +1,10 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 /**
  * Created by xingfanxia on 2/25/17.
@@ -22,13 +26,21 @@ public class King {
 
     private int teamNum;
 
+    private int atkRange = 8;
+
     public String kingName;
 
     public double[] kingArmyPos;
 
     public double[] kingPos;
 
+    private Random rand;
+
     private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
+
+    public double atkCounter = 0;
+
+    public double atkSpeed = 0.8;
 
     public King opponetKing;
     //initialize Model.King!
@@ -121,6 +133,29 @@ public class King {
             return false;
     }
 
+    public double kingDmgPercent(MinionImpl minion) {
+        switch(minion.getArmorType()) {
+            case LightArmor:
+                return 1.0;
+            case MediumArmor:
+                return 1.0;
+            case HeavyArmor:
+                return 1.0;
+            case FortArmor:
+                return 1.0;
+            case HeroArmor:
+                return 1.0;
+            case NoArmor:
+                return 1.0;
+        }
+        return 0;
+    }
+
+
+    public double cal_distance(MinionImpl enemy) {
+        return sqrt(pow(this.kingPos[0] - enemy.Coords[0], 2)+pow(this.kingPos[1] - enemy.Coords[1], 2));
+    }
+
     public King getOpponetKing() {
         return opponetKing;
     }
@@ -134,5 +169,59 @@ public class King {
         return armor;
     }
 
-    public kingFight 
+    public MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
+        this.rand = new Random();
+        MinionImpl randomMinion = mylist.get(this.rand.nextInt(mylist.size()));
+        return randomMinion;
+    }
+
+    public MinionImpl chooseTarget(ArrayList<MinionImpl> enemies) {
+        if (enemies.isEmpty()) {
+            return null;
+        }
+        MinionImpl target = new MinionImpl();
+        ArrayList<MinionImpl> temp = new ArrayList<MinionImpl>();
+        double minDist = 9999999;
+        for (MinionImpl warrior: enemies){
+            double dist = cal_distance(warrior);
+            if (dist < minDist) {
+                minDist = dist;
+                target = warrior;
+            } else if (dist == minDist) {
+                temp.add(warrior);
+            }
+        }
+        if (!temp.isEmpty()) {
+            return randomTarget(temp);
+        } else {
+            return target;
+        }
+    }
+
+    public double dmgCal(MinionImpl enemy) {
+        double armorModifer;
+        double dmgTypeModifier = kingDmgPercent(enemy);
+        assert(dmgTypeModifier!=0);
+        double enemyArmor = enemy.getArmor();
+        if (enemyArmor < 0) {
+            armorModifer = 2-pow(0.84,(-enemyArmor));
+        } else {
+            armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
+        }
+        double dmgDealt = this.atk * armorModifer * dmgTypeModifier;
+        enemy.hp -= dmgDealt;
+        return dmgDealt;
+    }
+
+    public void kingFight() {
+        if (!this.getOpponetKing().getMinions().isEmpty()) {
+            ArrayList<MinionImpl> minions = this.getOpponetKing().getMinions();
+            MinionImpl target = chooseTarget(minions);
+            if (cal_distance(target) < this.atkRange && this.atkCounter >= this.atkSpeed) {
+                double damageDone = dmgCal(target);
+                System.out.println(this.kingName + " dealt " + damageDone + " damage to " + target.minionName);
+                this.atkCounter = 0;
+            }
+        }
+    }
 }
