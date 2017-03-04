@@ -1,0 +1,6 @@
+.root {
+    -fx-background-image: url("welcomeBackground.jpg");
+}
+
+Text {
+}
