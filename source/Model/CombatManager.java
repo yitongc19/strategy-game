@@ -22,7 +22,7 @@ public class CombatManager {
 
     public void addAtkCounterToAll() {
         for (MinionImpl minion:this.getAllInstances()) {
-            minion.attackCounter += 1;
+            minion.attackCounter += 0.1;
         }
     }
 
@@ -42,37 +42,36 @@ public class CombatManager {
 //
 //        Collections.sort(player1Army, Collections.reverseOrder(byPriority()));
 //        Collections.sort(player2Army, Collections.reverseOrder(byPriority()));
-
+        player1.getKing().setOpponetKing(player2.getKing());
         Collections.sort(instances, Collections.reverseOrder(byPriority()));
-        printMinions(instances);
+//        printMinions(instances);
 
 //        while (!player1.getMinions().isEmpty() || !player2.getMinions().isEmpty()) {
 
-            ArrayList<MinionImpl> playerSoldiers = new ArrayList<MinionImpl>();
-            playerSoldiers.addAll(player1.getMinions());
-            playerSoldiers.addAll(player2.getMinions());
+//            ArrayList<MinionImpl> playerSoldiers = new ArrayList<MinionImpl>();
+//            ArrayList<MinionImpl> kingsoldiers = new ArrayList<MinionImpl>();
+//            playerSoldiers.addAll(player1.getMinions());
+//            playerSoldiers.addAll(player2.getMinions());
 
             this.addAtkCounterToAll();
-            for (int i = 0; i < playerSoldiers.size(); i += 1) {
-                if (playerSoldiers.get(i).checkPortal()) {
-                    continue;
+            for (int i = 0; i < instances.size(); i += 1) {
+                if (instances.get(i).myKing == null) {
+                    instances.get(i).checkPortal();
                 }
-                playerSoldiers.get(i).performAttack(playerSoldiers.get(i).master.opponent.getMinions());
+                instances.get(i).performAttack(instances.get(i).master.opponent.getMinions());
+
             }
 
-            for (int i = 0; i < playerSoldiers.size(); i += 1) {
-                playerSoldiers.get(i).dieForHonor();
+            for (int i = 0; i < instances.size(); i += 1) {
+                instances.get(i).dieForHonor();
             }
 
-            if (!player1.getKing().getMinions().isEmpty() || !player2.getKing().getMinions().isEmpty()) {
-                
-            }
 
 //        }
-        for (MinionImpl each:instances) {
-            System.out.println(each.myKing.kingName + "'s :" + each.minionName + "'s hp is" + each.hp);
-        }
-        System.exit(0);
+//        for (MinionImpl each:instances) {
+//            System.out.println(each.myKing.kingName + "'s :" + each.minionName + "'s hp is" + each.hp);
+//        }
+
 
     }
 }

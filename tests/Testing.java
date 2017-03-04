@@ -47,10 +47,13 @@ public class Testing {
 //        CupCakeWarrior newcup9 = new CupCakeWarrior(manager, "Cup Cake Warrior 9", yitong, pos9);
 //        CupCakeWarrior newcup10 = new CupCakeWarrior(manager, "Cup Cake Warrior 10", yitong, pos10);
         CupCakeBerserker newcupber = new CupCakeBerserker(manager, "Cup Cake Berserker 1", yitong, pos10);
+
+        int runs = 0;
         while (true) {
             manager.doCombat(yitong,russell);
 //            yitong.attack(russell);
 //            russell.attack(yitong);
+            runs++;
         }
     }
 }

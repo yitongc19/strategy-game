@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class King {
 
-    private double hp;
+    public double hp;
 
     private double armor;
 
@@ -25,7 +25,12 @@ public class King {
     public String kingName;
 
     public double[] kingArmyPos;
+
+    public double[] kingPos;
+
     private ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
+
+    public King opponetKing;
     //initialize Model.King!
     public King(int teamNum) {
         this.hp = 5000;
@@ -36,11 +41,13 @@ public class King {
         this.teamNum = teamNum;
 
         if (this.teamNum == 1) {
-            kingName = "Titans";
-            this.kingArmyPos = new double[]{0, 500}; //to be set
+            kingName = "Radiant King";
+            this.kingPos = new double[]{5, 500}; //to be set
+            this.kingArmyPos = new double[]{10, 500};
         } else {
-            kingName = "Old Gods";
-            this.kingArmyPos = new double[]{100, 500};
+            kingName = "Dire King";
+            this.kingPos = new double[]{95, 500};
+            this.kingArmyPos = new double[]{90, 500};
         }
     }
     /*
@@ -100,4 +107,32 @@ public class King {
         minion.myKing = this;
         //reset minions' coord to king's lane here
     }
+
+    public boolean checkDeath() {
+        if (this.hp <0) {
+            if (this.teamNum == 1) {
+                System.out.println("The Radiant has been defeated!");
+            } else {
+                System.out.println("The Dire has been defeated!");
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public King getOpponetKing() {
+        return opponetKing;
+    }
+
+    public void setOpponetKing(King opponetKing) {
+        this.opponetKing = opponetKing;
+        this.opponetKing.opponetKing = this;
+    }
+
+    public double getArmor() {
+        return armor;
+    }
+
+    public kingFight 
 }

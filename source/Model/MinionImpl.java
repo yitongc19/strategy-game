@@ -222,6 +222,29 @@ public class MinionImpl implements Minion {
         return 0;
     }
 
+    public double calDmgPercentKing(King enemy) {
+        AtkType myAtkType = this.getAttackType();
+//        Model.ArmorType myArmorType = this.armorType;
+//        Model.AtkType enemyAtkType = enemy.atkType;
+        ArmorType enemyArmorType = enemy.getArmorType();
+
+        switch(myAtkType) {
+            case Normal:
+                return 0.85;
+            case Pierce:
+                return 0.85;
+            case Seige:
+                return 0.85;
+            case Magic:
+                return 0.85;
+            case Chaos:
+                return 1.1;
+            case Hero:
+                return 1.0;
+        }
+        return 0;
+    }
+
     public double atkDamageRandomModifier(double minCon, double maxCon) {
         return ThreadLocalRandom.current().nextDouble(this.atk*minCon, this.atk*maxCon);
     }
@@ -242,8 +265,28 @@ public class MinionImpl implements Minion {
         return dmgDealt;
     }
 
+    public double dmgCalKing(King enemy) {
+        double armorModifer;
+        double dmgTypeModifier = calDmgPercentKing(enemy);
+        assert(dmgTypeModifier!=0);
+        double enemyArmor = enemy.getArmor();
+        if (enemyArmor < 0) {
+            armorModifer = 2-pow(0.84,(-enemyArmor));
+        } else {
+            armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
+        }
+        double realtimeAtk = atkDamageRandomModifier(randomMinConst, randomMaxConst);
+        double dmgDealt = realtimeAtk * armorModifer * dmgTypeModifier;
+        enemy.hp -= dmgDealt;
+        return dmgDealt;
+    }
+
     public double cal_distance(MinionImpl enemy) {
         return sqrt(pow(this.Coords[0] - enemy.Coords[0], 2)+pow(this.Coords[1] - enemy.Coords[1], 2));
+    }
+
+    public double cal_dist_king(King target) {
+        return sqrt(pow(this.Coords[0] - target.kingPos[0], 2)+pow(this.Coords[1] - target.kingPos[1], 2));
     }
 
     public MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
@@ -288,7 +331,21 @@ public class MinionImpl implements Minion {
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+    }
 
+    public void approachKing(King target) {
+        double xdiff = target.kingPos[0] - this.Coords[0];
+        double ydiff = target.kingPos[1] - this.Coords[1];
+
+        double dist = cal_dist_king(target);
+        double normalx = (xdiff/dist)*moveSpeed;
+        double normaly = (ydiff/dist)*moveSpeed;
+
+        this.Coords[0] += normalx;
+        this.Coords[1] += normaly;
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.kingName);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
+        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
     }
 
     public void keepWalking() {
@@ -300,14 +357,32 @@ public class MinionImpl implements Minion {
         }
 
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
-        checkPortal();
+//        checkPortal();
     }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
         MinionImpl target;
 
         if (enemies.isEmpty()) {
-            keepWalking();
+            if (this.myKing != null) {
+                if (cal_dist_king(this.myKing.getOpponetKing()) > atkRange)
+                    approachKing(this.myKing.getOpponetKing());
+                else {
+                    if (this.attackCounter >= this.attackSpeed){
+                        double damage = this.dmgCalKing(this.myKing.getOpponetKing());
+                        System.out.println(this.master.getPlayerName() + "'s " +
+                                this.minionName + " dealt " + damage + " damage to " +
+                                this.myKing.getOpponetKing().kingName);
+                        System.out.println(this.myKing.getOpponetKing().hp);
+                        if (this.myKing.checkDeath() || this.myKing.opponetKing.checkDeath()) {
+                            System.exit(0);
+                        }
+                        this.attackCounter = 0;
+                    }
+                }
+            } else {
+                keepWalking();
+            }
         } else {
             target = chooseTarget(enemies);
             if (cal_distance(target) > atkRange) {

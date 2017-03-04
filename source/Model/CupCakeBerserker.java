@@ -22,7 +22,7 @@ public class CupCakeBerserker extends MeleeMinion {
         this.maxhp = 700;
         this.armorType = ArmorType.LightArmor;
         this.atkType = AtkType.Normal;
-        this.moveSpeed = 2;
+        this.moveSpeed = 0.2;
         this.healthRegen = 3;
         this.attackSpeed = 0.7;
         this.rangeOrMelee = 0;
