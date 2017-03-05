@@ -85,6 +85,13 @@ As we envision, the game will be consist of multiple pieces.
 
 ### Shield Knight Minion
 
+- Buildings
+
+  ![goodbdt1](assets/t1 swordman/goodbdt1.gif)
+
+  ![evilbdt1](assets/t1 swordman/evilbdt1.gif)
+
+
 - Walking
 
   ![evilsmt1wk](assets/t1 swordman/goodsmt1wk.gif)
