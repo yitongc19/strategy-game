@@ -8,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -26,7 +30,7 @@ public class EndGame extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = addContent();
-        Scene scene = new Scene(root, 1200, 700);
+        Scene scene = new Scene(root, 1200, 600);
         scene.getStylesheets().add(EndGame.class.getResource("EndGame.css").toExternalForm());
 
         primaryStage.setResizable(false);
@@ -34,6 +38,9 @@ public class EndGame extends Application {
         primaryStage.show();
     }
 
+    /*
+    Construct the main content of this page.
+     */
     private static VBox addContent() {
         VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
@@ -47,16 +54,62 @@ public class EndGame extends Application {
         return root;
     }
 
+    /*
+    Construct the title text.
+     */
     private static HBox addTitle(String winningTeam) {
         HBox title = new HBox();
         title.setAlignment(Pos.CENTER);
         Text titleText = new Text("TEAM " + winningTeam + " WIN");
-        titleText.setStyle("-fx-font-size: 40");
+        titleText.setFont(Font.font("Times New Roman", 40));
+
+        Blend blend = new Blend();
+        blend.setMode(BlendMode.MULTIPLY);
+
+        DropShadow ds = new DropShadow();
+        ds.setColor(Color.rgb(254, 235, 66, 0.3));
+        ds.setOffsetX(5);
+        ds.setOffsetY(5);
+        ds.setRadius(5);
+        ds.setSpread(0.2);
+
+        blend.setBottomInput(ds);
+
+        DropShadow ds1 = new DropShadow();
+        ds1.setColor(Color.web("#f13a00"));
+        ds1.setRadius(20);
+        ds1.setSpread(0.2);
+
+        Blend blend2 = new Blend();
+        blend2.setMode(BlendMode.MULTIPLY);
+
+        InnerShadow is = new InnerShadow();
+        is.setColor(Color.web("#feeb42"));
+        is.setRadius(9);
+        is.setChoke(0.8);
+        blend2.setBottomInput(is);
+
+        InnerShadow is1 = new InnerShadow();
+        is1.setColor(Color.web("#f13a00"));
+        is1.setRadius(5);
+        is1.setChoke(0.4);
+        blend2.setTopInput(is1);
+
+        Blend blend1 = new Blend();
+        blend1.setMode(BlendMode.MULTIPLY);
+        blend1.setBottomInput(ds1);
+        blend1.setTopInput(blend2);
+
+        blend.setTopInput(blend1);
+
+        title.setEffect(blend);
+
         titleText.setFill(Color.WHITE);
         title.getChildren().add(titleText);
         return title;
     }
 
+    /* Construct the result panel, this displays both the score and the achievements */
     private static HBox addResultPanels() {
         HBox resultPanels = new HBox();
         resultPanels.setAlignment(Pos.CENTER);
@@ -69,6 +122,10 @@ public class EndGame extends Application {
         return resultPanels;
     }
 
+    /* Constructs the two lists that will be displayed to the user, the score list,
+    ranked high to low and the achievement list, which displays the winner of different
+    achievements.
+     */
     private static VBox addResultList(String title) {
         VBox scorePanel = new VBox();
 
@@ -92,6 +149,9 @@ public class EndGame extends Application {
         return scorePanel;
     }
 
+    /* Constructs the two operating buttons, one that allows the user to replay the
+    game and the other allow the user to quit
+     */
     private static HBox addOperatingButtons() {
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.CENTER);
@@ -102,6 +162,10 @@ public class EndGame extends Application {
 
         Button replayButton = new Button("", replayImage);
         Button quitButton = new Button("", quitImage);
+
+        quitButton.setOnAction(event -> {
+            System.exit(0);
+        });
 
         buttonContainer.getChildren().addAll(replayButton, quitButton);
 

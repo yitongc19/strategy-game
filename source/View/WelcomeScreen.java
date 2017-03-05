@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -23,6 +24,8 @@ import java.sql.Blob;
  */
 public class WelcomeScreen extends Application{
     @Override
+    /* Construct scene and stage to display the view
+     */
     public void start(Stage primaryStage) throws Exception {
 
         VBox root = addContent();
@@ -35,17 +38,23 @@ public class WelcomeScreen extends Application{
         primaryStage.show();
     }
 
+    /* add the main content */
     private static VBox addContent() {
         VBox box = new VBox();
+        box.prefWidth(600);
         box.setAlignment(Pos.CENTER);
-        box.setSpacing(200);
-        Text sceneTitle = addTitle();
+        box.setSpacing(300);
+//        Text sceneTitle = addTitle();
+        Text titleHolder = new Text("       ");
+        HBox buttonContainer = new HBox();
         Button startGameButton = addButton();
-        box.getChildren().addAll(sceneTitle, startGameButton);
+        buttonContainer.getChildren().addAll(startGameButton);
+        box.getChildren().addAll(titleHolder, startGameButton);
 
         return box;
     }
 
+    /* add the game title */
     private static Text addTitle() {
         Text titleText = new Text("ForTheKing");
         titleText.setId("titleText");
@@ -101,6 +110,7 @@ public class WelcomeScreen extends Application{
     }
 
 
+    /* construct the start game button */
     private static Button addButton() {
         Button startGameButton = new Button("PLAY!");
         return startGameButton;
