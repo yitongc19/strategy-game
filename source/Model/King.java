@@ -10,6 +10,9 @@ import static java.lang.Math.sqrt;
  * Created by xingfanxia on 2/25/17.
  */
 
+/*
+THe King class controls all the attributes of the king
+ */
 public class King {
 
     public double hp;
@@ -43,6 +46,10 @@ public class King {
     public double atkSpeed = 0.8;
 
     public King opponetKing;
+
+    public String kingImageStill;
+
+    public String kingImageAttack;
     //initialize Model.King!
     public King(int teamNum) {
         this.hp = 5000;
@@ -90,6 +97,14 @@ public class King {
         return maxHP;
     }
 
+    public King getOpponetKing() {
+        return opponetKing;
+    }
+
+    public double getArmor() {
+        return armor;
+    }
+
     /*
     Setters
      */
@@ -106,6 +121,11 @@ public class King {
         this.atk = atk;
     }
 
+    public void setOpponetKing(King opponetKing) {
+        this.opponetKing = opponetKing;
+        this.opponetKing.opponetKing = this;
+    }
+
     public void setAnimation() {
 
     }
@@ -117,10 +137,12 @@ public class King {
     public void add_Minions(MinionImpl minion) {
         this.minions.add(minion);
         minion.myKing = this;
-        //reset minions' coord to king's lane here
     }
 
     public boolean checkDeath() {
+        /*
+        check if the king died
+         */
         if (this.hp <0) {
             if (this.teamNum == 1) {
                 System.out.println("The Radiant has been defeated!");
@@ -134,6 +156,9 @@ public class King {
     }
 
     public double kingDmgPercent(MinionImpl minion) {
+        /*
+        Armor Calculations
+         */
         switch(minion.getArmorType()) {
             case LightArmor:
                 return 1.0;
@@ -153,29 +178,27 @@ public class King {
 
 
     public double cal_distance(MinionImpl enemy) {
+        /*
+        Computes the distance between king and enemy
+         */
         return sqrt(pow(this.kingPos[0] - enemy.Coords[0], 2)+pow(this.kingPos[1] - enemy.Coords[1], 2));
     }
 
-    public King getOpponetKing() {
-        return opponetKing;
-    }
 
-    public void setOpponetKing(King opponetKing) {
-        this.opponetKing = opponetKing;
-        this.opponetKing.opponetKing = this;
-    }
-
-    public double getArmor() {
-        return armor;
-    }
 
     public MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
+        /*
+        random target as in MinionImpl
+         */
         this.rand = new Random();
         MinionImpl randomMinion = mylist.get(this.rand.nextInt(mylist.size()));
         return randomMinion;
     }
 
     public MinionImpl chooseTarget(ArrayList<MinionImpl> enemies) {
+        /*
+        Target choosing, essentially the same as in MinionImpl
+         */
         if (enemies.isEmpty()) {
             return null;
         }
@@ -199,6 +222,10 @@ public class King {
     }
 
     public double dmgCal(MinionImpl enemy) {
+        /*
+        calculate Damage dealt to target similar to
+        what's in MinionImpl
+         */
         double armorModifer;
         double dmgTypeModifier = kingDmgPercent(enemy);
         assert(dmgTypeModifier!=0);
@@ -214,6 +241,7 @@ public class King {
     }
 
     public void kingFight() {
+        //if no minion do nothing, otherwise attack it if in range
         if (!this.getOpponetKing().getMinions().isEmpty()) {
             ArrayList<MinionImpl> minions = this.getOpponetKing().getMinions();
             MinionImpl target = chooseTarget(minions);

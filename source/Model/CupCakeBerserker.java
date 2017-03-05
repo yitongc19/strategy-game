@@ -7,11 +7,21 @@ import static java.lang.Math.pow;
 /**
  * Created by xingfanxia on 3/1/17.
  */
+
+/*
+A upgraded version of cupcake warrior
+ */
 public class CupCakeBerserker extends MeleeMinion {
 
+    /*
+    Variables for critical strike of berserkers
+     */
     public double critChance;
     public double critDmgMultiplier;
 
+    /*
+    Initialize
+     */
     public CupCakeBerserker(CombatManager manager, String name, PlayerImpl master, double[] coords) {
         this.minionName = name;
         this.master = master;
@@ -40,10 +50,17 @@ public class CupCakeBerserker extends MeleeMinion {
 
         //set the Frames
     }
+
+    /*
+    random number generator for critical chance
+     */
     private double randomChance() {
         return ThreadLocalRandom.current().nextDouble(0.0, 1.0);
     }
 
+    /*
+    Used to do a critical strike!
+     */
     private double CritStrike() {
         double realtimeAtk = atkDamageRandomModifier(randomMinConst, randomMaxConst);
         double chance = randomChance();
@@ -54,8 +71,12 @@ public class CupCakeBerserker extends MeleeMinion {
         return realtimeAtk;
     }
 
+
     @Override
     public double dmgCal(MinionImpl enemy) {
+        /*
+        A modified dmgCal with critical strike in here
+         */
         double armorModifer;
         double dmgTypeModifier = calDmgPercent(enemy);
         assert(dmgTypeModifier!=0);

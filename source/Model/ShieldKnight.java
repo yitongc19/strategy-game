@@ -5,6 +5,9 @@ package Model;
  */
 public class ShieldKnight extends MeleeMinion {
 
+    /*
+    A tanky minion class
+     */
     public ShieldKnight(CombatManager manager, String name, PlayerImpl master, double[] coords) {
         this.minionName = name;
         this.master = master;
