@@ -1,4 +1,4 @@
-package sample;
+package View;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -30,7 +30,7 @@ public class Fight extends Application{
         root.setRight(battleLog);
         root.setCenter(battleField);
 
-        Scene scene = new Scene(root, 1200, 780);
+        Scene scene = new Scene(root, 1400, 1000);
         scene.getStylesheets().add(Fight.class.getResource("Fight.css").toExternalForm());
 
         primaryStage.setResizable(false);
@@ -73,7 +73,7 @@ public class Fight extends Application{
         HBox lane = new HBox();
 
         ImageView king1 = addKing("black_cat_face.png");
-        Rectangle road = addRoad(760, 120);
+        Rectangle road = addRoad(920, 240);
         ImageView king2 = addKing("cat_face_yellow_eyes.png");
 
         lane.getChildren().addAll(king1, road, king2);
@@ -84,8 +84,8 @@ public class Fight extends Application{
 
     private static ImageView addKing(String url) {
         ImageView kingImageView = new ImageView(Fight.class.getResource(url).toExternalForm());
-        kingImageView.setFitHeight(120);
-        kingImageView.setFitWidth(120);
+        kingImageView.setFitHeight(240);
+        kingImageView.setFitWidth(240);
         kingImageView.setSmooth(true);
         kingImageView.setCache(true);
 
@@ -97,7 +97,7 @@ public class Fight extends Application{
         HBox lane = new HBox();
 
         GridPane base1 = addBase(color1);
-        Rectangle road = addRoad(800, 100);
+        Rectangle road = addRoad(1000, 200);
         GridPane base2 = addBase(color2);
 
         lane.getChildren().addAll(base1, road, base2);
@@ -116,8 +116,8 @@ public class Fight extends Application{
     private static GridPane addBase(Paint baseColor) {
         GridPane base = new GridPane();
         base.setAlignment(Pos.CENTER);
-        base.getColumnConstraints().add(new ColumnConstraints(20));
-        base.getRowConstraints().add(new RowConstraints(20));
+        base.getColumnConstraints().add(new ColumnConstraints(40));
+        base.getRowConstraints().add(new RowConstraints(40));
 
         addBuilding(base, 0, 0, baseColor);
         addBuilding(base, 1, 0, baseColor);
@@ -135,7 +135,7 @@ public class Fight extends Application{
     }
 
     private static void addBuilding(GridPane pane, int columnNum, int rowNum, Paint baseColor) {
-        Circle placeHolder = new Circle(10, baseColor);
+        Circle placeHolder = new Circle(20, baseColor);
         pane.add(placeHolder, columnNum, rowNum);
     }
 

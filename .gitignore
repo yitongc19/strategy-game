@@ -1,0 +1,5 @@
+*.idea/*
+*.pyc
+.gitignore
+*.DS_Store
+build/*
