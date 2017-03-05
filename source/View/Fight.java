@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -30,8 +31,8 @@ public class Fight extends Application{
         root.setRight(battleLog);
         root.setCenter(battleField);
 
-        Scene scene = new Scene(root, 1400, 1000);
-        scene.getStylesheets().add(Fight.class.getResource("Fight.css").toExternalForm());
+        Scene scene = new Scene(root, 2000, 1000);
+        scene.getStylesheets().add(Fight.class.getResource("static/Fight.css").toExternalForm());
 
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
@@ -42,7 +43,7 @@ public class Fight extends Application{
         VBox battleFieldContainer = new VBox();
 
         Text title = addTitle();
-        VBox map = addMap();
+        ScrollPane map = addMap();
         VBox buffPanel = addBuffPanel();
 
         battleFieldContainer.getChildren().addAll(title, map, buffPanel);
@@ -50,7 +51,11 @@ public class Fight extends Application{
         return battleFieldContainer;
     }
 
-    private static VBox addMap() {
+    private static ScrollPane addMap() {
+        ScrollPane mapContainer = new ScrollPane();
+        mapContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         VBox fourLaneMap = new VBox();
 
         StackPane lane1 = addNormalLane(Color.LIGHTGREEN, Color.LIGHTBLUE);
@@ -61,7 +66,9 @@ public class Fight extends Application{
 
         fourLaneMap.getChildren().addAll(lane1, lane2, kingLane, lane3, lane4);
 
-        return fourLaneMap;
+        mapContainer.setContent(fourLaneMap);
+
+        return mapContainer;
     }
 //
 //    public static void drawMinions(List<PlayerImpl> players) {
@@ -196,7 +203,10 @@ public class Fight extends Application{
         HBox msg2 = updateMessage("Russell", "Minions march forward!", Color.GREEN);
         HBox msg3 = updateMessage("Yitong", "For the KING", Color.RED);
 
-        battleLog.getChildren().addAll(battleLogTitle, msg1, msg2, msg3);
+        Button startButton = new Button("Start");
+        startButton.setId("startButton");
+
+        battleLog.getChildren().addAll(battleLogTitle, msg1, msg2, msg3, startButton);
 
         return battleLog;
     }

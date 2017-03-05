@@ -1,4 +1,4 @@
-package sample;
+package View;
 
 import com.sun.jdi.Mirror;
 import javafx.application.Application;
@@ -28,7 +28,7 @@ public class WelcomeScreen extends Application{
         VBox root = addContent();
 
         Scene scene = new Scene(root, 1000, 680);
-        scene.getStylesheets().add(WelcomeScreen.class.getResource("root/source/View/static/WelcomeScreen.css").toExternalForm());
+        scene.getStylesheets().add(WelcomeScreen.class.getResource("static/WelcomeScreen.css").toExternalForm());
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
