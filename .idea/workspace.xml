@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="576a70ec-bad4-44a2-a9ab-a0b87713ba49" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/CombatManager.java" afterPath="$PROJECT_DIR$/source/Model/CombatManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/King.java" afterPath="$PROJECT_DIR$/source/Model/King.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/MinionImpl.java" afterPath="$PROJECT_DIR$/source/Model/MinionImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Testing.java" afterPath="$PROJECT_DIR$/tests/Testing.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/blood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmatk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmatkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmstl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmwk1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmwk2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/evilsmwkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmatk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmatkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmstl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmwk1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmwk2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/minions assets/goodsmwkx.gif" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,8 +59,8 @@
       <file leaf-file-name="CupCakeBerserker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Model/CupCakeBerserker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+            <state relative-caret-position="460">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
@@ -81,33 +85,10 @@
         <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="712">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/Testing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1488671073000" expanded="true" signature="2351:2396" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildingImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Model/BuildingImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -212,6 +193,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="246" />
     <option name="y" value="23" />
     <option name="width" value="1916" />
     <option name="height" value="1177" />
@@ -847,15 +829,15 @@
       <workItem from="1488175955721" duration="38669000" />
       <workItem from="1488391840010" duration="9658000" />
       <workItem from="1488507981377" duration="3924000" />
-      <workItem from="1488520017237" duration="5846000" />
+      <workItem from="1488520017237" duration="6716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68486000" />
+    <option name="totallyTimeSpent" value="69356000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1916" height="1177" extended-state="6" />
+    <frame x="246" y="23" width="1916" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1339,22 +1321,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeBerserker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/King.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="857">
           <caret line="222" column="36" lean-forward="false" selection-start-line="222" selection-start-column="36" selection-end-line="222" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="43" column="97" lean-forward="true" selection-start-line="43" selection-start-column="97" selection-end-line="43" selection-end-column="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1488671073000" expanded="true" signature="2351:2396" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1367,10 +1360,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
+    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeBerserker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="460">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1384,17 +1377,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1488669779000" expanded="true" signature="12853:12894" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1488671073000" expanded="true" signature="2351:2396" ph="..." />
           </folding>
         </state>
       </provider>
