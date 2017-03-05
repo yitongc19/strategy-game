@@ -8,12 +8,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -35,6 +37,7 @@ public class ConstructBuilding extends Application {
         leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         VBox rightPanels = new VBox();
+        rightPanels.setSpacing(200);
         VBox playerInfoPanel = addPlayerInfoPanel();
         VBox functionPanels = addFunctionPanel();
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
@@ -43,17 +46,33 @@ public class ConstructBuilding extends Application {
         root.setRight(rightPanels);
 
         Scene scene = new Scene(root, 1400, 1000);
+        scene.getStylesheets().add(Fight.class.getResource("static/ConstructBuilding.css").toExternalForm());
 
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
+    /* Construct the function panel */
     private static VBox addFunctionPanel() {
         VBox functionPanel = new VBox();
+        functionPanel.setAlignment(Pos.CENTER);
+
+        HBox timerContainer = new HBox();
+        Text timer = new Text("Timer PlaceHolder");
+        timerContainer.getChildren().addAll(timer);
+        timerContainer.setAlignment(Pos.CENTER);
+        HBox nextPlayerButtonContainer = new HBox();
+        nextPlayerButtonContainer.setAlignment(Pos.CENTER);
+        Button nextPlayerButton = new Button("Next Player");
+
+        nextPlayerButtonContainer.getChildren().addAll(nextPlayerButton);
+
+        functionPanel.getChildren().addAll(timerContainer, nextPlayerButtonContainer);
         return functionPanel;
     }
 
+    /* Construct the buldingsToConstruct panel */
     private static ScrollPane addBuildingsToConstructPanel() {
         ScrollPane constructBuildingPanel = new ScrollPane();
         constructBuildingPanel.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -66,8 +85,11 @@ public class ConstructBuilding extends Application {
         return constructBuildingPanel;
     }
 
+    /* Construct the building container */
     private static GridPane addBuildingContainer() {
         GridPane buildingContainer = new GridPane();
+        buildingContainer.setHgap(40);
+        buildingContainer.setVgap(60);
 
         for (int row = 0; row < 3; row ++) {
             for (int col = 0; col < 3; col ++) {
@@ -88,10 +110,14 @@ public class ConstructBuilding extends Application {
 
     */
 
+    /* Construct a single building in the existing building panel */
     private static VBox addSingleBuilding() {
         VBox singleBuildingContainer = new VBox();
 
-        ImageView buildingImg = new ImageView(new Image(""));
+        ImageView buildingImg = new ImageView(ConstructBuilding.class.getResource("static/evilbdt1.gif").toExternalForm());
+        buildingImg.setFitWidth(200);
+        buildingImg.setPreserveRatio(true);
+
         Text buildingName = new Text("CupCake House");
         Text buildingCost = new Text("200");
 
@@ -100,24 +126,33 @@ public class ConstructBuilding extends Application {
         return singleBuildingContainer;
     }
 
+    /* Construct the playerInfo panel */
     private static VBox addPlayerInfoPanel() {
         VBox playerInfoPanel = new VBox();
+        playerInfoPanel.setSpacing(20);
+        playerInfoPanel.setPadding(new Insets(5, 5, 5, 5));
         playerInfoPanel.setStyle("-fx-border-style: solid");
+        playerInfoPanel.setPrefSize(500, 500);
 
         Text titleText = new Text("Player Info: ");
 
-        Text playerName = new Text("Yitong");
+        Text playerName = new Text("Player Name: Yitong");
 
-        Text playerColor = new Text("Red");
+        Text playerColor = new Text("Player Color: Red");
 
-        Text playerGold = new Text("Gold: 1000");
+        Text playerGold = new Text("Player Gold: 1000");
+
+        Text playerScore = new Text("Player Score: 600");
+
+        Text playerRank = new Text("Player Rank: #4");
 
         HBox buttonContainer = new HBox();
-        buttonContainer.setAlignment(Pos.CENTER_RIGHT);
+        buttonContainer.setAlignment(Pos.BASELINE_RIGHT);
         Button showMapButton = new Button("Show Map");
         buttonContainer.getChildren().addAll(showMapButton);
 
-        playerInfoPanel.getChildren().addAll(titleText, playerName, playerColor, playerGold, buttonContainer);
+        playerInfoPanel.getChildren().addAll(titleText, playerName, playerColor, playerGold,
+                playerScore, playerRank, buttonContainer);
 
         return playerInfoPanel;
     }

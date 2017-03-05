@@ -9,12 +9,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.omg.CORBA.TIMEOUT;
 
 /**
  * Created by cheny2 on 3/3/17.
@@ -25,7 +29,7 @@ public class Fight extends Application{
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
 
-        VBox battleLog = addBattleLog();
+        ScrollPane battleLog = addBattleLog();
         VBox battleField = addBattleField();
 
         root.setRight(battleLog);
@@ -39,22 +43,37 @@ public class Fight extends Application{
         primaryStage.show();
     }
 
+    /*
+    Construct the battelField container pane with all the elements.
+     */
     private static VBox addBattleField() {
         VBox battleFieldContainer = new VBox();
 
+        HBox titleContainer = new HBox();
+        titleContainer.setAlignment(Pos.CENTER);
         Text title = addTitle();
+
+        title.setFont(Font.font(null, FontWeight.BOLD, 30));
         ScrollPane map = addMap();
         VBox buffPanel = addBuffPanel();
 
-        battleFieldContainer.getChildren().addAll(title, map, buffPanel);
+        titleContainer.getChildren().addAll(title);
+        battleFieldContainer.getChildren().addAll(titleContainer, map, buffPanel);
 
         return battleFieldContainer;
     }
 
+    /* Construct the map to display*/
     private static ScrollPane addMap() {
         ScrollPane mapContainer = new ScrollPane();
+
         mapContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
+        StackPane laneContainer = new StackPane();
+        ImageView laneBackground = new ImageView(Fight.class.getResource("static/backgroundFight.gif").toExternalForm());
+        laneBackground.setFitWidth(1400);
+        laneBackground.setFitHeight(1040);
 
         VBox fourLaneMap = new VBox();
 
@@ -66,7 +85,8 @@ public class Fight extends Application{
 
         fourLaneMap.getChildren().addAll(lane1, lane2, kingLane, lane3, lane4);
 
-        mapContainer.setContent(fourLaneMap);
+        laneContainer.getChildren().addAll(laneBackground, fourLaneMap);
+        mapContainer.setContent(laneContainer);
 
         return mapContainer;
     }
@@ -75,13 +95,14 @@ public class Fight extends Application{
 //        //for each player, for each minion, draw everything
 //    }
 
+    /* Construct the king Lane*/
     private static StackPane addKingLane() {
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
 
-        ImageView king1 = addKing("black_cat_face.png");
+        ImageView king1 = addKing("static/crown.png");
         Rectangle road = addRoad(920, 240);
-        ImageView king2 = addKing("cat_face_yellow_eyes.png");
+        ImageView king2 = addKing("static/devil.png");
 
         lane.getChildren().addAll(king1, road, king2);
         laneHolder.getChildren().add(lane);
@@ -89,6 +110,7 @@ public class Fight extends Application{
         return laneHolder;
     }
 
+    /* Construct the king base */
     private static ImageView addKing(String url) {
         ImageView kingImageView = new ImageView(Fight.class.getResource(url).toExternalForm());
         kingImageView.setFitHeight(240);
@@ -99,6 +121,7 @@ public class Fight extends Application{
         return kingImageView;
     }
 
+    /* Construct a normal lane */
     private static StackPane addNormalLane(Paint color1, Paint color2) {
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
@@ -113,39 +136,43 @@ public class Fight extends Application{
         return laneHolder;
     }
 
+    /* construct a road */
     private static Rectangle addRoad(int roadWidth, int roadHeight) {
         Rectangle road = new Rectangle(roadWidth, roadHeight);
-        road.setStroke(Color.BURLYWOOD);
-        road.setStrokeType(StrokeType.CENTERED);
 
+        road.setFill(Color.TRANSPARENT);
         return road;
     }
+
+    /* Construct bases in a normal lane */
     private static GridPane addBase(Paint baseColor) {
         GridPane base = new GridPane();
         base.setAlignment(Pos.CENTER);
         base.getColumnConstraints().add(new ColumnConstraints(40));
         base.getRowConstraints().add(new RowConstraints(40));
 
-        addBuilding(base, 0, 0, baseColor);
-        addBuilding(base, 1, 0, baseColor);
-        addBuilding(base, 2, 0, baseColor);
-        addBuilding(base, 3, 0, baseColor);
-        addBuilding(base, 4, 0, baseColor);
-
-        addBuilding(base, 0, 1, baseColor);
-        addBuilding(base, 0, 2, baseColor);
-        addBuilding(base, 0, 3, baseColor);
-        addBuilding(base, 0, 4, baseColor);
-        addBuilding(base, 4, 4, baseColor);
+        for (int col = 0; col < 5; col ++) {
+            for (int row = 0; row < 5; row ++) {
+                addBuilding(base, col, row, Color.TRANSPARENT);
+            }
+        }
 
         return base;
     }
 
+    /* Construct a building in a base */
     private static void addBuilding(GridPane pane, int columnNum, int rowNum, Paint baseColor) {
-        Circle placeHolder = new Circle(20, baseColor);
-        pane.add(placeHolder, columnNum, rowNum);
+        ImageView buildingBase = new ImageView(Fight.class.getResource("static/bdbase.gif").toExternalForm());
+        buildingBase.setFitHeight(40);
+        buildingBase.setFitWidth(40);
+
+//        Circle placeHolder = new Circle(20);
+//        placeHolder.setStroke(baseColor);
+//        placeHolder.setStrokeDashOffset(5d);
+        pane.add(buildingBase, columnNum, rowNum);
     }
 
+    /* Construct the game title*/
     private static Text addTitle() {
         Text gameTitle = new Text("BattleField");
         gameTitle.setFill(Color.BEIGE);
@@ -153,12 +180,14 @@ public class Fight extends Application{
         return gameTitle;
     }
 
+    /* Construct the buff panel*/
     private static VBox addBuffPanel() {
         VBox buffPanel = new VBox();
-
-        buffPanel.setStyle("-fx-background-color: #dcca8a");
+        buffPanel.prefHeight(200);
+        buffPanel.setAlignment(Pos.CENTER);
 
         Text buffTitle = new Text("SHOW YOUR LOYALTY!");
+        buffTitle.setFont(Font.font(null, 30));
         buffTitle.setFill(Color.WHITE);
 
         HBox buffButtons = addBuffs();
@@ -168,8 +197,11 @@ public class Fight extends Application{
         return buffPanel;
     }
 
+    /* add the buff buttons*/
     private static HBox addBuffs() {
         HBox buffButtonContainer = new HBox();
+        buffButtonContainer.setAlignment(Pos.CENTER);
+        buffButtonContainer.setSpacing(400);
 
         GridPane buffTeam1 = addBuffButton("TEAM 1");
         GridPane buffTeam2 = addBuffButton("TEAM 2");
@@ -179,11 +211,13 @@ public class Fight extends Application{
         return buffButtonContainer;
     }
 
+    /* Construct buff buttons*/
     private static GridPane addBuffButton(String team) {
         GridPane buffButton = new GridPane();
 
         Text teamName = new Text(team);
         teamName.setFill(Color.WHITE);
+        teamName.setFont(Font.font(null, 25));
 
         Button buff = new Button("BUFF");
 
@@ -193,7 +227,12 @@ public class Fight extends Application{
         return buffButton;
     }
 
-    private static VBox addBattleLog() {
+    /* Construct the battleLogs */
+    private static ScrollPane addBattleLog() {
+        ScrollPane battleLogContainer = new ScrollPane();
+        battleLogContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        battleLogContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
         VBox battleLog = new VBox();
         battleLog.setStyle("-fx-background-color: white");
 
@@ -208,7 +247,8 @@ public class Fight extends Application{
 
         battleLog.getChildren().addAll(battleLogTitle, msg1, msg2, msg3, startButton);
 
-        return battleLog;
+        battleLogContainer.setContent(battleLog);
+        return battleLogContainer;
     }
 
     private static HBox updateMessage(String playerName, String msg, Paint playerColor) {

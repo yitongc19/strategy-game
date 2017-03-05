@@ -4,3 +4,8 @@
 
 Text {
 }
+
+Button {
+    -fx-font-size: 30;
+
+}
