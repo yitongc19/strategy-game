@@ -86,22 +86,27 @@ As we envision, the game will be consist of multiple pieces.
 
 - Walking
 
-  ![evilsmt1wk](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/t1 swordman/goodsmt1wk.gif)
+  ![evilsmt1wk](assets/t1 swordman/goodsmt1wk.gif)
 
-![evilsmt1wk](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/t1 swordman/evilsmt1wk.gif)
-
+  ![evilsmt1wk](assets/t1 swordman/evilsmt1wk.gif)
 
 
 - Attacking
 
-  ![goodsmt1atk](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/t1 swordman/goodsmt1atk.gif)
+  ![goodsmt1atk](assets/t1 swordman/goodsmt1atk.gif)
 
-  ![evilsmt1atk](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/t1 swordman/evilsmt1atk.gif)
+  ![evilsmt1atk](assets/t1 swordman/evilsmt1atk.gif)
 
 - Walking in scene
 
-  ![walk scene](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/walk scene.png)
+  ![walk scene](assets/walk scene.png)
 
 - Fighting in scene
 
-  ![fight scene](../../../../../../../Documents/tempCodes/gameproject_cs257/assets/fight scene.png)
+  ![fight scene](assets/fight scene.png)
+
+- Death scene
+
+  ![goodblood](assets/t1 swordman/goodblood.gif)
+
+  ![badblood](assets/t1 swordman/badblood.gif)
