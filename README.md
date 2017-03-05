@@ -1,6 +1,7 @@
 # Game Project: For the King
 
 >@author Xingfan Xia, Russel Smith, Yitong Cheng
+>@artist Jufei Luo
 >@Project for CS257 Software Desgin
 >@Professor Eric Alexander
 
@@ -80,7 +81,7 @@ As we envision, the game will be consist of multiple pieces.
   - We envision that the game will have two controllers, one for the build mode and the other for the fighting mode. Yitong and Russell will each be in charge of one of the two controllers. 
 - Additionally, Yitong will develop the the view for the battle mode and Russell will be be building the model.
 
-## Assets
+## Assets(Provided By Jufei Luo)
 
 ### Shield Knight Minion
 
