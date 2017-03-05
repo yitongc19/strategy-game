@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by xingfanxia on 3/1/17.
+ * the building implementation
+ * -- this class is incomplete--
  */
 public class BuildingImpl {
 

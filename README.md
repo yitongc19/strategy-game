@@ -79,3 +79,34 @@ As we envision, the game will be consist of multiple pieces.
 - Xingfan will be in charge of designing and developing a variety of buildings and minions in the game. 	
   - We envision that the game will have two controllers, one for the build mode and the other for the fighting mode. Yitong and Russell will each be in charge of one of the two controllers. 
 - Additionally, Yitong will develop the the view for the battle mode and Russell will be be building the model.
+
+## Assets
+
+### Shield Knight Minion
+
+- Walking
+
+  ![evilsmt1wk](assets/t1 swordman/goodsmt1wk.gif)
+
+  ![evilsmt1wk](assets/t1 swordman/evilsmt1wk.gif)
+
+
+- Attacking
+
+  ![goodsmt1atk](assets/t1 swordman/goodsmt1atk.gif)
+
+  ![evilsmt1atk](assets/t1 swordman/evilsmt1atk.gif)
+
+- Walking in scene
+
+  ![walk scene](assets/walk scene.png)
+
+- Fighting in scene
+
+  ![fight scene](assets/fight scene.png)
+
+- Death scene
+
+  ![goodblood](assets/t1 swordman/goodblood.gif)
+
+  ![badblood](assets/t1 swordman/badblood.gif)

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by xingfanxia on 2/25/17.
+ * The building interface used for display and spawn minions
+ * --Temporarily discarded--
  */
 public interface Building {
     Integer getCost();

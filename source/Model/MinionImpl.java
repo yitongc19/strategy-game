@@ -115,10 +115,11 @@ public class MinionImpl implements Minion {
 
     }
 
+    /*
+    Calculate dmg percent accrodiing to armortype and atktype
+     */
     public double calDmgPercent(MinionImpl enemy) {
         AtkType myAtkType = this.getAttackType();
-//        Model.ArmorType myArmorType = this.armorType;
-//        Model.AtkType enemyAtkType = enemy.atkType;
         ArmorType enemyArmorType = enemy.getArmorType();
 
         switch(myAtkType) {
@@ -222,11 +223,11 @@ public class MinionImpl implements Minion {
         return 0;
     }
 
+    /*
+    Calculate dmg persent to king
+     */
     public double calDmgPercentKing(King enemy) {
         AtkType myAtkType = this.getAttackType();
-//        Model.ArmorType myArmorType = this.armorType;
-//        Model.AtkType enemyAtkType = enemy.atkType;
-        ArmorType enemyArmorType = enemy.getArmorType();
 
         switch(myAtkType) {
             case Normal:
@@ -245,20 +246,30 @@ public class MinionImpl implements Minion {
         return 0;
     }
 
+    /*
+    randomnized attack dmg
+     */
     public double atkDamageRandomModifier(double minCon, double maxCon) {
         return ThreadLocalRandom.current().nextDouble(this.atk*minCon, this.atk*maxCon);
     }
 
+    /*
+    calculate actual dmg dealt
+     */
     public double dmgCal(MinionImpl enemy) {
         double armorModifer;
         double dmgTypeModifier = calDmgPercent(enemy);
         assert(dmgTypeModifier!=0);
         double enemyArmor = enemy.getArmor();
         if (enemyArmor < 0) {
+            //if armor is negative, follow the formula here
             armorModifer = 2-pow(0.84,(-enemyArmor));
         } else {
             armorModifer = 1- (enemyArmor*0.06)/(1+enemyArmor*0.06);
         }
+        /*
+        calculate damage and reduce target's hp
+         */
         double realtimeAtk = atkDamageRandomModifier(randomMinConst, randomMaxConst);
         double dmgDealt = realtimeAtk * armorModifer * dmgTypeModifier;
         enemy.hp -= dmgDealt;
@@ -266,6 +277,9 @@ public class MinionImpl implements Minion {
     }
 
     public double dmgCalKing(King enemy) {
+        /*
+        Similar as dmgCal but to King
+         */
         double armorModifer;
         double dmgTypeModifier = calDmgPercentKing(enemy);
         assert(dmgTypeModifier!=0);
@@ -282,26 +296,42 @@ public class MinionImpl implements Minion {
     }
 
     public double cal_distance(MinionImpl enemy) {
+        /*
+        Calculate dist to target
+         */
         return sqrt(pow(this.Coords[0] - enemy.Coords[0], 2)+pow(this.Coords[1] - enemy.Coords[1], 2));
     }
 
     public double cal_dist_king(King target) {
+        /*
+        Calculate dist to King
+         */
         return sqrt(pow(this.Coords[0] - target.kingPos[0], 2)+pow(this.Coords[1] - target.kingPos[1], 2));
     }
 
     public MinionImpl randomTarget(ArrayList<MinionImpl> mylist) {
+        /*
+        return target randomly
+         */
         this.rand = new Random();
         MinionImpl randomMinion = mylist.get(this.rand.nextInt(mylist.size()));
         return randomMinion;
     }
 
     public MinionImpl chooseTarget(ArrayList<MinionImpl> enemies) {
+        /*
+        target choosing mechanism
+         */
         if (enemies.isEmpty()) {
             return null;
         }
         MinionImpl target = new MinionImpl();
         ArrayList<MinionImpl> temp = new ArrayList<MinionImpl>();
         double minDist = 9999999;
+        /*
+        if only one target in dist return him
+        if multiple in same dist, return a random one of the multiple list
+         */
         for (MinionImpl warrior: enemies){
             double dist = cal_distance(warrior);
             if (dist < minDist) {
@@ -319,6 +349,9 @@ public class MinionImpl implements Minion {
     }
 
     public void chase(MinionImpl target) {
+        /*
+        chase target minion
+         */
         double xdiff = target.Coords[0] - this.Coords[0];
         double ydiff = target.Coords[1] - this.Coords[1];
 
@@ -334,6 +367,9 @@ public class MinionImpl implements Minion {
     }
 
     public void approachKing(King target) {
+        /*
+        approach king's location
+         */
         double xdiff = target.kingPos[0] - this.Coords[0];
         double ydiff = target.kingPos[1] - this.Coords[1];
 
@@ -349,6 +385,9 @@ public class MinionImpl implements Minion {
     }
 
     public void keepWalking() {
+        /*
+        keep walking to the portal if no enemies
+         */
         System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the " + this.master.myKing.kingName + " !");
         if (this.master.getTeam() == 1) {
             this.Coords[0] += moveSpeed;
@@ -363,6 +402,12 @@ public class MinionImpl implements Minion {
     public void performAttack(ArrayList<MinionImpl> enemies) {
         MinionImpl target;
 
+        /*
+        if no enemies but is already king's guard, attack on the enmey king
+        otherwise keep walking to the portal to fight for king
+
+        if there is enmey, chase him if not in atkRange otherwise attack
+         */
         if (enemies.isEmpty()) {
             if (this.myKing != null) {
                 if (cal_dist_king(this.myKing.getOpponetKing()) > atkRange)
@@ -401,6 +446,9 @@ public class MinionImpl implements Minion {
     }
 
     public boolean checkPortal() {
+        /*
+        if reach the portal, teleport to king's coords
+         */
         if (this.master.getTeam() == 1) {
             if (this.Coords[0] > 100) { //why it hangs for higher numbers...
                 System.out.println(this.minionName + " is gonna to fight for the King!");
@@ -427,6 +475,10 @@ public class MinionImpl implements Minion {
     }
 
     public void dieForHonor() {
+        /*
+        check if the minion died and remove him from player's list and all alive minion instances,
+        if it is king's guard, revmove from king instead.
+         */
         if (this.hp <= 0) {
             //destroy the minion?
             System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " died for an honorable cause!");
@@ -440,6 +492,9 @@ public class MinionImpl implements Minion {
         }
     }
 
+    /*
+    function for sorting minion's atk sequence
+     */
     public static Comparator<MinionImpl> byPriority()
     {
         return new Comparator<MinionImpl>()
@@ -452,6 +507,9 @@ public class MinionImpl implements Minion {
         };
     }
 
+    /*
+    hp percent for health bar display
+     */
     public double getHealthPercent() {
         return this.hp/this.maxhp;
     }

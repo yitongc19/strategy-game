@@ -7,6 +7,10 @@ import java.util.Iterator;
  * Created by xingfanxia on 2/26/17.
  */
 public class PlayerImpl implements Player {
+    /*
+    player class holding all relevant attributes like
+    gold, king, score, name, team, color, minions and buildings
+     */
     CombatManager manager = new CombatManager();
     public Integer gold;
     private ArrayList<Building> buildings = new ArrayList<Building>();
@@ -77,19 +81,6 @@ public class PlayerImpl implements Player {
         this.minions.remove(minion);
     }
 
-//    public void attack(Player opponent) {
-//        while(!this.getMinions().isE mpty() || !opponent.getMinions().isEmpty()) {
-//            manager.addAtkCounterToAll();
-//            for (int i = 0; i < minions.size(); i += 1) {
-//                if (minions.get(i).checkPortal()) {
-//                    continue;
-//                }
-//                minions.get(i).performAttack(opponent.getMinions());
-//            }
-//        }
-//        System.exit(0);
-//    }
-
     public PlayerImpl getOpponent() {
         return opponent;
     }
@@ -99,6 +90,9 @@ public class PlayerImpl implements Player {
         opponent.opponent = this;
     }
 
+    /*
+    To be implemented
+     */
     public void getFarmers() {
 
     }
