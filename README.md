@@ -1,4 +1,4 @@
-# Game Project: For Honor
+# Game Project: For the King
 
 >@author Xingfan Xia, Russel Smith, Yitong Cheng
 >@Project for CS257 Software Desgin
@@ -6,7 +6,7 @@
 
 ### Game Design and Concepts
 
-Our project is a PVP game called “For Honor” with elements of turn-based games, RPG and tower defense games. This game is designed to provide a PVP experience with 2~8 players. Basically, the even number of players are divided into 2 teams fighting for their king. A particular round of the game will consist of 2 phases: building phase and fighting phase. 
+Our project is a PVP game called “For the King” with elements of turn-based games, RPG and tower defense games. This game is designed to provide a PVP experience with 2~8 players. Basically, the even number of players are divided into 2 teams fighting for their king. A particular round of the game will consist of 2 phases: building phase and fighting phase. 
 
 In the building phase, each player receive gold from the system and they can choose what kind of buildings they want to build. Once every player is finished with their building selection, building phases ends and the fighting phase begins. At the start of the fight scene, buildings will spawn minions to fight. The fighting map is divided into 1~4 lanes depending on the number of players, each lane will have two players fighting each other. Each end of the lane will be the opposing player's base. Behind their base is a portal that teleports minions to fight for their Model.King. Between their bases will be a lane of blood and fire where minions fight to death. For example, player 1 and player 2 will be against each other, if player 1 have better army and wins the fight which usually happened in the middle of the lane; his minions will march forward until they arrive the portal behind player 2’s base and get teleported to their Model.King to fight the other Model.King. The game ends if one Model.King is defeated.
 
@@ -77,5 +77,5 @@ We will be using the MVC (Model-View-Controller) design pattern in the general s
 As we envision, the game will be consist of multiple pieces. 
 
 - Xingfan will be in charge of designing and developing a variety of buildings and minions in the game. 	
-- We envision that the game will have two controllers, one for the build mode and the other for the fighting mode. Yitong and Russell will each be in charge of one of the two controllers. 	
+  - We envision that the game will have two controllers, one for the build mode and the other for the fighting mode. Yitong and Russell will each be in charge of one of the two controllers. 
 - Additionally, Yitong will develop the the view for the battle mode and Russell will be be building the model.
