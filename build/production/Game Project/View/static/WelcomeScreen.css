@@ -1,5 +1,6 @@
 .root {
     -fx-background-image: url("ForTheKingWelcome.jpg");
+    -fx-background-repeat: stretch;
 }
 
 #titleText {
@@ -23,6 +24,14 @@
     -fx-text-fill: black;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
     -fx-font-weight: bold;
+
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .button Text {

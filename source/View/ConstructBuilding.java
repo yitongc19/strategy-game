@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -31,6 +32,7 @@ public class ConstructBuilding extends Application {
         BorderPane root = new BorderPane();
 
         VBox leftPanels = new VBox();
+        leftPanels.setSpacing(20);
 
         VBox currentBasePanel = addCurrectBasePanel();
         ScrollPane constructBuildingPanel = addBuildingsToConstructPanel();
@@ -44,6 +46,8 @@ public class ConstructBuilding extends Application {
 
         root.setLeft(leftPanels);
         root.setRight(rightPanels);
+
+        root.setPadding(new Insets(30, 50, 30, 50));
 
         Scene scene = new Scene(root, 1400, 1000);
         scene.getStylesheets().add(Fight.class.getResource("static/ConstructBuilding.css").toExternalForm());
@@ -115,15 +119,33 @@ public class ConstructBuilding extends Application {
         VBox singleBuildingContainer = new VBox();
 
         ImageView buildingImg = new ImageView(ConstructBuilding.class.getResource("static/evilbdt1.gif").toExternalForm());
-        buildingImg.setFitWidth(200);
+        buildingImg.setStyle("-fx-background-color: transparent");
+        buildingImg.setFitWidth(180);
         buildingImg.setPreserveRatio(true);
 
-        Text buildingName = new Text("CupCake House");
-        Text buildingCost = new Text("200");
+        Button buildingImgContainer = new Button("", buildingImg);
+        buildingImgContainer.setId("buildingImgContainer");
 
-        singleBuildingContainer.getChildren().addAll(buildingImg, buildingName, buildingCost);
+        VBox buildingInfoGen = addBuildingInfo();
+
+        singleBuildingContainer.getChildren().addAll(buildingImgContainer, buildingInfoGen);
+
+        singleBuildingContainer.setPadding(new Insets(5, 5, 5, 5));
 
         return singleBuildingContainer;
+    }
+
+    /* Construct the building info block */
+    private static VBox addBuildingInfo() {
+        VBox buildingInfo = new VBox();
+        buildingInfo.setAlignment(Pos.CENTER);
+
+        Text buildingName = new Text("Cupcake House");
+        Text buildingPrice = new Text("$200");
+
+        buildingInfo.getChildren().addAll(buildingName, buildingPrice);
+
+        return buildingInfo;
     }
 
     /* Construct the playerInfo panel */
@@ -159,9 +181,14 @@ public class ConstructBuilding extends Application {
 
     private static VBox addCurrectBasePanel() {
         VBox currentBasePanel = new VBox();
-        currentBasePanel.setPadding(new Insets(10, 10, 10, 10));
+        currentBasePanel.setPadding(new Insets(0, 10, 10, 10));
+        currentBasePanel.setStyle("-fx-border-radius: 10 10 0 0;\n" +
+                " -fx-background-radius: 10 10 0 0;");
+        currentBasePanel.setId("currentBaseContainer");
 
         Text title = new Text("Existing Buildings");
+        title.setFont(Font.font("Herculanum", FontWeight.BOLD, 40));
+        title.setFill(Color.WHITE);
         StackPane currentBase = addCurrentBase();
 
         currentBasePanel.getChildren().addAll(title, currentBase);
@@ -176,8 +203,8 @@ public class ConstructBuilding extends Application {
 
         GridPane baseBuilding = addBaseBuildings();
 
-        baseGrid.setPadding(new Insets(20, 0, 0, 100));
-        baseBuilding.setPadding(new Insets(20, 0, 0, 100));
+        baseGrid.setPadding(new Insets(20, 0, 0, 50));
+        baseBuilding.setPadding(new Insets(20, 0, 0, 50));
 
         currentBase.getChildren().addAll(baseGrid, baseBuilding);
 
@@ -194,7 +221,7 @@ public class ConstructBuilding extends Application {
             for (int col = 0; col < 5; col ++) {
                 Rectangle grid = new Rectangle(100, 100);
                 grid.setFill(Color.TRANSPARENT);
-                grid.setStroke(Color.BLACK);
+                grid.setStroke(Color.WHITE);
                 grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
                 baseGrid.add(grid, col, row);
             }
@@ -213,7 +240,7 @@ public class ConstructBuilding extends Application {
             for (int col = 0; col < 5; col ++) {
                 Circle placeHolder = new Circle(50);
                 placeHolder.setFill(Color.TRANSPARENT);
-                placeHolder.setStroke(Color.BLACK);
+                placeHolder.setStroke(Color.WHITE);
                 placeHolder.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
                 baseBuildings.add(placeHolder, col, row);
             }

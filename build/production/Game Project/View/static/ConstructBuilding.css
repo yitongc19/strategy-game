@@ -5,3 +5,25 @@ Text {
 Button {
     -fx-font-size: 20;
 }
+
+.root {
+    -fx-background-image: url("constructBuildingBg.jpg");
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: saddlebrown;
+    -fx-opacity: 0.8;
+}
+
+#currentBaseContainer {
+    -fx-background-color: saddlebrown;
+    -fx-opacity: 0.8;
+}
+
+#buildingImgContainer:hover {
+
+}
