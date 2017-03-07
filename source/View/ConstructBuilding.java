@@ -3,8 +3,13 @@ package View;
 import Model.Building;
 import Model.BuildingImpl;
 import javafx.application.Application;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -19,6 +24,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.awt.event.MouseEvent;
 
 
 /**
@@ -123,8 +130,25 @@ public class ConstructBuilding extends Application {
         buildingImg.setFitWidth(180);
         buildingImg.setPreserveRatio(true);
 
-        Button buildingImgContainer = new Button("", buildingImg);
+        Text buildingInfoBlock = new Text("Minions Spawned: Cupcake Minion;" +
+                "\nMinion Attack Speed:" +
+                "\nMinion Move Speed:" +
+                "\nMinion Shield");
+        buildingInfoBlock.prefWidth(180);
+        buildingInfoBlock.setFont(Font.font("Herculanum"));
+
+        StackPane imageViewContainer = new StackPane(buildingImg);
+
+        StackPane infoBlockContainer = new StackPane(buildingInfoBlock);
+        infoBlockContainer.prefWidth(180);
+
+        Button buildingImgContainer = new Button("");
         buildingImgContainer.setId("buildingImgContainer");
+
+        buildingImgContainer.graphicProperty().bind(
+                Bindings.when(
+                        buildingImgContainer.hoverProperty()
+                ).then(infoBlockContainer).otherwise(imageViewContainer));
 
         VBox buildingInfoGen = addBuildingInfo();
 
@@ -143,6 +167,9 @@ public class ConstructBuilding extends Application {
         Text buildingName = new Text("Cupcake House");
         Text buildingPrice = new Text("$200");
 
+        buildingName.setFont(Font.font("Herculanum", 20));
+        buildingPrice.setFont(Font.font("Herculanum", 20));
+
         buildingInfo.getChildren().addAll(buildingName, buildingPrice);
 
         return buildingInfo;
@@ -154,27 +181,26 @@ public class ConstructBuilding extends Application {
         playerInfoPanel.setSpacing(20);
         playerInfoPanel.setPadding(new Insets(5, 5, 5, 5));
         playerInfoPanel.setStyle("-fx-border-style: solid");
-        playerInfoPanel.setPrefSize(500, 500);
+        playerInfoPanel.setPrefSize(500, 600);
 
         Text titleText = new Text("Player Info: ");
+        titleText.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 30));
 
-        Text playerName = new Text("Player Name: Yitong");
+        Text playerInfo = new Text("Player Name: Yitong" +
+                "\nPlayer Color: Red" +
+                "\nPlayer Gold: 1000" +
+                "\nPlayer Score: 600" +
+                "\nPlayer Rank: #4");
 
-        Text playerColor = new Text("Player Color: Red");
-
-        Text playerGold = new Text("Player Gold: 1000");
-
-        Text playerScore = new Text("Player Score: 600");
-
-        Text playerRank = new Text("Player Rank: #4");
+        playerInfo.setLineSpacing(10);
+        playerInfo.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 20));
 
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.BASELINE_RIGHT);
         Button showMapButton = new Button("Show Map");
         buttonContainer.getChildren().addAll(showMapButton);
 
-        playerInfoPanel.getChildren().addAll(titleText, playerName, playerColor, playerGold,
-                playerScore, playerRank, buttonContainer);
+        playerInfoPanel.getChildren().addAll(titleText, playerInfo, buttonContainer);
 
         return playerInfoPanel;
     }
@@ -187,7 +213,7 @@ public class ConstructBuilding extends Application {
         currentBasePanel.setId("currentBaseContainer");
 
         Text title = new Text("Existing Buildings");
-        title.setFont(Font.font("Herculanum", FontWeight.BOLD, 40));
+        title.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 40));
         title.setFill(Color.WHITE);
         StackPane currentBase = addCurrentBase();
 
