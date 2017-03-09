@@ -33,8 +33,12 @@ import java.awt.event.MouseEvent;
  */
 public class ConstructBuilding extends Application {
 
+    static Stage constructStage = new Stage();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        constructStage = primaryStage;
 
         BorderPane root = new BorderPane();
 

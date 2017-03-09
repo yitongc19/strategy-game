@@ -2,8 +2,12 @@ package View;
 
 import com.sun.jdi.Mirror;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -15,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 import java.sql.Blob;
@@ -23,15 +28,26 @@ import java.sql.Blob;
  * Created by cheny2 on 3/1/17.
  */
 public class WelcomeScreen extends Application{
+
+    private static final String BOOTSTRAP_PREFIX = "http://getbootstrap.com/components/#";
+    static Stage welcomeStage;
+
     @Override
     /* Construct scene and stage to display the view
      */
     public void start(Stage primaryStage) throws Exception {
 
-        VBox root = addContent();
+        final WebView webView = new WebView();
+        welcomeStage = primaryStage;
+//
+//        Parent root = FXMLLoader.load(getClass().getResource("welcomeScreen.fxml"));
 
-        Scene scene = new Scene(root, 1000, 680);
+        VBox root = addContent(webView);
+
+        Scene scene = new Scene(root, 1000, 600);
         scene.getStylesheets().add(WelcomeScreen.class.getResource("static/WelcomeScreen.css").toExternalForm());
+        scene.getStylesheets().add(WelcomeScreen.class.getResource("bootstrap2.css").toExternalForm());
+        scene.getStylesheets().add(WelcomeScreen.class.getResource("bootstrap3.css").toExternalForm());
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -39,7 +55,7 @@ public class WelcomeScreen extends Application{
     }
 
     /* add the main content */
-    private static VBox addContent() {
+    private static VBox addContent(WebView webView) {
         VBox box = new VBox();
         box.prefWidth(600);
         box.setAlignment(Pos.CENTER);
@@ -47,7 +63,7 @@ public class WelcomeScreen extends Application{
 //        Text sceneTitle = addTitle();
         Text titleHolder = new Text("       ");
         HBox buttonContainer = new HBox();
-        Button startGameButton = addButton();
+        Button startGameButton = addButton(webView);
         buttonContainer.getChildren().addAll(startGameButton);
         box.getChildren().addAll(titleHolder, startGameButton);
 
@@ -111,9 +127,28 @@ public class WelcomeScreen extends Application{
 
 
     /* construct the start game button */
-    private static Button addButton() {
-        Button startGameButton = new Button("PLAY!");
+    private static Button addButton(WebView webView) {
+        Button startGameButton = new StartButton("PLAY!", webView);
+
+        startGameButton.setOnAction(event -> {
+            InitiateGame initiateGame = new InitiateGame();
+            initiateGame.start(InitiateGame.initiateStage);
+            welcomeStage.close();
+        });
         return startGameButton;
+    }
+
+    private static class StartButton extends Button {
+        public StartButton(String textOnButton, final WebView webView) {
+            setText(textOnButton);
+
+            setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    webView.getEngine().load(BOOTSTRAP_PREFIX + textOnButton);
+                }
+            });
+        }
     }
 
     public static void main(String[] args) {launch(args);}
