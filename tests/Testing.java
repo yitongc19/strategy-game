@@ -33,6 +33,8 @@ public class Testing {
         PlayerImpl russell = new PlayerImpl(2, "Russell", color);
         System.out.println(russell.gold);
         System.out.println(russell.getScore());
+        System.out.println(yitong.gold);
+        System.out.println(yitong.getScore());
         yitong.setOpponent(russell);
 
         CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior 1", russell, pos1);
@@ -59,5 +61,7 @@ public class Testing {
         }
         System.out.println(russell.gold);
         System.out.println(russell.getScore());
+        System.out.println(yitong.gold);
+        System.out.println(yitong.getScore());
     }
 }
