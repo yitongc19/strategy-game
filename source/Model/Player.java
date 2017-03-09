@@ -17,7 +17,7 @@ public interface Player {
 
     King getKing();
 
-    Integer getScore();
+    int getScore();
 
     // 1 for team 1, 2 for team 2
     int getTeam();

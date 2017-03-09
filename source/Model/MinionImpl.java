@@ -6,8 +6,7 @@ import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 
 /**
  * Created by xingfanxia on 2/25/17.
@@ -18,6 +17,7 @@ public class MinionImpl implements Minion {
     public CombatManager manager;
     public PlayerImpl master;
     public String minionName;
+    public BuildingImpl spawner;
     public double hp;
     public double armor;
     public double atk;
@@ -42,6 +42,9 @@ public class MinionImpl implements Minion {
     public String moveFrame;
     public String attackFrame;
     public MinionImpl upgradeTo;
+
+    public int portalReward;
+    public int killReward;
 
     public double getHP() {
         return this.hp;
@@ -457,6 +460,9 @@ public class MinionImpl implements Minion {
                 this.setCoords(this.myKing.kingArmyPos);
                 System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+                this.master.gold += portalReward;
+                this.master.myScore += portalReward*5;
+                System.out.println(this.master.getPlayerName() + " earned " + portalReward + " gold");
                 return true;
             }
             return false;
@@ -468,10 +474,14 @@ public class MinionImpl implements Minion {
                 this.setCoords(this.myKing.kingArmyPos);
                 System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
                 System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+                this.master.gold += portalReward;
+                this.master.myScore += portalReward*5;
+                System.out.println(this.master.getPlayerName() + " earned " + portalReward + " gold");
                 return true;
             }
             return false;
         }
+
     }
 
     public void dieForHonor() {
@@ -488,6 +498,10 @@ public class MinionImpl implements Minion {
             this.manager.getAllInstances().remove(this);
             if (this.myKing != null) {
                 this.myKing.getMinions().remove(this);
+            } else {
+                this.master.opponent.gold +=  killReward;
+                this.master.opponent.myScore += killReward*5;
+                System.out.println(this.master.opponent.getPlayerName() + " earned " + killReward + " gold");
             }
         }
     }

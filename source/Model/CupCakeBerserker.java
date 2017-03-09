@@ -26,9 +26,9 @@ public class CupCakeBerserker extends MeleeMinion {
         this.minionName = name;
         this.master = master;
         this.master.add_Minions(this);
-        this.hp = 700;
-        this.atk = 55;
-        this.armor = 1;
+        this.hp = 800;
+        this.atk = 75;
+        this.armor = -3;
         this.maxhp = 700;
         this.armorType = ArmorType.LightArmor;
         this.atkType = AtkType.Normal;
@@ -41,6 +41,8 @@ public class CupCakeBerserker extends MeleeMinion {
         this.priority = 7;
         this.randomMinConst = 0.80;
         this.randomMaxConst = 1.30;
+        this.killReward = 12;
+        this.portalReward = 20;
         this.manager = manager;
         manager.instances.add(this);
 

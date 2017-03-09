@@ -16,7 +16,7 @@ public class PlayerImpl implements Player {
     private ArrayList<Building> buildings = new ArrayList<Building>();
     public ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     public King myKing;
-    private Integer myScore;
+    public int myScore;
     private int teamNum;
     private String playerName;
     private int[] playerColor; //in rgba
@@ -52,7 +52,7 @@ public class PlayerImpl implements Player {
         return this.myKing;
     }
 
-    public Integer getScore() {
+    public int getScore() {
         return this.myScore;
     }
 

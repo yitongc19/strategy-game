@@ -31,6 +31,8 @@ public class Testing {
         int[] color = {10, 20, 30};
         PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
         PlayerImpl russell = new PlayerImpl(2, "Russell", color);
+        System.out.println(russell.gold);
+        System.out.println(russell.getScore());
         yitong.setOpponent(russell);
 
         CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior 1", russell, pos1);
@@ -44,16 +46,18 @@ public class Testing {
         CupCakeWarrior newcup8 = new CupCakeWarrior(manager, "Cup Cake Warrior 8", yitong, pos8);
 //        ShieldKnight sk2 = new ShieldKnight(manager, "Shield Knight 2", yitong, pos9);
 //        ShieldKnight sk3 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos10);
-//        CupCakeWarrior newcup9 = new CupCakeWarrior(manager, "Cup Cake Warrior 9", yitong, pos9);
-//        CupCakeWarrior newcup10 = new CupCakeWarrior(manager, "Cup Cake Warrior 10", yitong, pos10);
-        CupCakeBerserker newcupber = new CupCakeBerserker(manager, "Cup Cake Berserker 1", yitong, pos10);
+        CupCakeWarrior newcup9 = new CupCakeWarrior(manager, "Cup Cake Warrior 9", yitong, pos9);
+        CupCakeWarrior newcup10 = new CupCakeWarrior(manager, "Cup Cake Warrior 10", yitong, pos10);
+//        CupCakeBerserker newcupber = new CupCakeBerserker(manager, "Cup Cake Berserker 1", yitong, pos10);
 
         int runs = 0;
-        while (true) {
+        while (runs<300) {
             manager.doCombat(yitong,russell);
 //            yitong.attack(russell);
 //            russell.attack(yitong);
-//            runs++;
+            runs++;
         }
+        System.out.println(russell.gold);
+        System.out.println(russell.getScore());
     }
 }

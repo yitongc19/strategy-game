@@ -26,6 +26,8 @@ public class CupCakeWarrior extends MeleeMinion {
         this.randomMaxConst = 1.10;
         this.manager = manager;
         manager.instances.add(this);
+        this.portalReward = 12;
+        this.killReward = 6;
         //set the Frames
     }
 }

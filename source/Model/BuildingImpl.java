@@ -14,11 +14,10 @@ public class BuildingImpl {
     String buildingImagePath_V1;
     String buildingImagePath_V2;
     String buildingImagePath_V3;
-    Integer cost;
+    int cost;
     Integer upgradeCost;
 
     ArrayList<String> upgradeTree;
-    MinionImpl toSpwan;
     PlayerImpl owner;
 
     int[] gridCoords;
@@ -34,7 +33,6 @@ public class BuildingImpl {
 
     public void upgrade(int level, MinionImpl upgraded) {
         setImage(upgradeTree.get(level));
-        setToSpwan(upgraded);
         owner.gold -= upgradeCost;
     }
 
@@ -58,15 +56,5 @@ public class BuildingImpl {
     public void setGridCoords(int[] gridCoords) {
         this.gridCoords = gridCoords;
     }
-
-
-    public MinionImpl getToSpwan() {
-        return toSpwan;
-    }
-
-    public void setToSpwan(MinionImpl toSpwan) {
-        this.toSpwan = toSpwan;
-    }
-
 
 }

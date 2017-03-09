@@ -27,6 +27,8 @@ public class ShieldKnight extends MeleeMinion {
         this.priority = 9;
         this.randomMinConst = 0.99;
         this.randomMaxConst = 1.01;
+        this.killReward = 10;
+        this.portalReward = 16;
         this.manager = manager;
         manager.instances.add(this);
     }
