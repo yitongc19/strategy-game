@@ -7,6 +7,9 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.*;
+import View.Sprite;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 /**
  * Created by xingfanxia on 2/25/17.
@@ -45,6 +48,30 @@ public class MinionImpl implements Minion {
 
     public int portalReward;
     public int killReward;
+
+    public Sprite sprite;
+    public Image def;
+    public Image walk;
+    public Image fight;
+    public int walked = 0;
+    public int attacked = 0;
+
+
+    public void render(GraphicsContext gc) {
+        this.sprite.render(gc);
+    }
+
+    public void setDef(Image def) {
+        this.def = def;
+    }
+
+    public void setWalk(Image walk) {
+        this.walk = walk;
+    }
+
+    public void setFight(Image fight) {
+        this.fight = fight;
+    }
 
     public double getHP() {
         return this.hp;
@@ -413,8 +440,10 @@ public class MinionImpl implements Minion {
          */
         if (enemies.isEmpty()) {
             if (this.myKing != null) {
-                if (cal_dist_king(this.myKing.getOpponetKing()) > atkRange)
+                if (cal_dist_king(this.myKing.getOpponetKing()) > atkRange) {
                     approachKing(this.myKing.getOpponetKing());
+                    this.walkAnimate();
+                }
                 else {
                     if (this.attackCounter >= this.attackSpeed){
                         double damage = this.dmgCalKing(this.myKing.getOpponetKing());
@@ -426,15 +455,20 @@ public class MinionImpl implements Minion {
                             System.exit(0);
                         }
                         this.attackCounter = 0;
+                        this.attackAnimate();
+
                     }
                 }
             } else {
                 keepWalking();
+                this.walkAnimate();
+
             }
         } else {
             target = chooseTarget(enemies);
             if (cal_distance(target) > atkRange) {
                 chase(target);
+                this.walkAnimate();
             } else {
                 if (this.attackCounter >= this.attackSpeed){
                     double damage = this.dmgCal(target);
@@ -443,6 +477,7 @@ public class MinionImpl implements Minion {
                             target.master.getPlayerName() + "'s " + target.minionName);
 //                    target.dieForHonor();
                     this.attackCounter = 0;
+                    this.attackAnimate();
                 }
             }
         }
@@ -480,6 +515,29 @@ public class MinionImpl implements Minion {
                 return true;
             }
             return false;
+        }
+
+    }
+
+    public void walkAnimate() {
+        if (this.walked == 0) {
+            this.sprite.setImage(this.walk);
+            this.walked = 1;
+        }
+        else {
+            this.sprite.setImage(this.def);
+            this.walked = 0;
+        }
+    }
+
+    public void attackAnimate() {
+        if (this.attacked == 0) {
+            this.sprite.setImage(this.fight);
+            this.attacked = 1;
+        }
+        else {
+            this.sprite.setImage(this.def);
+            this.attacked = 0;
         }
 
     }

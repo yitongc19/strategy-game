@@ -59,7 +59,7 @@ public class ConstructBuilding extends Application {
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
         VBox playerInfoPanel = addPlayerInfoPanel();
-        VBox functionPanels = addFunctionPanel();
+        VBox functionPanels = addFunctionPanel(primaryStage);
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
 
         root.setLeft(leftPanels);
@@ -76,7 +76,7 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the function panel */
-    private static VBox addFunctionPanel() {
+    private static VBox addFunctionPanel(Stage fightStage) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -131,7 +131,7 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setOnAction(event -> {
             Fight fight = new Fight();
             try {
-                fight.start(Fight.fightStage);
+                fight.start(fightStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }

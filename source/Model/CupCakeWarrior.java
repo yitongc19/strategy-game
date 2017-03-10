@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.scene.image.Image;
+import View.Sprite;
+
 /**
  * Created by xingfanxia on 2/27/17.
  */
@@ -26,6 +29,17 @@ public class CupCakeWarrior extends MeleeMinion {
         this.randomMaxConst = 1.10;
         this.manager = manager;
         manager.instances.add(this);
+
+        this.sprite = new Sprite();
+        Image def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
+        Image walk = new Image(CupCakeWarrior.class.getResource("cupcakeWalk.png").toExternalForm());
+        Image fight = new Image(CupCakeWarrior.class.getResource("cupcakeFight.png").toExternalForm());
+        this.sprite.setImage(def);
+        this.setDef(def);
+        this.setFight(fight);
+        this.setWalk(walk);
+
+
         this.portalReward = 12;
         this.killReward = 6;
         //set the Frames

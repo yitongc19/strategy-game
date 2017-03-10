@@ -22,22 +22,39 @@ import javafx.stage.Stage;
 import org.omg.CORBA.TIMEOUT;
 
 import java.util.Random;
+import Model.*;
+import Controller.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+
 
 /**
  * Created by cheny2 on 3/3/17.
  */
 public class Fight extends Application{
 
-    static Stage fightStage = new Stage();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
 
-        ScrollPane battleLog = addBattleLog();
-        VBox battleField = addBattleField();
+        FightController control = new FightController();
+        CombatManager manager = new CombatManager();
+
+        GameController newGame = new GameController(2);
+        newGame.setUpGame(manager);
+        PlayerImpl[] players = newGame.getPlayers();
+
+        control.setPlayers(players);
+
+        Canvas canvas = new Canvas( 2000, 1000 );
+        GraphicsContext graphics = canvas.getGraphicsContext2D();
+
+        ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics);
+        VBox battleField = addBattleField(canvas);
 
         root.setRight(battleLog);
         root.setCenter(battleField);
@@ -53,7 +70,7 @@ public class Fight extends Application{
     /*
     Construct the battelField container pane with all the elements.
      */
-    private static VBox addBattleField() {
+    private static VBox addBattleField(Canvas canvas) {
         VBox battleFieldContainer = new VBox();
 
         HBox titleContainer = new HBox();
@@ -61,7 +78,7 @@ public class Fight extends Application{
         Text title = addTitle();
 
         title.setFont(Font.font("Herculanum", FontWeight.BOLD, 30));
-        ScrollPane map = addMap();
+        ScrollPane map = addMap(canvas);
         VBox buffPanel = addBuffPanel();
 
         titleContainer.getChildren().addAll(title);
@@ -71,7 +88,7 @@ public class Fight extends Application{
     }
 
     /* Construct the map to display*/
-    private static ScrollPane addMap() {
+    private static ScrollPane addMap(Canvas canvas) {
         ScrollPane mapContainer = new ScrollPane();
 
         mapContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -91,7 +108,7 @@ public class Fight extends Application{
         StackPane lane3 = addNormalLane(Color.LIGHTPINK, Color.LIGHTGOLDENRODYELLOW);
         StackPane lane4 = addNormalLane(Color.LIGHTYELLOW, Color.LIGHTGRAY);
 
-        fourLaneMap.getChildren().addAll(lane1, addLaneSeparator(), lane2,
+        fourLaneMap.getChildren().addAll(canvas, lane1, addLaneSeparator(), lane2,
                 addLaneSeparator(), kingLane, addLaneSeparator(), lane3, addLaneSeparator(), lane4);
 
         laneContainer.getChildren().addAll(laneBackground, fourLaneMap);
@@ -278,7 +295,7 @@ public class Fight extends Application{
     }
 
     /* Construct the battleLogs */
-    private static ScrollPane addBattleLog() {
+    private static ScrollPane addBattleLog(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics) {
         ScrollPane battleLogContainer = new ScrollPane();
         battleLogContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         battleLogContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -295,7 +312,7 @@ public class Fight extends Application{
         HBox msg2 = updateMessage("Russell", "Minions march forward!", Color.GREEN);
         HBox msg3 = updateMessage("Yitong", "For the KING", Color.RED);
 
-        Button startButton = new Button("Start");
+        Button startButton = addStartButton(curStage, manager, controller, graphics);
         startButton.setId("startButton");
 
         battleLogContent.getChildren().addAll(battleLogTitle, msg1, msg2, msg3);
@@ -320,6 +337,17 @@ public class Fight extends Application{
         message.getChildren().addAll(player, playerStatus);
 
         return message;
+    }
+
+    private static Button addStartButton(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics) {
+        Button startFightButton = new Button("Start");
+        startFightButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                controller.runFight(manager, graphics);
+            }
+        });
+        return startFightButton;
     }
 
 

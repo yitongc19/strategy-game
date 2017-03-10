@@ -3,6 +3,8 @@ package Model;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.pow;
+import javafx.scene.image.Image;
+import View.Sprite;
 
 /**
  * Created by xingfanxia on 3/1/17.
@@ -45,6 +47,15 @@ public class CupCakeBerserker extends MeleeMinion {
         this.portalReward = 20;
         this.manager = manager;
         manager.instances.add(this);
+
+        this.sprite = new Sprite();
+        Image def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
+        Image walk = new Image(CupCakeWarrior.class.getResource("cupcakeWalk.png").toExternalForm());
+        Image fight = new Image(CupCakeWarrior.class.getResource("cupcakeFight.png").toExternalForm());
+        this.sprite.setImage(def);
+        this.setDef(def);
+        this.setFight(fight);
+        this.setWalk(walk);
 
         //crit strike chance and dmg
         this.critChance = 0.35;
