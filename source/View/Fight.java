@@ -1,6 +1,7 @@
 package View;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,13 +21,19 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.omg.CORBA.TIMEOUT;
 
+import java.util.Random;
+
 /**
  * Created by cheny2 on 3/3/17.
  */
 public class Fight extends Application{
 
+    static Stage fightStage = new Stage();
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        fightStage = primaryStage;
+
         BorderPane root = new BorderPane();
 
         ScrollPane battleLog = addBattleLog();
@@ -53,7 +60,7 @@ public class Fight extends Application{
         titleContainer.setAlignment(Pos.CENTER);
         Text title = addTitle();
 
-        title.setFont(Font.font(null, FontWeight.BOLD, 30));
+        title.setFont(Font.font("Herculanum", FontWeight.BOLD, 30));
         ScrollPane map = addMap();
         VBox buffPanel = addBuffPanel();
 
@@ -71,19 +78,21 @@ public class Fight extends Application{
         mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
         StackPane laneContainer = new StackPane();
-        ImageView laneBackground = new ImageView(Fight.class.getResource("static/backgroundFight.gif").toExternalForm());
+        ImageView laneBackground = new ImageView(Fight.class.getResource("static/landscape.png").toExternalForm());
         laneBackground.setFitWidth(1400);
-        laneBackground.setFitHeight(1040);
+        laneBackground.setFitHeight(1120);
 
         VBox fourLaneMap = new VBox();
 
         StackPane lane1 = addNormalLane(Color.LIGHTGREEN, Color.LIGHTBLUE);
+
         StackPane lane2 = addNormalLane(Color.LIGHTCORAL, Color.LIGHTCYAN);
         StackPane kingLane = addKingLane();
         StackPane lane3 = addNormalLane(Color.LIGHTPINK, Color.LIGHTGOLDENRODYELLOW);
         StackPane lane4 = addNormalLane(Color.LIGHTYELLOW, Color.LIGHTGRAY);
 
-        fourLaneMap.getChildren().addAll(lane1, lane2, kingLane, lane3, lane4);
+        fourLaneMap.getChildren().addAll(lane1, addLaneSeparator(), lane2,
+                addLaneSeparator(), kingLane, addLaneSeparator(), lane3, addLaneSeparator(), lane4);
 
         laneContainer.getChildren().addAll(laneBackground, fourLaneMap);
         mapContainer.setContent(laneContainer);
@@ -95,14 +104,21 @@ public class Fight extends Application{
 //        //for each player, for each minion, draw everything
 //    }
 
+    /* Construct a lane separator */
+    private static Rectangle addLaneSeparator() {
+        Rectangle laneSeparator = new Rectangle(1400, 20);
+        laneSeparator.setFill(Color.rgb(255, 179, 102));
+        laneSeparator.setStroke(Color.TRANSPARENT);
+        return laneSeparator;
+    }
     /* Construct the king Lane*/
     private static StackPane addKingLane() {
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
 
-        ImageView king1 = addKing("static/crown.png");
+        ImageView king1 = addKing("static/king1.png");
         Rectangle road = addRoad(920, 240);
-        ImageView king2 = addKing("static/devil.png");
+        ImageView king2 = addKing("static/king2.png");
 
         lane.getChildren().addAll(king1, road, king2);
         laneHolder.getChildren().add(lane);
@@ -126,9 +142,9 @@ public class Fight extends Application{
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
 
-        GridPane base1 = addBase(color1);
+        GridPane base1 = addBaseLight(color1);
         Rectangle road = addRoad(1000, 200);
-        GridPane base2 = addBase(color2);
+        GridPane base2 = addBaseDark(color2);
 
         lane.getChildren().addAll(base1, road, base2);
         laneHolder.getChildren().add(lane);
@@ -151,20 +167,45 @@ public class Fight extends Application{
         base.getColumnConstraints().add(new ColumnConstraints(40));
         base.getRowConstraints().add(new RowConstraints(40));
 
-        for (int col = 0; col < 5; col ++) {
-            for (int row = 0; row < 5; row ++) {
-                addBuilding(base, col, row, Color.TRANSPARENT);
+        for (int col = 0; col < 4; col ++) {
+            for (int row = 0; row < 4; row ++) {
+                addBuilding(base, col, row, Color.TRANSPARENT, "static/lightbd.png");
             }
         }
+
+
 
         return base;
     }
 
+    private static GridPane addBaseLight(Paint baseColor) {
+        GridPane base = new GridPane();
+        base.setAlignment(Pos.CENTER);
+        base.getColumnConstraints().add(new ColumnConstraints(50));
+        base.getRowConstraints().add(new RowConstraints(50));
+        addBuilding(base, 0, 0, Color.TRANSPARENT, "static/lightbase2.png");
+        addBuilding(base, 1, 2, Color.TRANSPARENT, "static/lightbase1.png");
+        addBuilding(base, 2, 3, Color.TRANSPARENT, "static/lightbase2.png");
+        addBuilding(base, 3, 3, Color.TRANSPARENT, "static/lightbase1.png");
+        return base;
+    }
+
+    private static GridPane addBaseDark(Paint baseColor) {
+        GridPane base = new GridPane();
+        base.setAlignment(Pos.CENTER);
+        base.getColumnConstraints().add(new ColumnConstraints(50));
+        base.getRowConstraints().add(new RowConstraints(50));
+        addBuilding(base, 0, 0, Color.TRANSPARENT, "static/darkbase2.png");
+        addBuilding(base, 1, 2, Color.TRANSPARENT, "static/darkbase1.png");
+        addBuilding(base, 2, 3, Color.TRANSPARENT, "static/darkbase1.png");
+        addBuilding(base, 3, 3, Color.TRANSPARENT, "static/darkbase2.png");
+        return base;
+    }
     /* Construct a building in a base */
-    private static void addBuilding(GridPane pane, int columnNum, int rowNum, Paint baseColor) {
-        ImageView buildingBase = new ImageView(Fight.class.getResource("static/bdbase.gif").toExternalForm());
-        buildingBase.setFitHeight(40);
-        buildingBase.setFitWidth(40);
+    private static void addBuilding(GridPane pane, int columnNum, int rowNum, Paint baseColor, String imagePath) {
+        ImageView buildingBase = new ImageView(Fight.class.getResource(imagePath).toExternalForm());
+        buildingBase.setFitHeight(50);
+        buildingBase.setFitWidth(50);
 
 //        Circle placeHolder = new Circle(20);
 //        placeHolder.setStroke(baseColor);
@@ -175,7 +216,6 @@ public class Fight extends Application{
     /* Construct the game title*/
     private static Text addTitle() {
         Text gameTitle = new Text("BattleField");
-        gameTitle.setFill(Color.BEIGE);
         gameTitle.setId("gameTitle");
         return gameTitle;
     }
@@ -202,6 +242,7 @@ public class Fight extends Application{
         HBox buffButtonContainer = new HBox();
         buffButtonContainer.setAlignment(Pos.CENTER);
         buffButtonContainer.setSpacing(400);
+        buffButtonContainer.setPadding(new Insets(0, 0, 20, 0));
 
         GridPane buffTeam1 = addBuffButton("TEAM 1");
         GridPane buffTeam2 = addBuffButton("TEAM 2");
@@ -214,12 +255,21 @@ public class Fight extends Application{
     /* Construct buff buttons*/
     private static GridPane addBuffButton(String team) {
         GridPane buffButton = new GridPane();
+        buffButton.setPadding(new Insets(40, 40, 40, 40));
+        buffButton.setStyle( "-fx-border-style: solid inside;" +
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: 5;" +
+                "-fx-border-radius: 5;" +
+        "-fx-border-color: darkred");
 
         Text teamName = new Text(team);
-        teamName.setFill(Color.WHITE);
-        teamName.setFont(Font.font(null, 25));
+        teamName.setFont(Font.font("Herculanum", FontWeight.BOLD, 25));
 
         Button buff = new Button("BUFF");
+        buff.setId("buffButton");
+        buff.setOnAction(event -> {
+            buff.setDisable(true);
+        });
 
         buffButton.add(teamName, 0, 0);
         buffButton.add(buff, 1, 1);
@@ -233,7 +283,10 @@ public class Fight extends Application{
         battleLogContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         battleLogContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        VBox battleLog = new VBox();
+        BorderPane battleLog = new BorderPane();
+        battleLog.prefHeight(1000);
+        VBox battleLogContent = new VBox();
+
         battleLog.setStyle("-fx-background-color: white");
 
         Text battleLogTitle = new Text("BattleLog");
@@ -245,7 +298,10 @@ public class Fight extends Application{
         Button startButton = new Button("Start");
         startButton.setId("startButton");
 
-        battleLog.getChildren().addAll(battleLogTitle, msg1, msg2, msg3, startButton);
+        battleLogContent.getChildren().addAll(battleLogTitle, msg1, msg2, msg3);
+
+        battleLog.setCenter(battleLogContent);
+        battleLog.setBottom(startButton);
 
         battleLogContainer.setContent(battleLog);
         return battleLogContainer;
@@ -256,8 +312,10 @@ public class Fight extends Application{
 
         Text player = new Text(playerName + ": ");
         player.setFill(playerColor);
+        player.setFont(Font.font("Times New Roman", 16));
 
         Text playerStatus = new Text(msg);
+        playerStatus.setFont(Font.font("Times New Roman", 16));
 
         message.getChildren().addAll(player, playerStatus);
 

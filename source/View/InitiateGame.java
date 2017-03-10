@@ -56,6 +56,7 @@ public class InitiateGame extends Application{
         VBox choooseNumPlayer = addPlayerNumChoice();
 
         Button start = new Button("Start");
+        start.setId("startButton");
 
         start.setOnAction(event -> {
             ConstructBuilding constructBuilding = new ConstructBuilding();
@@ -76,16 +77,15 @@ public class InitiateGame extends Application{
     private static Text addInstruction() {
         Text instruction = new Text("Please choose the number of players:");
         //The dropshadow effect
-        Reflection r = new Reflection();
-        r.setFraction(0.7f);
-
-
-        instruction.setEffect(r);
-        instruction.setCache(true);
-        instruction.setX(10.0f);
-        instruction.setY(270.0f);
-        instruction.setFill(Color.WHITE);
-        instruction.setFont(Font.font(null, FontWeight.BOLD, 32));
+//        Reflection r = new Reflection();
+//        r.setFraction(0.7f);
+//
+//
+//        instruction.setEffect(r);
+//        instruction.setCache(true);
+//        instruction.setX(10.0f);
+//        instruction.setY(270.0f);
+        instruction.setFont(Font.font("", FontWeight.BOLD, 25));
 
         return instruction;
     }
@@ -154,32 +154,42 @@ public class InitiateGame extends Application{
     /* the number button constructor */
     private static Button addNumButton(int num) {
         Button numButton = new Button(Integer.toString(num));
+//        numButton.setPrefSize(20, 20);
         return numButton;
     }
 
     /* construct the panel to add team and player info */
-    private static HBox addPlayers(int numPlayers) {
-        HBox teamPanel = new HBox();
+    private static VBox addPlayers(int numPlayers) {
+        VBox teamPanel = new VBox();
+        teamPanel.setSpacing(10);
+        teamPanel.setPrefWidth(800);
         teamPanel.setAlignment(Pos.CENTER);
-        teamPanel.setSpacing(30);
+
+        Text instruction = new Text("Now type in your user name and choose a color");
+        instruction.setFont(Font.font(null, FontWeight.BOLD, 20));
+
+        HBox teams = new HBox();
+        teams.setAlignment(Pos.CENTER);
+        teams.setSpacing(30);
 
         VBox team1 = new VBox();
         Text team1Title = new Text("Team 1");
-        team1Title.setFont(Font.font(null, FontWeight.BOLD, 25));
+        team1Title.setFont(Font.font(null, FontWeight.BOLD, 18));
         VBox team1Players = playerOneSide(numPlayers, "team1");
         team1.getChildren().addAll(team1Title, team1Players);
 
         VBox team2 = new VBox();
         Text team2Title = new Text("Team 2");
-        team2Title.setFont(Font.font(null, FontWeight.BOLD, 25));
+        team2Title.setFont(Font.font(null, FontWeight.BOLD, 18));
         VBox team2Players = playerOneSide(numPlayers, "team2");
         team2.getChildren().addAll(team2Title, team2Players);
 
         Text vsText = new Text("vs");
-        vsText.setFill(Color.WHITE);
         vsText.setFont(Font.font("Verdana", 20));
 
-        teamPanel.getChildren().addAll(team1, vsText, team2);
+        teams.getChildren().addAll(team1, vsText, team2);
+
+        teamPanel.getChildren().addAll(instruction, teams);
 
         return teamPanel;
     }
@@ -211,7 +221,7 @@ public class InitiateGame extends Application{
         onePlayer.setSpacing(2);
 
         Label playerNum = playerNum(playerSeq);
-        playerNum.setTextFill(Color.WHITE);
+//        playerNum.setTextFill(Color.NAVY);
         playerNum.setFont(Font.font(null, FontWeight.BOLD, 16));
         playerNum.setMaxWidth(Double.MAX_VALUE);
         playerNum.setMaxHeight(Double.MAX_VALUE);
@@ -253,29 +263,33 @@ public class InitiateGame extends Application{
         menuCircle.setFill(Color.WHITE);
         Menu changeColorMenu = new Menu("", menuCircle);
 
-        MenuItem red = new MenuItem("", new Circle(8, Color.RED));
+        MenuItem red = new MenuItem("", new Circle(8, Color.LIGHTCORAL));
         red.setOnAction(event -> {
-            menuCircle.setFill(Color.RED);
+            menuCircle.setFill(Color.LIGHTCORAL);
+            menuCircle.setStroke(Color.TRANSPARENT);
         });
         changeColorMenu.getItems().add(red);
 
-        MenuItem blue = new MenuItem("", new Circle(8, Color.BLUE));
+        MenuItem blue = new MenuItem("", new Circle(8, Color.LIGHTBLUE));
         blue.setOnAction(event -> {
-            menuCircle.setFill(Color.BLUE);
+            menuCircle.setFill(Color.LIGHTBLUE);
+            menuCircle.setStroke(Color.TRANSPARENT);
         });
         changeColorMenu.getItems().add(blue);
 
-        MenuItem green = new MenuItem("", new Circle(8, Color.GREEN));
+        MenuItem green = new MenuItem("", new Circle(8, Color.LIGHTGREEN));
         green.setOnAction(event -> {
-            menuCircle.setFill(Color.GREEN);
+            menuCircle.setFill(Color.LIGHTGREEN);
+            menuCircle.setStroke(Color.TRANSPARENT);
         });
         changeColorMenu.getItems().add(green);
 
-        MenuItem yellow = new MenuItem("", new Circle(8, Color.YELLOW));
-        yellow.setOnAction(event -> {
-            menuCircle.setFill(Color.YELLOW);
+        MenuItem cyan = new MenuItem("", new Circle(8, Color.LIGHTCYAN));
+        cyan.setOnAction(event -> {
+            menuCircle.setFill(Color.LIGHTCYAN);
+            menuCircle.setStroke(Color.TRANSPARENT);
         });
-        changeColorMenu.getItems().add(yellow);
+        changeColorMenu.getItems().add(cyan);
 
         menuBar.getMenus().addAll(changeColorMenu);
         pane.getChildren().add(menuBar);

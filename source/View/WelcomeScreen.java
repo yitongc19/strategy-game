@@ -46,8 +46,7 @@ public class WelcomeScreen extends Application{
 
         Scene scene = new Scene(root, 1000, 600);
         scene.getStylesheets().add(WelcomeScreen.class.getResource("static/WelcomeScreen.css").toExternalForm());
-//        scene.getStylesheets().add(WelcomeScreen.class.getResource("bootstrap2.css").toExternalForm());
-        scene.getStylesheets().add(WelcomeScreen.class.getResource("bootstrap3.css").toExternalForm());
+
         primaryStage.setTitle("Welcome!");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -128,7 +127,7 @@ public class WelcomeScreen extends Application{
 
     /* construct the start game button */
     private static Button addButton(WebView webView) {
-        Button startGameButton = new StartButton("PLAY!", webView);
+        Button startGameButton = new StartButton("START", webView);
 
         startGameButton.setOnAction(event -> {
             InitiateGame initiateGame = new InitiateGame();

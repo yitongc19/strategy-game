@@ -2,6 +2,8 @@ package View;
 
 import Model.Building;
 import Model.BuildingImpl;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
@@ -12,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -24,6 +27,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.event.MouseEvent;
 
@@ -33,6 +37,8 @@ import java.awt.event.MouseEvent;
  */
 public class ConstructBuilding extends Application {
 
+    private static Integer STARTTIME = 59;
+
     static Stage constructStage = new Stage();
 
     @Override
@@ -40,6 +46,7 @@ public class ConstructBuilding extends Application {
 
         constructStage = primaryStage;
 
+        Font.loadFont(ConstructBuilding.class.getResource("digital-7.ttf").toExternalForm(), 30);
         BorderPane root = new BorderPane();
 
         VBox leftPanels = new VBox();
@@ -71,19 +78,69 @@ public class ConstructBuilding extends Application {
     /* Construct the function panel */
     private static VBox addFunctionPanel() {
         VBox functionPanel = new VBox();
+        functionPanel.setPadding(new Insets(10, 10, 10, 10));
+        functionPanel.setSpacing(5);
         functionPanel.setAlignment(Pos.CENTER);
+        functionPanel.setId("functionPanel");
 
         HBox timerContainer = new HBox();
-        Text timer = new Text("Timer PlaceHolder");
-        timerContainer.getChildren().addAll(timer);
+
+        Label timerLabel = new Label("00:" + STARTTIME.toString());
+        timerLabel.setId("timer");
+        timerLabel.setTextFill(Color.WHITE);
+        timerLabel.setFont(Font.font(null, 20));
+
+        timerContainer.getChildren().addAll(timerLabel);
         timerContainer.setAlignment(Pos.CENTER);
+
+        Button startTimerButton = new Button("Start Timer");
+        startTimerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Timeline timeline = new Timeline();
+
+                if (timeline != null) {
+                    timeline.stop();
+                }
+
+                final Integer[] timeSeconds = {STARTTIME};
+
+                timerLabel.setText("00:" + timeSeconds[0].toString());
+                timeline = new Timeline();
+                timeline.setCycleCount(Timeline.INDEFINITE);
+                Timeline finalTimeline = timeline;
+                timeline.getKeyFrames().add(
+                        new KeyFrame(Duration.seconds(1),
+                                new EventHandler<ActionEvent>() {
+                                    @Override
+                                    public void handle(ActionEvent event) {
+                                        timeSeconds[0]--;
+                                        timerLabel.setText("00:" + timeSeconds[0].toString());
+                                        if (timeSeconds[0] <= 0) {
+                                            finalTimeline.stop();
+                                        }
+                                    }
+                                }));
+                timeline.playFromStart();
+            }
+        });
         HBox nextPlayerButtonContainer = new HBox();
         nextPlayerButtonContainer.setAlignment(Pos.CENTER);
-        Button nextPlayerButton = new Button("Next Player");
+        Button nextPlayerButton = new Button("FINISH");
+        nextPlayerButton.setId("functionButton");
+        nextPlayerButton.setOnAction(event -> {
+            Fight fight = new Fight();
+            try {
+                fight.start(Fight.fightStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            constructStage.close();
+        });
 
         nextPlayerButtonContainer.getChildren().addAll(nextPlayerButton);
 
-        functionPanel.getChildren().addAll(timerContainer, nextPlayerButtonContainer);
+        functionPanel.getChildren().addAll(timerContainer, startTimerButton, nextPlayerButtonContainer);
         return functionPanel;
     }
 
@@ -139,12 +196,25 @@ public class ConstructBuilding extends Application {
                 "\nMinion Move Speed:" +
                 "\nMinion Shield");
         buildingInfoBlock.prefWidth(180);
-        buildingInfoBlock.setFont(Font.font("Herculanum"));
+        buildingInfoBlock.maxWidth(180);
+        buildingInfoBlock.setFont(Font.font("Herculanum", 15));
+        buildingInfoBlock.setWrappingWidth(180);
+        buildingInfoBlock.prefHeight(180);
+        buildingInfoBlock.minHeight(180);
+
+        Rectangle placeHolder = new Rectangle(180, 190);
+        placeHolder.setFill(Color.TRANSPARENT);
+        placeHolder.setStroke(Color.TRANSPARENT);
+
 
         StackPane imageViewContainer = new StackPane(buildingImg);
 
-        StackPane infoBlockContainer = new StackPane(buildingInfoBlock);
+        StackPane infoBlockContainer = new StackPane(placeHolder, buildingInfoBlock);
         infoBlockContainer.prefWidth(180);
+        infoBlockContainer.maxWidth(180);
+        infoBlockContainer.prefHeight(180);
+        infoBlockContainer.minHeight(180);
+        infoBlockContainer.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         Button buildingImgContainer = new Button("");
         buildingImgContainer.setId("buildingImgContainer");
@@ -183,9 +253,9 @@ public class ConstructBuilding extends Application {
     private static VBox addPlayerInfoPanel() {
         VBox playerInfoPanel = new VBox();
         playerInfoPanel.setSpacing(20);
-        playerInfoPanel.setPadding(new Insets(5, 5, 5, 5));
-        playerInfoPanel.setStyle("-fx-border-style: solid");
-        playerInfoPanel.setPrefSize(500, 600);
+        playerInfoPanel.setPadding(new Insets(10, 10, 10, 10));
+        playerInfoPanel.setId("playerInfoPanel");
+        playerInfoPanel.setPrefSize(500, 800);
 
         Text titleText = new Text("Player Info: ");
         titleText.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 30));
@@ -198,10 +268,12 @@ public class ConstructBuilding extends Application {
 
         playerInfo.setLineSpacing(10);
         playerInfo.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 20));
+        playerInfo.setFill(Color.WHITE);
 
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.BASELINE_RIGHT);
         Button showMapButton = new Button("Show Map");
+        showMapButton.setId("functionButton");
         buttonContainer.getChildren().addAll(showMapButton);
 
         playerInfoPanel.getChildren().addAll(titleText, playerInfo, buttonContainer);
