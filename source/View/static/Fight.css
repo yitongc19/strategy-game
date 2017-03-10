@@ -2,8 +2,7 @@
     /*-fx-background-image: url("welcomeBackground.jpg");*/
 }
 
-Button {
-    -fx-font-size: 25;
+.button {
     -fx-background-radius: 4;
     -fx-border-radius: 4;
     -fx-pref-height: 30;
@@ -12,6 +11,7 @@ Button {
 }
 
 #buffButton {
+    -fx-font-size: 25;
     -fx-background-color: #d9534f;
     -fx-border-color: #d43f3a;
     -fx-text-fill: white;
@@ -29,6 +29,7 @@ Button {
 }
 
 #startButton {
+    -fx-font-size: 14;
     -fx-background-color: white;
     -fx-border-color: #cccccc;
     -fx-text-fill: #333333;

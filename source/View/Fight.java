@@ -35,9 +35,12 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public class Fight extends Application{
 
+    static Stage fightStage = new Stage();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
 
@@ -50,7 +53,7 @@ public class Fight extends Application{
 
         control.setPlayers(players);
 
-        Canvas canvas = new Canvas( 2000, 1000 );
+        Canvas canvas = new Canvas( 1400, 1120 );
         GraphicsContext graphics = canvas.getGraphicsContext2D();
 
         ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics);
@@ -108,10 +111,10 @@ public class Fight extends Application{
         StackPane lane3 = addNormalLane(Color.LIGHTPINK, Color.LIGHTGOLDENRODYELLOW);
         StackPane lane4 = addNormalLane(Color.LIGHTYELLOW, Color.LIGHTGRAY);
 
-        fourLaneMap.getChildren().addAll(canvas, lane1, addLaneSeparator(), lane2,
+        fourLaneMap.getChildren().addAll(lane1, addLaneSeparator(), lane2,
                 addLaneSeparator(), kingLane, addLaneSeparator(), lane3, addLaneSeparator(), lane4);
 
-        laneContainer.getChildren().addAll(laneBackground, fourLaneMap);
+        laneContainer.getChildren().addAll(laneBackground, fourLaneMap, canvas);
         mapContainer.setContent(laneContainer);
 
         return mapContainer;
@@ -244,8 +247,7 @@ public class Fight extends Application{
         buffPanel.setAlignment(Pos.CENTER);
 
         Text buffTitle = new Text("SHOW YOUR LOYALTY!");
-        buffTitle.setFont(Font.font(null, 30));
-        buffTitle.setFill(Color.WHITE);
+        buffTitle.setFont(Font.font("Herculanum", 30));
 
         HBox buffButtons = addBuffs();
 

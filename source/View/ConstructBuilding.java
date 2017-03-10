@@ -128,10 +128,12 @@ public class ConstructBuilding extends Application {
         nextPlayerButtonContainer.setAlignment(Pos.CENTER);
         Button nextPlayerButton = new Button("FINISH");
         nextPlayerButton.setId("functionButton");
+
         nextPlayerButton.setOnAction(event -> {
             Fight fight = new Fight();
+
             try {
-                fight.start(fightStage);
+                fight.start(Fight.fightStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }
