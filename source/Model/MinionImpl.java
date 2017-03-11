@@ -387,9 +387,9 @@ public class MinionImpl implements Minion {
 
         this.Coords[0] += normalx;
         this.Coords[1] += normaly;
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
     }
 
     public void approachKing(King target) {
@@ -405,23 +405,23 @@ public class MinionImpl implements Minion {
 
         this.Coords[0] += normalx;
         this.Coords[1] += normaly;
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.kingName);
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.kingName);
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
     }
 
     public void keepWalking() {
         /*
         keep walking to the portal if no enemies
          */
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the " + this.master.myKing.kingName + " !");
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " keeps walking to fight for the " + this.master.myKing.kingName + " !");
         if (this.master.getTeam() == 1) {
             this.Coords[0] += moveSpeed;
         } else {
             this.Coords[0] -= moveSpeed;
         }
 
-        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
+//        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
 //        checkPortal();
     }
 
@@ -444,10 +444,10 @@ public class MinionImpl implements Minion {
                     if (this.attackCounter >= this.attackSpeed){
                         this.attackAnimate();
                         double damage = this.dmgCalKing(this.myKing.getOpponetKing());
-                        System.out.println(this.master.getPlayerName() + "'s " +
-                                this.minionName + " dealt " + damage + " damage to " +
-                                this.myKing.getOpponetKing().kingName);
-                        System.out.println(this.myKing.getOpponetKing().hp);
+//                        System.out.println(this.master.getPlayerName() + "'s " +
+//                                this.minionName + " dealt " + damage + " damage to " +
+//                                this.myKing.getOpponetKing().kingName);
+//                        System.out.println(this.myKing.getOpponetKing().hp);
                         if (this.myKing.checkDeath() || this.myKing.opponetKing.checkDeath()) {
                             System.exit(0);
                         }
@@ -470,9 +470,9 @@ public class MinionImpl implements Minion {
                 if (this.attackCounter >= this.attackSpeed){
                     this.attackAnimate();
                     double damage = this.dmgCal(target);
-                    System.out.println(this.master.getPlayerName() + "'s " +
-                            this.minionName + " dealt " + damage + " damage to " +
-                            target.master.getPlayerName() + "'s " + target.minionName);
+//                    System.out.println(this.master.getPlayerName() + "'s " +
+//                            this.minionName + " dealt " + damage + " damage to " +
+//                            target.master.getPlayerName() + "'s " + target.minionName);
 //                    target.dieForHonor();
                     this.attackCounter = 0;
                 }
@@ -490,8 +490,8 @@ public class MinionImpl implements Minion {
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
                 this.setCoords(this.myKing.kingArmyPos);
-                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
-                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+//                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
+//                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 this.master.gold += portalReward;
                 this.master.myScore += portalReward*5;
                 System.out.println(this.master.getPlayerName() + " earned " + portalReward + " gold");
@@ -504,8 +504,8 @@ public class MinionImpl implements Minion {
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
                 this.setCoords(this.myKing.kingArmyPos);
-                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
-                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
+//                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
+//                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 this.master.gold += portalReward;
                 this.master.myScore += portalReward*5;
                 System.out.println(this.master.getPlayerName() + " earned " + portalReward + " gold");
