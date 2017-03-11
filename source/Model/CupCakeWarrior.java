@@ -35,12 +35,12 @@ public class CupCakeWarrior extends MeleeMinion {
             this.walk = new Image("file:assets/swordmanT1/goodsmt1wk.gif", 50, 50, true, true);
             this.fight = new Image("file:assets/swordmanT1/goodsmt1atk.gif", 50, 50, true, true);
             this.dead = new Image("file:assets/swordmanT1/goodblood.gif", 50, 50, true, true);
-            this.def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
+            this.def = this.walk;
         } else if (this.master.getTeam() == 2){
             this.walk = new Image("file:assets/swordmanT1/evilsmt1wk.gif", 50, 50, true, true);
             this.fight = new Image("file:assets/swordmanT1/evilsmt1atk.gif", 50, 50, true, true);
             this.dead = new Image("file:assets/swordmanT1/badblood.gif", 50, 50, true, true);
-            this.def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
+            this.def = this.walk;
         }
 
 //        Image def = new Image(CupCakeWarrior.class.getResource("goodsmt1atk.gif").toExternalForm());
