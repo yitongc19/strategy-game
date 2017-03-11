@@ -15,26 +15,18 @@ public class Sprite {
     private double height;
 
 
-    public void setImage(Image i)
-    {
+    public void setImage(Image i) {
         image = i;
         width = i.getWidth();
         height = i.getHeight();
     }
 
-    public void setPos(double x, double y)
-    {
+    public void setPos(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public void render(GraphicsContext gc)
-    {
-        System.out.println("RENDER CALLED");
-        System.out.print(x);
-        System.out.print(", ");
-        System.out.println(y);
-
+    public void render(GraphicsContext gc) {
         gc.drawImage( image, x, y );
     }
 

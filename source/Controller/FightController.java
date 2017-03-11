@@ -51,6 +51,6 @@ public class FightController implements FightControllerInterface {
                     minion.render(graphics);
                 }
             }
-            }.start();
+        }.start();
     }
 }

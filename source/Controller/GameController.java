@@ -22,16 +22,16 @@ public class GameController {
     }
 
     public void setUpGame(CombatManager manager) {
-        double[] pos1 = {100, 100};
-        double[] pos2 = {100, 110};
-        double[] pos3 = {100, 120};
-        double[] pos4 = {100, 130};
-        double[] pos5 = {100, 140};
-        double[] pos6 = {0, 100};
-        double[] pos7 = {0,110};
-        double[] pos8 = {0, 120};
-        double[] pos9 = {0, 130};
-        double[] pos10 = {0, 140};
+        double[] pos1 = {1220, 0};
+        double[] pos2 = {1200, 30};
+        double[] pos3 = {1230, 60};
+        double[] pos4 = {1200, 90};
+        double[] pos5 = {1200, 120};
+        double[] pos6 = {200, 0};
+        double[] pos7 = {200,20};
+        double[] pos8 = {250, 60};
+        double[] pos9 = {200, 80};
+        double[] pos10 = {200, 130};
 
 //        how to do variable naming with var in java
 //        for (int i = 1; i < 7; i += 1) {

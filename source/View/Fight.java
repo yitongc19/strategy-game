@@ -189,7 +189,7 @@ public class Fight extends Application{
 
         for (int col = 0; col < 4; col ++) {
             for (int row = 0; row < 4; row ++) {
-                addBuilding(base, col, row, Color.TRANSPARENT, "static/lightbd.png");
+                addBuilding(base, col, row, Color.TRANSPARENT, "file:assets/swordmanT1/buildbase.gif");
             }
         }
 
@@ -203,10 +203,10 @@ public class Fight extends Application{
         base.setAlignment(Pos.CENTER);
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
-        addBuilding(base, 0, 0, Color.TRANSPARENT, "static/lightbase2.png");
-        addBuilding(base, 1, 2, Color.TRANSPARENT, "static/lightbase1.png");
-        addBuilding(base, 2, 3, Color.TRANSPARENT, "static/lightbase2.png");
-        addBuilding(base, 3, 3, Color.TRANSPARENT, "static/lightbase1.png");
+        addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        addBuilding(base, 1, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        addBuilding(base, 2, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         return base;
     }
 
@@ -215,15 +215,17 @@ public class Fight extends Application{
         base.setAlignment(Pos.CENTER);
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
-        addBuilding(base, 0, 0, Color.TRANSPARENT, "static/darkbase2.png");
-        addBuilding(base, 1, 2, Color.TRANSPARENT, "static/darkbase1.png");
-        addBuilding(base, 2, 3, Color.TRANSPARENT, "static/darkbase1.png");
-        addBuilding(base, 3, 3, Color.TRANSPARENT, "static/darkbase2.png");
+        addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        addBuilding(base, 1, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        addBuilding(base, 2, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         return base;
     }
+
     /* Construct a building in a base */
     private static void addBuilding(GridPane pane, int columnNum, int rowNum, Paint baseColor, String imagePath) {
-        ImageView buildingBase = new ImageView(Fight.class.getResource(imagePath).toExternalForm());
+        Image temp = new Image(imagePath, 50, 50, true, true);
+        ImageView buildingBase = new ImageView(temp);
         buildingBase.setFitHeight(50);
         buildingBase.setFitWidth(50);
 

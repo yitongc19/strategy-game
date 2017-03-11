@@ -29,7 +29,7 @@ public class King {
 
     private int teamNum;
 
-    private int atkRange = 8;
+    private int atkRange = 30;
 
     public String kingName;
 
@@ -61,12 +61,12 @@ public class King {
 
         if (this.teamNum == 1) {
             kingName = "Radiant King";
-            this.kingPos = new double[]{5, 500}; //to be set
-            this.kingArmyPos = new double[]{10, 500};
+            this.kingPos = new double[]{100, 590}; //to be set
+            this.kingArmyPos = new double[]{200, 590};
         } else {
             kingName = "Dire King";
-            this.kingPos = new double[]{95, 500};
-            this.kingArmyPos = new double[]{90, 500};
+            this.kingPos = new double[]{1220, 590};
+            this.kingArmyPos = new double[]{1120, 590};
         }
     }
     /*
