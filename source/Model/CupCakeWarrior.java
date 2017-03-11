@@ -12,7 +12,7 @@ public class CupCakeWarrior extends MeleeMinion {
         this.minionName = name;
         this.master = master;
         this.master.add_Minions(this);
-        this.hp = 100;
+        this.hp = 500;
         this.atk = 40;
         this.armor = -2;
         this.maxhp = 500;
@@ -34,10 +34,12 @@ public class CupCakeWarrior extends MeleeMinion {
         if (this.master.getTeam() == 1) {
             this.walk = new Image("file:assets/swordmanT1/goodsmt1wk.gif", 50, 50, true, true);
             this.fight = new Image("file:assets/swordmanT1/goodsmt1atk.gif", 50, 50, true, true);
+            this.dead = new Image("file:assets/swordmanT1/goodblood.gif", 50, 50, true, true);
             this.def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
         } else if (this.master.getTeam() == 2){
             this.walk = new Image("file:assets/swordmanT1/evilsmt1wk.gif", 50, 50, true, true);
             this.fight = new Image("file:assets/swordmanT1/evilsmt1atk.gif", 50, 50, true, true);
+            this.dead = new Image("file:assets/swordmanT1/badblood.gif", 50, 50, true, true);
             this.def = new Image(CupCakeWarrior.class.getResource("cupcakeDefault.png").toExternalForm());
         }
 
