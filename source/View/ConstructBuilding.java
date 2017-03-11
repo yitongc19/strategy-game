@@ -303,6 +303,10 @@ public class ConstructBuilding extends Application {
     private static StackPane addCurrentBase() {
         StackPane currentBase = new StackPane();
 
+//        ImageView baseBg = new ImageView(ConstructBuilding.class.getResource("static/landscape.png").toExternalForm());
+//        baseBg.setFitWidth(400);
+//        baseBg.setFitHeight(400);
+
         GridPane baseGrid = addBaseGrid();
 
         GridPane baseBuilding = addBaseBuildings();
@@ -324,10 +328,17 @@ public class ConstructBuilding extends Application {
         for (int row = 0; row < 5; row ++) {
             for (int col = 0; col < 5; col ++) {
                 Rectangle grid = new Rectangle(100, 100);
+                Button clickable = new baseClickable(row, col);
+                clickable.prefWidth(100);
+                clickable.prefHeight(100);
                 grid.setFill(Color.TRANSPARENT);
                 grid.setStroke(Color.WHITE);
                 grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
                 baseGrid.add(grid, col, row);
+                baseGrid.add(clickable, col, row);
+                clickable.setOnAction(event -> {
+                    grid.setFill(Color.rgb(255, 0, 0, 0.6));
+                });
             }
         }
 
@@ -351,6 +362,30 @@ public class ConstructBuilding extends Application {
         }
 
         return baseBuildings;
+    }
+
+
+    private static class baseClickable extends Button {
+        private baseClickable() {
+
+        }
+
+        private baseClickable(int row, int col) {
+            this.colNum = col;
+            this.rowNum = row;
+        }
+
+        public int getRowNum() {
+            return rowNum;
+        }
+
+        private int rowNum;
+
+        public int getColNum() {
+            return colNum;
+        }
+
+        private int colNum;
     }
     public static void main(String[] args) {
         launch(args);
