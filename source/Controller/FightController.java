@@ -38,18 +38,19 @@ public class FightController implements FightControllerInterface {
 
                 manager.doCombat(player1, player2);
                 graphics.clearRect(0,0,2000,1000);
-                for (int i = 0; i < player1.minions.size(); i = i + 1) {
-                    MinionImpl minion = player1.minions.get(i);
+                for (int i = 0; i < manager.getAllInstances().size(); i = i + 1) {
+                    MinionImpl minion = manager.getAllInstances().get(i);
                     double coords[] = minion.getCoords();
                     minion.sprite.setPos(coords[0], coords[1]);
                     minion.render(graphics);
                 }
-                for (int j = 0; j < player2.minions.size(); j = j + 1) {
-                    MinionImpl minion = player2.minions.get(j);
-                    double coords[] = minion.getCoords();
-                    minion.sprite.setPos(coords[0], coords[1]);
-                    minion.render(graphics);
-                }
+//                for (int j = 0; j < player2.minions.size(); j = j + 1) {
+//                    MinionImpl minion = player2.minions.get(j);
+//                    double coords[] = minion.getCoords();
+//                    minion.sprite.setPos(coords[0], coords[1]);
+//                    minion.render(graphics);
+//                }
+
             }
         }.start();
     }

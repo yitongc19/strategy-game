@@ -41,10 +41,6 @@ public class MinionImpl implements Minion {
 
     public double randomMinConst;
     public double randomMaxConst;
-    public String stillFrame;
-    public String moveFrame;
-    public String attackFrame;
-    public MinionImpl upgradeTo;
 
     public int portalReward;
     public int killReward;
@@ -53,6 +49,7 @@ public class MinionImpl implements Minion {
     public Image def;
     public Image walk;
     public Image fight;
+    public Image dead;
     public int walked = 0;
     public int attacked = 0;
 
@@ -543,11 +540,14 @@ public class MinionImpl implements Minion {
         check if the minion died and remove him from player's list and all alive minion instances,
         if it is king's guard, revmove from king instead.
          */
+
+        Sprite bloodSpill = new Sprite();
         if (this.hp <= 0) {
             //destroy the minion?
             System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " died for an honorable cause!");
             System.out.println("The " + this.master.myKing.kingName + " will remember him!");
             this.alive = false;
+            bloodSpill.setImage(this.dead);
             this.master.remove_Minions(this);
             this.manager.getAllInstances().remove(this);
             if (this.myKing != null) {
@@ -558,6 +558,7 @@ public class MinionImpl implements Minion {
                 System.out.println(this.master.opponent.getPlayerName() + " earned " + killReward + " gold");
             }
         }
+
     }
 
     /*
