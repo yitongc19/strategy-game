@@ -61,11 +61,11 @@ public class King {
 
         if (this.teamNum == 1) {
             kingName = "Radiant King";
-            this.kingPos = new double[]{100, 590}; //to be set
+            this.kingPos = new double[]{200, 590}; //to be set
             this.kingArmyPos = new double[]{200, 590};
         } else {
             kingName = "Dire King";
-            this.kingPos = new double[]{1220, 590};
+            this.kingPos = new double[]{1120, 590};
             this.kingArmyPos = new double[]{1120, 590};
         }
     }
