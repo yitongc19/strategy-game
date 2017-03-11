@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0ad3049-7e68-4cb1-9846-bb4f3a1b2432" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/bdbase.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/black_cat_face.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/cat_face_yellow_eyes.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/crown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/devil.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/evilbdt1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbd.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/source/View/digital-7.ttf" afterPath="$PROJECT_DIR$/source/View/resources/fonts/digital-7.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/ConstructBuilding.java" afterPath="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/Fight.java" afterPath="$PROJECT_DIR$/source/View/Fight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" afterPath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
-    </list>
+    <list default="true" id="f0ad3049-7e68-4cb1-9846-bb4f3a1b2432" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -959,16 +938,16 @@
       <workItem from="1488777154768" duration="2550000" />
       <workItem from="1488838093454" duration="307000" />
       <workItem from="1489094591096" duration="3011000" />
-      <workItem from="1489124562738" duration="15897000" />
+      <workItem from="1489124562738" duration="15980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25474000" />
+    <option name="totallyTimeSpent" value="25557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="383" y="23" width="1440" height="813" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
