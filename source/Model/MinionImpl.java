@@ -56,7 +56,6 @@ public class MinionImpl implements Minion {
     public int walked = 0;
     public int attacked = 0;
 
-
     public void render(GraphicsContext gc) {
         this.sprite.render(gc);
     }
@@ -446,6 +445,7 @@ public class MinionImpl implements Minion {
                 }
                 else {
                     if (this.attackCounter >= this.attackSpeed){
+                        this.attackAnimate();
                         double damage = this.dmgCalKing(this.myKing.getOpponetKing());
                         System.out.println(this.master.getPlayerName() + "'s " +
                                 this.minionName + " dealt " + damage + " damage to " +
@@ -455,7 +455,7 @@ public class MinionImpl implements Minion {
                             System.exit(0);
                         }
                         this.attackCounter = 0;
-                        this.attackAnimate();
+
 
                     }
                 }
@@ -471,13 +471,13 @@ public class MinionImpl implements Minion {
                 this.walkAnimate();
             } else {
                 if (this.attackCounter >= this.attackSpeed){
+                    this.attackAnimate();
                     double damage = this.dmgCal(target);
                     System.out.println(this.master.getPlayerName() + "'s " +
                             this.minionName + " dealt " + damage + " damage to " +
                             target.master.getPlayerName() + "'s " + target.minionName);
 //                    target.dieForHonor();
                     this.attackCounter = 0;
-                    this.attackAnimate();
                 }
             }
         }
@@ -488,7 +488,7 @@ public class MinionImpl implements Minion {
         if reach the portal, teleport to king's coords
          */
         if (this.master.getTeam() == 1) {
-            if (this.Coords[0] > 100) { //why it hangs for higher numbers...
+            if (this.Coords[0] > 1400) { //why it hangs for higher numbers...
                 System.out.println(this.minionName + " is gonna to fight for the King!");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
@@ -520,25 +520,21 @@ public class MinionImpl implements Minion {
     }
 
     public void walkAnimate() {
-        if (this.walked == 0) {
-            this.sprite.setImage(this.walk);
-            this.walked = 1;
-        }
-        else {
-            this.sprite.setImage(this.def);
-            this.walked = 0;
-        }
+        this.sprite.setImage(this.walk);
+
+//        else {
+//            this.sprite.setImage(this.def);
+//            this.walked = 0;
+//        }
     }
 
     public void attackAnimate() {
-        if (this.attacked == 0) {
-            this.sprite.setImage(this.fight);
-            this.attacked = 1;
-        }
-        else {
-            this.sprite.setImage(this.def);
-            this.attacked = 0;
-        }
+        this.sprite.setImage(this.fight);
+
+//        else {
+//            this.sprite.setImage(this.def);
+//            this.attacked = 0;
+//        }
 
     }
 
