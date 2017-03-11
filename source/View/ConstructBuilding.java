@@ -26,6 +26,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -46,7 +48,7 @@ public class ConstructBuilding extends Application {
 
         constructStage = primaryStage;
 
-        Font.loadFont(ConstructBuilding.class.getResource("digital-7.ttf").toExternalForm(), 30);
+        Font.loadFont(ConstructBuilding.class.getResource("resources/fonts/digital-7.ttf").toExternalForm(), 30);
         BorderPane root = new BorderPane();
 
         VBox leftPanels = new VBox();
@@ -188,7 +190,8 @@ public class ConstructBuilding extends Application {
     private static VBox addSingleBuilding() {
         VBox singleBuildingContainer = new VBox();
 
-        ImageView buildingImg = new ImageView(ConstructBuilding.class.getResource("static/evilbdt1.gif").toExternalForm());
+        Image temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+        ImageView buildingImg = new ImageView(temp);
         buildingImg.setStyle("-fx-background-color: transparent");
         buildingImg.setFitWidth(180);
         buildingImg.setPreserveRatio(true);
@@ -220,6 +223,34 @@ public class ConstructBuilding extends Application {
 
         Button buildingImgContainer = new Button("");
         buildingImgContainer.setId("buildingImgContainer");
+
+        buildingImgContainer.setOnAction(event -> {
+            Stage stagePopup = new Stage();
+            VBox comp = new VBox();
+            comp.setSpacing(20);
+            comp.setAlignment(Pos.CENTER);
+            Text confirmAction = new Text("Confirm Purchase?");
+            Button confirmButton = new Button("Confirm");
+            Button declineButton = new Button("Decline");
+            HBox buttonHolder = new HBox();
+            buttonHolder.setAlignment(Pos.CENTER);
+            buttonHolder.setSpacing(40);
+            buttonHolder.getChildren().addAll(confirmButton, declineButton);
+
+            comp.getChildren().addAll(confirmAction, buttonHolder);
+
+            Scene popupScene = new Scene(comp, 300, 200);
+            stagePopup.setScene(popupScene);
+            stagePopup.show();
+
+            confirmButton.setOnAction(event1 -> {
+                stagePopup.close();
+            });
+
+            declineButton.setOnAction(event1 -> {
+                stagePopup.close();
+            });
+        });
 
         buildingImgContainer.graphicProperty().bind(
                 Bindings.when(
@@ -266,7 +297,8 @@ public class ConstructBuilding extends Application {
                 "\nPlayer Color: Red" +
                 "\nPlayer Gold: 1000" +
                 "\nPlayer Score: 600" +
-                "\nPlayer Rank: #4");
+                "\nPlayer Rank: #4" +
+                "\nPlayer Team: Dark");
 
         playerInfo.setLineSpacing(10);
         playerInfo.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 20));
@@ -307,14 +339,14 @@ public class ConstructBuilding extends Application {
 //        baseBg.setFitWidth(400);
 //        baseBg.setFitHeight(400);
 
-        GridPane baseGrid = addBaseGrid();
+//        GridPane baseGrid = addBaseGrid();
 
         GridPane baseBuilding = addBaseBuildings();
 
-        baseGrid.setPadding(new Insets(20, 0, 0, 50));
+//        baseGrid.setPadding(new Insets(20, 0, 0, 50));
         baseBuilding.setPadding(new Insets(20, 0, 0, 50));
 
-        currentBase.getChildren().addAll(baseGrid, baseBuilding);
+        currentBase.getChildren().addAll(baseBuilding);
 
         return currentBase;
     }
@@ -328,17 +360,10 @@ public class ConstructBuilding extends Application {
         for (int row = 0; row < 5; row ++) {
             for (int col = 0; col < 5; col ++) {
                 Rectangle grid = new Rectangle(100, 100);
-                Button clickable = new baseClickable(row, col);
-                clickable.prefWidth(100);
-                clickable.prefHeight(100);
                 grid.setFill(Color.TRANSPARENT);
-                grid.setStroke(Color.WHITE);
+                grid.setStroke(Color.BLACK);
                 grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
                 baseGrid.add(grid, col, row);
-                baseGrid.add(clickable, col, row);
-                clickable.setOnAction(event -> {
-                    grid.setFill(Color.rgb(255, 0, 0, 0.6));
-                });
             }
         }
 
@@ -348,16 +373,20 @@ public class ConstructBuilding extends Application {
     private static GridPane addBaseBuildings() {
         GridPane baseBuildings = new GridPane();
 
-        baseBuildings.getRowConstraints().add(new RowConstraints(100));
-        baseBuildings.getColumnConstraints().add(new ColumnConstraints(100));
+//        baseBuildings.getRowConstraints().add(new RowConstraints(100));
+//        baseBuildings.getColumnConstraints().add(new ColumnConstraints(100));
 
         for (int row = 0; row < 5; row ++) {
             for (int col = 0; col < 5; col ++) {
                 Circle placeHolder = new Circle(50);
                 placeHolder.setFill(Color.TRANSPARENT);
-                placeHolder.setStroke(Color.WHITE);
+                placeHolder.setStroke(Color.BLACK);
                 placeHolder.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
-                baseBuildings.add(placeHolder, col, row);
+                Button clickable = new Button("", placeHolder);
+                baseBuildings.add(clickable, col, row);
+                clickable.setOnAction(event ->  {
+                    placeHolder.setStroke(Color.RED);
+                });
             }
         }
 

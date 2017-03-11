@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -23,6 +24,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
 
 /**
@@ -93,7 +98,8 @@ public class Fight extends Application{
         mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
         StackPane laneContainer = new StackPane();
-        ImageView laneBackground = new ImageView(Fight.class.getResource("static/landscape.png").toExternalForm());
+        Image temp = new Image("file:assets/resourcesImg/landscape.png");
+        ImageView laneBackground = new ImageView(temp);
         laneBackground.setFitWidth(1400);
         laneBackground.setFitHeight(1120);
 
@@ -131,9 +137,9 @@ public class Fight extends Application{
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
 
-        ImageView king1 = addKing("static/king1.png");
+        ImageView king1 = addKing("file:assets/resourcesImg/king1.png");
         Rectangle road = addRoad(920, 240);
-        ImageView king2 = addKing("static/king2.png");
+        ImageView king2 = addKing("file:assets/resourcesImg/king2.png");
 
         lane.getChildren().addAll(king1, road, king2);
         laneHolder.getChildren().add(lane);
@@ -143,7 +149,8 @@ public class Fight extends Application{
 
     /* Construct the king base */
     private static ImageView addKing(String url) {
-        ImageView kingImageView = new ImageView(Fight.class.getResource(url).toExternalForm());
+        Image temp = new Image(url);
+        ImageView kingImageView = new ImageView(temp);
         kingImageView.setFitHeight(240);
         kingImageView.setFitWidth(240);
         kingImageView.setSmooth(true);
@@ -156,13 +163,18 @@ public class Fight extends Application{
     private static StackPane addNormalLane(Paint color1, Paint color2) {
         StackPane laneHolder = new StackPane();
         HBox lane = new HBox();
+        HBox laneBuildingBase = new HBox();
 
+        GridPane buildingBase1 = addBase(Color.TRANSPARENT);
+        GridPane buildingBase2 = addBase(Color.TRANSPARENT);
         GridPane base1 = addBaseLight(color1);
+        Rectangle roadBase = addRoad(1000, 200);
         Rectangle road = addRoad(1000, 200);
         GridPane base2 = addBaseDark(color2);
 
+        laneBuildingBase.getChildren().addAll(buildingBase1, roadBase, buildingBase2);
         lane.getChildren().addAll(base1, road, base2);
-        laneHolder.getChildren().add(lane);
+        laneHolder.getChildren().addAll(laneBuildingBase, lane);
 
         return laneHolder;
     }
@@ -179,17 +191,14 @@ public class Fight extends Application{
     private static GridPane addBase(Paint baseColor) {
         GridPane base = new GridPane();
         base.setAlignment(Pos.CENTER);
-        base.getColumnConstraints().add(new ColumnConstraints(40));
-        base.getRowConstraints().add(new RowConstraints(40));
+        base.getColumnConstraints().add(new ColumnConstraints(50));
+        base.getRowConstraints().add(new RowConstraints(50));
 
         for (int col = 0; col < 4; col ++) {
             for (int row = 0; row < 4; row ++) {
                 addBuilding(base, col, row, Color.TRANSPARENT, "file:assets/swordmanT1/buildbase.gif");
             }
         }
-
-
-
         return base;
     }
 
@@ -199,8 +208,8 @@ public class Fight extends Application{
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
         addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
-        addBuilding(base, 1, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
-        addBuilding(base, 2, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        addBuilding(base, 1, 1, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        addBuilding(base, 2, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         return base;
     }
@@ -211,8 +220,8 @@ public class Fight extends Application{
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
         addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
-        addBuilding(base, 1, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
-        addBuilding(base, 2, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        addBuilding(base, 1, 1, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        addBuilding(base, 2, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         return base;
     }
@@ -301,20 +310,24 @@ public class Fight extends Application{
 
         BorderPane battleLog = new BorderPane();
         battleLog.prefHeight(1000);
+        battleLog.prefWidth(150);
         VBox battleLogContent = new VBox();
 
         battleLog.setStyle("-fx-background-color: white");
 
         Text battleLogTitle = new Text("BattleLog");
 
-        HBox msg1 = updateMessage("Yitong", "Minions march forward!", Color.RED);
-        HBox msg2 = updateMessage("Russell", "Minions march forward!", Color.GREEN);
-        HBox msg3 = updateMessage("Yitong", "For the KING", Color.RED);
+        TextArea ta = new TextArea();
+        Console console = new Console(ta);
+
+        PrintStream ps = new PrintStream(console, true);
+        System.setOut(ps);
+        System.setErr(ps);
 
         Button startButton = addStartButton(curStage, manager, controller, graphics);
         startButton.setId("startButton");
 
-        battleLogContent.getChildren().addAll(battleLogTitle, msg1, msg2, msg3);
+        battleLogContent.getChildren().addAll(battleLogTitle, ta);
 
         battleLog.setCenter(battleLogContent);
         battleLog.setBottom(startButton);
@@ -349,6 +362,19 @@ public class Fight extends Application{
         return startFightButton;
     }
 
+    public static class Console extends OutputStream {
+
+        private TextArea output;
+
+        public Console(TextArea ta) {
+            this.output = ta;
+        }
+
+        @Override
+        public void write(int i) throws IOException {
+            output.appendText(String.valueOf((char) i));
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
