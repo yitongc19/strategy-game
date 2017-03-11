@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0ad3049-7e68-4cb1-9846-bb4f3a1b2432" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/bdbase.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/black_cat_face.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/cat_face_yellow_eyes.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/crown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbase3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/darkbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/devil.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/evilbdt1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbase3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/source/View/static/lightbd.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/source/View/digital-7.ttf" afterPath="$PROJECT_DIR$/source/View/resources/fonts/digital-7.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/ConstructBuilding.java" afterPath="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/Fight.java" afterPath="$PROJECT_DIR$/source/View/Fight.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" afterPath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/MinionImpl.java" afterPath="$PROJECT_DIR$/source/Model/MinionImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,12 +21,9 @@
       <file leaf-file-name="FightController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="390">
               <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-              <folding>
-                <marker date="1489208969000" expanded="false" signature="659:746" ph="(AnimationTimer) (now) → {" />
-                <marker date="1489208969000" expanded="false" signature="1725:1740" ph="}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,24 +31,30 @@
       <file leaf-file-name="Fight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
+            <state relative-caret-position="4680">
               <caret line="312" column="33" lean-forward="false" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#12710#12711#0" expanded="true" />
-                <element signature="e#12780#12781#0" expanded="true" />
-                <marker date="1489214959000" expanded="false" signature="13191:13202" ph=" { " />
-                <marker date="1489214959000" expanded="false" signature="13215:13221" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstructBuilding.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConstructBuilding.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1774">
+            <state relative-caret-position="15">
               <caret line="250" column="35" lean-forward="false" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="2" selection-end-line="474" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -88,14 +72,14 @@
       </file>
       <file leaf-file-name="welcomeScreen.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/View/welcomeScreen.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -103,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/source/View/static/WelcomeScreen.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+              <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -185,7 +169,6 @@
         <option value="$PROJECT_DIR$/source/Model/Player.java" />
         <option value="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
         <option value="$PROJECT_DIR$/source/Model/CupCakeBerserker.java" />
-        <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
         <option value="$PROJECT_DIR$/tests/Testing.java" />
         <option value="$PROJECT_DIR$/source/View/static/Fight.css" />
         <option value="$PROJECT_DIR$/source/Controller/GameController.java" />
@@ -194,6 +177,7 @@
         <option value="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
         <option value="$PROJECT_DIR$/source/View/Fight.java" />
         <option value="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
+        <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
       </list>
     </option>
   </component>
@@ -204,10 +188,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="383" />
+    <option name="x" value="-1" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="813" />
+    <option name="width" value="1916" />
+    <option name="height" value="1177" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -227,6 +211,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -237,56 +223,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,28 +330,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="legacy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -960,14 +876,15 @@
       <workItem from="1488838093454" duration="307000" />
       <workItem from="1489094591096" duration="3011000" />
       <workItem from="1489124562738" duration="15897000" />
+      <workItem from="1489219547538" duration="409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25474000" />
+    <option name="totallyTimeSpent" value="25883000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="383" y="23" width="1440" height="813" extended-state="0" />
+    <frame x="-1" y="23" width="1916" height="1177" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -979,20 +896,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18129496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18114603" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25313154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1030,10 +947,6 @@
           <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12710#12711#0" expanded="true" />
-            <element signature="e#12780#12781#0" expanded="true" />
-            <marker date="1489214959000" expanded="false" signature="13191:13202" ph=" { " />
-            <marker date="1489214959000" expanded="false" signature="13215:13221" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1118,7 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,19 +1068,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="561" column="56" lean-forward="false" selection-start-line="561" selection-start-column="56" selection-end-line="561" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/BuildingImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,15 +1111,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/static/bdbase.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/static/bdbase.gif" />
     <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8">
@@ -1229,7 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1261,7 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,7 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,7 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1508">
           <caret line="1314" column="12" lean-forward="false" selection-start-line="1314" selection-start-column="12" selection-end-line="1314" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,19 +1193,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/static/darkbase2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/static/darkbase2.png" />
     <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="390">
           <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-          <folding>
-            <marker date="1489208969000" expanded="false" signature="659:746" ph="(AnimationTimer) (now) → {" />
-            <marker date="1489208969000" expanded="false" signature="1725:1740" ph="}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,7 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1344,7 +1230,7 @@
     <entry file="file://$PROJECT_DIR$/source/View/static/WelcomeScreen.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1358,31 +1244,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/welcomeScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
+        <state relative-caret-position="4680">
           <caret line="312" column="33" lean-forward="false" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12710#12711#0" expanded="true" />
-            <element signature="e#12780#12781#0" expanded="true" />
-            <marker date="1489214959000" expanded="false" signature="13191:13202" ph=" { " />
-            <marker date="1489214959000" expanded="false" signature="13215:13221" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -1402,8 +1283,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1774">
+        <state relative-caret-position="15">
           <caret line="250" column="35" lean-forward="false" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="2" selection-end-line="474" selection-end-column="89" />
           <folding />
         </state>
       </provider>
