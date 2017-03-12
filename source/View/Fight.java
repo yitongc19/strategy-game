@@ -63,7 +63,7 @@ public class Fight extends Application{
         GraphicsContext graphics1 = canvas1.getGraphicsContext2D();
 
         ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics, graphics1);
-        VBox battleField = addBattleField(manager, canvas, canvas1);
+        VBox battleField = addBattleField(controller, canvas, canvas1);
 
         root.setRight(battleLog);
         root.setCenter(battleField);
@@ -81,7 +81,7 @@ public class Fight extends Application{
     /*
     Construct the battelField container pane with all the elements.
      */
-    private static VBox addBattleField(CombatManager manager, Canvas canvas, Canvas canvas1) {
+    private static VBox addBattleField(GameController controller, Canvas canvas, Canvas canvas1) {
         VBox battleFieldContainer = new VBox();
 
         HBox titleContainer = new HBox();
@@ -91,7 +91,7 @@ public class Fight extends Application{
         title.setFont(Font.font(null, FontWeight.BOLD, 30));
         title.setId("titleLine");
         ScrollPane map = addMap(canvas, canvas1);
-        VBox buffPanel = addBuffPanel(manager);
+        VBox buffPanel = addBuffPanel(controller);
 
         titleContainer.getChildren().addAll(title);
         battleFieldContainer.getChildren().addAll(titleContainer, map, buffPanel);
@@ -262,7 +262,7 @@ public class Fight extends Application{
     }
 
     /* Construct the buff panel*/
-    private static VBox addBuffPanel(CombatManager manager) {
+    private static VBox addBuffPanel(GameController controller) {
         VBox buffPanel = new VBox();
         buffPanel.prefHeight(200);
         buffPanel.setAlignment(Pos.CENTER);
@@ -270,7 +270,7 @@ public class Fight extends Application{
         Text buffTitle = new Text("SHOW YOUR LOYALTY!");
         buffTitle.setFont(Font.font("American Typewriter", 30));
 
-        HBox buffButtons = addBuffs(manager);
+        HBox buffButtons = addBuffs(controller);
 
         buffPanel.getChildren().addAll(buffTitle, buffButtons);
 
@@ -278,14 +278,14 @@ public class Fight extends Application{
     }
 
     /* add the buff buttons*/
-    private static HBox addBuffs(CombatManager manager) {
+    private static HBox addBuffs(GameController controller) {
         HBox buffButtonContainer = new HBox();
         buffButtonContainer.setAlignment(Pos.CENTER);
         buffButtonContainer.setSpacing(400);
         buffButtonContainer.setPadding(new Insets(0, 0, 20, 0));
 
-        GridPane buffTeam1 = addBuffButton("TEAM 1", manager);
-        GridPane buffTeam2 = addBuffButton("TEAM 2", manager);
+        GridPane buffTeam1 = addBuffButton("TEAM 1", controller);
+        GridPane buffTeam2 = addBuffButton("TEAM 2", controller);
 
         buffButtonContainer.getChildren().addAll(buffTeam1, buffTeam2);
 
@@ -293,7 +293,7 @@ public class Fight extends Application{
     }
 
     /* Construct buff buttons*/
-    private static GridPane addBuffButton(String team, CombatManager manager) {
+    private static GridPane addBuffButton(String team, GameController controller) {
         GridPane buffButton = new GridPane();
         buffButton.setPadding(new Insets(40, 40, 40, 40));
         buffButton.setStyle( "-fx-border-style: solid inside;" +
@@ -310,13 +310,13 @@ public class Fight extends Application{
 
         buff.setOnAction(event -> {
             if (team.equals("TEAM 1")) {
-                manager.setTotalBuffTeam1(manager.getTotalBuffTeam1() + 1);
-                if (manager.getTotalBuffTeam1() >= manager.getNumPlayerTeam1() ) {
+                controller.setTotalBuffTeam1(controller.getTotalBuffTeam1() + 1);
+                if (controller.getTotalBuffTeam1() >= controller.getNumPlayerTeam1() ) {
                     buff.setDisable(true);
                 }
             } else if (team.equals("TEAM 2")) {
-                manager.setTotalBuffTeam2(manager.getTotalBuffTeam2() + 1);
-                if (manager.getTotalBuffTeam2() >= manager.getNumPlayerTeam2()) {
+                controller.setTotalBuffTeam2(controller.getTotalBuffTeam2() + 1);
+                if (controller.getTotalBuffTeam2() >= controller.getNumPlayerTeam2()) {
                     buff.setDisable(true);
                 }
             }
