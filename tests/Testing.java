@@ -1,4 +1,6 @@
 import Model.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +30,7 @@ public class Testing {
 //        }
 
 
-        int[] color = {10, 20, 30};
+        Paint color = Color.AQUAMARINE;
         PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
         PlayerImpl russell = new PlayerImpl(2, "Russell", color);
         System.out.println(russell.gold);

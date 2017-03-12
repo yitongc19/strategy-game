@@ -2,30 +2,39 @@ package Controller;
 
 import Model.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Russll on 3/10/17.
  */
 public class GameController {
-    private PlayerImpl[] players;
+    private List<PlayerImpl> players;
     private int numPlayers;
 
-    private int numPlayerTeam1 = 2;
-    private int numPlayerTeam2 = 2;
+    private int numPlayerTeam1;
+    private int numPlayerTeam2;
     private int totalBuffTeam1;
     private int totalBuffTeam2;
 
 
-    public GameController(int numPlayers) {
-        this.numPlayers = numPlayers;
-        this.players = new PlayerImpl[numPlayers];
+    public GameController(int playernum) {
+        this.numPlayers = playernum;
+        this.players = new ArrayList<>();
+        numPlayerTeam1 = numPlayers / 2;
+        numPlayerTeam2 = numPlayers / 2;
     }
 
-    public PlayerImpl[] getPlayers() {
+    public List<PlayerImpl> getPlayers() {
         return players;
     }
 
-    public void setPlayers(PlayerImpl[] players) {
+    public void setPlayers(List<PlayerImpl> players) {
         this.players = players;
+    }
+
+    public void addPlayer(PlayerImpl player) {
+        players.add(player);
     }
 
     public void setUpGame() {
@@ -47,8 +56,8 @@ public class GameController {
 
 
         int[] color = {10, 20, 30};
-        PlayerImpl player1 = getPlayers()[0];
-        PlayerImpl player2 = getPlayers()[1];
+        PlayerImpl player1 = getPlayers().get(0);
+        PlayerImpl player2 = getPlayers().get(1);
 
         CupCakeWarriorBuilding build1 = new CupCakeWarriorBuilding(player1);
         build1.setScreenCoords(pos1);

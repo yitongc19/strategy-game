@@ -31,6 +31,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import java.util.Stack;
 
 
@@ -49,6 +50,7 @@ public class Fight extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        System.out.print(controller.getNumPlayerTeam1());
         fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
@@ -58,7 +60,7 @@ public class Fight extends Application{
 
         GameController newGame = this.controller;
         //newGame.setUpGame();
-        PlayerImpl[] players = newGame.getPlayers();
+        List<PlayerImpl> players = newGame.getPlayers();
 
         control.setPlayers(players);
 
@@ -68,7 +70,7 @@ public class Fight extends Application{
         GraphicsContext graphics1 = canvas1.getGraphicsContext2D();
 
         ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics, graphics1);
-        VBox battleField = addBattleField(controller, canvas, canvas1);
+        VBox battleField = addBattleField(this.controller, canvas, canvas1);
 
         root.setRight(battleLog);
         root.setCenter(battleField);
