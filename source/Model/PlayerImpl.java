@@ -13,7 +13,7 @@ public class PlayerImpl implements Player {
      */
     CombatManager manager = new CombatManager();
     public Integer gold;
-    private ArrayList<Building> buildings = new ArrayList<Building>();
+    private ArrayList<BuildingImpl> buildings = new ArrayList<BuildingImpl>();
     public ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();
     public King myKing;
     public int myScore;
@@ -36,7 +36,7 @@ public class PlayerImpl implements Player {
         return this.gold;
     }
 
-    public ArrayList getBuildings() {
+    public ArrayList<BuildingImpl> getBuildings() {
         return this.buildings;
     }
 
@@ -68,7 +68,7 @@ public class PlayerImpl implements Player {
         this.teamNum = teamNum;
     }
 
-    public void add_Building(Building building) {
+    public void add_Building(BuildingImpl building) {
         this.buildings.add(building);
     }
 

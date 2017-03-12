@@ -1,5 +1,9 @@
 package Model;
 
+import View.Sprite;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 /**
@@ -11,6 +15,7 @@ public class BuildingImpl {
 
     String buildingName;
     String displayedImage;
+    Image spriteImage;
     String buildingImagePath_V1;
     String buildingImagePath_V2;
     String buildingImagePath_V3;
@@ -21,6 +26,9 @@ public class BuildingImpl {
     PlayerImpl owner;
 
     int[] gridCoords;
+    double[] screenCoords;
+
+    public Sprite sprite;
 
 
     public Integer getCost() {
@@ -36,6 +44,11 @@ public class BuildingImpl {
         owner.gold -= upgradeCost;
     }
 
+    public void render(GraphicsContext gc) {
+        this.sprite.setPos(this.screenCoords[0], this.screenCoords[1]);
+        this.sprite.render(gc);
+    }
+
     public void setImage(String imagePath) {
         this.displayedImage = imagePath;
     }
@@ -44,9 +57,8 @@ public class BuildingImpl {
         return this.buildingName;
     }
 
-    public MinionImpl spawnMinion() {
-        //spawn minion at location according to building location
-        return null;
+    public void spawnMinion(CombatManager manager) {
+        return;
     }
 
     public int[] getGridCoords() {
@@ -57,4 +69,11 @@ public class BuildingImpl {
         this.gridCoords = gridCoords;
     }
 
+    public void setScreenCoords(double[] screenCoords) {
+        this.screenCoords = screenCoords;
+    }
+
+    public double[] getScreenCoords() {
+        return screenCoords;
+    }
 }

@@ -54,10 +54,12 @@ public class Fight extends Application{
         control.setPlayers(players);
 
         Canvas canvas = new Canvas( 1400, 1120 );
+        Canvas canvas1 = new Canvas( 1400, 1120 );
         GraphicsContext graphics = canvas.getGraphicsContext2D();
+        GraphicsContext graphics1 = canvas1.getGraphicsContext2D();
 
-        ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics);
-        VBox battleField = addBattleField(canvas);
+        ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics, graphics1);
+        VBox battleField = addBattleField(canvas, canvas1);
 
         root.setRight(battleLog);
         root.setCenter(battleField);
@@ -68,12 +70,14 @@ public class Fight extends Application{
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        control.showBuildings(graphics1);
     }
 
     /*
     Construct the battelField container pane with all the elements.
      */
-    private static VBox addBattleField(Canvas canvas) {
+    private static VBox addBattleField(Canvas canvas, Canvas canvas1) {
         VBox battleFieldContainer = new VBox();
 
         HBox titleContainer = new HBox();
@@ -81,7 +85,7 @@ public class Fight extends Application{
         Text title = addTitle();
 
         title.setFont(Font.font("Herculanum", FontWeight.BOLD, 30));
-        ScrollPane map = addMap(canvas);
+        ScrollPane map = addMap(canvas, canvas1);
         VBox buffPanel = addBuffPanel();
 
         titleContainer.getChildren().addAll(title);
@@ -91,7 +95,7 @@ public class Fight extends Application{
     }
 
     /* Construct the map to display*/
-    private static ScrollPane addMap(Canvas canvas) {
+    private static ScrollPane addMap(Canvas canvas, Canvas canvas1) {
         ScrollPane mapContainer = new ScrollPane();
 
         mapContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -115,7 +119,7 @@ public class Fight extends Application{
         fourLaneMap.getChildren().addAll(lane1, addLaneSeparator(), lane2,
                 addLaneSeparator(), kingLane, addLaneSeparator(), lane3, addLaneSeparator(), lane4);
 
-        laneContainer.getChildren().addAll(laneBackground, fourLaneMap, canvas);
+        laneContainer.getChildren().addAll(laneBackground, fourLaneMap, canvas, canvas1);
         mapContainer.setContent(laneContainer);
 
         return mapContainer;
@@ -207,10 +211,12 @@ public class Fight extends Application{
         base.setAlignment(Pos.CENTER);
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
+        /*
         addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         addBuilding(base, 1, 1, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         addBuilding(base, 2, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
         addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildgood.gif");
+        */
         return base;
     }
 
@@ -219,10 +225,12 @@ public class Fight extends Application{
         base.setAlignment(Pos.CENTER);
         base.getColumnConstraints().add(new ColumnConstraints(50));
         base.getRowConstraints().add(new RowConstraints(50));
+        /*
         addBuilding(base, 0, 0, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         addBuilding(base, 1, 1, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         addBuilding(base, 2, 2, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
         addBuilding(base, 3, 3, Color.TRANSPARENT, "file:assets/swordmanT1/t1buildevil.gif");
+        */
         return base;
     }
 
@@ -303,7 +311,7 @@ public class Fight extends Application{
     }
 
     /* Construct the battleLogs */
-    private static ScrollPane addBattleLog(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics) {
+    private static ScrollPane addBattleLog(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics, GraphicsContext graphics1) {
         ScrollPane battleLogContainer = new ScrollPane();
         battleLogContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         battleLogContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -324,7 +332,7 @@ public class Fight extends Application{
         System.setOut(ps);
         System.setErr(ps);
 
-        Button startButton = addStartButton(curStage, manager, controller, graphics);
+        Button startButton = addStartButton(curStage, manager, controller, graphics, graphics1);
         startButton.setId("startButton");
 
         battleLogContent.getChildren().addAll(battleLogTitle, ta);
@@ -351,12 +359,12 @@ public class Fight extends Application{
         return message;
     }
 
-    private static Button addStartButton(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics) {
+    private static Button addStartButton(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics, GraphicsContext graphics1) {
         Button startFightButton = new Button("Start");
         startFightButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                controller.runFight(manager, graphics);
+                controller.runFight(manager, graphics, graphics1);
             }
         });
         return startFightButton;

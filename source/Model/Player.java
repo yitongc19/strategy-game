@@ -28,7 +28,7 @@ public interface Player {
     void setTeam(int teamNum);
 
     // add buildings
-    void add_Building(Building building);
+    void add_Building(BuildingImpl building);
 
     public void add_Minions(MinionImpl minion);
 
