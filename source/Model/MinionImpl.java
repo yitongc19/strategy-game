@@ -547,12 +547,10 @@ public class MinionImpl implements Minion {
     }
 
     public void walkAnimate() {
-        this.attacked = 0;
         this.sprite.setImage(this.walk);
     }
 
     public void attackAnimate() {
-        this.attacked = 1;
         this.sprite.setImage(this.fight);
     }
 
