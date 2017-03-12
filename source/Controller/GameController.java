@@ -2,25 +2,39 @@ package Controller;
 
 import Model.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Russll on 3/10/17.
  */
 public class GameController {
-    private PlayerImpl[] players;
+    private List<PlayerImpl> players;
     private int numPlayers;
 
+    private int numPlayerTeam1;
+    private int numPlayerTeam2;
+    private int totalBuffTeam1;
+    private int totalBuffTeam2;
 
-    public GameController(int numPlayers) {
-        this.numPlayers = numPlayers;
-        this.players = new PlayerImpl[numPlayers];
+
+    public GameController(int playernum) {
+        this.numPlayers = playernum;
+        this.players = new ArrayList<>();
+        numPlayerTeam1 = numPlayers / 2;
+        numPlayerTeam2 = numPlayers / 2;
     }
 
-    public PlayerImpl[] getPlayers() {
+    public List<PlayerImpl> getPlayers() {
         return players;
     }
 
-    public void setPlayers(PlayerImpl[] players) {
+    public void setPlayers(List<PlayerImpl> players) {
         this.players = players;
+    }
+
+    public void addPlayer(PlayerImpl player) {
+        players.add(player);
     }
 
     public void setUpGame() {
@@ -42,8 +56,8 @@ public class GameController {
 
 
         int[] color = {10, 20, 30};
-        PlayerImpl player1 = getPlayers()[0];
-        PlayerImpl player2 = getPlayers()[1];
+        PlayerImpl player1 = getPlayers().get(0);
+        PlayerImpl player2 = getPlayers().get(1);
 
         CupCakeWarriorBuilding build1 = new CupCakeWarriorBuilding(player1);
         build1.setScreenCoords(pos1);
@@ -74,5 +88,47 @@ public class GameController {
 
 
 
+    }
+
+
+
+    /* return the total number of buffs used so far by team1 */
+    public int getTotalBuffTeam1() {
+        return totalBuffTeam1;
+    }
+
+    /* return the total number of buffs used so far by team2 */
+    public int getTotalBuffTeam2() {
+        return totalBuffTeam2;
+    }
+
+    /* return the number of players in team1 */
+    public int getNumPlayerTeam1() {
+        return numPlayerTeam1;
+    }
+
+    /* set the number of players in team1 to the given number */
+    public void setNumPlayerTeam1(int numPlayerTeam1) {
+        this.numPlayerTeam1 = numPlayerTeam1;
+    }
+
+    /* return the number of players in team2*/
+    public int getNumPlayerTeam2() {
+        return numPlayerTeam2;
+    }
+
+    /* set the number of players in team2 to the given number */
+    public void setNumPlayerTeam2(int numPlayerTeam2) {
+        this.numPlayerTeam2 = numPlayerTeam2;
+    }
+
+    /* set the number of buff used by team1 */
+    public void setTotalBuffTeam1(int totalBuffTeam1) {
+        this.totalBuffTeam1 = totalBuffTeam1;
+    }
+
+    /* set the number of buff used by team2 */
+    public void setTotalBuffTeam2(int totalBuffTeam2) {
+        this.totalBuffTeam2 = totalBuffTeam2;
     }
 }

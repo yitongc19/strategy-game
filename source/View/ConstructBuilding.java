@@ -45,23 +45,30 @@ import java.util.List;
 public class ConstructBuilding extends Application {
 
     private static Integer STARTTIME = 59;
-
+    public GameController controller;
 
     static Stage constructStage = new Stage();
 
+    public ConstructBuilding(GameController controller) {
+        this.controller = controller;
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("TESTING START!");
 
         int[] gridCoords = {0,0};
+//
+//        PlayerImpl player1 = new PlayerImpl(1, "Russ", null);
+//        PlayerImpl player2 = new PlayerImpl(2, "A dog", null);
+//        PlayerImpl player3 = new PlayerImpl(2, "A dog", null);
+//        PlayerImpl player4 = new PlayerImpl(2, "A dog", null);
+//        PlayerImpl player5 = new PlayerImpl(2, "A dog", null);
+//        PlayerImpl player6 = new PlayerImpl(2, "A dog", null);
+        GameController control = this.controller;
 
-        PlayerImpl player1 = new PlayerImpl(1, "Russ", null);
-        PlayerImpl player2 = new PlayerImpl(2, "A dog", null);
-        GameController control = new GameController(2);
-
-        PlayerImpl[] players = {player1, player2};
-
-        control.setPlayers(players);
+//        PlayerImpl[] players = {player1, player2, player3, player4, player5, player6};
+//
+//        control.setPlayers(players);
 
         constructStage = primaryStage;
 
@@ -73,12 +80,11 @@ public class ConstructBuilding extends Application {
         leftPanels.setSpacing(20);
 
         VBox currentBasePanel = addCurrectBasePanel(gridCoords);
-        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players[0], gridCoords);
-        leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
+////        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players[0], gridCoords);
+//        leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
         timerLabel.setId("timer");
-        timerLabel.setFont(Font.font(null, 80));
 
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);

@@ -10,22 +10,23 @@ import javafx.scene.paint.Color;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import java.util.List;
 
 public class FightController implements FightControllerInterface {
-    private PlayerImpl[] players;
+    private List<PlayerImpl> players;
 
 
     public FightController() {
         return;
     }
 
-    public void setPlayers(PlayerImpl[] players) {
+    public void setPlayers(List<PlayerImpl> players) {
         this.players = players;
     }
 
     public void runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
-        PlayerImpl player1 = players[0];
-        PlayerImpl player2 = players[1];
+        PlayerImpl player1 = players.get(0);
+        PlayerImpl player2 = players.get(1);
 
         player1.setOpponent(player2);
 
@@ -107,8 +108,8 @@ public class FightController implements FightControllerInterface {
     }
 
     public void showBuildings(GraphicsContext gc) {
-        PlayerImpl player1 = players[0];
-        PlayerImpl player2 = players[1];
+        PlayerImpl player1 = players.get(0);
+        PlayerImpl player2 = players.get(1);
 
         for (int j = 0; j < player1.getBuildings().size(); j = j + 1) {
             BuildingImpl building = player1.getBuildings().get(j);

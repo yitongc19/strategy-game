@@ -1,5 +1,7 @@
 package View;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,10 +26,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.List;
+import java.util.Stack;
 
 
 /**
@@ -45,6 +50,7 @@ public class Fight extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        System.out.print(controller.getNumPlayerTeam1());
         fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
@@ -54,7 +60,7 @@ public class Fight extends Application{
 
         GameController newGame = this.controller;
         //newGame.setUpGame();
-        PlayerImpl[] players = newGame.getPlayers();
+        List<PlayerImpl> players = newGame.getPlayers();
 
         control.setPlayers(players);
 
@@ -64,12 +70,12 @@ public class Fight extends Application{
         GraphicsContext graphics1 = canvas1.getGraphicsContext2D();
 
         ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics, graphics1);
-        VBox battleField = addBattleField(canvas, canvas1);
+        VBox battleField = addBattleField(this.controller, canvas, canvas1);
 
         root.setRight(battleLog);
         root.setCenter(battleField);
 
-        Scene scene = new Scene(root, 2000, 1000);
+        Scene scene = new Scene(root, 1800, 1330);
         scene.getStylesheets().add(Fight.class.getResource("static/Fight.css").toExternalForm());
 
         primaryStage.setResizable(false);
@@ -82,16 +88,17 @@ public class Fight extends Application{
     /*
     Construct the battelField container pane with all the elements.
      */
-    private static VBox addBattleField(Canvas canvas, Canvas canvas1) {
+    private static VBox addBattleField(GameController controller, Canvas canvas, Canvas canvas1) {
         VBox battleFieldContainer = new VBox();
 
         HBox titleContainer = new HBox();
         titleContainer.setAlignment(Pos.CENTER);
         Text title = addTitle();
 
-        title.setFont(Font.font("Herculanum", FontWeight.BOLD, 30));
+        title.setFont(Font.font(null, FontWeight.BOLD, 30));
+        title.setId("titleLine");
         ScrollPane map = addMap(canvas, canvas1);
-        VBox buffPanel = addBuffPanel();
+        VBox buffPanel = addBuffPanel(controller);
 
         titleContainer.getChildren().addAll(title);
         battleFieldContainer.getChildren().addAll(titleContainer, map, buffPanel);
@@ -104,7 +111,8 @@ public class Fight extends Application{
         ScrollPane mapContainer = new ScrollPane();
 
         mapContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        mapContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        mapContainer.prefWidth(1400);
 
         StackPane laneContainer = new StackPane();
         Image temp = new Image("file:assets/resourcesImg/landscape.png");
@@ -255,20 +263,21 @@ public class Fight extends Application{
     /* Construct the game title*/
     private static Text addTitle() {
         Text gameTitle = new Text("BattleField");
+        gameTitle.setFont(Font.font("American Typewriter", 30));
         gameTitle.setId("gameTitle");
         return gameTitle;
     }
 
     /* Construct the buff panel*/
-    private static VBox addBuffPanel() {
+    private static VBox addBuffPanel(GameController controller) {
         VBox buffPanel = new VBox();
         buffPanel.prefHeight(200);
         buffPanel.setAlignment(Pos.CENTER);
 
         Text buffTitle = new Text("SHOW YOUR LOYALTY!");
-        buffTitle.setFont(Font.font("Herculanum", 30));
+        buffTitle.setFont(Font.font("American Typewriter", 30));
 
-        HBox buffButtons = addBuffs();
+        HBox buffButtons = addBuffs(controller);
 
         buffPanel.getChildren().addAll(buffTitle, buffButtons);
 
@@ -276,14 +285,14 @@ public class Fight extends Application{
     }
 
     /* add the buff buttons*/
-    private static HBox addBuffs() {
+    private static HBox addBuffs(GameController controller) {
         HBox buffButtonContainer = new HBox();
         buffButtonContainer.setAlignment(Pos.CENTER);
         buffButtonContainer.setSpacing(400);
         buffButtonContainer.setPadding(new Insets(0, 0, 20, 0));
 
-        GridPane buffTeam1 = addBuffButton("TEAM 1");
-        GridPane buffTeam2 = addBuffButton("TEAM 2");
+        GridPane buffTeam1 = addBuffButton("TEAM 1", controller);
+        GridPane buffTeam2 = addBuffButton("TEAM 2", controller);
 
         buffButtonContainer.getChildren().addAll(buffTeam1, buffTeam2);
 
@@ -291,7 +300,7 @@ public class Fight extends Application{
     }
 
     /* Construct buff buttons*/
-    private static GridPane addBuffButton(String team) {
+    private static GridPane addBuffButton(String team, GameController controller) {
         GridPane buffButton = new GridPane();
         buffButton.setPadding(new Insets(40, 40, 40, 40));
         buffButton.setStyle( "-fx-border-style: solid inside;" +
@@ -305,8 +314,19 @@ public class Fight extends Application{
 
         Button buff = new Button("BUFF");
         buff.setId("buffButton");
+
         buff.setOnAction(event -> {
-            buff.setDisable(true);
+            if (team.equals("TEAM 1")) {
+                controller.setTotalBuffTeam1(controller.getTotalBuffTeam1() + 1);
+                if (controller.getTotalBuffTeam1() >= controller.getNumPlayerTeam1() ) {
+                    buff.setDisable(true);
+                }
+            } else if (team.equals("TEAM 2")) {
+                controller.setTotalBuffTeam2(controller.getTotalBuffTeam2() + 1);
+                if (controller.getTotalBuffTeam2() >= controller.getNumPlayerTeam2()) {
+                    buff.setDisable(true);
+                }
+            }
         });
 
         buffButton.add(teamName, 0, 0);
@@ -317,20 +337,27 @@ public class Fight extends Application{
 
     /* Construct the battleLogs */
     private static ScrollPane addBattleLog(Stage curStage, CombatManager manager, FightController controller, GraphicsContext graphics, GraphicsContext graphics1) {
-        ScrollPane battleLogContainer = new ScrollPane();
-        battleLogContainer.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        battleLogContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
+        ScrollPane tempContainer = new ScrollPane();
 
         BorderPane battleLog = new BorderPane();
-        battleLog.prefHeight(1000);
-        battleLog.prefWidth(150);
+        battleLog.prefHeight(1300);
+        battleLog.prefWidth(300);
+
         VBox battleLogContent = new VBox();
 
         battleLog.setStyle("-fx-background-color: white");
 
         Text battleLogTitle = new Text("BattleLog");
+        battleLogTitle.setFont(Font.font(null, 20));
 
         TextArea ta = new TextArea();
+        ta.setPrefWidth(300);
+        ta.setPrefHeight(1200);
+        ta.setMaxWidth(300);
+        ta.setMinHeight(1200);
+        ta.setFont(Font.font("American Typewriter", 14));
+
         Console console = new Console(ta);
 
         PrintStream ps = new PrintStream(console, true);
@@ -345,8 +372,8 @@ public class Fight extends Application{
         battleLog.setCenter(battleLogContent);
         battleLog.setBottom(startButton);
 
-        battleLogContainer.setContent(battleLog);
-        return battleLogContainer;
+        tempContainer.setContent(battleLog);
+        return tempContainer;
     }
 
     private static HBox updateMessage(String playerName, String msg, Paint playerColor) {

@@ -71,4 +71,5 @@ public class CombatManager {
                 instances.get(i).dieForHonor();
             }
     }
+
 }

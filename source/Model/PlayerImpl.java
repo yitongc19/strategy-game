@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.scene.paint.Paint;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,10 +21,10 @@ public class PlayerImpl implements Player {
     public int myScore;
     private int teamNum;
     private String playerName;
-    private int[] playerColor; //in rgba
+    private Paint playerColor; //in rgba
 
     public PlayerImpl opponent;
-    public PlayerImpl(int teamNum, String playerName, int[] playerColor) {
+    public PlayerImpl(int teamNum, String playerName, Paint playerColor) {
         this.gold = 0;
         this.playerName = playerName;
         this.teamNum = teamNum;

@@ -1,6 +1,10 @@
 package View;
 
+import Controller.GameController;
+import Model.CombatManager;
+import Model.PlayerImpl;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -34,11 +38,13 @@ import java.util.List;
 public class InitiateGame extends Application{
 
     static Stage initiateStage = new Stage();
+    public GameController controller;
 
     @Override
     public void start(Stage primaryStage) {
 
         initiateStage = primaryStage;
+
 
         VBox root = addPanel();
         root.setAlignment(Pos.CENTER);
@@ -51,7 +57,7 @@ public class InitiateGame extends Application{
     }
 
     /* adding the root panel */
-    private static VBox addPanel() {
+    private VBox addPanel() {
         VBox panel = new VBox();
         panel.setSpacing(30);
         Text instruction = addInstruction();
@@ -62,7 +68,7 @@ public class InitiateGame extends Application{
         start.setId("startButton");
 
         start.setOnAction(event -> {
-            ConstructBuilding constructBuilding = new ConstructBuilding();
+            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller);
             try {
                 constructBuilding.start(ConstructBuilding.constructStage);
             } catch (Exception e) {
@@ -79,22 +85,13 @@ public class InitiateGame extends Application{
     /* constructing the instruction on the top */
     private static Text addInstruction() {
         Text instruction = new Text("Please choose the number of players:");
-        //The dropshadow effect
-//        Reflection r = new Reflection();
-//        r.setFraction(0.7f);
-//
-//
-//        instruction.setEffect(r);
-//        instruction.setCache(true);
-//        instruction.setX(10.0f);
-//        instruction.setY(270.0f);
         instruction.setFont(Font.font("", FontWeight.BOLD, 25));
 
         return instruction;
     }
 
     /* Container for the number of players buttons */
-    private static VBox addPlayerNumChoice() {
+    private VBox addPlayerNumChoice() {
         VBox playerInfoGroup = new VBox();
         playerInfoGroup.setSpacing(10);
 
@@ -117,36 +114,40 @@ public class InitiateGame extends Application{
         playerNumChoice.getChildren().addAll(numTwo, numFour, numSix, numEight);
         playerInfoGroup.getChildren().add(playerNumChoice);
 
-        numTwo.setOnAction(event -> {
-            playerInfoGroup.getChildren().addAll(addPlayers(2));
+        numTwo.setOnAction((ActionEvent event) -> {
             numTwo.setDisable(true);
             numFour.setDisable(true);
             numSix.setDisable(true);
             numEight.setDisable(true);
+            this.controller = new GameController(2);
+            playerInfoGroup.getChildren().addAll(addPlayers(2, controller));
         });
 
         numFour.setOnAction(event -> {
-            playerInfoGroup.getChildren().addAll(addPlayers(4));
             numTwo.setDisable(true);
             numFour.setDisable(true);
             numSix.setDisable(true);
             numEight.setDisable(true);
+            this.controller = new GameController(4);
+            playerInfoGroup.getChildren().addAll(addPlayers(4, controller));
         });
 
         numSix.setOnAction(event -> {
-            playerInfoGroup.getChildren().addAll(addPlayers(6));
             numTwo.setDisable(true);
             numFour.setDisable(true);
             numSix.setDisable(true);
             numEight.setDisable(true);
+            this.controller = new GameController(6);
+            playerInfoGroup.getChildren().addAll(addPlayers(6, controller));
         });
 
         numEight.setOnAction(event -> {
-            playerInfoGroup.getChildren().addAll(addPlayers(8));
             numTwo.setDisable(true);
             numFour.setDisable(true);
             numSix.setDisable(true);
             numEight.setDisable(true);
+            this.controller = new GameController(8);
+            playerInfoGroup.getChildren().addAll(addPlayers(8, controller));
         });
 
 
@@ -162,7 +163,7 @@ public class InitiateGame extends Application{
     }
 
     /* construct the panel to add team and player info */
-    private static VBox addPlayers(int numPlayers) {
+    private static VBox addPlayers(int numPlayers, GameController controller) {
         VBox teamPanel = new VBox();
         teamPanel.setSpacing(10);
         teamPanel.setPrefWidth(800);
@@ -178,13 +179,13 @@ public class InitiateGame extends Application{
         VBox team1 = new VBox();
         Text team1Title = new Text("Team 1");
         team1Title.setFont(Font.font(null, FontWeight.BOLD, 22));
-        VBox team1Players = playerOneSide(numPlayers, "team1");
+        VBox team1Players = playerOneSide(numPlayers, "team1", controller);
         team1.getChildren().addAll(team1Title, team1Players);
 
         VBox team2 = new VBox();
         Text team2Title = new Text("Team 2");
         team2Title.setFont(Font.font(null, FontWeight.BOLD, 22));
-        VBox team2Players = playerOneSide(numPlayers, "team2");
+        VBox team2Players = playerOneSide(numPlayers, "team2", controller);
         team2.getChildren().addAll(team2Title, team2Players);
 
         Text vsText = new Text("vs");
@@ -198,7 +199,7 @@ public class InitiateGame extends Application{
     }
 
     /* construct the four players on one side */
-    private static VBox playerOneSide(int numPlayers, String teamname) {
+    private static VBox playerOneSide(int numPlayers, String teamname, GameController controller) {
         VBox playerContainer = new VBox();
         playerContainer.setPadding(new Insets(20, 20, 20, 20));
         playerContainer.setStyle("-fx-border-style: solid inside;" +
@@ -211,9 +212,9 @@ public class InitiateGame extends Application{
         for (int i = 1; i < numPlayers; i = i +2) {
             HBox onePlayer = new HBox();
             if (teamname.equals("team1")) {
-                onePlayer = OnePlayer(i);
+                onePlayer = OnePlayer(i, controller);
             } else if (teamname.equals("team2")) {
-                onePlayer = OnePlayer(i + 1);
+                onePlayer = OnePlayer(i + 1, controller);
             }
             onePlayer.setMaxWidth(Double.MAX_VALUE);
             playerContainer.getChildren().add(onePlayer);
@@ -223,47 +224,33 @@ public class InitiateGame extends Application{
     }
 
     /* construct one player with the input textbox for player name and a color choice*/
-    private static HBox OnePlayer(int playerSeq) {
+    private static HBox OnePlayer(int playerSeq, GameController controller) {
+        int teamNum = 0;
+
+        if (playerSeq % 2 == 1) {
+            teamNum = 1;
+        } else {
+            teamNum = 2;
+        }
+
         HBox onePlayer = new HBox();
         onePlayer.setAlignment(Pos.CENTER);
         onePlayer.setMaxWidth(Double.MAX_VALUE);
         onePlayer.setSpacing(2);
 
         Label playerNum = playerNum(playerSeq);
-//        playerNum.setTextFill(Color.NAVY);
         playerNum.setFont(Font.font(null, FontWeight.BOLD, 16));
         playerNum.setMaxWidth(Double.MAX_VALUE);
         playerNum.setMaxHeight(Double.MAX_VALUE);
         TextField playerName = enterName();
         playerName.setMaxWidth(Double.MAX_VALUE);
         playerName.setMaxHeight(Double.MAX_VALUE);
-        HBox playerColor = chooseColor();
-        playerColor.setMaxWidth(Double.MAX_VALUE);
-        playerColor.setMaxHeight(Double.MAX_VALUE);
 
-        onePlayer.getChildren().addAll(playerNum, playerName, playerColor);
+        String name = playerName.getText();
 
-        return onePlayer;
-    }
+        final Paint[] colorForOne = {Color.TRANSPARENT};
 
-    /* construct the player name text */
-    private static Label playerNum(int num) {
-        Label player = new Label();
-        player.setText("Player " + Integer.toString(num));
-
-        return player;
-    }
-
-    /* construct the textbox to enter player name*/
-    private static TextField enterName() {
-        TextField enterName = new TextField();
-        enterName.prefWidth(20);
-        return enterName;
-    }
-
-    /* construct the color choice options menu*/
-    private static HBox chooseColor() {
-        HBox pane = new HBox();
+        HBox playerColor = new HBox();
 
         MenuBar menuBar = new MenuBar();
 
@@ -292,43 +279,38 @@ public class InitiateGame extends Application{
             item.setOnAction(event -> {
                 defaultColor.setFill(color);
                 defaultColor.setStroke(Color.TRANSPARENT);
+                colorForOne[0] = color;
             });
             changeColorMenu.getItems().add(item);
         }
 
-//
-//        MenuItem red = new MenuItem("", new Circle(8, Color.LIGHTCORAL));
-//        red.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTCORAL);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(red);
-//
-//        MenuItem blue = new MenuItem("", new Circle(8, Color.LIGHTBLUE));
-//        blue.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTBLUE);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(blue);
-//
-//        MenuItem green = new MenuItem("", new Circle(8, Color.LIGHTGREEN));
-//        green.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTGREEN);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(green);
-//
-//        MenuItem cyan = new MenuItem("", new Circle(8, Color.LIGHTCYAN));
-//        cyan.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTCYAN);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(cyan);
-
         menuBar.getMenus().addAll(changeColorMenu);
-        pane.getChildren().add(menuBar);
+        playerColor.getChildren().add(menuBar);
 
-        return pane;
+
+        playerColor.setMaxWidth(Double.MAX_VALUE);
+        playerColor.setMaxHeight(Double.MAX_VALUE);
+
+        onePlayer.getChildren().addAll(playerNum, playerName, playerColor);
+
+        controller.addPlayer(new PlayerImpl(teamNum, name, colorForOne[0]));
+
+        return onePlayer;
+    }
+
+    /* construct the player name text */
+    private static Label playerNum(int num) {
+        Label player = new Label();
+        player.setText("Player " + Integer.toString(num));
+
+        return player;
+    }
+
+    /* construct the textbox to enter player name*/
+    private static TextField enterName() {
+        TextField enterName = new TextField();
+        enterName.prefWidth(20);
+        return enterName;
     }
 
     public static void main(String[] args) {launch(args);}
