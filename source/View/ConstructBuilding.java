@@ -32,6 +32,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -50,6 +53,7 @@ public class ConstructBuilding extends Application {
 
         Font.loadFont(ConstructBuilding.class.getResource("resources/fonts/digital-7.ttf").toExternalForm(), 30);
         BorderPane root = new BorderPane();
+        root.setStyle("-fx-background-color: #f2f2f2");
 
         VBox leftPanels = new VBox();
         leftPanels.setSpacing(20);
@@ -58,10 +62,14 @@ public class ConstructBuilding extends Application {
         ScrollPane constructBuildingPanel = addBuildingsToConstructPanel();
         leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
+        Label timerLabel = new Label("00:" + STARTTIME.toString());
+        timerLabel.setId("timer");
+        timerLabel.setFont(Font.font(null, 80));
+
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
         VBox playerInfoPanel = addPlayerInfoPanel();
-        VBox functionPanels = addFunctionPanel(primaryStage);
+        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel);
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
 
         root.setLeft(leftPanels);
@@ -72,13 +80,42 @@ public class ConstructBuilding extends Application {
         Scene scene = new Scene(root, 1400, 1000);
         scene.getStylesheets().add(Fight.class.getResource("static/ConstructBuilding.css").toExternalForm());
 
+        Timeline timeline = new Timeline();
+         if (timeline != null) {
+             timeline.stop();
+         }
+         final Integer[] timeSeconds = {STARTTIME};
+
+         timerLabel.setText("00:" + timeSeconds[0].toString());
+         timeline = new Timeline();
+         timeline.setCycleCount(Timeline.INDEFINITE);
+         Timeline finalTimeline = timeline;
+         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+             @Override
+             public void handle(ActionEvent event) {
+                 timeSeconds[0]--;
+                 if (timeSeconds[0] < 10) {
+                     timerLabel.setText("00:0" + timeSeconds[0].toString());
+                 } else {
+                     timerLabel.setText("00:" + timeSeconds[0].toString());
+                 }
+                 if (timeSeconds[0] <= 0) {
+                     finalTimeline.stop();
+                 }
+             }
+         }));
+
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
+        Timeline finalTimeline1 = timeline;
+        primaryStage.setOnShown(windowEvent -> {
+            finalTimeline1.playFromStart();
+        });
         primaryStage.show();
     }
 
     /* Construct the function panel */
-    private static VBox addFunctionPanel(Stage fightStage) {
+    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -87,45 +124,9 @@ public class ConstructBuilding extends Application {
 
         HBox timerContainer = new HBox();
 
-        Label timerLabel = new Label("00:" + STARTTIME.toString());
-        timerLabel.setId("timer");
-        timerLabel.setTextFill(Color.WHITE);
-        timerLabel.setFont(Font.font(null, 20));
-
         timerContainer.getChildren().addAll(timerLabel);
         timerContainer.setAlignment(Pos.CENTER);
 
-        Button startTimerButton = new Button("Start Timer");
-        startTimerButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Timeline timeline = new Timeline();
-
-                if (timeline != null) {
-                    timeline.stop();
-                }
-
-                final Integer[] timeSeconds = {STARTTIME};
-
-                timerLabel.setText("00:" + timeSeconds[0].toString());
-                timeline = new Timeline();
-                timeline.setCycleCount(Timeline.INDEFINITE);
-                Timeline finalTimeline = timeline;
-                timeline.getKeyFrames().add(
-                        new KeyFrame(Duration.seconds(1),
-                                new EventHandler<ActionEvent>() {
-                                    @Override
-                                    public void handle(ActionEvent event) {
-                                        timeSeconds[0]--;
-                                        timerLabel.setText("00:" + timeSeconds[0].toString());
-                                        if (timeSeconds[0] <= 0) {
-                                            finalTimeline.stop();
-                                        }
-                                    }
-                                }));
-                timeline.playFromStart();
-            }
-        });
         HBox nextPlayerButtonContainer = new HBox();
         nextPlayerButtonContainer.setAlignment(Pos.CENTER);
         Button nextPlayerButton = new Button("FINISH");
@@ -144,7 +145,7 @@ public class ConstructBuilding extends Application {
 
         nextPlayerButtonContainer.getChildren().addAll(nextPlayerButton);
 
-        functionPanel.getChildren().addAll(timerContainer, startTimerButton, nextPlayerButtonContainer);
+        functionPanel.getChildren().addAll(timerContainer, nextPlayerButtonContainer);
         return functionPanel;
     }
 
@@ -291,7 +292,7 @@ public class ConstructBuilding extends Application {
         playerInfoPanel.setPrefSize(500, 800);
 
         Text titleText = new Text("Player Info: ");
-        titleText.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 30));
+        titleText.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
 
         Text playerInfo = new Text("Player Name: Yitong" +
                 "\nPlayer Color: Red" +
@@ -301,8 +302,7 @@ public class ConstructBuilding extends Application {
                 "\nPlayer Team: Dark");
 
         playerInfo.setLineSpacing(10);
-        playerInfo.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 20));
-        playerInfo.setFill(Color.WHITE);
+        playerInfo.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 20));
 
         HBox buttonContainer = new HBox();
         buttonContainer.setAlignment(Pos.BASELINE_RIGHT);
@@ -323,8 +323,7 @@ public class ConstructBuilding extends Application {
         currentBasePanel.setId("currentBaseContainer");
 
         Text title = new Text("Existing Buildings");
-        title.setFont(Font.font("Herculanum", FontWeight.EXTRA_BOLD, 40));
-        title.setFill(Color.WHITE);
+        title.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
         StackPane currentBase = addCurrentBase();
 
         currentBasePanel.getChildren().addAll(title, currentBase);
@@ -351,24 +350,24 @@ public class ConstructBuilding extends Application {
         return currentBase;
     }
 
-    private static GridPane addBaseGrid() {
-        GridPane baseGrid = new GridPane();
-
-        baseGrid.getRowConstraints().add(new RowConstraints(100));
-        baseGrid.getColumnConstraints().add(new ColumnConstraints(100));
-
-        for (int row = 0; row < 5; row ++) {
-            for (int col = 0; col < 5; col ++) {
-                Rectangle grid = new Rectangle(100, 100);
-                grid.setFill(Color.TRANSPARENT);
-                grid.setStroke(Color.BLACK);
-                grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
-                baseGrid.add(grid, col, row);
-            }
-        }
-
-        return baseGrid;
-    }
+//    private static GridPane addBaseGrid() {
+//        GridPane baseGrid = new GridPane();
+//
+//        baseGrid.getRowConstraints().add(new RowConstraints(100));
+//        baseGrid.getColumnConstraints().add(new ColumnConstraints(100));
+//
+//        for (int row = 0; row < 5; row ++) {
+//            for (int col = 0; col < 5; col ++) {
+//                Rectangle grid = new Rectangle(100, 100);
+//                grid.setFill(Color.TRANSPARENT);
+//                grid.setStroke(Color.BLACK);
+//                grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
+//                baseGrid.add(grid, col, row);
+//            }
+//        }
+//
+//        return baseGrid;
+//    }
 
     private static GridPane addBaseBuildings() {
         GridPane baseBuildings = new GridPane();
@@ -376,16 +375,27 @@ public class ConstructBuilding extends Application {
 //        baseBuildings.getRowConstraints().add(new RowConstraints(100));
 //        baseBuildings.getColumnConstraints().add(new ColumnConstraints(100));
 
-        for (int row = 0; row < 5; row ++) {
-            for (int col = 0; col < 5; col ++) {
-                Circle placeHolder = new Circle(50);
-                placeHolder.setFill(Color.TRANSPARENT);
-                placeHolder.setStroke(Color.BLACK);
-                placeHolder.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
-                Button clickable = new Button("", placeHolder);
+        List<Button> buttonList = new ArrayList<>();
+
+        for (int row = 0; row < 4; row ++) {
+            for (int col = 0; col < 4; col ++) {
+                Image temp = new Image("file:assets/swordmanT1/buildbase.gif");
+                ImageView base = new ImageView(temp);
+
+                base.setFitHeight(125);
+                base.setFitWidth(125);
+
+                Button clickable = new Button("", base);
+                clickable.setStyle("-fx-background-color: transparent");
+
+                buttonList.add(clickable);
+
                 baseBuildings.add(clickable, col, row);
                 clickable.setOnAction(event ->  {
-                    placeHolder.setStroke(Color.RED);
+                    for (Button button : buttonList) {
+                        button.setStyle("-fx-background-color: transparent");
+                    }
+                    clickable.setStyle("-fx-background-color: #ffcc99");
                 });
             }
         }

@@ -13,6 +13,10 @@ import View.Sprite;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 /**
  * Created by xingfanxia on 2/25/17.
  */
@@ -543,10 +547,12 @@ public class MinionImpl implements Minion {
     }
 
     public void walkAnimate() {
+        this.attacked = 0;
         this.sprite.setImage(this.walk);
     }
 
     public void attackAnimate() {
+        this.attacked = 1;
         this.sprite.setImage(this.fight);
     }
 
