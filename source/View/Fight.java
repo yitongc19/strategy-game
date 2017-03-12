@@ -36,6 +36,11 @@ import java.io.PrintStream;
 public class Fight extends Application{
 
     static Stage fightStage = new Stage();
+    public GameController controller;
+
+    public Fight(GameController controller) {
+        this.controller = controller;
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -47,8 +52,8 @@ public class Fight extends Application{
         FightController control = new FightController();
         CombatManager manager = new CombatManager();
 
-        GameController newGame = new GameController(2);
-        newGame.setUpGame(manager);
+        GameController newGame = this.controller;
+        //newGame.setUpGame();
         PlayerImpl[] players = newGame.getPlayers();
 
         control.setPlayers(players);

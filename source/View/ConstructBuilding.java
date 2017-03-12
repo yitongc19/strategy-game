@@ -1,7 +1,8 @@
 package View;
 
-import Model.Building;
-import Model.BuildingImpl;
+import Controller.FightController;
+import Controller.GameController;
+import Model.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -13,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -44,10 +46,22 @@ public class ConstructBuilding extends Application {
 
     private static Integer STARTTIME = 59;
 
+
     static Stage constructStage = new Stage();
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        System.out.println("TESTING START!");
+
+        int[] gridCoords = {0,0};
+
+        PlayerImpl player1 = new PlayerImpl(1, "Russ", null);
+        PlayerImpl player2 = new PlayerImpl(2, "A dog", null);
+        GameController control = new GameController(2);
+
+        PlayerImpl[] players = {player1, player2};
+
+        control.setPlayers(players);
 
         constructStage = primaryStage;
 
@@ -58,8 +72,8 @@ public class ConstructBuilding extends Application {
         VBox leftPanels = new VBox();
         leftPanels.setSpacing(20);
 
-        VBox currentBasePanel = addCurrectBasePanel();
-        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel();
+        VBox currentBasePanel = addCurrectBasePanel(gridCoords);
+        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players[0], gridCoords);
         leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
@@ -69,7 +83,7 @@ public class ConstructBuilding extends Application {
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
         VBox playerInfoPanel = addPlayerInfoPanel();
-        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel);
+        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel, control);
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
 
         root.setLeft(leftPanels);
@@ -114,8 +128,29 @@ public class ConstructBuilding extends Application {
         primaryStage.show();
     }
 
+    //Makes the confirm button that purchases a building
+    private static Button addConfirmButton(PlayerImpl player, int[] gridCoords, Stage stagePopup) {
+        Button confirmButton = new Button("Confirm");
+        confirmButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Make new building called!");
+                CupCakeWarriorBuilding newbuild = new CupCakeWarriorBuilding(player);
+                newbuild.setGridCoords(gridCoords);
+                double[] coords = {50 * gridCoords[0], 50 * gridCoords[1]};
+                newbuild.setScreenCoords(coords);
+                System.out.println("MADE NEW BUILDING");
+                System.out.println(player.getPlayerName());
+                System.out.println(gridCoords[0]);
+                System.out.println(gridCoords[1]);
+                stagePopup.close();
+            }
+        });
+        return confirmButton;
+    }
+
     /* Construct the function panel */
-    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel) {
+    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -133,7 +168,7 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setId("functionButton");
 
         nextPlayerButton.setOnAction(event -> {
-            Fight fight = new Fight();
+            Fight fight = new Fight(control);
 
             try {
                 fight.start(Fight.fightStage);
@@ -150,12 +185,12 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the buldingsToConstruct panel */
-    private static ScrollPane addBuildingsToConstructPanel() {
+    private static ScrollPane addBuildingsToConstructPanel(PlayerImpl player, int[] gridCoords) {
         ScrollPane constructBuildingPanel = new ScrollPane();
         constructBuildingPanel.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         constructBuildingPanel.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        GridPane buildingContainer = addBuildingContainer();
+        GridPane buildingContainer = addBuildingContainer(player, gridCoords);
 
         constructBuildingPanel.setContent(buildingContainer);
 
@@ -163,14 +198,14 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the building container */
-    private static GridPane addBuildingContainer() {
+    private static GridPane addBuildingContainer(PlayerImpl player, int[] gridCoords) {
         GridPane buildingContainer = new GridPane();
         buildingContainer.setHgap(40);
         buildingContainer.setVgap(60);
 
         for (int row = 0; row < 3; row ++) {
             for (int col = 0; col < 3; col ++) {
-                VBox singleBuilding = addSingleBuilding();
+                VBox singleBuilding = addSingleBuilding(player, gridCoords);
                 buildingContainer.add(singleBuilding, col, row);
             }
         }
@@ -188,7 +223,7 @@ public class ConstructBuilding extends Application {
     */
 
     /* Construct a single building in the existing building panel */
-    private static VBox addSingleBuilding() {
+    private static VBox addSingleBuilding(PlayerImpl player, int[] gridCoords) {
         VBox singleBuildingContainer = new VBox();
 
         Image temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
@@ -231,7 +266,7 @@ public class ConstructBuilding extends Application {
             comp.setSpacing(20);
             comp.setAlignment(Pos.CENTER);
             Text confirmAction = new Text("Confirm Purchase?");
-            Button confirmButton = new Button("Confirm");
+            Button confirmButton = addConfirmButton(player, gridCoords, stagePopup);
             Button declineButton = new Button("Decline");
             HBox buttonHolder = new HBox();
             buttonHolder.setAlignment(Pos.CENTER);
@@ -244,9 +279,6 @@ public class ConstructBuilding extends Application {
             stagePopup.setScene(popupScene);
             stagePopup.show();
 
-            confirmButton.setOnAction(event1 -> {
-                stagePopup.close();
-            });
 
             declineButton.setOnAction(event1 -> {
                 stagePopup.close();
@@ -315,7 +347,7 @@ public class ConstructBuilding extends Application {
         return playerInfoPanel;
     }
 
-    private static VBox addCurrectBasePanel() {
+    private static VBox addCurrectBasePanel(int[] gridCoords) {
         VBox currentBasePanel = new VBox();
         currentBasePanel.setPadding(new Insets(0, 10, 10, 10));
         currentBasePanel.setStyle("-fx-border-radius: 10 10 0 0;\n" +
@@ -324,14 +356,14 @@ public class ConstructBuilding extends Application {
 
         Text title = new Text("Existing Buildings");
         title.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
-        StackPane currentBase = addCurrentBase();
+        StackPane currentBase = addCurrentBase(gridCoords);
 
         currentBasePanel.getChildren().addAll(title, currentBase);
 
         return currentBasePanel;
     }
 
-    private static StackPane addCurrentBase() {
+    private static StackPane addCurrentBase(int[] gridCoords) {
         StackPane currentBase = new StackPane();
 
 //        ImageView baseBg = new ImageView(ConstructBuilding.class.getResource("static/landscape.png").toExternalForm());
@@ -340,7 +372,7 @@ public class ConstructBuilding extends Application {
 
 //        GridPane baseGrid = addBaseGrid();
 
-        GridPane baseBuilding = addBaseBuildings();
+        GridPane baseBuilding = addBaseBuildings(gridCoords);
 
 //        baseGrid.setPadding(new Insets(20, 0, 0, 50));
         baseBuilding.setPadding(new Insets(20, 0, 0, 50));
@@ -369,7 +401,7 @@ public class ConstructBuilding extends Application {
 //        return baseGrid;
 //    }
 
-    private static GridPane addBaseBuildings() {
+    private static GridPane addBaseBuildings(int[] gridCoords) {
         GridPane baseBuildings = new GridPane();
 
 //        baseBuildings.getRowConstraints().add(new RowConstraints(100));
@@ -385,23 +417,38 @@ public class ConstructBuilding extends Application {
                 base.setFitHeight(125);
                 base.setFitWidth(125);
 
-                Button clickable = new Button("", base);
-                clickable.setStyle("-fx-background-color: transparent");
+                int[] curCoords = {col, row};
+
+                Button clickable = addClickable(gridCoords, curCoords, base, buttonList);
+
+
 
                 buttonList.add(clickable);
 
                 baseBuildings.add(clickable, col, row);
-                clickable.setOnAction(event ->  {
-                    for (Button button : buttonList) {
-                        button.setStyle("-fx-background-color: transparent");
-                    }
-                    clickable.setStyle("-fx-background-color: #ffcc99");
-                });
+
             }
         }
 
         return baseBuildings;
     }
+
+    private static Button addClickable(int[] gridCoords, int[] curCoords, ImageView base, List<Button> buttonList) {
+        Button clickable = new Button("", base);
+        clickable.setStyle("-fx-background-color: transparent");
+
+        clickable.setOnAction(event ->  {
+            for (Button button : buttonList) {
+                button.setStyle("-fx-background-color: transparent");
+            }
+            clickable.setStyle("-fx-background-color: #ffcc99");
+            gridCoords[0] = curCoords[0];
+            gridCoords[1] = curCoords[1];
+        });
+        return clickable;
+    }
+
+
 
 
     private static class baseClickable extends Button {
