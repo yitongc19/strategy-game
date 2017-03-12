@@ -7,6 +7,8 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.*;
+
+import View.HealthBar;
 import View.Sprite;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -54,8 +56,9 @@ public class MinionImpl implements Minion {
     public Image walk;
     public Image fight;
     public Image dead;
-    public int walked = 0;
-    public int attacked = 0;
+
+    public double collisionDist = 3;
+    public boolean collisonFlag = true;
 
     public void render(GraphicsContext gc) {
         this.sprite.render(gc);
@@ -382,6 +385,7 @@ public class MinionImpl implements Minion {
         /*
         chase target minion
          */
+
         double xdiff = target.Coords[0] - this.Coords[0];
         double ydiff = target.Coords[1] - this.Coords[1];
 
@@ -389,8 +393,25 @@ public class MinionImpl implements Minion {
         double normalx = (xdiff/dist)*moveSpeed;
         double normaly = (ydiff/dist)*moveSpeed;
 
-        this.Coords[0] += normalx;
-        this.Coords[1] += normaly;
+        double[] tempCoords = {this.Coords[0] + normalx, this.Coords[1] += normaly};
+
+        for (MinionImpl each:this.master.minions) {
+            if (sqrt(pow(tempCoords[0] - each.Coords[0], 2)+pow(tempCoords[1] - each.Coords[1], 2)) < collisionDist) {
+                collisonFlag = true;
+                this.Coords[0] += normaly;
+                this.Coords[1] += -normalx;
+            } else {
+                collisonFlag = false;
+            }
+        }
+
+        if (collisonFlag == false) {
+            this.Coords[0] += normalx;
+            this.Coords[1] += normaly;
+        }
+
+//        this.Coords[0] += normalx;
+//        this.Coords[1] += normaly;
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
@@ -463,7 +484,6 @@ public class MinionImpl implements Minion {
             } else {
                 keepWalking();
                 this.walkAnimate();
-
             }
         } else {
             target = chooseTarget(enemies);
@@ -493,7 +513,9 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the King!");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                this.setCoords(this.myKing.kingArmyPos);
+                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-1, 1),
+                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-1, 1)};
+                this.setCoords(newCoords);
 //                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
 //                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 this.master.gold += portalReward;
@@ -507,7 +529,11 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the " + this.master.myKing.kingName + " !");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                this.setCoords(this.myKing.kingArmyPos);
+                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-1, 1),
+                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-1, 1)};
+                this.setCoords(newCoords);
+                this.Coords[0] +=  ThreadLocalRandom.current().nextDouble(-1, 1);
+//                this.Coords[1] +=  ThreadLocalRandom.current().nextDouble(-1, 1);
 //                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
 //                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 this.master.gold += portalReward;
@@ -523,22 +549,11 @@ public class MinionImpl implements Minion {
     public void walkAnimate() {
         this.attacked = 0;
         this.sprite.setImage(this.walk);
-
-//        else {
-//            this.sprite.setImage(this.def);
-//            this.walked = 0;
-//        }
     }
 
     public void attackAnimate() {
         this.attacked = 1;
         this.sprite.setImage(this.fight);
-
-//        else {
-//            this.sprite.setImage(this.def);
-//            this.attacked = 0;
-//        }
-
     }
 
     public void dieForHonor() {

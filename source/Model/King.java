@@ -43,7 +43,7 @@ public class King {
 
     public double atkCounter = 0;
 
-    public double atkSpeed = 0.8;
+    public double atkSpeed = 1;
 
     public King opponetKing;
 
@@ -53,6 +53,7 @@ public class King {
     //initialize Model.King!
     public King(int teamNum) {
         this.hp = 5000;
+        this.maxHP = 5000;
         this.armor = 10;
         this.atk = 100;
         this.atkType = AtkType.Hero;
@@ -104,6 +105,8 @@ public class King {
     public double getArmor() {
         return armor;
     }
+
+    public double getHpPercent() { return this.hp/this.maxHP; }
 
     /*
     Setters
@@ -247,7 +250,7 @@ public class King {
             MinionImpl target = chooseTarget(minions);
             if (cal_distance(target) < this.atkRange && this.atkCounter >= this.atkSpeed) {
                 double damageDone = dmgCal(target);
-                System.out.println(this.kingName + " dealt " + damageDone + " damage to " + target.minionName);
+//                System.out.println(this.kingName + " dealt " + damageDone + " damage to " + target.minionName);
                 this.atkCounter = 0;
             }
         }
