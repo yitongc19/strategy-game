@@ -1,5 +1,6 @@
 package View;
 
+import Model.CombatManager;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -79,15 +80,6 @@ public class InitiateGame extends Application{
     /* constructing the instruction on the top */
     private static Text addInstruction() {
         Text instruction = new Text("Please choose the number of players:");
-        //The dropshadow effect
-//        Reflection r = new Reflection();
-//        r.setFraction(0.7f);
-//
-//
-//        instruction.setEffect(r);
-//        instruction.setCache(true);
-//        instruction.setX(10.0f);
-//        instruction.setY(270.0f);
         instruction.setFont(Font.font("", FontWeight.BOLD, 25));
 
         return instruction;
@@ -123,6 +115,7 @@ public class InitiateGame extends Application{
             numFour.setDisable(true);
             numSix.setDisable(true);
             numEight.setDisable(true);
+
         });
 
         numFour.setOnAction(event -> {
@@ -296,34 +289,6 @@ public class InitiateGame extends Application{
             changeColorMenu.getItems().add(item);
         }
 
-//
-//        MenuItem red = new MenuItem("", new Circle(8, Color.LIGHTCORAL));
-//        red.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTCORAL);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(red);
-//
-//        MenuItem blue = new MenuItem("", new Circle(8, Color.LIGHTBLUE));
-//        blue.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTBLUE);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(blue);
-//
-//        MenuItem green = new MenuItem("", new Circle(8, Color.LIGHTGREEN));
-//        green.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTGREEN);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(green);
-//
-//        MenuItem cyan = new MenuItem("", new Circle(8, Color.LIGHTCYAN));
-//        cyan.setOnAction(event -> {
-//            defaultColor.setFill(Color.LIGHTCYAN);
-//            defaultColor.setStroke(Color.TRANSPARENT);
-//        });
-//        changeColorMenu.getItems().add(cyan);
 
         menuBar.getMenus().addAll(changeColorMenu);
         pane.getChildren().add(menuBar);

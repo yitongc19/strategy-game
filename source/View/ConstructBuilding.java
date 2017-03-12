@@ -64,7 +64,6 @@ public class ConstructBuilding extends Application {
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
         timerLabel.setId("timer");
-        timerLabel.setFont(Font.font(null, 80));
 
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
