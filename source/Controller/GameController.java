@@ -32,6 +32,7 @@ public class GameController {
         double[] pos8 = {250, 60};
         double[] pos9 = {200, 80};
         double[] pos10 = {200, 130};
+        double[] pos11 = {220, 150};
 
 //        how to do variable naming with var in java
 //        for (int i = 1; i < 7; i += 1) {
@@ -56,6 +57,7 @@ public class GameController {
 //        ShieldKnight sk3 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos10);
         CupCakeWarrior newcup9 = new CupCakeWarrior(manager, "Cup Cake Warrior 9", yitong, pos9);
         CupCakeWarrior newcup10 = new CupCakeWarrior(manager, "Cup Cake Warrior 10", yitong, pos10);
+        CupCakeWarrior newcup11 = new CupCakeWarrior(manager, "Cup Cake Warrior 11", yitong, pos11);
 //        CupCakeBerserker newcupber = new CupCakeBerserker(manager, "Cup Cake Berserker 1", yitong, pos10);
 
         this.players[0] = yitong;

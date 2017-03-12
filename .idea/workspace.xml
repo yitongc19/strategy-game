@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0ad3049-7e68-4cb1-9846-bb4f3a1b2432" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/View/HealthBar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/resourcesImg/king2.png" afterPath="$PROJECT_DIR$/assets/resourcesImg/king2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Controller/FightController.java" afterPath="$PROJECT_DIR$/source/Controller/FightController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Controller/GameController.java" afterPath="$PROJECT_DIR$/source/Controller/GameController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/King.java" afterPath="$PROJECT_DIR$/source/Model/King.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/MinionImpl.java" afterPath="$PROJECT_DIR$/source/Model/MinionImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/Sprite.java" afterPath="$PROJECT_DIR$/source/View/Sprite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" afterPath="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,30 +29,21 @@
       <file leaf-file-name="FightController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4680">
-              <caret line="312" column="33" lean-forward="false" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
+            <state relative-caret-position="354">
+              <caret line="47" column="95" lean-forward="true" selection-start-line="47" selection-start-column="95" selection-end-line="47" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1489293412000" expanded="false" signature="693:780" ph="(AnimationTimer) (now) → {" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstructBuilding.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="250" column="35" lean-forward="false" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
+            <state relative-caret-position="54">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,50 +52,79 @@
       <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="2" selection-end-line="474" selection-end-column="89" />
-              <folding />
+            <state relative-caret-position="525">
+              <caret line="522" column="16" lean-forward="true" selection-start-line="522" selection-start-column="16" selection-end-line="522" selection-end-column="16" />
+              <folding>
+                <element signature="e#17809#17810#0" expanded="true" />
+                <element signature="e#17856#17857#0" expanded="true" />
+                <element signature="e#17891#17892#0" expanded="true" />
+                <element signature="e#17939#17940#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/View/GameMap.java">
+      <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/King.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="669">
+              <caret line="253" column="33" lean-forward="false" selection-start-line="253" selection-start-column="33" selection-end-line="253" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcomeScreen.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/View/welcomeScreen.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
+      <file leaf-file-name="CupCakeWarrior.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="489">
+              <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomeScreen.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/View/static/WelcomeScreen.css">
+      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+            <state relative-caret-position="374">
+              <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InitiateGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/View/InitiateGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1050">
+              <caret line="93" column="34" lean-forward="true" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buildbase.gif" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/swordmanT1/buildbase.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="ConstructBuilding.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="111" column="38" lean-forward="false" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/View/Sprite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="31" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -111,23 +139,16 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>killreward</find>
-      <find>portalreward</find>
-      <find>died</find>
-      <find>earn</find>
-      <find>minions</find>
       <find>minion</find>
       <find>earned</find>
       <find>he</find>
       <find>show your</find>
       <find>kinglan</find>
-      <find>canvas</find>
       <find>base</find>
       <find>clickable</find>
       <find>rectangle</find>
       <find>padding</find>
       <find>button</find>
-      <find>kinglane</find>
       <find>start</find>
       <find>run</find>
       <find>start.</find>
@@ -141,6 +162,13 @@
       <find>yitong</find>
       <find>BUTTON</find>
       <find>popup</find>
+      <find>graphics</find>
+      <find>canvas</find>
+      <find>kinglane</find>
+      <find>count</find>
+      <find>240</find>
+      <find>random</find>
+      <find>threadlocalrandom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +186,6 @@
         <option value="$PROJECT_DIR$/source/Model/ArmorType.java" />
         <option value="$PROJECT_DIR$/source/Model/Building.java" />
         <option value="$PROJECT_DIR$/source/Model/CombatManager.java" />
-        <option value="$PROJECT_DIR$/source/Model/King.java" />
         <option value="$PROJECT_DIR$/source/Model/MeleeMinion.java" />
         <option value="$PROJECT_DIR$/source/View/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/source/Model/BuildingImpl.java" />
@@ -171,12 +198,16 @@
         <option value="$PROJECT_DIR$/source/Model/CupCakeBerserker.java" />
         <option value="$PROJECT_DIR$/tests/Testing.java" />
         <option value="$PROJECT_DIR$/source/View/static/Fight.css" />
-        <option value="$PROJECT_DIR$/source/Controller/GameController.java" />
-        <option value="$PROJECT_DIR$/source/Controller/FightController.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
-        <option value="$PROJECT_DIR$/source/View/Fight.java" />
         <option value="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
+        <option value="$PROJECT_DIR$/source/View/static/WelcomeScreen.css" />
+        <option value="$PROJECT_DIR$/source/View/Healthbar.java" />
+        <option value="$PROJECT_DIR$/source/View/Sprite.java" />
+        <option value="$PROJECT_DIR$/source/View/HealthBar.java" />
+        <option value="$PROJECT_DIR$/source/Controller/FightController.java" />
+        <option value="$PROJECT_DIR$/source/View/Fight.java" />
+        <option value="$PROJECT_DIR$/source/Model/King.java" />
+        <option value="$PROJECT_DIR$/source/Controller/GameController.java" />
         <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
       </list>
     </option>
@@ -188,8 +219,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="23" />
+    <option name="x" value="120" />
+    <option name="y" value="25" />
     <option name="width" value="1916" />
     <option name="height" value="1177" />
   </component>
@@ -223,6 +254,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -277,56 +322,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swordmanT1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resourcesImg" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -876,15 +871,15 @@
       <workItem from="1488838093454" duration="307000" />
       <workItem from="1489094591096" duration="3011000" />
       <workItem from="1489124562738" duration="15897000" />
-      <workItem from="1489219547538" duration="409000" />
+      <workItem from="1489219547538" duration="11977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25883000" />
+    <option name="totallyTimeSpent" value="37451000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1916" height="1177" extended-state="6" />
+    <frame x="120" y="25" width="1916" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -933,14 +928,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -980,7 +967,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7080">
           <caret line="510" column="37" lean-forward="false" selection-start-line="510" selection-start-column="37" selection-end-line="510" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#17809#17810#0" expanded="true" />
+            <element signature="e#17856#17857#0" expanded="true" />
+            <element signature="e#17891#17892#0" expanded="true" />
+            <element signature="e#17939#17940#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1027,23 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/returnScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="243" column="66" lean-forward="false" selection-start-line="243" selection-start-column="66" selection-end-line="243" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrirorBuilding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1072,6 +1047,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,14 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1111,22 +1079,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/static/bdbase.gif" />
-    <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/static/bdbase.gif" />
     <entry file="file://$PROJECT_DIR$/source/Model/Building.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,14 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/InitiateGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="58" column="14" lean-forward="false" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1158,6 +1112,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,22 +1149,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/static/darkbase2.png" />
-    <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/View/drawable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1227,23 +1166,29 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/static/WelcomeScreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/assets/swordmanT1/t1buildevil.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/swordmanT1/t1buildevil.gif">
+    <entry file="file://$PROJECT_DIR$/source/View/static/quitButton.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="-996">
           <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/static/WelcomeScreen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,24 +1198,39 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
+    <entry file="file://$PROJECT_DIR$/source/View/Sprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4680">
-          <caret line="312" column="33" lean-forward="false" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="31" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/static/quitButton.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/source/View/HealthBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/InitiateGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="93" column="34" lean-forward="true" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/GameMap.java">
@@ -1281,19 +1241,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/returnScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="250" column="35" lean-forward="false" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
+        <state relative-caret-position="179">
+          <caret line="111" column="38" lean-forward="false" selection-start-line="111" selection-start-column="33" selection-end-line="111" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="47" column="95" lean-forward="true" selection-start-line="47" selection-start-column="95" selection-end-line="47" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1489293412000" expanded="false" signature="693:780" ph="(AnimationTimer) (now) → {" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="253" column="33" lean-forward="false" selection-start-line="253" selection-start-column="33" selection-end-line="253" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="2" selection-end-line="474" selection-end-column="89" />
-          <folding />
+        <state relative-caret-position="525">
+          <caret line="522" column="16" lean-forward="true" selection-start-line="522" selection-start-column="16" selection-end-line="522" selection-end-column="16" />
+          <folding>
+            <element signature="e#17809#17810#0" expanded="true" />
+            <element signature="e#17856#17857#0" expanded="true" />
+            <element signature="e#17891#17892#0" expanded="true" />
+            <element signature="e#17939#17940#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

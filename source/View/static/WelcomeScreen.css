@@ -1,5 +1,5 @@
 .root {
-    -fx-background-image: url("../../../assets/resourcesImg/ForTheKingWelcome.jpg");
+    -fx-background-image: url("/resourcesImg/ForTheKingWelcome.jpg");
     -fx-background-repeat: stretch;
 }
 
