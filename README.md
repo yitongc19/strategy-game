@@ -87,16 +87,16 @@ As we envision, the game will be consist of multiple pieces.
 
 - Buildings
 
-  ![goodbdt1](assets/t1 swordman/goodbdt1.gif)
+  ![goodbdt1](assets/swordmanT1/t1buildgood.gif)
 
-  ![evilbdt1](assets/t1 swordman/evilbdt1.gif)
+  ![evilbdt1](assets/swordmanT1/t1buildevil.gif)
 
 
 - Walking
 
-  ![evilsmt1wk](assets/t1 swordman/goodsmt1wk.gif)
+  ![evilsmt1wk](assets/swordmanT1/goodsmt1wk.gif)
 
-  ![evilsmt1wk](assets/t1 swordman/evilsmt1wk.gif)
+  ![evilsmt1wk](assets/swordmanT1/evilsmt1wk.gif)
 
 
 - Attacking
@@ -115,6 +115,6 @@ As we envision, the game will be consist of multiple pieces.
 
 - Death scene
 
-  ![goodblood](assets/t1 swordman/goodblood.gif)
+  ![goodblood](assets/swordmanT1/goodblood.gif)
 
-  ![badblood](assets/t1 swordman/badblood.gif)
+  ![badblood](assets/swordmanT1/badblood.gif)

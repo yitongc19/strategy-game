@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.CombatManager;
-import Model.CupCakeWarrior;
-import Model.CupCakeWarriorBuilding;
-import Model.PlayerImpl;
+import Model.*;
 
 /**
  * Created by Russll on 3/10/17.
@@ -27,7 +24,11 @@ public class GameController {
         return players;
     }
 
-    public void setUpGame(CombatManager manager) {
+    public void setPlayers(PlayerImpl[] players) {
+        this.players = players;
+    }
+
+    public void setUpGame() {
         double[] pos1 = {1220, 0};
         double[] pos2 = {1200, 30};
         double[] pos3 = {1230, 60};
@@ -46,60 +47,38 @@ public class GameController {
 
 
         int[] color = {10, 20, 30};
-        PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
-        PlayerImpl russell = new PlayerImpl(2, "Russell", color);
+        PlayerImpl player1 = getPlayers()[0];
+        PlayerImpl player2 = getPlayers()[1];
 
-        CupCakeWarriorBuilding build1 = new CupCakeWarriorBuilding(russell);
+        CupCakeWarriorBuilding build1 = new CupCakeWarriorBuilding(player1);
         build1.setScreenCoords(pos1);
 
-        CupCakeWarriorBuilding build2 = new CupCakeWarriorBuilding(russell);
+        CupCakeWarriorBuilding build2 = new CupCakeWarriorBuilding(player1);
         build2.setScreenCoords(pos2);
 
-        CupCakeWarriorBuilding build3 = new CupCakeWarriorBuilding(russell);
+        CupCakeWarriorBuilding build3 = new CupCakeWarriorBuilding(player1);
         build3.setScreenCoords(pos3);
 
-        CupCakeWarriorBuilding build4 = new CupCakeWarriorBuilding(russell);
+        CupCakeWarriorBuilding build4 = new CupCakeWarriorBuilding(player1);
         build4.setScreenCoords(pos4);
 
-        CupCakeWarriorBuilding build5 = new CupCakeWarriorBuilding(russell);
+        CupCakeWarriorBuilding build5 = new CupCakeWarriorBuilding(player1);
         build5.setScreenCoords(pos5);
 
-        CupCakeWarriorBuilding build6 = new CupCakeWarriorBuilding(yitong);
+        CupCakeWarriorBuilding build6 = new CupCakeWarriorBuilding(player2);
         build6.setScreenCoords(pos6);
 
-        CupCakeWarriorBuilding build7 = new CupCakeWarriorBuilding(yitong);
+        CupCakeWarriorBuilding build7 = new CupCakeWarriorBuilding(player2);
         build7.setScreenCoords(pos7);
 
-        CupCakeWarriorBuilding build8 = new CupCakeWarriorBuilding(yitong);
+        CupCakeWarriorBuilding build8 = new CupCakeWarriorBuilding(player2);
         build8.setScreenCoords(pos8);
 
-        CupCakeWarriorBuilding build9 = new CupCakeWarriorBuilding(yitong);
+        CupCakeWarriorBuilding build9 = new CupCakeWarriorBuilding(player2);
         build9.setScreenCoords(pos9);
 
-        CupCakeWarriorBuilding build10 = new CupCakeWarriorBuilding(yitong);
-        build10.setScreenCoords(pos10);
 
-       /*
 
-        CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior 1", russell, pos1);
-        CupCakeWarrior newcup2 = new CupCakeWarrior(manager, "Cup Cake Warrior 2", russell, pos2);
-        CupCakeWarrior newcup3 = new CupCakeWarrior(manager, "Cup Cake Warrior 3", russell, pos3);
-        CupCakeWarrior newcup4 = new CupCakeWarrior(manager, "Cup Cake Warrior 4", russell, pos4);
-        CupCakeWarrior newcup5 = new CupCakeWarrior(manager, "Cup Cake Warrior 5", russell, pos5);
-//        ShieldKnight sk1 = new ShieldKnight(manager, "Shield Knight 2", russell, pos5);
-        CupCakeWarrior newcup6 = new CupCakeWarrior(manager, "Cup Cake Warrior 6", yitong, pos6);
-        CupCakeWarrior newcup7 = new CupCakeWarrior(manager, "Cup Cake Warrior 7", yitong, pos7);
-        CupCakeWarrior newcup8 = new CupCakeWarrior(manager, "Cup Cake Warrior 8", yitong, pos8);
-//        ShieldKnight sk2 = new ShieldKnight(manager, "Shield Knight 2", yitong, pos9);
-//        ShieldKnight sk3 = new ShieldKnight(manager, "Shield Knight 1", yitong, pos10);
-        CupCakeWarrior newcup9 = new CupCakeWarrior(manager, "Cup Cake Warrior 9", yitong, pos9);
-        CupCakeWarrior newcup10 = new CupCakeWarrior(manager, "Cup Cake Warrior 10", yitong, pos10);
-//        CupCakeBerserker newcupber = new CupCakeBerserker(manager, "Cup Cake Berserker 1", yitong, pos10);
-
-        */
-
-        this.players[0] = yitong;
-        this.players[1] = russell;
     }
 
 

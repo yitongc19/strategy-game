@@ -1,4 +1,5 @@
-**/*.class
-**/.DS_Store
-/build/
-**/*.class
+ **/.DS_Store
+ /build/
+ **/*.class
+ /.idea/workspace.xml
+ .DS_Store
