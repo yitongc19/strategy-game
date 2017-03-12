@@ -27,35 +27,35 @@
 }
 
 
-.root {
-    -fx-background-image: url("constructBuildingBg.jpg");
-}
+/*.root {*/
+    /*-fx-background-image: url("constructBuildingBg.jpg");*/
+/*}*/
 
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
 
 #playerInfoPanel {
-    -fx-background-color: saddlebrown;
-    -fx-opacity: 0.8;
+    -fx-background-color: white;
+    /*-fx-opacity: 0.8;*/
     -fx-border-radius: 10;
 }
 
 #functionPanel {
-    -fx-background-color: saddlebrown;
-    -fx-opacity: 0.8;
+    -fx-background-color: white;
+    /*-fx-opacity: 0.8;*/
     -fx-border-radius: 10;
 }
 .scroll-pane {
-    -fx-background-color: saddlebrown;
-    -fx-opacity: 0.8;
+    -fx-background-color: white;
+    /*-fx-opacity: 0.8;*/
     -fx-border-radius: 10;
 }
 
 
 #currentBaseContainer {
-    -fx-background-color: saddlebrown;
-    -fx-opacity: 0.8;
+    -fx-background-color: white;
+    /*-fx-opacity: 0.8;*/
     -fx-border-radius: 10;
 }
 

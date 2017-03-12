@@ -25,6 +25,9 @@ import javafx.stage.Stage;
 
 import javafx.scene.control.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by cheny2 on 3/1/17.
  */
@@ -174,13 +177,13 @@ public class InitiateGame extends Application{
 
         VBox team1 = new VBox();
         Text team1Title = new Text("Team 1");
-        team1Title.setFont(Font.font(null, FontWeight.BOLD, 18));
+        team1Title.setFont(Font.font(null, FontWeight.BOLD, 22));
         VBox team1Players = playerOneSide(numPlayers, "team1");
         team1.getChildren().addAll(team1Title, team1Players);
 
         VBox team2 = new VBox();
         Text team2Title = new Text("Team 2");
-        team2Title.setFont(Font.font(null, FontWeight.BOLD, 18));
+        team2Title.setFont(Font.font(null, FontWeight.BOLD, 22));
         VBox team2Players = playerOneSide(numPlayers, "team2");
         team2.getChildren().addAll(team2Title, team2Players);
 
@@ -197,6 +200,12 @@ public class InitiateGame extends Application{
     /* construct the four players on one side */
     private static VBox playerOneSide(int numPlayers, String teamname) {
         VBox playerContainer = new VBox();
+        playerContainer.setPadding(new Insets(20, 20, 20, 20));
+        playerContainer.setStyle("-fx-border-style: solid inside;" +
+                "-fx-border-width: 1.2;" +
+                "-fx-border-insets: 5;" +
+                "-fx-border-radius: 5;" +
+                "-fx-border-color: black;");
         playerContainer.setSpacing(5);
 
         for (int i = 1; i < numPlayers; i = i +2) {
@@ -258,38 +267,63 @@ public class InitiateGame extends Application{
 
         MenuBar menuBar = new MenuBar();
 
-        Circle menuCircle = new Circle(8);
-        menuCircle.setStroke(Color.BLACK);
-        menuCircle.setFill(Color.WHITE);
-        Menu changeColorMenu = new Menu("", menuCircle);
+        Rectangle defaultColor = new Rectangle(20, 15);
+        defaultColor.setStroke(Color.GRAY);
+        defaultColor.setFill(Color.GREY);
+        Menu changeColorMenu = new Menu("", defaultColor);
 
-        MenuItem red = new MenuItem("", new Circle(8, Color.LIGHTCORAL));
-        red.setOnAction(event -> {
-            menuCircle.setFill(Color.LIGHTCORAL);
-            menuCircle.setStroke(Color.TRANSPARENT);
-        });
-        changeColorMenu.getItems().add(red);
+        List<Paint> colorList = new ArrayList<>();
 
-        MenuItem blue = new MenuItem("", new Circle(8, Color.LIGHTBLUE));
-        blue.setOnAction(event -> {
-            menuCircle.setFill(Color.LIGHTBLUE);
-            menuCircle.setStroke(Color.TRANSPARENT);
-        });
-        changeColorMenu.getItems().add(blue);
+        colorList.add(Color.rgb(153, 204, 204));
+        colorList.add(Color.rgb(153, 179, 255));
+        colorList.add(Color.rgb(179, 153, 255));
+        colorList.add(Color.rgb(204, 153, 204));
+        colorList.add(Color.rgb(230, 153, 179));
+        colorList.add(Color.rgb(255, 153, 153));
+        colorList.add(Color.rgb(255, 179, 128));
+        colorList.add(Color.rgb(255, 204, 153));
+        colorList.add(Color.rgb(255, 230, 128));
+        colorList.add(Color.rgb(255, 255, 128));
+        colorList.add(Color.rgb(230, 230, 153));
+        colorList.add(Color.rgb(153, 204, 153));
 
-        MenuItem green = new MenuItem("", new Circle(8, Color.LIGHTGREEN));
-        green.setOnAction(event -> {
-            menuCircle.setFill(Color.LIGHTGREEN);
-            menuCircle.setStroke(Color.TRANSPARENT);
-        });
-        changeColorMenu.getItems().add(green);
+        for (Paint color : colorList) {
+            MenuItem item = new MenuItem("", new Rectangle(20, 15, color));
+            item.setOnAction(event -> {
+                defaultColor.setFill(color);
+                defaultColor.setStroke(Color.TRANSPARENT);
+            });
+            changeColorMenu.getItems().add(item);
+        }
 
-        MenuItem cyan = new MenuItem("", new Circle(8, Color.LIGHTCYAN));
-        cyan.setOnAction(event -> {
-            menuCircle.setFill(Color.LIGHTCYAN);
-            menuCircle.setStroke(Color.TRANSPARENT);
-        });
-        changeColorMenu.getItems().add(cyan);
+//
+//        MenuItem red = new MenuItem("", new Circle(8, Color.LIGHTCORAL));
+//        red.setOnAction(event -> {
+//            defaultColor.setFill(Color.LIGHTCORAL);
+//            defaultColor.setStroke(Color.TRANSPARENT);
+//        });
+//        changeColorMenu.getItems().add(red);
+//
+//        MenuItem blue = new MenuItem("", new Circle(8, Color.LIGHTBLUE));
+//        blue.setOnAction(event -> {
+//            defaultColor.setFill(Color.LIGHTBLUE);
+//            defaultColor.setStroke(Color.TRANSPARENT);
+//        });
+//        changeColorMenu.getItems().add(blue);
+//
+//        MenuItem green = new MenuItem("", new Circle(8, Color.LIGHTGREEN));
+//        green.setOnAction(event -> {
+//            defaultColor.setFill(Color.LIGHTGREEN);
+//            defaultColor.setStroke(Color.TRANSPARENT);
+//        });
+//        changeColorMenu.getItems().add(green);
+//
+//        MenuItem cyan = new MenuItem("", new Circle(8, Color.LIGHTCYAN));
+//        cyan.setOnAction(event -> {
+//            defaultColor.setFill(Color.LIGHTCYAN);
+//            defaultColor.setStroke(Color.TRANSPARENT);
+//        });
+//        changeColorMenu.getItems().add(cyan);
 
         menuBar.getMenus().addAll(changeColorMenu);
         pane.getChildren().add(menuBar);
