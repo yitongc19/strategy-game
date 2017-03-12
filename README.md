@@ -101,9 +101,9 @@ As we envision, the game will be consist of multiple pieces.
 
 - Attacking
 
-  ![goodsmt1atk](assets/t1 swordman/goodsmt1atk.gif)
+  ![goodsmt1atk](assets/swordmanT1/goodsmt1atk.gif)
 
-  ![evilsmt1atk](assets/t1 swordman/evilsmt1atk.gif)
+  ![evilsmt1atk](assets/swordmanT1/evilsmt1atk.gif)
 
 - Walking in scene
 
