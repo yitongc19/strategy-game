@@ -10,7 +10,9 @@ import java.util.List;
  */
 public class GameController {
     private List<PlayerImpl> players;
+
     private int numPlayers;
+    private int numRemainingPlayers;
 
     private int numPlayerTeam1;
     private int numPlayerTeam2;
@@ -19,11 +21,20 @@ public class GameController {
 
 
     public GameController(int playernum) {
+        this.numRemainingPlayers = playernum;
         this.numPlayers = playernum;
         this.players = new ArrayList<>();
         numPlayerTeam1 = numPlayers / 2;
         numPlayerTeam2 = numPlayers / 2;
     }
+    public int getNumRemainingPlayers() {
+        return numRemainingPlayers;
+    }
+
+    public void setNumRemainingPlayers(int numRemainingPlayers) {
+        this.numRemainingPlayers = numRemainingPlayers;
+    }
+
 
     public List<PlayerImpl> getPlayers() {
         return players;

@@ -68,6 +68,7 @@ public class ConstructBuilding extends Application {
 
 //        PlayerImpl[] players = {player1, player2, player3, player4, player5, player6};
 //
+        List<PlayerImpl> players = control.getPlayers();
 //        control.setPlayers(players);
 
         constructStage = primaryStage;
@@ -80,8 +81,8 @@ public class ConstructBuilding extends Application {
         leftPanels.setSpacing(20);
 
         VBox currentBasePanel = addCurrectBasePanel(gridCoords);
-////        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players[0], gridCoords);
-//        leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
+        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players.get(0), gridCoords);
+        leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
         timerLabel.setId("timer");
@@ -121,6 +122,16 @@ public class ConstructBuilding extends Application {
                  }
                  if (timeSeconds[0] <= 0) {
                      finalTimeline.stop();
+
+                     //TODO: control the number of scenes shown
+
+                     Fight fight = new Fight(control);
+                     try {
+                         fight.start(Fight.fightStage);
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
+                     constructStage.close();
                  }
              }
          }));
