@@ -182,6 +182,7 @@ public class EndGame extends Application {
             confirmExit.setOnAction(event1 -> {
                 stagePopup.close();
                 endStage.close();
+                System.exit(0);
             });
 
             declineExit.setOnAction(event1 -> {
