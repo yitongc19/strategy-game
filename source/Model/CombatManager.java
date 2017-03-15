@@ -80,11 +80,11 @@ public class CombatManager {
                 //if the minion has no king then it hasn't teleported yet so check portal
                 instances.get(i).checkPortal();
                 instances.get(i).performAttack(instances.get(i).master.opponent.getMinions());
+            } else {
+                //otherwise attack
                 if (instances.get(i).myKing.checkDeath() || instances.get(i).myKing.opponetKing.checkDeath()) {
                     break;
                 }
-            } else {
-                //otherwise attack
                 instances.get(i).performAttack(instances.get(i).master.myKing.getOpponetKing().getMinions());
             }
         }
