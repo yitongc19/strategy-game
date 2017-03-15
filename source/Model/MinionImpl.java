@@ -411,22 +411,22 @@ public class MinionImpl implements Minion {
         double normalx = (xdiff/dist)*moveSpeed;
         double normaly = (ydiff/dist)*moveSpeed;
 
-        double[] tempCoords = {this.Coords[0] + normalx, this.Coords[1] += normaly};
+//        double[] tempCoords = {this.Coords[0] + normalx, this.Coords[1] += normaly};
+//
+//        for (MinionImpl each:this.master.minions) {
+//            if (sqrt(pow(tempCoords[0] - each.Coords[0], 2)+pow(tempCoords[1] - each.Coords[1], 2)) < collisionDist) {
+//                collisonFlag = true;
+//                this.Coords[0] += normaly;
+//                this.Coords[1] += -normalx;
+//            } else {
+//                collisonFlag = false;
+//            }
+//        }
 
-        for (MinionImpl each:this.master.minions) {
-            if (sqrt(pow(tempCoords[0] - each.Coords[0], 2)+pow(tempCoords[1] - each.Coords[1], 2)) < collisionDist) {
-                collisonFlag = true;
-                this.Coords[0] += normaly;
-                this.Coords[1] += -normalx;
-            } else {
-                collisonFlag = false;
-            }
-        }
-
-        if (collisonFlag == false) {
-            this.Coords[0] += normalx;
-            this.Coords[1] += normaly;
-        }
+//        if (collisonFlag == false) {
+        this.Coords[0] += normalx;
+        this.Coords[1] += normaly;
+//        }
 
 //        this.Coords[0] += normalx;
 //        this.Coords[1] += normaly;

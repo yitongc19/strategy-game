@@ -49,15 +49,16 @@ public class CombatManager {
         Collections.sort(instances, Collections.reverseOrder(byPriority()));
 
             this.addAtkCounterToAll();
-            for (int i = 0; i < instances.size(); i += 1) {
-                if (instances.get(i).myKing == null) {
-                    //if the minion has no king then it hasn't teleported yet so check portal
-                    instances.get(i).checkPortal();
-                }
-                //otherwise attack
+        for (int i = 0; i < instances.size(); i += 1) {
+            if (instances.get(i).myKing == null) {
+                //if the minion has no king then it hasn't teleported yet so check portal
+                instances.get(i).checkPortal();
                 instances.get(i).performAttack(instances.get(i).master.opponent.getMinions());
-
+            } else {
+                //otherwise attack
+                instances.get(i).performAttack(instances.get(i).master.myKing.getOpponetKing().getMinions());
             }
+        }
             //increment king's atkCounter
             player1.getKing().atkCounter += 0.1;
             player2.getKing().atkCounter += 0.1;

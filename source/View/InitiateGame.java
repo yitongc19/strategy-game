@@ -73,9 +73,10 @@ public class InitiateGame extends Application{
                 Integer teamNum = (Integer) player.get("teamNum");
                 String name = nameInput.getText();
 
-                PlayerImpl newPlayer;
+                PlayerImpl newPlayer = new PlayerImpl(teamNum, name, color);
+                controller.addPlayer(newPlayer);
                 if (teamNum == 1) {
-                    newPlayer = new PlayerImpl(teamNum, name, color, lightKing);
+                    newPlayer.myKing = lightKing;
                     newPlayer.setyOffset(offsetOne * 220);
                     newPlayer.setxOffset(0);
                     if (offsetOne == 1) {
@@ -83,7 +84,7 @@ public class InitiateGame extends Application{
                     }
                     offsetOne = offsetOne + 1;
                 } else {
-                    newPlayer = new PlayerImpl(teamNum, name, color, darkKing);
+                    newPlayer.myKing = darkKing;
                     newPlayer.setyOffset(offsetTwo * 220);
                     newPlayer.setxOffset(1200);
                     if (offsetTwo == 1) {
@@ -91,7 +92,6 @@ public class InitiateGame extends Application{
                     }
                     offsetTwo = offsetTwo + 1;
                 }
-                controller.addPlayer(newPlayer);
             }
 
             System.out.println(controller.getPlayers().get(0).getPlayerName());
