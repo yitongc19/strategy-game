@@ -47,6 +47,7 @@ import java.util.List;
 public class ConstructBuilding extends Application {
 
     private PlayerImpl currentPlayer;
+    private PlayerImpl nextPlayer;
     private Timeline timeline = new Timeline();
     private static VBox leftPanels;
     private static int[] currentGridCoords = {0, 0};
@@ -65,6 +66,7 @@ public class ConstructBuilding extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         System.out.println("TESTING START!");
 
         GameController control = this.controller;
@@ -83,6 +85,12 @@ public class ConstructBuilding extends Application {
         leftPanels.setSpacing(20);
 
         currentPlayer = players.get(playerIndex);
+
+        System.out.println(playerIndex);
+
+        if (playerIndex + 1 < players.size()) {
+            nextPlayer = players.get(playerIndex + 1);
+        }
 
         VBox currentBasePanel = addCurrectBasePanel(currentPlayer);
 
@@ -131,12 +139,13 @@ public class ConstructBuilding extends Application {
 
                      if (control.getNumRemainingPlayers() > 0) {
                          control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
-                         InterPlayer interPlayer = new InterPlayer(control, currentPlayer);
+                         InterPlayer interPlayer = new InterPlayer(control, nextPlayer);
                          try {
                              interPlayer.start(InterPlayer.interPlayerStage);
                          } catch (Exception e) {
                              e.printStackTrace();
                          }
+                         timeline.stop();
                          constructStage.close();
                      } else {
                          if (finished == 0) {
@@ -257,8 +266,7 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setOnAction(event -> {
             if (control.getNumRemainingPlayers() > 0) {
                 control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
-
-                InterPlayer interPlayer = new InterPlayer(control, currentPlayer);
+                InterPlayer interPlayer = new InterPlayer(control, nextPlayer);
                 try {
                     interPlayer.start(InterPlayer.interPlayerStage);
                 } catch (Exception e) {
@@ -568,7 +576,7 @@ public class ConstructBuilding extends Application {
             e.printStackTrace();
         }
         constructStage.close();
-        control.setNumRemainingPlayers(control.getNumPlayers() - 1);
+        control.setNumRemainingPlayers(control.getNumPlayers());
     }
     private static class baseClickable extends Button {
         private baseClickable() {

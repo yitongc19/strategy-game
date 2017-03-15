@@ -2,6 +2,10 @@ package Controller;
 
 
 import Model.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.animation.AnimationTimer;
 import javafx.scene.paint.Color;
@@ -10,6 +14,7 @@ import javafx.scene.paint.Color;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import java.time.Duration;
 import java.util.List;
 
 public class FightController implements FightControllerInterface {
@@ -24,7 +29,7 @@ public class FightController implements FightControllerInterface {
         this.players = players;
     }
 
-    public void runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
+    public AnimationTimer runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
 
 
 
@@ -48,7 +53,58 @@ public class FightController implements FightControllerInterface {
             players.get(i).setOpponent(players.get(i+players.size()/2));
         }
 
-        new AnimationTimer() {
+//        Timeline animationTimeLine = new Timeline();
+//
+//        animationTimeLine.setCycleCount(Timeline.INDEFINITE);
+//
+//        animationTimeLine.getKeyFrames().add(new KeyFrame(javafx.util.Duration.seconds(30), new EventHandler<ActionEvent>() {
+//
+//            @Override
+//            public void handle(ActionEvent event) {
+//                try {
+//                    Thread.sleep(50);
+//                }
+//                catch (InterruptedException e) {
+//                }
+//
+//                manager.doCombat(players.get(0), players.get(players.size()/2));
+//
+//
+//                graphics.clearRect(0,0,2000,1000);
+//                for (int i = 0; i < manager.getAllInstances().size(); i = i + 1) {
+//                    MinionImpl minion = manager.getAllInstances().get(i);
+//                    double coords[] = minion.getCoords();
+//                    if (minion.master.getTeam() == 1) {
+//                        graphics.setFill(Color.RED);
+//                        graphics.fillRect(minion.getCoords()[0], minion.getCoords()[1], 30, 4);
+//                        graphics.setFill(Color.GREEN);
+//                        graphics.fillRect(minion.getCoords()[0], minion.getCoords()[1], 30*minion.getHealthPercent(), 4);
+//                    } else {
+//                        graphics.setFill(Color.RED);
+//                        graphics.fillRect(minion.getCoords()[0]+20, minion.getCoords()[1], 30, 4);
+//                        graphics.setFill(Color.GREEN);
+//                        graphics.fillRect(minion.getCoords()[0]+20, minion.getCoords()[1], 30*minion.getHealthPercent(), 4);
+//                    }
+//
+//                    minion.sprite.setPos(coords[0], coords[1]);
+//                    minion.render(graphics);
+//                }
+//                graphics.setFill(Color.RED);
+//                graphics.fillRect(players.get(0).myKing.kingPos[0] -200, players.get(0).myKing.kingPos[1]+60, 210, 10);
+//                graphics.setFill(Color.GREEN);
+//                graphics.fillRect(players.get(0).myKing.kingPos[0] -200, players.get(0).myKing.kingPos[1]+60, 210*players.get(0).myKing.getHpPercent(), 10);
+//
+//                graphics.setFill(Color.RED);
+//                graphics.fillRect(players.get(players.size()/2).myKing.kingPos[0] + 50, players.get(players.size()/2).myKing.kingPos[1]+60, 210, 10);
+//                graphics.setFill(Color.GREEN);
+//                graphics.fillRect(players.get(players.size()/2).myKing.kingPos[0] + 50, players.get(players.size()/2).myKing.kingPos[1]+60, 210*players.get(players.size()/2).myKing.getHpPercent(), 10);
+//
+//            }
+//        }));
+//
+//        animationTimeLine.play();
+
+        AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 try {
@@ -115,7 +171,9 @@ public class FightController implements FightControllerInterface {
 //                }
 
             }
-        }.start();
+        };
+
+        return animationTimer;
     }
 
     public void showBuildings(GraphicsContext gc) {

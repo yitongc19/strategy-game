@@ -79,7 +79,7 @@ public class Fight extends Application{
         scene.getStylesheets().add(Fight.class.getResource("static/Fight.css").toExternalForm());
 
         primaryStage.setOnShown(windownEvent -> {
-            fightController.runFight(manager, graphics, graphics1);
+            fightController.runFight(manager, graphics, graphics1).start();
         });
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
