@@ -25,21 +25,23 @@ public class FightController implements FightControllerInterface {
     }
 
     public void runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
-        PlayerImpl player1 = players.get(0);
-        PlayerImpl player2 = players.get(1);
 
-        player1.setOpponent(player2);
 
-        System.out.println(player1.getBuildings().size());
-        System.out.println(player2.getBuildings().size());
 
-        for (int j = 0; j < player1.getBuildings().size(); j = j + 1) {
-            BuildingImpl building = player1.getBuildings().get(j);
-            building.spawnMinion(manager);
+        for (int i = 0; i < players.size(); i = i + 1) {
+            PlayerImpl curPlayer = players.get(i);
+            for (int j = 0; j < curPlayer.getBuildings().size(); j = j + 1) {
+                BuildingImpl building = curPlayer.getBuildings().get(j);
+                building.spawnMinion(manager);
+            }
         }
-        for (int k = 0; k < player2.getBuildings().size(); k = k + 1) {
-            BuildingImpl building = player2.getBuildings().get(k);
-            building.spawnMinion(manager);
+
+        for (int q = 0; q < players.size(); q = q + 1) {
+            for (int w = 0; w < players.size(); w = w + 1) {
+                if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
+                    players.get(q).setOpponent(players.get(w));
+                }
+            }
         }
 
 
@@ -50,10 +52,15 @@ public class FightController implements FightControllerInterface {
                     Thread.sleep(50);
                 }
                 catch (InterruptedException e) {
-                    System.out.println(e);
                 }
 
-                manager.doCombat(player1, player2);
+                for (int q = 0; q < players.size(); q = q + 1) {
+                    for (int w = 0; w < players.size(); w = w + 1) {
+                        if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
+                            manager.doCombat(players.get(q), players.get(w));
+                        }
+                    }
+                }
 
                 /*
                 try {
@@ -87,14 +94,14 @@ public class FightController implements FightControllerInterface {
                     minion.render(graphics);
                 }
                 graphics.setFill(Color.RED);
-                graphics.fillRect(player1.myKing.kingPos[0] -200, player1.myKing.kingPos[1]+60, 210, 10);
+                graphics.fillRect(players.get(0).myKing.kingPos[0] -200, players.get(0).myKing.kingPos[1]+60, 210, 10);
                 graphics.setFill(Color.GREEN);
-                graphics.fillRect(player1.myKing.kingPos[0] -200, player1.myKing.kingPos[1]+60, 210*player1.myKing.getHpPercent(), 10);
+                graphics.fillRect(players.get(0).myKing.kingPos[0] -200, players.get(0).myKing.kingPos[1]+60, 210*players.get(0).myKing.getHpPercent(), 10);
 
                 graphics.setFill(Color.RED);
-                graphics.fillRect(player2.myKing.kingPos[0] + 50, player2.myKing.kingPos[1]+60, 210, 10);
+                graphics.fillRect(players.get(1).myKing.kingPos[0] + 50, players.get(1).myKing.kingPos[1]+60, 210, 10);
                 graphics.setFill(Color.GREEN);
-                graphics.fillRect(player2.myKing.kingPos[0] + 50, player2.myKing.kingPos[1]+60, 210*player2.myKing.getHpPercent(), 10);
+                graphics.fillRect(players.get(1).myKing.kingPos[0] + 50, players.get(1).myKing.kingPos[1]+60, 210*players.get(1).myKing.getHpPercent(), 10);
 
 //                for (int j = 0; j < player2.minions.size(); j = j + 1) {
 //                    MinionImpl minion = player2.minions.get(j);
@@ -108,16 +115,13 @@ public class FightController implements FightControllerInterface {
     }
 
     public void showBuildings(GraphicsContext gc) {
-        PlayerImpl player1 = players.get(0);
-        PlayerImpl player2 = players.get(1);
 
-        for (int j = 0; j < player1.getBuildings().size(); j = j + 1) {
-            BuildingImpl building = player1.getBuildings().get(j);
-            building.render(gc);
-        }
-        for (int k = 0; k < player2.getBuildings().size(); k = k + 1) {
-            BuildingImpl building = player2.getBuildings().get(k);
-            building.render(gc);
+        for (int i = 0; i < players.size(); i = i + 1) {
+            PlayerImpl curPlayer = players.get(i);
+            for (int j = 0; j < curPlayer.getBuildings().size(); j = j + 1) {
+                BuildingImpl building = curPlayer.getBuildings().get(j);
+                building.render(gc);
+            }
         }
     }
 }

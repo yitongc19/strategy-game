@@ -1,19 +1,26 @@
 package View;
 
 import Controller.GameController;
+import Model.CombatManager;
 import Model.PlayerImpl;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Reflection;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -22,8 +29,8 @@ import javafx.stage.Stage;
 
 import javafx.scene.control.Menu;
 
-import java.util.*;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by cheny2 on 3/1/17.
@@ -31,8 +38,11 @@ import java.util.Map;
 public class InitiateGame extends Application{
 
     static Stage initiateStage = new Stage();
+    static List<TextField> textFields =  new ArrayList<>(); {
+    }
+    static List<Paint[]> paints = new ArrayList<>();{
+    }
     public GameController controller;
-    private static List<Map<String, Object>> playeInfoList = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
@@ -62,18 +72,36 @@ public class InitiateGame extends Application{
         start.setId("startButton");
 
         start.setOnAction(event -> {
-            for (Map<String, Object> player : playeInfoList) {
-                Paint color = (Paint) player.get("playerColor");
-                TextField nameInput = (TextField) player.get("playerNameInput");
-                Integer teamNum = (Integer) player.get("teamNum");
-                String name = nameInput.getText();
-
-                PlayerImpl newPlayer = new PlayerImpl(teamNum, name, color);
+            double offsetOne = 0;
+            double offsetTwo = 0;
+            for (int i = 0; i < textFields.size(); i = i + 1) {
+                int teamNum;
+                if (i < 4) {
+                    teamNum = 1;
+                }
+                else {
+                    teamNum = 2;
+                }
+                PlayerImpl newPlayer = new PlayerImpl(teamNum, textFields.get(i).getText(), paints.get(i)[0]);
+                if (teamNum == 2) {
+                    newPlayer.setyOffset(offsetTwo * 220);
+                    newPlayer.setxOffset(1200);
+                    if (offsetTwo == 1) {
+                        offsetTwo = offsetTwo + 1.2;
+                    }
+                    offsetTwo = offsetTwo + 1;
+                }
+                else {
+                    newPlayer.setyOffset(offsetOne * 220);
+                    newPlayer.setxOffset(0);
+                    if (offsetOne == 1) {
+                        offsetOne = offsetOne + 1.2;
+                    }
+                    offsetOne = offsetOne + 1;
+                }
                 controller.addPlayer(newPlayer);
             }
-
-            System.out.println(controller.getPlayers().get(0).getPlayerName());
-            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller);
+            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller, 0);
             try {
                 constructBuilding.start(ConstructBuilding.constructStage);
             } catch (Exception e) {
@@ -230,8 +258,6 @@ public class InitiateGame extends Application{
 
     /* construct one player with the input textbox for player name and a color choice*/
     private static HBox OnePlayer(int playerSeq, GameController controller) {
-        java.util.Map<String, Object> playerInfo = new HashMap<>();
-
         int teamNum = 0;
 
         if (playerSeq % 2 == 1) {
@@ -239,8 +265,6 @@ public class InitiateGame extends Application{
         } else {
             teamNum = 2;
         }
-
-        playerInfo.put("teamNum", teamNum);
 
         HBox onePlayer = new HBox();
         onePlayer.setAlignment(Pos.CENTER);
@@ -252,11 +276,10 @@ public class InitiateGame extends Application{
         playerNum.setMaxWidth(Double.MAX_VALUE);
         playerNum.setMaxHeight(Double.MAX_VALUE);
         TextField playerName = enterName();
-
-        playerInfo.put("playerNameInput", playerName);
-
         playerName.setMaxWidth(Double.MAX_VALUE);
         playerName.setMaxHeight(Double.MAX_VALUE);
+
+        String name = playerName.getText();
 
         final Paint[] colorForOne = {Color.TRANSPARENT};
 
@@ -293,7 +316,6 @@ public class InitiateGame extends Application{
             });
             changeColorMenu.getItems().add(item);
         }
-        playerInfo.put("playerColor", colorForOne[0]);
 
         menuBar.getMenus().addAll(changeColorMenu);
         playerColor.getChildren().add(menuBar);
@@ -303,8 +325,10 @@ public class InitiateGame extends Application{
         playerColor.setMaxHeight(Double.MAX_VALUE);
 
         onePlayer.getChildren().addAll(playerNum, playerName, playerColor);
+        textFields.add(playerName);
+        paints.add(colorForOne);
 
-        playeInfoList.add(playerInfo);
+
 
         return onePlayer;
     }

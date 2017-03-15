@@ -5,24 +5,6 @@
 >@Project for CS257 Software Desgin
 >@Professor Eric Alexander
 
-### How to Play
-To start the game, run welcomeScreen.java and the welcome page will be shown. Click on the Help button if you want to read the rules of the game, which is also presented here.
-
-- Rules: This is a PVP game. Players are divided into two teams, the light and the dark. 
-         Each two players from the two teams will be placed at two ends of the same lane on the map and they will fight against each other. To fight, construct buildings in the building phase. Different buildings will automatically spawn different minions with distinctive properties in the fighting phase to fight against the enemy minions. Different buildings, of course, cost different amounts of gold. Gold can be earned by killing enemy minions. Choose the buildings wisely by considering the buildings of your opponent.
-         Each team also has a king that they need to protect. Minions who survive to reach the opponent base on their own lane will be transported to the king lane to protect and fight for the king. The ultimate mission for players on the same team is to cooperate with each other and kill the enemy king.
-         Now go and fight for the king!
-
-Click start to start the game. You will be taken to another screen to initiate the game. Choose the number of players first and then follow the instructions on the screen to enter the names of the players and choose a color for each player. After you finish inputting the player info, click on the start button to go to the next phase of the game. Hereby players for the game are created. Each player will start with the same amount of gold and zero building.
-
-Now it's the turn for player 1 in team 1 to construct buildings. The upper-left panel shows the existing buildings of player 1. There should be no building at the beginning. The upper-right panel shows the player data, including how much gold the player has left at this point. The bottom-left panel displays all of the buildings that are available. To construct a building, click on the target position on the existing building panel, then click on the desired building type in the available buildings panel. A window will pop up. Confirm the purchase by clicking "confirm" and decline the purchase by clicking "decline". The system will subtract the cost of the building from the amount of gold left for the player. Each player will have 1 minute at most to construct buildings. When the time is up, the screen will automatically jump to the next player on the same team and the next player can then construct his/her buildings. If a player wishes to jump to the next player before the time is up, click on the finish button. All of the players will construct buildings one-by-one for each game round.
-
-After the last player has finished constructing building for this round, the game enters the fight phase and the screen will display the battlefield. Different types of minions will be automatically spawned from the corresponding buildings and players on the same lane will fight each other. Minions will march toward the enemy base and fight any opponent minions on the way. If a minion successfully reached the opponent base, he will be automatically transported to the king lane to fight the opponent king. The game status update will be shown in the battlelog on the side.
-Clicking the buff buttons at the bottom of the screen will increase the health of the king. The buff button can only be clicked for the same number of times as the number of players on one team. For instance, if there are four players on the light team, the buff button can be clicked for four times at most.
-Each fight phase will last for 30 seconds and then the battlefield will freeze and players go into the building phase again to construct new buildings which will spawn new minions in the next fight phase.
-
-The game ends when one king dies. As soon as a king dies, the end-of-game screen will be displayed to the players. On this screen, player scores and achievements are displayed. Hereby players can choose to restart the game, which takes them back to the welcome screen or the end the game, which closes the game window and terminates the game.
-
 ### Game Design and Concepts
 
 Our project is a PVP game called “For the King” with elements of turn-based games, RPG and tower defense games. This game is designed to provide a PVP experience with 2~8 players. Basically, the even number of players are divided into 2 teams fighting for their king. A particular round of the game will consist of 2 phases: building phase and fighting phase. 
