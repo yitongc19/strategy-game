@@ -27,7 +27,7 @@ import java.util.*;
 import java.util.Map;
 
 /**
- * Created by cheny2 on 3/1/17.
+ * Created by cheny2 on 3/1/17. Initial view to initialize the player names and numbers
  */
 public class InitiateGame extends Application{
 

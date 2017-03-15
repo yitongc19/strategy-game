@@ -28,7 +28,7 @@ public class PlayerImpl implements Player, Comparable<PlayerImpl> {
 
     public PlayerImpl opponent;
     public PlayerImpl(int teamNum, String playerName, Paint playerColor) {
-        this.gold = 500;
+        this.gold = 2000;
         this.playerName = playerName;
         this.teamNum = teamNum;
         this.playerColor = playerColor;

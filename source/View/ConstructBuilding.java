@@ -42,7 +42,8 @@ import java.util.List;
 /**
  * Created by cheny2 on 3/3/17.
  *
- * This class builds the view for the construct building phase.
+ * This class builds the view for the construct building phase. Allows each player in turn to construct their buildings
+ * between fight rounds
  */
 public class ConstructBuilding extends Application {
 

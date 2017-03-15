@@ -1,4 +1,6 @@
 package Controller;
+//controller for running the main battle loop at the start of a fight scene.
+//Stores a list of players.
 
 
 import Model.*;

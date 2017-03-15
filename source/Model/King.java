@@ -52,8 +52,8 @@ public class King {
     public String kingImageAttack;
     //initialize Model.King!
     public King(int teamNum) {
-        this.hp = 5;
-        this.maxHP = 5;
+        this.hp = 500;
+        this.maxHP = 500;
         this.armor = 10;
         this.atk = 100;
         this.atkType = AtkType.Hero;

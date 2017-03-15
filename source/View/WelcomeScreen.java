@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import java.sql.Blob;
 
 /**
- * Created by cheny2 on 3/1/17.
+ * Created by cheny2 on 3/1/17. Initial screen with options to start the game or see a help screen
  */
 public class WelcomeScreen extends Application{
 

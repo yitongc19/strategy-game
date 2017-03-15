@@ -1,5 +1,8 @@
 package Controller;
 
+//controller for the whole game. This class just serves as a way to store our players,
+//add them to the game, and keep track of their numbers as we pass them from view to view
+
 import Model.*;
 
 import java.util.ArrayList;

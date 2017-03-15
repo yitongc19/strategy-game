@@ -7,6 +7,10 @@ import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
+//base class for a building typt. Stores a location in multiple spaces, a name , a sprite,
+//a cost, the building's owner. Subclasses CupCakeWarriorBuilding and ShieldKnightBuilding
+//override the spawn and render parent functions
+
 /**
  * Created by xingfanxia on 3/1/17.
  * the building implementation

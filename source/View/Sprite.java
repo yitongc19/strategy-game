@@ -4,7 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 /**
- * Created by Russll on 3/8/17.
+ * Created by Russll on 3/8/17. Class that allows game objects to render their images to the screen
  */
 public class Sprite {
     private Image image;

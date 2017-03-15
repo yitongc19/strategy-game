@@ -521,6 +521,7 @@ public class MinionImpl implements Minion {
                                         e.printStackTrace();
                                     }
                                     manager.getCurrentGameStage().close();
+                                    popUpStage.close();
                                     manager.setCurrentGameStage(EndGame.endStage);
                                 }
                             });
@@ -562,8 +563,8 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the King!");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-1, 1),
-                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-1, 1)};
+                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-10, 10),
+                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-10, 10)};
                 this.setCoords(newCoords);
 //                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
 //                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
@@ -578,11 +579,9 @@ public class MinionImpl implements Minion {
                 System.out.println(this.minionName + " is gonna to fight for the " + this.master.myKing.kingName + " !");
                 this.master.myKing.add_Minions(this);
                 this.master.minions.remove(this);
-                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-1, 1),
-                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-1, 1)};
+                double[] newCoords = {this.myKing.kingArmyPos[0]+ThreadLocalRandom.current().nextDouble(-10, 10),
+                        this.myKing.kingArmyPos[1]+ThreadLocalRandom.current().nextDouble(-10, 10)};
                 this.setCoords(newCoords);
-                this.Coords[0] +=  ThreadLocalRandom.current().nextDouble(-1, 1);
-//                this.Coords[1] +=  ThreadLocalRandom.current().nextDouble(-1, 1);
 //                System.out.println(this.master.myKing.kingName + "'s minions: " + this.master.myKing.getMinions().size());
 //                System.out.println("minions of " + this.master.getPlayerName() + ": " + this.master.getMinions().size());
                 this.master.gold += portalReward;

@@ -36,7 +36,7 @@ import java.util.Stack;
 
 
 /**
- * Created by cheny2 on 3/3/17.
+ * Created by cheny2 on 3/3/17. Main stage where the battle betweens the minions take place
  */
 public class Fight extends Application{
 
