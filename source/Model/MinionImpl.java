@@ -521,6 +521,7 @@ public class MinionImpl implements Minion {
                                         e.printStackTrace();
                                     }
                                     manager.getCurrentGameStage().close();
+                                    popUpStage.close();
                                     manager.setCurrentGameStage(EndGame.endStage);
                                 }
                             });

@@ -116,7 +116,7 @@ public class EndGame extends Application {
         Collections.sort(playerList, PlayerImpl.Comparators.SCORE);
 
         for (PlayerImpl player : playerList) {
-            String infoDisplay = player.getPlayerName() + "   " + Integer.toString(player.getScore());
+            String infoDisplay = player.getPlayerName() + "       " + Integer.toString(player.getScore());
             playersOrderedByScore.add(infoDisplay);
         }
 
