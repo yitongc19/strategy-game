@@ -28,7 +28,7 @@ public class FightController implements FightControllerInterface {
 
 
 
-        for (int i = 0; i < players.size(); i = i + 1) {
+        for (int i = 0; i < players.size(); i += 1) {
             PlayerImpl curPlayer = players.get(i);
             for (int j = 0; j < curPlayer.getBuildings().size(); j = j + 1) {
                 BuildingImpl building = curPlayer.getBuildings().get(j);

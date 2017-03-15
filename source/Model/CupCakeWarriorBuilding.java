@@ -27,8 +27,6 @@ public class CupCakeWarriorBuilding extends BuildingImpl{
         this.cost = 200;
         this.owner = owner;
 
-        owner.add_Building(this);
-
         this.sprite = new Sprite();
         if (this.owner.getTeam() == 1) {
             //this.spriteImage = new Image("file:assets/swordmanT1/t1buildgood.gif", 50, 50, true, true);
@@ -45,7 +43,7 @@ public class CupCakeWarriorBuilding extends BuildingImpl{
         System.out.println("SPAWNED");
         double[] coords = this.getScreenCoords();
 
-        CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior", this.owner, coords);
+        CupCakeWarrior newcup = new CupCakeWarrior(manager, "Cup Cake Warrior", this.owner, coords);
     }
 
 }
