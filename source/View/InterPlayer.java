@@ -31,31 +31,32 @@ public class InterPlayer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         interPlayerStage = primaryStage;
 
-        VBox popUpRoot = new VBox();
-        popUpRoot.setAlignment(Pos.CENTER);
-        popUpRoot.setSpacing(20);
+        if (currentPlayer != null) {
+            VBox popUpRoot = new VBox();
+            popUpRoot.setAlignment(Pos.CENTER);
+            popUpRoot.setSpacing(20);
 
-        Text instruction = new Text("Now it's turn for " + currentPlayer.getPlayerName() +
-                " to construct new buildings" + "\nYou have 1 minute to construct! Do it quick!");
-        instruction.setFont(Font.font(null, 16));
-        Button startTimer = new Button("Start Construct");
+            Text instruction = new Text("Now it's turn for " + currentPlayer.getPlayerName() +
+                    " to construct new buildings" + "\nYou have 1 minute to construct! Do it quick!");
+            instruction.setFont(Font.font(null, 16));
+            Button startTimer = new Button("Start Construct");
 
-        popUpRoot.getChildren().addAll(instruction, startTimer);
-        Scene popUpScene = new Scene(popUpRoot, 500, 200);
-        interPlayerStage.setScene(popUpScene);
-        interPlayerStage.show();
+            popUpRoot.getChildren().addAll(instruction, startTimer);
+            Scene popUpScene = new Scene(popUpRoot, 500, 200);
+            interPlayerStage.setScene(popUpScene);
+            interPlayerStage.show();
 
-        startTimer.setOnAction(event -> {
-            ConstructBuilding constructBuilding = new ConstructBuilding(gameController);
-            try {
-                constructBuilding.start(ConstructBuilding.constructStage);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            interPlayerStage.close();
-        });
+            startTimer.setOnAction(event -> {
+                ConstructBuilding constructBuilding = new ConstructBuilding(gameController);
+                try {
+                    constructBuilding.start(ConstructBuilding.constructStage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                interPlayerStage.close();
+            });
+        }
     }
 }

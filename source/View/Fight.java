@@ -80,6 +80,7 @@ public class Fight extends Application{
 
         primaryStage.setOnShown(windownEvent -> {
             fightController.runFight(manager, graphics, graphics1).start();
+
         });
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
