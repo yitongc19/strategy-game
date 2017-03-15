@@ -32,7 +32,6 @@ public class PlayerImpl implements Player {
         this.teamNum = teamNum;
         this.playerColor = playerColor;
         this.myScore = 0;
-        this.myKing = new King(teamNum);
         this.opponent = opponent;
     }
 

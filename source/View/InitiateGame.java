@@ -1,6 +1,7 @@
 package View;
 
 import Controller.GameController;
+import Model.King;
 import Model.PlayerImpl;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -33,6 +34,8 @@ public class InitiateGame extends Application{
     static Stage initiateStage = new Stage();
     public GameController controller;
     private static List<Map<String, Object>> playeInfoList = new ArrayList<>();
+    public King lightKing = new King(1);
+    public King darkKing = new King(2);
 
     @Override
     public void start(Stage primaryStage) {
@@ -74,6 +77,7 @@ public class InitiateGame extends Application{
                 controller.addPlayer(newPlayer);
 
                 if (teamNum == 2) {
+                    newPlayer.myKing = darkKing;
                     newPlayer.setyOffset(offsetTwo * 220);
                     newPlayer.setxOffset(1200);
                     if (offsetTwo == 1) {
@@ -82,6 +86,7 @@ public class InitiateGame extends Application{
                     offsetTwo = offsetTwo + 1;
                 }
                 else {
+                    newPlayer.myKing = lightKing;
                     newPlayer.setyOffset(offsetOne * 220);
                     newPlayer.setxOffset(0);
                     if (offsetOne == 1) {
