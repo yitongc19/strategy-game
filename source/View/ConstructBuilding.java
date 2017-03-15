@@ -204,27 +204,27 @@ public class ConstructBuilding extends Application {
                             double[] coords = {50 * currentGridCoords[0] + player.getxOffset(), 50 * currentGridCoords[1] + player.getyOffset()};
                             newBuild.setScreenCoords(coords);
                             player.add_Building(newBuild);
-
-                        } else if (building.getName().equals("Knight Academy")) {
-                            Image knightTemp;
-                            if (player.getTeam() == 1) {
-                                knightTemp = new Image("file:assets/swordmanT1/t1buildgood.gif");
-                            } else {
-                                knightTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
-                            }
-                            ImageView knightImg = new ImageView(knightTemp);
-                            knightImg.setFitHeight(125);
-                            knightImg.setFitWidth(125);
-                            baseBuilding.add(addConstructed(knightImg), currentGridCoords[0], currentGridCoords[1]);
-
-                            BuildingImpl newBuild = new ShieldKnightBuilding(player);
-                            int[] buildCoords = {currentGridCoords[0], currentGridCoords[1]};
-                            newBuild.setGridCoords(buildCoords);
-                            newBuild.setGridCoords(buildCoords);
-                            double[] coords = {50 * currentGridCoords[0] + player.getxOffset(), 50 * currentGridCoords[1] + player.getyOffset()};
-                            newBuild.setScreenCoords(coords);
-                            player.add_Building(newBuild);
                         }
+//                        } else if (building.getName().equals("Knight Academy")) {
+//                            Image knightTemp;
+//                            if (player.getTeam() == 1) {
+//                                knightTemp = new Image("file:assets/swordmanT1/t1buildgood.gif");
+//                            } else {
+//                                knightTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+//                            }
+//                            ImageView knightImg = new ImageView(knightTemp);
+//                            knightImg.setFitHeight(125);
+//                            knightImg.setFitWidth(125);
+//                            baseBuilding.add(addConstructed(knightImg), currentGridCoords[0], currentGridCoords[1]);
+//
+//                            BuildingImpl newBuild = new ShieldKnightBuilding(player);
+//                            int[] buildCoords = {currentGridCoords[0], currentGridCoords[1]};
+//                            newBuild.setGridCoords(buildCoords);
+//                            newBuild.setGridCoords(buildCoords);
+//                            double[] coords = {50 * currentGridCoords[0] + player.getxOffset(), 50 * currentGridCoords[1] + player.getyOffset()};
+//                            newBuild.setScreenCoords(coords);
+//                            player.add_Building(newBuild);
+//                        }
 
                 } else {
                     VBox root = new VBox();
