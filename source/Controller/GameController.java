@@ -21,20 +21,12 @@ public class GameController {
 
 
     public GameController(int playernum) {
-        this.numRemainingPlayers = playernum;
+        this.numRemainingPlayers = playernum - 1;
         this.numPlayers = playernum;
         this.players = new ArrayList<>();
         numPlayerTeam1 = numPlayers / 2;
         numPlayerTeam2 = numPlayers / 2;
     }
-    public int getNumRemainingPlayers() {
-        return numRemainingPlayers;
-    }
-
-    public void setNumRemainingPlayers(int numRemainingPlayers) {
-        this.numRemainingPlayers = numRemainingPlayers;
-    }
-
 
     public List<PlayerImpl> getPlayers() {
         return players;
@@ -118,19 +110,9 @@ public class GameController {
         return numPlayerTeam1;
     }
 
-    /* set the number of players in team1 to the given number */
-    public void setNumPlayerTeam1(int numPlayerTeam1) {
-        this.numPlayerTeam1 = numPlayerTeam1;
-    }
-
     /* return the number of players in team2*/
     public int getNumPlayerTeam2() {
         return numPlayerTeam2;
-    }
-
-    /* set the number of players in team2 to the given number */
-    public void setNumPlayerTeam2(int numPlayerTeam2) {
-        this.numPlayerTeam2 = numPlayerTeam2;
     }
 
     /* set the number of buff used by team1 */
@@ -142,4 +124,17 @@ public class GameController {
     public void setTotalBuffTeam2(int totalBuffTeam2) {
         this.totalBuffTeam2 = totalBuffTeam2;
     }
+
+    public int getNumRemainingPlayers() {
+        return numRemainingPlayers;
+    }
+
+    public void setNumRemainingPlayers(int numRemainingPlayers) {
+        this.numRemainingPlayers = numRemainingPlayers;
+    }
+
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
 }
