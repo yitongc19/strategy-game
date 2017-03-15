@@ -5,6 +5,14 @@ package Model;
  */
 public class ShieldKnight extends MeleeMinion {
 
+    public ShieldKnight() {
+        this.typeName = "Shield Knight";
+        this.hp = 600;
+        this.atk = 15;
+        this.moveSpeed = 0.15;
+        this.armorType = ArmorType.HeavyArmor;
+    }
+
     /*
     A tanky minion class
      */

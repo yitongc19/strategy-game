@@ -31,8 +31,8 @@ public class Testing {
 
 
         Paint color = Color.AQUAMARINE;
-        PlayerImpl yitong = new PlayerImpl(1, "Yitong", color);
-        PlayerImpl russell = new PlayerImpl(2, "Russell", color);
+        PlayerImpl yitong = new PlayerImpl(1, "Yitong", color, new King(1));
+        PlayerImpl russell = new PlayerImpl(2, "Russell", color, new King(2));
         System.out.println(russell.gold);
         System.out.println(russell.getScore());
         System.out.println(yitong.gold);

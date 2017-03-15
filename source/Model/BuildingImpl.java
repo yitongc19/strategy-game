@@ -21,6 +21,7 @@ public class BuildingImpl {
     String buildingImagePath_V3;
     int cost;
     Integer upgradeCost;
+    MinionImpl minion;
 
     ArrayList<String> upgradeTree;
     PlayerImpl owner;
@@ -30,6 +31,7 @@ public class BuildingImpl {
 
     public Sprite sprite;
 
+    public MinionImpl getMinion() {return this.minion;}
 
     public Integer getCost() {
         return this.cost;

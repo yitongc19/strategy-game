@@ -8,7 +8,15 @@ import javafx.scene.image.Image;
  */
 public class CupCakeWarriorBuilding extends BuildingImpl{
 
+    public CupCakeWarriorBuilding() {
+        this.minion = new CupCakeWarrior();
+        this.buildingName = "Warrior Camp";
+        this.displayedImage = "some path";
+        this.cost = 200;
+    }
+
     public CupCakeWarriorBuilding(PlayerImpl owner) {
+        this.minion = new CupCakeWarrior();
         this.buildingName = "Warrior Camp";
         this.displayedImage = "some path";
         this.cost = 200;

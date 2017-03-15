@@ -22,7 +22,24 @@ import javax.sound.sampled.Clip;
  */
 public class MinionImpl implements Minion {
 
-//    static ArrayList<MinionImpl> instances = new ArrayList<MinionImpl>();
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public double getHp() {
+        return hp;
+    }
+
+    public double getAtk() {
+        return atk;
+    }
+
+    public double getMoveSpeed() {
+        return moveSpeed;
+    }
+
+    //    static ArrayList<MinionImpl> instances = new ArrayList<MinionImpl>();
+    public String typeName;
     public CombatManager manager;
     public PlayerImpl master;
     public String minionName;
@@ -34,6 +51,7 @@ public class MinionImpl implements Minion {
     public double maxhp;
     public ArmorType armorType;
     public AtkType atkType;
+
     public double moveSpeed;
     public double healthRegen;
     public double attackSpeed;

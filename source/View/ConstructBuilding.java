@@ -46,11 +46,15 @@ import java.util.List;
  */
 public class ConstructBuilding extends Application {
 
+    private static VBox leftPanels;
+    private static int[] currentGridCoords = {0, 0};
+    private static ScrollPane availableBuildings;
+    private static GridPane baseBuilding;
+    private static Text playerInfo;
     private Integer STARTTIME = 59;
     public GameController controller;
 
     static Stage constructStage = new Stage();
-    static int finished = 0;
 
     public ConstructBuilding(GameController controller) {
         this.controller = controller;
@@ -58,8 +62,6 @@ public class ConstructBuilding extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("TESTING START!");
-
-        int[] gridCoords = {0,0};
 
         GameController control = this.controller;
 
@@ -73,14 +75,16 @@ public class ConstructBuilding extends Application {
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: #f2f2f2");
 
-        VBox leftPanels = new VBox();
+        leftPanels = new VBox();
         leftPanels.setSpacing(20);
 
         PlayerImpl currentPlayer = players.get(playerIndex);
 
-        VBox currentBasePanel = addCurrectBasePanel(gridCoords);
-        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(currentPlayer, gridCoords);
-        leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
+        VBox currentBasePanel = addCurrectBasePanel();
+
+        availableBuildings = addBuildingsToConstructPanel(currentPlayer);
+
+        leftPanels.getChildren().addAll(currentBasePanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
         timerLabel.setId("timer");
@@ -127,9 +131,14 @@ public class ConstructBuilding extends Application {
                              e.printStackTrace();
                          }
                      } else {
-                         if (finished == 0) {
-                             finish(control);
+                         Fight fight = new Fight(control);
+                         try {
+                             fight.start(Fight.fightStage);
+                         } catch (Exception e) {
+                             e.printStackTrace();
                          }
+                         constructStage.close();
+                         control.setNumRemainingPlayers(control.getNumPlayers() - 1);
                      }
                  }
              }
@@ -146,16 +155,29 @@ public class ConstructBuilding extends Application {
     }
 
     //Makes the confirm button that purchases a building
-    private static Button addConfirmButton(PlayerImpl player, int[] gridCoords, Stage stagePopup) {
+    private static Button addConfirmButton(PlayerImpl player, Stage stagePopup, BuildingImpl building) {
         Button confirmButton = new Button("Confirm");
         confirmButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                CupCakeWarriorBuilding newbuild = new CupCakeWarriorBuilding(player);
-                newbuild.setGridCoords(gridCoords);
-                double[] coords = {50 * gridCoords[0] + player.getxOffset(), 50 * gridCoords[1] + player.getyOffset()};
-                newbuild.setScreenCoords(coords);
                 stagePopup.close();
+                player.setGold(player.getGold() - building.getCost());
+                String teamName;
+                if (player.getTeam() == 1) {
+                    teamName = "Light";
+                } else {
+                    teamName = "Dark";
+                }
+                playerInfo.setText("Player Name: " + player.getPlayerName() +
+                        "\nPlayer Gold: " + player.getGold().toString() +
+                        "\nPlayer Score: " + Integer.toString(player.getScore()) +
+                        "\nPlayer Team: " + teamName);
+
+                if (building.getName().equals("Warrior Camp")) {
+                    baseBuilding.add(new Button(), currentGridCoords[0], currentGridCoords[1]);
+                } else if (building.getName().equals("Knight Academy")) {
+                    baseBuilding.add(new Button(), currentGridCoords[0], currentGridCoords[1]);
+                }
             }
         });
         return confirmButton;
@@ -189,7 +211,14 @@ public class ConstructBuilding extends Application {
                     e.printStackTrace();
                 }
             } else {
-                finish(control);
+                Fight fight = new Fight(control);
+                try {
+                    fight.start(Fight.fightStage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                constructStage.close();
+                control.setNumRemainingPlayers(control.getNumPlayers() - 1);
             }
         });
 
@@ -200,12 +229,12 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the buldingsToConstruct panel */
-    private static ScrollPane addBuildingsToConstructPanel(PlayerImpl player, int[] gridCoords) {
+    private static ScrollPane addBuildingsToConstructPanel(PlayerImpl player) {
         ScrollPane constructBuildingPanel = new ScrollPane();
         constructBuildingPanel.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         constructBuildingPanel.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        GridPane buildingContainer = addBuildingContainer(player, gridCoords);
+        GridPane buildingContainer = addBuildingContainer(player);
 
         constructBuildingPanel.setContent(buildingContainer);
 
@@ -213,17 +242,17 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the building container */
-    private static GridPane addBuildingContainer(PlayerImpl player, int[] gridCoords) {
+    private static GridPane addBuildingContainer(PlayerImpl player) {
         GridPane buildingContainer = new GridPane();
         buildingContainer.setHgap(40);
         buildingContainer.setVgap(60);
 
-        for (int row = 0; row < 3; row ++) {
-            for (int col = 0; col < 3; col ++) {
-                VBox singleBuilding = addSingleBuilding(player, gridCoords);
-                buildingContainer.add(singleBuilding, col, row);
-            }
-        }
+        BuildingImpl shield = new ShieldKnightBuilding();
+        VBox shieldKnight = addSingleBuilding(player, shield);
+        buildingContainer.add(shieldKnight, 0, 0);
+
+        VBox cupcake = addSingleBuilding(player, new CupCakeWarriorBuilding());
+        buildingContainer.add(cupcake, 1, 0);
 
         return buildingContainer;
     }
@@ -238,7 +267,7 @@ public class ConstructBuilding extends Application {
     */
 
     /* Construct a single building in the existing building panel */
-    private static VBox addSingleBuilding(PlayerImpl player, int[] gridCoords) {
+    private static VBox addSingleBuilding(PlayerImpl player, BuildingImpl building) {
         VBox singleBuildingContainer = new VBox();
 
         Image temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
@@ -247,10 +276,10 @@ public class ConstructBuilding extends Application {
         buildingImg.setFitWidth(180);
         buildingImg.setPreserveRatio(true);
 
-        Text buildingInfoBlock = new Text("Minions Spawned: Cupcake Minion;" +
-                "\nMinion Attack Speed:" +
-                "\nMinion Move Speed:" +
-                "\nMinion Shield");
+        Text buildingInfoBlock = new Text("Minions Spawned: " + building.getMinion().toString() +
+                "\nMinion Attack:" + Double.toString(building.getMinion().getAtk()) +
+                "\nMinion Move Speed:" + Double.toString(building.getMinion().getMoveSpeed()) +
+                "\nMinion Health :" + Double.toString(building.getMinion().getHP()));
         buildingInfoBlock.prefWidth(180);
         buildingInfoBlock.maxWidth(180);
         buildingInfoBlock.setFont(Font.font("Herculanum", 15));
@@ -281,7 +310,7 @@ public class ConstructBuilding extends Application {
             comp.setSpacing(20);
             comp.setAlignment(Pos.CENTER);
             Text confirmAction = new Text("Confirm Purchase?");
-            Button confirmButton = addConfirmButton(player, gridCoords, stagePopup);
+            Button confirmButton = addConfirmButton(player, stagePopup, building);
             Button declineButton = new Button("Decline");
             HBox buttonHolder = new HBox();
             buttonHolder.setAlignment(Pos.CENTER);
@@ -336,7 +365,7 @@ public class ConstructBuilding extends Application {
         playerInfoPanel.setSpacing(20);
         playerInfoPanel.setPadding(new Insets(10, 10, 10, 10));
         playerInfoPanel.setId("playerInfoPanel");
-        playerInfoPanel.setPrefSize(500, 400);
+        playerInfoPanel.setPrefSize(500, 800);
 
         Text titleText = new Text("Player Info: ");
         titleText.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
@@ -348,7 +377,7 @@ public class ConstructBuilding extends Application {
             teamName = "Dark";
         }
 
-        Text playerInfo = new Text("Player Name: " + player.getPlayerName() +
+        playerInfo = new Text("Player Name: " + player.getPlayerName() +
                 "\nPlayer Gold: " + player.getGold().toString() +
                 "\nPlayer Score: " + Integer.toString(player.getScore()) +
                 "\nPlayer Team: " + teamName);
@@ -367,7 +396,7 @@ public class ConstructBuilding extends Application {
         return playerInfoPanel;
     }
 
-    private static VBox addCurrectBasePanel(int[] gridCoords) {
+    private static VBox addCurrectBasePanel() {
         VBox currentBasePanel = new VBox();
         currentBasePanel.setPadding(new Insets(0, 10, 10, 10));
         currentBasePanel.setStyle("-fx-border-radius: 10 10 0 0;\n" +
@@ -376,14 +405,14 @@ public class ConstructBuilding extends Application {
 
         Text title = new Text("Existing Buildings");
         title.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
-        StackPane currentBase = addCurrentBase(gridCoords);
+        StackPane currentBase = addCurrentBase();
 
         currentBasePanel.getChildren().addAll(title, currentBase);
 
         return currentBasePanel;
     }
 
-    private static StackPane addCurrentBase(int[] gridCoords) {
+    private static StackPane addCurrentBase() {
         StackPane currentBase = new StackPane();
 
 //        ImageView baseBg = new ImageView(ConstructBuilding.class.getResource("static/landscape.png").toExternalForm());
@@ -392,7 +421,7 @@ public class ConstructBuilding extends Application {
 
 //        GridPane baseGrid = addBaseGrid();
 
-        GridPane baseBuilding = addBaseBuildings(gridCoords);
+        baseBuilding = addBaseBuildings();
 
 //        baseGrid.setPadding(new Insets(20, 0, 0, 50));
         baseBuilding.setPadding(new Insets(20, 0, 0, 50));
@@ -402,7 +431,7 @@ public class ConstructBuilding extends Application {
         return currentBase;
     }
 
-    private static GridPane addBaseBuildings(int[] gridCoords) {
+    private static GridPane addBaseBuildings() {
         GridPane baseBuildings = new GridPane();
 
 //        baseBuildings.getRowConstraints().add(new RowConstraints(100));
@@ -418,11 +447,9 @@ public class ConstructBuilding extends Application {
                 base.setFitHeight(125);
                 base.setFitWidth(125);
 
-                int[] curCoords = {col, row};
+                int[] gridCoord = {col, row};
 
-                Button clickable = addClickable(gridCoords, curCoords, base, buttonList);
-
-
+                Button clickable = addClickable(gridCoord, base, buttonList);
 
                 buttonList.add(clickable);
 
@@ -434,7 +461,7 @@ public class ConstructBuilding extends Application {
         return baseBuildings;
     }
 
-    private static Button addClickable(int[] gridCoords, int[] curCoords, ImageView base, List<Button> buttonList) {
+    private static Button addClickable(int[] gridCoord, ImageView base, List<Button> buttonList) {
         Button clickable = new Button("", base);
         clickable.setStyle("-fx-background-color: transparent");
 
@@ -443,23 +470,16 @@ public class ConstructBuilding extends Application {
                 button.setStyle("-fx-background-color: transparent");
             }
             clickable.setStyle("-fx-background-color: #ffcc99");
-            gridCoords[0] = curCoords[0];
-            gridCoords[1] = curCoords[1];
+            if (!leftPanels.getChildren().contains(availableBuildings)) {
+                leftPanels.getChildren().add(availableBuildings);
+            }
+            currentGridCoords[0] = gridCoord[0];
+            currentGridCoords[1] = gridCoord[1];
         });
         return clickable;
     }
 
-    private static void finish(GameController control) {
-        finished = 1;
-        Fight fight = new Fight(control);
-        try {
-            fight.start(Fight.fightStage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        constructStage.close();
-        control.setNumRemainingPlayers(control.getNumPlayers() - 1);
-    }
+
 
 
     private static class baseClickable extends Button {

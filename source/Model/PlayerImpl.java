@@ -3,12 +3,13 @@ package Model;
 import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
  * Created by xingfanxia on 2/26/17.
  */
-public class PlayerImpl implements Player {
+public class PlayerImpl implements Player, Comparable<PlayerImpl> {
     /*
     player class holding all relevant attributes like
     gold, king, score, name, team, color, minions and buildings
@@ -26,12 +27,13 @@ public class PlayerImpl implements Player {
     private double yOffset;
 
     public PlayerImpl opponent;
-    public PlayerImpl(int teamNum, String playerName, Paint playerColor) {
-        this.gold = 0;
+    public PlayerImpl(int teamNum, String playerName, Paint playerColor, King myKing) {
+        this.gold = 500;
         this.playerName = playerName;
         this.teamNum = teamNum;
         this.playerColor = playerColor;
         this.myScore = 0;
+        this.myKing = myKing;
         this.opponent = opponent;
     }
 
@@ -83,6 +85,10 @@ public class PlayerImpl implements Player {
         this.myScore = score;
     }
 
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
     public void setTeam(int teamNum) {
         this.teamNum = teamNum;
     }
@@ -130,6 +136,25 @@ public class PlayerImpl implements Player {
 
     public void upgradeKing(King king) {
 
+    }
+
+    @Override
+    public int compareTo(PlayerImpl o) {
+        Integer o1Score = this.getScore();
+        Integer o2Score = o.getScore();
+        return o1Score.compareTo(o2Score);
+    }
+
+    public static class Comparators {
+        public static Comparator<PlayerImpl> SCORE = new Comparator<PlayerImpl>() {
+            @Override
+            public int compare(PlayerImpl o1, PlayerImpl o2) {
+                Integer o1Score = o1.getScore();
+                Integer o2Score = o2.getScore();
+
+                return o1Score.compareTo(o2Score);
+            }
+        };
     }
 
 }

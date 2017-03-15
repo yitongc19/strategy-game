@@ -2,150 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa45f885-c153-4ddb-aed5-3419f644399a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/.DS_Store~5d02c1a21cd97a82db0dc228f9d261dfdba73413" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/.DS_Store~HEAD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightController$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightControllerInterface.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/GameController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/JT_boss.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ArmorType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/AtkType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Building.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/BuildingImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeBerserker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarrior.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarriorBuilding.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MeleeMinion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Minion.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionGrunt.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionGrunt.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnight.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnightBuilding.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Vez'nan_boss.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$baseClickable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/EndGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight$Console.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/GameMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/HealthBar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Help.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/InitiateGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Map.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Sprite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/TestInstantiate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen$StartButton$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen$StartButton.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/bootstrap2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/bootstrap3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/digital-7.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/ALTEA.TTF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/Drifttype.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/digital-7.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/returnScene.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/ConstructBuilding.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/EndGame.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/Fight.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/ForTheKingWelcome.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/Help.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/InitiateGame.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/WelcomeScreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/backgroundFight.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/constructBuildingBg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/controlPanelBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/fight scene.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/king1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/king2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/mapBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/quitButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/restartButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/road.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/welcomeBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/welcomeScreen.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/fight scene.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/left base texture 2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/left base texture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/blood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmatk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmatkx.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmstl.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwk1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwk2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwkx.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmatk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmatkx.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmstl.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwk1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwk2.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwkx.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/ForTheKingWelcome.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/KingSim.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/backgroundFight.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/baseSimulation.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/constructBuildingBg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/controlPanelBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/fight scene.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/king1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/king2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/landscape.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/mapBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/quitButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/restartButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/road.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/welcomeBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/Reverseevilsmt1atk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/Reversegoodsmt1atk.gif.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/badblood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/buildbase.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/evilsmt1atk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/evilsmt1wk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodblood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodsmt1atk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodsmt1wk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/t1buildevil.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/t1buildgood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/badblood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/bdbase.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilbdt1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilsmt1atk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilsmt1wk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodbdt1.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodblood.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodsmt1atk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodsmt1wk.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/walk scene.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/Game Project/Testing.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/BuildingImpl.java" afterPath="$PROJECT_DIR$/source/Model/BuildingImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" afterPath="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/CupCakeWarriorBuilding.java" afterPath="$PROJECT_DIR$/source/Model/CupCakeWarriorBuilding.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/MinionImpl.java" afterPath="$PROJECT_DIR$/source/Model/MinionImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/PlayerImpl.java" afterPath="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/ShieldKnight.java" afterPath="$PROJECT_DIR$/source/Model/ShieldKnight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/ShieldKnightBuilding.java" afterPath="$PROJECT_DIR$/source/Model/ShieldKnightBuilding.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/ConstructBuilding.java" afterPath="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/EndGame.java" afterPath="$PROJECT_DIR$/source/View/EndGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/InitiateGame.java" afterPath="$PROJECT_DIR$/source/View/InitiateGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Testing.java" afterPath="$PROJECT_DIR$/tests/Testing.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -160,53 +28,112 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="PlayerImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FightController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="InitiateGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/View/InitiateGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="59" column="44" lean-forward="true" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+            <state relative-caret-position="330">
+              <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
+      <file leaf-file-name="ConstructBuilding.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4922">
-              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+            <state relative-caret-position="155">
+              <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="34" column="75" lean-forward="false" selection-start-line="34" selection-start-column="75" selection-end-line="34" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShieldKnightBuilding.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnightBuilding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CupCakeWarriorBuilding.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarriorBuilding.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShieldKnight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildingImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/BuildingImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/King.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-510">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CombatManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-347">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinionImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#597#598#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,6 +143,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>newplayer</find>
+      <find>addConfirmButton</find>
+      <find>playerinfo</find>
+      <find>currentGridCoords</find>
+      <find>baseBuilding</find>
+      <find>new button</find>
+      <find>minion</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -231,6 +164,14 @@
       <list>
         <option value="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
         <option value="$PROJECT_DIR$/source/View/InitiateGame.java" />
+        <option value="$PROJECT_DIR$/source/Model/BuildingImpl.java" />
+        <option value="$PROJECT_DIR$/source/Model/ShieldKnight.java" />
+        <option value="$PROJECT_DIR$/source/Model/CupCakeWarrior.java" />
+        <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
+        <option value="$PROJECT_DIR$/tests/Testing.java" />
+        <option value="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
+        <option value="$PROJECT_DIR$/source/Model/ShieldKnightBuilding.java" />
+        <option value="$PROJECT_DIR$/source/Model/CupCakeWarriorBuilding.java" />
       </list>
     </option>
   </component>
@@ -241,9 +182,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="75" />
     <option name="y" value="23" />
-    <option name="width" value="1915" />
-    <option name="height" value="1177" />
+    <option name="width" value="1440" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -254,14 +196,14 @@
       <hideEmptyPackages />
       <abbreviatePackageNames />
       <autoscrollToSource />
-      <autoscrollFromSource />
+      <autoscrollFromSource ProjectPane="true" />
       <sortByType />
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,6 +213,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameproject_cs257" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,24 +277,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gameproject_cs257" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -613,6 +551,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -734,6 +673,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -769,45 +714,46 @@
       <option name="presentableId" value="Default" />
       <updated>1489558666459</updated>
       <workItem from="1489558667688" duration="663000" />
+      <workItem from="1489560091665" duration="2315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="663000" />
+    <option name="totallyTimeSpent" value="2978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1915" height="1177" extended-state="6" />
+    <frame x="75" y="23" width="1440" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21624173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18633209" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21582733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18884121" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,10 +771,66 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/Controller/FightControllerInterface.java">
+    <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="435">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1191#1192#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1310#1311#0" expanded="false" />
+            <element signature="e#1356#1357#0" expanded="false" />
+            <element signature="e#1394#1395#0" expanded="false" />
+            <element signature="e#1428#1429#0" expanded="false" />
+            <element signature="e#1458#1459#0" expanded="false" />
+            <element signature="e#1490#1491#0" expanded="false" />
+            <element signature="e#1522#1523#0" expanded="false" />
+            <element signature="e#1575#1576#0" expanded="false" />
+            <element signature="e#1612#1613#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1691#1692#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+            <element signature="e#1761#1762#0" expanded="false" />
+            <element signature="e#1790#1791#0" expanded="false" />
+            <element signature="e#1824#1825#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="false" />
+            <element signature="e#1888#1889#0" expanded="false" />
+            <element signature="e#1916#1917#0" expanded="false" />
+            <element signature="e#1951#1952#0" expanded="false" />
+            <element signature="e#1994#1995#0" expanded="false" />
+            <element signature="e#2030#2031#0" expanded="false" />
+            <element signature="e#2067#2068#0" expanded="false" />
+            <element signature="e#2099#2100#0" expanded="false" />
+            <element signature="e#2139#2140#0" expanded="false" />
+            <element signature="e#2177#2178#0" expanded="false" />
+            <element signature="e#2232#2233#0" expanded="false" />
+            <element signature="e#2276#2277#0" expanded="false" />
+            <element signature="e#2449#2450#0" expanded="false" />
+            <element signature="e#2492#2493#0" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="false" />
+            <element signature="e#2562#2563#0" expanded="false" />
+            <element signature="e#2840#2841#0" expanded="false" />
+            <element signature="e#2867#2868#0" expanded="false" />
+            <element signature="e#2908#2909#0" expanded="false" />
+            <element signature="e#2935#2936#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -841,18 +843,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Controller/FightControllerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/Model/PlayerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="435">
           <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1191#1192#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1310#1311#0" expanded="false" />
+            <element signature="e#1356#1357#0" expanded="false" />
+            <element signature="e#1394#1395#0" expanded="false" />
+            <element signature="e#1428#1429#0" expanded="false" />
+            <element signature="e#1458#1459#0" expanded="false" />
+            <element signature="e#1490#1491#0" expanded="false" />
+            <element signature="e#1522#1523#0" expanded="false" />
+            <element signature="e#1575#1576#0" expanded="false" />
+            <element signature="e#1612#1613#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1691#1692#0" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+            <element signature="e#1761#1762#0" expanded="false" />
+            <element signature="e#1790#1791#0" expanded="false" />
+            <element signature="e#1824#1825#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="false" />
+            <element signature="e#1888#1889#0" expanded="false" />
+            <element signature="e#1916#1917#0" expanded="false" />
+            <element signature="e#1951#1952#0" expanded="false" />
+            <element signature="e#1994#1995#0" expanded="false" />
+            <element signature="e#2030#2031#0" expanded="false" />
+            <element signature="e#2067#2068#0" expanded="false" />
+            <element signature="e#2099#2100#0" expanded="false" />
+            <element signature="e#2139#2140#0" expanded="false" />
+            <element signature="e#2177#2178#0" expanded="false" />
+            <element signature="e#2232#2233#0" expanded="false" />
+            <element signature="e#2276#2277#0" expanded="false" />
+            <element signature="e#2449#2450#0" expanded="false" />
+            <element signature="e#2492#2493#0" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="false" />
+            <element signature="e#2562#2563#0" expanded="false" />
+            <element signature="e#2840#2841#0" expanded="false" />
+            <element signature="e#2867#2868#0" expanded="false" />
+            <element signature="e#2908#2909#0" expanded="false" />
+            <element signature="e#2935#2936#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -867,8 +924,113 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4922">
+        <state relative-caret-position="15">
           <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/InitiateGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/Building.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarrior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/MinionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#566#567#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/CombatManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-347">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="34" column="75" lean-forward="false" selection-start-line="34" selection-start-column="75" selection-end-line="34" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/View/ConstructBuilding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/BuildingImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/CupCakeWarriorBuilding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Model/ShieldKnightBuilding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding />
         </state>
       </provider>

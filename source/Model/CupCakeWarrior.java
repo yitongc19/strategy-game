@@ -8,6 +8,15 @@ import View.Sprite;
  */
 public class CupCakeWarrior extends MeleeMinion {
 
+    public CupCakeWarrior() {
+        this.typeName = "CupCake Warrior";
+        this.hp = 500;
+        this.atk = 40;
+        this.armorType = ArmorType.LightArmor;
+        this.moveSpeed = 4;
+        this.attackSpeed = 1;
+    }
+
     public CupCakeWarrior(CombatManager manager, String name, PlayerImpl master, double[] coords) {
         this.minionName = name;
         this.master = master;

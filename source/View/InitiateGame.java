@@ -34,8 +34,8 @@ public class InitiateGame extends Application{
     static Stage initiateStage = new Stage();
     public GameController controller;
     private static List<Map<String, Object>> playeInfoList = new ArrayList<>();
-    public King lightKing = new King(1);
-    public King darkKing = new King(2);
+    private static King lightKing = new King(1);
+    private static King darkKing = new King(2);
 
     @Override
     public void start(Stage primaryStage) {
@@ -65,35 +65,20 @@ public class InitiateGame extends Application{
         start.setId("startButton");
 
         start.setOnAction(event -> {
-            double offsetOne = 0;
-            double offsetTwo = 0;
             for (Map<String, Object> player : playeInfoList) {
                 Paint color = (Paint) player.get("playerColor");
                 TextField nameInput = (TextField) player.get("playerNameInput");
                 Integer teamNum = (Integer) player.get("teamNum");
                 String name = nameInput.getText();
 
-                PlayerImpl newPlayer = new PlayerImpl(teamNum, name, color);
-                controller.addPlayer(newPlayer);
+                PlayerImpl newPlayer;
+                if (teamNum == 1) {
+                    newPlayer = new PlayerImpl(teamNum, name, color, lightKing);
+                } else {
+                    newPlayer = new PlayerImpl(teamNum, name, color, darkKing);
+                }
 
-                if (teamNum == 2) {
-                    newPlayer.myKing = darkKing;
-                    newPlayer.setyOffset(offsetTwo * 220);
-                    newPlayer.setxOffset(1200);
-                    if (offsetTwo == 1) {
-                        offsetTwo = offsetTwo + 1.2;
-                    }
-                    offsetTwo = offsetTwo + 1;
-                }
-                else {
-                    newPlayer.myKing = lightKing;
-                    newPlayer.setyOffset(offsetOne * 220);
-                    newPlayer.setxOffset(0);
-                    if (offsetOne == 1) {
-                        offsetOne = offsetOne + 1.2;
-                    }
-                    offsetOne = offsetOne + 1;
-                }
+                controller.addPlayer(newPlayer);
             }
 
             System.out.println(controller.getPlayers().get(0).getPlayerName());
