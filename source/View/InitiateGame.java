@@ -94,10 +94,10 @@ public class InitiateGame extends Application{
                 }
             }
 
-            System.out.println(controller.getPlayers().get(0).getPlayerName());
-            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller);
+            InterPlayer interPlayer = new InterPlayer(this.controller, this.controller.getPlayers().get(0));
+//            this.controller.setNumRemainingPlayers(this.controller.getNumRemainingPlayers() - 1);
             try {
-                constructBuilding.start(ConstructBuilding.constructStage);
+                interPlayer.start(InterPlayer.interPlayerStage);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -46,6 +46,7 @@ import java.util.List;
  */
 public class ConstructBuilding extends Application {
 
+    private PlayerImpl currentPlayer;
     private Timeline timeline = new Timeline();
     private static VBox leftPanels;
     private static int[] currentGridCoords = {0, 0};
@@ -56,7 +57,7 @@ public class ConstructBuilding extends Application {
     public GameController controller;
     private static GridPane existingBuilding;
 
-    static Stage constructStage = new Stage();
+    public static Stage constructStage = new Stage();
     static int finished = 0;
 
     public ConstructBuilding(GameController controller) {
@@ -81,7 +82,7 @@ public class ConstructBuilding extends Application {
         leftPanels = new VBox();
         leftPanels.setSpacing(20);
 
-        PlayerImpl currentPlayer = players.get(playerIndex);
+        currentPlayer = players.get(playerIndex);
 
         VBox currentBasePanel = addCurrectBasePanel(currentPlayer);
 
@@ -114,7 +115,7 @@ public class ConstructBuilding extends Application {
 
         timerLabel.setText("00:" + timeSeconds[0].toString());
         timeline = new Timeline();
-        timeline.setCycleCount(59);
+        timeline.setCycleCount(Timeline.INDEFINITE);
         Timeline finalTimeline = timeline;
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
              @Override
@@ -130,12 +131,13 @@ public class ConstructBuilding extends Application {
 
                      if (control.getNumRemainingPlayers() > 0) {
                          control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
-                         ConstructBuilding constructBuilding = new ConstructBuilding(control);
+                         InterPlayer interPlayer = new InterPlayer(control, currentPlayer);
                          try {
-                             constructBuilding.start(ConstructBuilding.constructStage);
+                             interPlayer.start(InterPlayer.interPlayerStage);
                          } catch (Exception e) {
                              e.printStackTrace();
                          }
+                         constructStage.close();
                      } else {
                          if (finished == 0) {
                              finish(control);
@@ -147,10 +149,9 @@ public class ConstructBuilding extends Application {
 
         constructStage.setResizable(false);
         constructStage.setScene(scene);
-        Timeline finalTimeline1 = timeline;
 
         constructStage.setOnShown(windowEvent -> {
-            finalTimeline1.play();
+            timeline.play();
         });
         constructStage.show();
     }
@@ -256,12 +257,14 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setOnAction(event -> {
             if (control.getNumRemainingPlayers() > 0) {
                 control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
-                ConstructBuilding constructBuilding = new ConstructBuilding(control);
+
+                InterPlayer interPlayer = new InterPlayer(control, currentPlayer);
                 try {
-                    constructBuilding.start(ConstructBuilding.constructStage);
+                    interPlayer.start(InterPlayer.interPlayerStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                constructStage.close();
                 timeline.stop();
             } else {
                 finish(control);
