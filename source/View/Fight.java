@@ -372,9 +372,9 @@ public class Fight extends Application{
 
         Console console = new Console(ta);
 
-//        PrintStream ps = new PrintStream(console, true);
-//        System.setOut(ps);
-//        System.setErr(ps);
+        PrintStream ps = new PrintStream(console, true);
+        System.setOut(ps);
+        System.setErr(ps);
 
 //        Button startButton = addStartButton(curStage, manager, controller, graphics, graphics1);
 //        startButton.setId("startButton");
