@@ -46,6 +46,7 @@ import java.util.List;
  */
 public class ConstructBuilding extends Application {
 
+    private Timeline timeline = new Timeline();
     private static VBox leftPanels;
     private static int[] currentGridCoords = {0, 0};
     private static ScrollPane availableBuildings;
@@ -53,6 +54,7 @@ public class ConstructBuilding extends Application {
     private static Text playerInfo;
     private Integer STARTTIME = 59;
     public GameController controller;
+    private static GridPane existingBuilding;
 
     static Stage constructStage = new Stage();
     static int finished = 0;
@@ -81,7 +83,7 @@ public class ConstructBuilding extends Application {
 
         PlayerImpl currentPlayer = players.get(playerIndex);
 
-        VBox currentBasePanel = addCurrectBasePanel();
+        VBox currentBasePanel = addCurrectBasePanel(currentPlayer);
 
         availableBuildings = addBuildingsToConstructPanel(currentPlayer);
 
@@ -105,7 +107,10 @@ public class ConstructBuilding extends Application {
         scene.getStylesheets().add(Fight.class.getResource("static/ConstructBuilding.css").toExternalForm());
 
         final Integer[] timeSeconds = {STARTTIME};
-        Timeline timeline;
+
+        if (timeline != null) {
+            timeline.stop();
+        }
 
         timerLabel.setText("00:" + timeSeconds[0].toString());
         timeline = new Timeline();
@@ -231,7 +236,7 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the function panel */
-    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control) {
+    private VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -257,6 +262,7 @@ public class ConstructBuilding extends Application {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                timeline.stop();
             } else {
                 finish(control);
             }
@@ -287,12 +293,12 @@ public class ConstructBuilding extends Application {
         buildingContainer.setHgap(40);
         buildingContainer.setVgap(60);
 
-        BuildingImpl shield = new ShieldKnightBuilding();
-        VBox shieldKnight = addSingleBuilding(player, shield);
-        buildingContainer.add(shieldKnight, 0, 0);
+//        BuildingImpl shield = new ShieldKnightBuilding();
+//        VBox shieldKnight = addSingleBuilding(player, shield);
+//        buildingContainer.add(shieldKnight, 0, 0);
 
         VBox cupcake = addSingleBuilding(player, new CupCakeWarriorBuilding());
-        buildingContainer.add(cupcake, 1, 0);
+        buildingContainer.add(cupcake, 0, 0);
 
         return buildingContainer;
     }
@@ -442,7 +448,7 @@ public class ConstructBuilding extends Application {
         return playerInfoPanel;
     }
 
-    private static VBox addCurrectBasePanel() {
+    private static VBox addCurrectBasePanel(PlayerImpl currentPlayer) {
         VBox currentBasePanel = new VBox();
         currentBasePanel.setPadding(new Insets(0, 10, 10, 10));
         currentBasePanel.setStyle("-fx-border-radius: 10 10 0 0;\n" +
@@ -451,14 +457,14 @@ public class ConstructBuilding extends Application {
 
         Text title = new Text("Existing Buildings");
         title.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
-        StackPane currentBase = addCurrentBase();
+        StackPane currentBase = addCurrentBase(currentPlayer);
 
         currentBasePanel.getChildren().addAll(title, currentBase);
 
         return currentBasePanel;
     }
 
-    private static StackPane addCurrentBase() {
+    private static StackPane addCurrentBase(PlayerImpl currentPlayer) {
         StackPane currentBase = new StackPane();
 
 //        ImageView baseBg = new ImageView(ConstructBuilding.class.getResource("static/landscape.png").toExternalForm());
@@ -467,8 +473,7 @@ public class ConstructBuilding extends Application {
 
 //        GridPane baseGrid = addBaseGrid();
 
-        baseBuilding = addBaseBuildings();
-
+        baseBuilding = addBaseBuildings(currentPlayer);
 //        baseGrid.setPadding(new Insets(20, 0, 0, 50));
         baseBuilding.setPadding(new Insets(20, 0, 0, 50));
 
@@ -477,7 +482,7 @@ public class ConstructBuilding extends Application {
         return currentBase;
     }
 
-    private static GridPane addBaseBuildings() {
+    private static GridPane addBaseBuildings(PlayerImpl currentPlayer) {
         GridPane baseBuildings = new GridPane();
 
 //        baseBuildings.getRowConstraints().add(new RowConstraints(100));
@@ -501,6 +506,25 @@ public class ConstructBuilding extends Application {
 
                 baseBuildings.add(clickable, col, row);
 
+            }
+        }
+
+        if (!currentPlayer.getBuildings().isEmpty()) {
+            for (BuildingImpl building : currentPlayer.getBuildings()) {
+                int[] buildingCoords = building.getGridCoords();
+                if (building.getName().equals("Warrior Camp")) {
+                    ImageView buildingImg;
+                    if (currentPlayer.getTeam() == 1) {
+                        Image temp = new Image("file:assets/swordmanT1/t1buildgood.gif");
+                        buildingImg = new ImageView(temp);
+                    } else {
+                        Image temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+                        buildingImg = new ImageView(temp);
+                    }
+                    buildingImg.setFitWidth(125);
+                    buildingImg.setFitHeight(125);
+                    baseBuildings.add(buildingImg, buildingCoords[0], buildingCoords[1]);
+                }
             }
         }
 

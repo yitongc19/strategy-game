@@ -2,6 +2,7 @@ package Model;
 
 import View.Sprite;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * Created by xingfanxia on 3/9/17.
@@ -13,6 +14,10 @@ public class CupCakeWarriorBuilding extends BuildingImpl{
         this.buildingName = "Warrior Camp";
         this.displayedImage = "some path";
         this.cost = 200;
+        Image temp1 = new Image("file:assets/swordmanT1/t1buildgood.gif");
+        Image temp2 = new Image("file:assets/swordmanT1/t1buildevil.gif");
+        this.buildingImageViewLight = new ImageView(temp1);
+        this.buildingImageViewDark = new ImageView(temp2);
     }
 
     public CupCakeWarriorBuilding(PlayerImpl owner) {

@@ -56,9 +56,10 @@ public class Fight extends Application{
         BorderPane root = new BorderPane();
 
         FightController control = new FightController();
-        CombatManager manager = new CombatManager();
+
 
         GameController newGame = this.controller;
+        CombatManager manager = new CombatManager(fightStage, controller);
         List<PlayerImpl> players = newGame.getPlayers();
 
         control.setPlayers(players);
@@ -276,9 +277,12 @@ public class Fight extends Application{
         Text buffTitle = new Text("SHOW YOUR LOYALTY!");
         buffTitle.setFont(Font.font("American Typewriter", 30));
 
+        Text buffTip = new Text("Click on the buff button to add health to your king!");
+        buffTip.setFont(Font.font("American Typewriter", 16));
+
         HBox buffButtons = addBuffs(controller);
 
-        buffPanel.getChildren().addAll(buffTitle, buffButtons);
+        buffPanel.getChildren().addAll(buffTitle, buffTip, buffButtons);
 
         return buffPanel;
     }
@@ -316,11 +320,17 @@ public class Fight extends Application{
 
         buff.setOnAction(event -> {
             if (team.equals("TEAM 1")) {
+                List<PlayerImpl> players = controller.getPlayers();
+                King kingToBuff = players.get(0).getKing();
+                kingToBuff.setHp(kingToBuff.getHp() + 200);
                 controller.setTotalBuffTeam1(controller.getTotalBuffTeam1() + 1);
                 if (controller.getTotalBuffTeam1() >= controller.getNumPlayerTeam1() ) {
                     buff.setDisable(true);
                 }
             } else if (team.equals("TEAM 2")) {
+                List<PlayerImpl> players = controller.getPlayers();
+                King kingToBuff = players.get(players.size() / 2).getKing();
+                kingToBuff.setHp(kingToBuff.getHp() + 200);
                 controller.setTotalBuffTeam2(controller.getTotalBuffTeam2() + 1);
                 if (controller.getTotalBuffTeam2() >= controller.getNumPlayerTeam2()) {
                     buff.setDisable(true);

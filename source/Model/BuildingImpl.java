@@ -3,6 +3,7 @@ package Model;
 import View.Sprite;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,8 @@ import java.util.ArrayList;
  */
 public class BuildingImpl {
 
+    ImageView buildingImageViewLight;
+    ImageView buildingImageViewDark;
     String buildingName;
     String displayedImage;
     Image spriteImage;
@@ -78,4 +81,13 @@ public class BuildingImpl {
     public double[] getScreenCoords() {
         return screenCoords;
     }
+
+    public ImageView getBuildingImageViewLight() {
+        return buildingImageViewLight;
+    }
+
+    public ImageView getBuildingImageViewDark() {
+        return buildingImageViewDark;
+    }
+
 }

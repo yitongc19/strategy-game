@@ -1,6 +1,8 @@
+import Controller.GameController;
 import Model.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +13,7 @@ import java.util.Arrays;
 public class Testing {
 
     public static void main(String[] args) {
-        CombatManager manager = new CombatManager();
+        CombatManager manager = new CombatManager(new Stage(), new GameController(2));
 
         double[] pos1 = {100, 100};
         double[] pos2 = {100, 110};

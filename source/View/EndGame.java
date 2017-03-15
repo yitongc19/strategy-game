@@ -33,10 +33,8 @@ import java.util.*;
 public class EndGame extends Application {
 
     static GameController controller;
-    static Stage endStage = new Stage();
 
-    public EndGame() {
-    }
+    public static Stage endStage = new Stage();
 
     public EndGame(GameController control) {
         this.controller = control;
@@ -51,6 +49,10 @@ public class EndGame extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public static Stage getEndStage() {
+        return endStage;
     }
 
     /*

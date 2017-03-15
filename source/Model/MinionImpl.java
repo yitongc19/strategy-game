@@ -8,10 +8,18 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.*;
 
+import View.EndGame;
 import View.HealthBar;
 import View.Sprite;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -492,7 +500,30 @@ public class MinionImpl implements Minion {
 //                                this.myKing.getOpponetKing().kingName);
 //                        System.out.println(this.myKing.getOpponetKing().hp);
                         if (this.myKing.checkDeath() || this.myKing.opponetKing.checkDeath()) {
-                            System.exit(0);
+                            Stage popUpStage = new Stage();
+                            VBox root = new VBox();
+                            root.setAlignment(Pos.CENTER);
+                            root.setSpacing(20);
+                            Text gameOver = new Text("One King is dead! " +
+                                    "\nHurray for the victorious team!");
+                            gameOver.setFont(Font.font(null, 16));
+                            Button gameOverButton = new Button("See Player Score");
+                            root.getChildren().addAll(gameOver, gameOverButton);
+                            Scene scene = new Scene(root, 300, 200);
+                            popUpStage.setScene(scene);
+                            popUpStage.show();
+                            gameOverButton.setOnAction(event -> {
+                                if (!manager.getCurrentGameStage().equals(EndGame.endStage)) {
+                                    EndGame endGame = new EndGame(manager.getCurrentController());
+                                    try {
+                                        endGame.start(EndGame.endStage);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                    manager.getCurrentGameStage().close();
+                                    manager.setCurrentGameStage(EndGame.endStage);
+                                }
+                            });
                         }
                         this.attackCounter = 0;
 

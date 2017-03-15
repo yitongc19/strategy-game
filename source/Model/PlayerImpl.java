@@ -14,7 +14,7 @@ public class PlayerImpl implements Player, Comparable<PlayerImpl> {
     player class holding all relevant attributes like
     gold, king, score, name, team, color, minions and buildings
      */
-    CombatManager manager = new CombatManager();
+//    CombatManager manager = new CombatManager();
     public Integer gold;
     private ArrayList<BuildingImpl> buildings = new ArrayList<BuildingImpl>();
     public ArrayList<MinionImpl> minions = new ArrayList<MinionImpl>();

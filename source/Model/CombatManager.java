@@ -1,5 +1,9 @@
 package Model;
 
+import Controller.GameController;
+import javafx.stage.Stage;
+
+import javax.naming.ldap.Control;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,10 +16,32 @@ import static Model.MinionImpl.byPriority;
  * Used to controll the combat flow, will be used in fight controller
  */
 public class CombatManager {
+    private GameController currentController;
+    private Stage currentGameStage;
+
     static ArrayList<MinionImpl> instances = new ArrayList<MinionImpl>();
 
     private PlayerImpl player1;
     private PlayerImpl player2;
+
+    public CombatManager(Stage gameStage, GameController controller) {
+        this.currentGameStage = gameStage;
+        this.currentController = controller;
+    }
+
+    // retrieve the stage that displays the current combat
+    public Stage getCurrentGameStage() {
+        return currentGameStage;
+    }
+
+    public void setCurrentGameStage(Stage newStage) {
+        currentGameStage = newStage;
+    }
+
+    // retrieve the controller of the current combat
+    public GameController getCurrentController() {
+        return currentController;
+    }
 
     //a global ArrayList containing all alive minions
     public ArrayList<MinionImpl> getAllInstances() {
