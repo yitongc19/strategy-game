@@ -28,6 +28,10 @@ public class InterPlayer extends Application {
         gameController = controller;
     }
 
+    public Stage getInterPlayerStage() {
+        return interPlayerStage;
+    }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -50,12 +54,13 @@ public class InterPlayer extends Application {
 
             startTimer.setOnAction(event -> {
                 ConstructBuilding constructBuilding = new ConstructBuilding(gameController);
+                interPlayerStage.close();
                 try {
                     constructBuilding.start(ConstructBuilding.constructStage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                interPlayerStage.close();
+
             });
         }
     }

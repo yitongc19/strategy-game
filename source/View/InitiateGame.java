@@ -53,6 +53,10 @@ public class InitiateGame extends Application{
         primaryStage.show();
     }
 
+    public Stage getInitiateStage() {
+        return initiateStage;
+    }
+
     /* adding the root panel */
     private VBox addPanel() {
         VBox panel = new VBox();

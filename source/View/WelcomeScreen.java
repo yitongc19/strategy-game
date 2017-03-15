@@ -136,7 +136,7 @@ public class WelcomeScreen extends Application{
 
         startGameButton.setOnAction(event -> {
             InitiateGame initiateGame = new InitiateGame();
-            initiateGame.start(InitiateGame.initiateStage);
+            initiateGame.start(initiateGame.initiateStage);
             welcomeStage.close();
         });
         return startGameButton;

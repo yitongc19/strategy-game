@@ -2,6 +2,7 @@ package Controller;
 
 
 import Model.*;
+import View.InterPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -30,7 +31,10 @@ public class FightController implements FightControllerInterface {
     }
 
     public AnimationTimer runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
-
+        System.out.println(players.get(0).getxOffset());
+        System.out.println(players.get(1).getxOffset());
+        System.out.println(players.get(0).getyOffset());
+        System.out.println(players.get(1).getyOffset());
 
 
         for (int i = 0; i < players.size(); i += 1) {
@@ -108,9 +112,22 @@ public class FightController implements FightControllerInterface {
             @Override
             public void handle(long now) {
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(1);
                 }
                 catch (InterruptedException e) {
+                }
+
+                if (manager.getAllInstances().size() == 0) {
+
+                    InterPlayer interPlayer = new InterPlayer(manager.getCurrentController(), manager.getCurrentController().getPlayers().get(0));
+                  manager.getCurrentController().setNumRemainingPlayers(manager.getCurrentController().getNumRemainingPlayers() - 1);
+                    try {
+                        interPlayer.start(interPlayer.getInterPlayerStage());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    manager.getCurrentGameStage().close();
+                    this.stop();
                 }
 
 //                for (int q = 0; q < players.size(); q = q + 1) {
