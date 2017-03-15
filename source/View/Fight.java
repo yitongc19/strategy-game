@@ -59,7 +59,7 @@ public class Fight extends Application{
         CombatManager manager = new CombatManager();
 
         GameController newGame = this.controller;
-        newGame.setUpGame();
+        //newGame.setUpGame();
         List<PlayerImpl> players = newGame.getPlayers();
 
         control.setPlayers(players);

@@ -1,13 +1,7 @@
-.root {
-    -fx-background-image: url("/resourcesImg/ForTheKingWelcome.jpg");
-    -fx-background-repeat: stretch;
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
 }
 
-#titleText {
-    -fx-font-size: 88px;
-    -fx-fill: white;
-    -fx-font-family: "Rockwell Extra Bold";
-}
 
 .button {
     -fx-background-color: #5bc0de;
