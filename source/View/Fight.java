@@ -55,21 +55,21 @@ public class Fight extends Application{
 
         BorderPane root = new BorderPane();
 
-        FightController control = new FightController();
+        FightController fightController = new FightController();
 
 
         GameController newGame = this.controller;
         CombatManager manager = new CombatManager(fightStage, controller);
         List<PlayerImpl> players = newGame.getPlayers();
 
-        control.setPlayers(players);
+        fightController.setPlayers(players);
 
         Canvas canvas = new Canvas( 1400, 1120 );
         Canvas canvas1 = new Canvas( 1400, 1120 );
         GraphicsContext graphics = canvas.getGraphicsContext2D();
         GraphicsContext graphics1 = canvas1.getGraphicsContext2D();
 
-        ScrollPane battleLog = addBattleLog(primaryStage, manager, control, graphics, graphics1);
+        ScrollPane battleLog = addBattleLog(primaryStage, manager, fightController, graphics, graphics1);
         VBox battleField = addBattleField(this.controller, canvas, canvas1);
 
         root.setRight(battleLog);
@@ -78,11 +78,14 @@ public class Fight extends Application{
         Scene scene = new Scene(root, 1800, 1330);
         scene.getStylesheets().add(Fight.class.getResource("static/Fight.css").toExternalForm());
 
+        primaryStage.setOnShown(windownEvent -> {
+            fightController.runFight(manager, graphics, graphics1);
+        });
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        control.showBuildings(graphics1);
+        fightController.showBuildings(graphics1);
     }
 
     /*
@@ -373,13 +376,13 @@ public class Fight extends Application{
         System.setOut(ps);
         System.setErr(ps);
 
-        Button startButton = addStartButton(curStage, manager, controller, graphics, graphics1);
-        startButton.setId("startButton");
+//        Button startButton = addStartButton(curStage, manager, controller, graphics, graphics1);
+//        startButton.setId("startButton");
 
         battleLogContent.getChildren().addAll(battleLogTitle, ta);
 
         battleLog.setCenter(battleLogContent);
-        battleLog.setBottom(startButton);
+//        battleLog.setBottom(startButton);
 
         tempContainer.setContent(battleLog);
         return tempContainer;

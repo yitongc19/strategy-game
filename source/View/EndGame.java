@@ -63,11 +63,11 @@ public class EndGame extends Application {
         root.setAlignment(Pos.CENTER);
         root.setSpacing(30);
 
-        HBox title = addTitle("LIGHT");
+//        HBox title = addTitle("LIGHT");
         HBox resultPanel = addResultPanels(controller);
         HBox buttonPanel = addOperatingButtons();
 
-        root.getChildren().addAll(title, resultPanel, buttonPanel);
+        root.getChildren().addAll(resultPanel, buttonPanel);
         return root;
     }
 
@@ -91,9 +91,9 @@ public class EndGame extends Application {
         resultPanels.setSpacing(100);
 
         VBox scorePanel = addResultList("Score", controller);
-        VBox achievementPanel = addResultList("Achievements", controller);
+//        VBox achievementPanel = addResultList("Achievements", controller);
 
-        resultPanels.getChildren().addAll(scorePanel, achievementPanel);
+        resultPanels.getChildren().addAll(scorePanel);
         return resultPanels;
     }
 
@@ -116,13 +116,13 @@ public class EndGame extends Application {
         Collections.sort(playerList, PlayerImpl.Comparators.SCORE);
 
         for (PlayerImpl player : playerList) {
-            String infoDisplay = player.getPlayerName() + Integer.toString(player.getScore());
+            String infoDisplay = player.getPlayerName() + "     " + Integer.toString(player.getScore());
             playersOrderedByScore.add(infoDisplay);
         }
 
         ListView<String> scoreList = new ListView<>();
         ObservableList<String> items = FXCollections.observableArrayList();
-        if (title.equals("Score")) {
+        if (title.equals("Player Score")) {
             items = FXCollections.observableArrayList(playersOrderedByScore);
         } else if (title.equals("Achievements")) {
 
