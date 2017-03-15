@@ -45,6 +45,7 @@ public class BuildingImpl {
     }
 
     public void render(GraphicsContext gc) {
+        System.out.println("build Coords: " + this.screenCoords[0] + ", " + this.screenCoords[1]);
         this.sprite.setPos(this.screenCoords[0], this.screenCoords[1]);
         this.sprite.render(gc);
     }

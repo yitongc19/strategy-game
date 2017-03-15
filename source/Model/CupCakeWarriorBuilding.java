@@ -29,6 +29,7 @@ public class CupCakeWarriorBuilding extends BuildingImpl{
     }
 
     public void spawnMinion(CombatManager manager) {
+        System.out.println("SPAWNED");
         double[] coords = this.getScreenCoords();
 
         CupCakeWarrior newcup1 = new CupCakeWarrior(manager, "Cup Cake Warrior", this.owner, coords);

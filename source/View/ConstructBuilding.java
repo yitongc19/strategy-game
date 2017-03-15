@@ -46,15 +46,31 @@ public class ConstructBuilding extends Application {
 
     private static Integer STARTTIME = 59;
     public GameController controller;
+    public int playerIndex;
 
     static Stage constructStage = new Stage();
+    static int finished = 0;
 
-    public ConstructBuilding(GameController controller) {
+    public ConstructBuilding(GameController controller, int playerIndex) {
+        this.playerIndex = playerIndex;
         this.controller = controller;
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("TESTING START!");
+
+        GameController control = this.controller;
+
+        if (this.playerIndex == controller.getNumPlayers()) {
+            Fight fight = new Fight(control);
+            try {
+                fight.start(Fight.fightStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            constructStage.close();
+            return;
+        }
 
         int[] gridCoords = {0,0};
 //
@@ -64,7 +80,7 @@ public class ConstructBuilding extends Application {
 //        PlayerImpl player4 = new PlayerImpl(2, "A dog", null);
 //        PlayerImpl player5 = new PlayerImpl(2, "A dog", null);
 //        PlayerImpl player6 = new PlayerImpl(2, "A dog", null);
-        GameController control = this.controller;
+
 
 //        PlayerImpl[] players = {player1, player2, player3, player4, player5, player6};
 //
@@ -81,7 +97,7 @@ public class ConstructBuilding extends Application {
         leftPanels.setSpacing(20);
 
         VBox currentBasePanel = addCurrectBasePanel(gridCoords);
-        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players.get(0), gridCoords);
+        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players.get(playerIndex), gridCoords);
         leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
@@ -89,8 +105,8 @@ public class ConstructBuilding extends Application {
 
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
-        VBox playerInfoPanel = addPlayerInfoPanel();
-        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel, control);
+        VBox playerInfoPanel = addPlayerInfoPanel(this.controller.getPlayers().get(this.playerIndex));
+        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel, control, this.playerIndex);
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
 
         root.setLeft(leftPanels);
@@ -123,15 +139,11 @@ public class ConstructBuilding extends Application {
                  if (timeSeconds[0] <= 0) {
                      finalTimeline.stop();
 
-                     //TODO: control the number of scenes shown
-
-                     Fight fight = new Fight(control);
-                     try {
-                         fight.start(Fight.fightStage);
-                     } catch (Exception e) {
-                         e.printStackTrace();
+                     if (finished == 0) {
+                         finish(control, playerIndex);
                      }
-                     constructStage.close();
+
+
                  }
              }
          }));
@@ -152,9 +164,10 @@ public class ConstructBuilding extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Make new building called!");
+                System.out.println("TEAM: " + player.getTeam());
                 CupCakeWarriorBuilding newbuild = new CupCakeWarriorBuilding(player);
                 newbuild.setGridCoords(gridCoords);
-                double[] coords = {50 * gridCoords[0], 50 * gridCoords[1]};
+                double[] coords = {50 * gridCoords[0] + player.getxOffset(), 50 * gridCoords[1] + player.getyOffset()};
                 newbuild.setScreenCoords(coords);
                 System.out.println("MADE NEW BUILDING");
                 System.out.println(player.getPlayerName());
@@ -167,7 +180,7 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the function panel */
-    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control) {
+    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control, int playerIndex) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -185,14 +198,7 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setId("functionButton");
 
         nextPlayerButton.setOnAction(event -> {
-            Fight fight = new Fight(control);
-
-            try {
-                fight.start(Fight.fightStage);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            constructStage.close();
+            finish(control, playerIndex);
         });
 
         nextPlayerButtonContainer.getChildren().addAll(nextPlayerButton);
@@ -333,22 +339,20 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the playerInfo panel */
-    private static VBox addPlayerInfoPanel() {
+    private static VBox addPlayerInfoPanel(PlayerImpl curPlayer) {
         VBox playerInfoPanel = new VBox();
         playerInfoPanel.setSpacing(20);
         playerInfoPanel.setPadding(new Insets(10, 10, 10, 10));
         playerInfoPanel.setId("playerInfoPanel");
-        playerInfoPanel.setPrefSize(500, 800);
+        playerInfoPanel.setPrefSize(500, 400);
 
         Text titleText = new Text("Player Info: ");
         titleText.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
 
-        Text playerInfo = new Text("Player Name: Yitong" +
-                "\nPlayer Color: Red" +
-                "\nPlayer Gold: 1000" +
-                "\nPlayer Score: 600" +
-                "\nPlayer Rank: #4" +
-                "\nPlayer Team: Dark");
+        Text playerInfo = new Text("Player Name: " + curPlayer.getPlayerName() +
+                "\nPlayer Gold: " + curPlayer.getGold() +
+                "\nPlayer Score: " + curPlayer.getScore() +
+                "\nPlayer Team: " + curPlayer.getTeam());
 
         playerInfo.setLineSpacing(10);
         playerInfo.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 20));
@@ -465,6 +469,15 @@ public class ConstructBuilding extends Application {
         return clickable;
     }
 
+    private static void finish(GameController controller, int playerIndex) {
+        ConstructBuilding next = new ConstructBuilding(controller, playerIndex + 1);
+        finished = 1;
+        try {
+            next.start(ConstructBuilding.constructStage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

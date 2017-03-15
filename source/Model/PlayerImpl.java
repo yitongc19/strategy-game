@@ -22,6 +22,8 @@ public class PlayerImpl implements Player {
     private int teamNum;
     private String playerName;
     private Paint playerColor; //in rgba
+    private double xOffset;
+    private double yOffset;
 
     public PlayerImpl opponent;
     public PlayerImpl(int teamNum, String playerName, Paint playerColor) {
@@ -32,6 +34,22 @@ public class PlayerImpl implements Player {
         this.myScore = 0;
         this.myKing = new King(teamNum);
         this.opponent = opponent;
+    }
+
+    public double getxOffset() {
+        return this.xOffset;
+    }
+
+    public void setxOffset(double xOffset) {
+        this.xOffset = xOffset;
+    }
+
+    public void setyOffset(double yOffset) {
+        this.yOffset = yOffset;
+    }
+
+    public double getyOffset() {
+        return yOffset;
     }
 
     public Integer getGold() {

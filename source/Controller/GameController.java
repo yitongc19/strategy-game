@@ -35,6 +35,9 @@ public class GameController {
         this.numRemainingPlayers = numRemainingPlayers;
     }
 
+    public int getNumPlayers() {
+        return numPlayers;
+    }
 
     public List<PlayerImpl> getPlayers() {
         return players;

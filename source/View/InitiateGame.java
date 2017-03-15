@@ -38,6 +38,10 @@ import java.util.List;
 public class InitiateGame extends Application{
 
     static Stage initiateStage = new Stage();
+    static List<TextField> textFields =  new ArrayList<>(); {
+    }
+    static List<Paint[]> paints = new ArrayList<>();{
+    }
     public GameController controller;
 
     @Override
@@ -68,7 +72,36 @@ public class InitiateGame extends Application{
         start.setId("startButton");
 
         start.setOnAction(event -> {
-            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller);
+            double offsetOne = 0;
+            double offsetTwo = 0;
+            for (int i = 0; i < textFields.size(); i = i + 1) {
+                int teamNum;
+                if (i < 4) {
+                    teamNum = 1;
+                }
+                else {
+                    teamNum = 2;
+                }
+                PlayerImpl newPlayer = new PlayerImpl(teamNum, textFields.get(i).getText(), paints.get(i)[0]);
+                if (teamNum == 2) {
+                    newPlayer.setyOffset(offsetTwo * 220);
+                    newPlayer.setxOffset(1200);
+                    if (offsetTwo == 1) {
+                        offsetTwo = offsetTwo + 1.2;
+                    }
+                    offsetTwo = offsetTwo + 1;
+                }
+                else {
+                    newPlayer.setyOffset(offsetOne * 220);
+                    newPlayer.setxOffset(0);
+                    if (offsetOne == 1) {
+                        offsetOne = offsetOne + 1.2;
+                    }
+                    offsetOne = offsetOne + 1;
+                }
+                controller.addPlayer(newPlayer);
+            }
+            ConstructBuilding constructBuilding = new ConstructBuilding(this.controller, 0);
             try {
                 constructBuilding.start(ConstructBuilding.constructStage);
             } catch (Exception e) {
@@ -292,8 +325,10 @@ public class InitiateGame extends Application{
         playerColor.setMaxHeight(Double.MAX_VALUE);
 
         onePlayer.getChildren().addAll(playerNum, playerName, playerColor);
+        textFields.add(playerName);
+        paints.add(colorForOne);
 
-        controller.addPlayer(new PlayerImpl(teamNum, name, colorForOne[0]));
+
 
         return onePlayer;
     }
