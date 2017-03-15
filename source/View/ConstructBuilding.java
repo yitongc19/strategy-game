@@ -50,6 +50,7 @@ public class ConstructBuilding extends Application {
     public GameController controller;
 
     static Stage constructStage = new Stage();
+    static int finished = 0;
 
     public ConstructBuilding(GameController controller) {
         this.controller = controller;
@@ -126,14 +127,9 @@ public class ConstructBuilding extends Application {
                              e.printStackTrace();
                          }
                      } else {
-                         Fight fight = new Fight(control);
-                         try {
-                             fight.start(Fight.fightStage);
-                         } catch (Exception e) {
-                             e.printStackTrace();
+                         if (finished == 0) {
+                             finish(control);
                          }
-                         constructStage.close();
-                         control.setNumRemainingPlayers(control.getNumPlayers() - 1);
                      }
                  }
              }
@@ -155,15 +151,10 @@ public class ConstructBuilding extends Application {
         confirmButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Make new building called!");
                 CupCakeWarriorBuilding newbuild = new CupCakeWarriorBuilding(player);
                 newbuild.setGridCoords(gridCoords);
-                double[] coords = {50 * gridCoords[0], 50 * gridCoords[1]};
+                double[] coords = {50 * gridCoords[0] + player.getxOffset(), 50 * gridCoords[1] + player.getyOffset()};
                 newbuild.setScreenCoords(coords);
-                System.out.println("MADE NEW BUILDING");
-                System.out.println(player.getPlayerName());
-                System.out.println(gridCoords[0]);
-                System.out.println(gridCoords[1]);
                 stagePopup.close();
             }
         });
@@ -198,14 +189,7 @@ public class ConstructBuilding extends Application {
                     e.printStackTrace();
                 }
             } else {
-                Fight fight = new Fight(control);
-                try {
-                    fight.start(Fight.fightStage);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                constructStage.close();
-                control.setNumRemainingPlayers(control.getNumPlayers() - 1);
+                finish(control);
             }
         });
 
@@ -352,7 +336,7 @@ public class ConstructBuilding extends Application {
         playerInfoPanel.setSpacing(20);
         playerInfoPanel.setPadding(new Insets(10, 10, 10, 10));
         playerInfoPanel.setId("playerInfoPanel");
-        playerInfoPanel.setPrefSize(500, 800);
+        playerInfoPanel.setPrefSize(500, 400);
 
         Text titleText = new Text("Player Info: ");
         titleText.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
@@ -465,7 +449,17 @@ public class ConstructBuilding extends Application {
         return clickable;
     }
 
-
+    private static void finish(GameController control) {
+        finished = 1;
+        Fight fight = new Fight(control);
+        try {
+            fight.start(Fight.fightStage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        constructStage.close();
+        control.setNumRemainingPlayers(control.getNumPlayers() - 1);
+    }
 
 
     private static class baseClickable extends Button {
