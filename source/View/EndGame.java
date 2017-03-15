@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GameController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +28,12 @@ import java.util.Observable;
  * Created by cheny2 on 3/3/17.
  */
 public class EndGame extends Application {
+
+    static GameController controller;
+
+    public EndGame(GameController control) {
+        this.controller = control;
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         VBox root = addContent();
@@ -157,11 +164,22 @@ public class EndGame extends Application {
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.setSpacing(300);
 
-        ImageView replayImage = loadImage("restartButton.png");
-        ImageView quitImage = loadImage("quitButton.png");
+        ImageView replayImage = loadImage("file:assets/resourcesImg/restartButton.png");
+        ImageView quitImage = loadImage("file:assets/resourcesImg/quitButton.png");
 
         Button replayButton = new Button("", replayImage);
+        replayButton.setOnAction(event -> {
+            WelcomeScreen welcomeScreen = new WelcomeScreen();
+            try {
+                welcomeScreen.start(WelcomeScreen.welcomeStage);
+            } catch (Exception e) {
+
+            }
+        });
         Button quitButton = new Button("", quitImage);
+        quitButton.setOnAction(event -> {
+            System.exit(0);
+        });
 
         quitButton.setOnAction(event -> {
             System.exit(0);
@@ -173,7 +191,8 @@ public class EndGame extends Application {
     }
 
     private static ImageView loadImage(String url) {
-        ImageView resultImage = new ImageView(EndGame.class.getResource(url).toExternalForm());
+        Image temp = new Image(url);
+        ImageView resultImage = new ImageView(temp);
         resultImage.setFitWidth(25);
         resultImage.setPreserveRatio(true);
         resultImage.setSmooth(true);

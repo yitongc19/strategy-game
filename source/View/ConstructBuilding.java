@@ -41,53 +41,32 @@ import java.util.List;
 
 /**
  * Created by cheny2 on 3/3/17.
+ *
+ * This class builds the view for the construct building phase.
  */
 public class ConstructBuilding extends Application {
 
-    private static Integer STARTTIME = 59;
+    private Integer STARTTIME = 59;
     public GameController controller;
-    public int playerIndex;
 
     static Stage constructStage = new Stage();
-    static int finished = 0;
 
-    public ConstructBuilding(GameController controller, int playerIndex) {
-        this.playerIndex = playerIndex;
+    public ConstructBuilding(GameController controller) {
         this.controller = controller;
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("TESTING START!");
 
+        int[] gridCoords = {0,0};
+
         GameController control = this.controller;
 
-        if (this.playerIndex == controller.getNumPlayers()) {
-            Fight fight = new Fight(control);
-            try {
-                fight.start(Fight.fightStage);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            constructStage.close();
-            return;
-        }
-
-        int[] gridCoords = {0,0};
-//
-//        PlayerImpl player1 = new PlayerImpl(1, "Russ", null);
-//        PlayerImpl player2 = new PlayerImpl(2, "A dog", null);
-//        PlayerImpl player3 = new PlayerImpl(2, "A dog", null);
-//        PlayerImpl player4 = new PlayerImpl(2, "A dog", null);
-//        PlayerImpl player5 = new PlayerImpl(2, "A dog", null);
-//        PlayerImpl player6 = new PlayerImpl(2, "A dog", null);
-
-
-//        PlayerImpl[] players = {player1, player2, player3, player4, player5, player6};
-//
         List<PlayerImpl> players = control.getPlayers();
-//        control.setPlayers(players);
 
         constructStage = primaryStage;
+
+        int playerIndex = control.getNumPlayers() - control.getNumRemainingPlayers() - 1;
 
         Font.loadFont(ConstructBuilding.class.getResource("resources/fonts/digital-7.ttf").toExternalForm(), 30);
         BorderPane root = new BorderPane();
@@ -96,8 +75,10 @@ public class ConstructBuilding extends Application {
         VBox leftPanels = new VBox();
         leftPanels.setSpacing(20);
 
+        PlayerImpl currentPlayer = players.get(playerIndex);
+
         VBox currentBasePanel = addCurrectBasePanel(gridCoords);
-        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(players.get(playerIndex), gridCoords);
+        ScrollPane constructBuildingPanel = addBuildingsToConstructPanel(currentPlayer, gridCoords);
         leftPanels.getChildren().addAll(currentBasePanel, constructBuildingPanel);
 
         Label timerLabel = new Label("00:" + STARTTIME.toString());
@@ -105,8 +86,8 @@ public class ConstructBuilding extends Application {
 
         VBox rightPanels = new VBox();
         rightPanels.setSpacing(200);
-        VBox playerInfoPanel = addPlayerInfoPanel(this.controller.getPlayers().get(this.playerIndex));
-        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel, control, this.playerIndex);
+        VBox playerInfoPanel = addPlayerInfoPanel(currentPlayer);
+        VBox functionPanels = addFunctionPanel(primaryStage, timerLabel, control);
         rightPanels.getChildren().addAll(playerInfoPanel, functionPanels);
 
         root.setLeft(leftPanels);
@@ -117,17 +98,14 @@ public class ConstructBuilding extends Application {
         Scene scene = new Scene(root, 1400, 1000);
         scene.getStylesheets().add(Fight.class.getResource("static/ConstructBuilding.css").toExternalForm());
 
-        Timeline timeline = new Timeline();
-         if (timeline != null) {
-             timeline.stop();
-         }
-         final Integer[] timeSeconds = {STARTTIME};
+        final Integer[] timeSeconds = {STARTTIME};
+        Timeline timeline;
 
-         timerLabel.setText("00:" + timeSeconds[0].toString());
-         timeline = new Timeline();
-         timeline.setCycleCount(Timeline.INDEFINITE);
-         Timeline finalTimeline = timeline;
-         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+        timerLabel.setText("00:" + timeSeconds[0].toString());
+        timeline = new Timeline();
+        timeline.setCycleCount(59);
+        Timeline finalTimeline = timeline;
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
              @Override
              public void handle(ActionEvent event) {
                  timeSeconds[0]--;
@@ -139,22 +117,36 @@ public class ConstructBuilding extends Application {
                  if (timeSeconds[0] <= 0) {
                      finalTimeline.stop();
 
-                     if (finished == 0) {
-                         finish(control, playerIndex);
+                     if (control.getNumRemainingPlayers() > 0) {
+                         control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
+                         ConstructBuilding constructBuilding = new ConstructBuilding(control);
+                         try {
+                             constructBuilding.start(ConstructBuilding.constructStage);
+                         } catch (Exception e) {
+                             e.printStackTrace();
+                         }
+                     } else {
+                         Fight fight = new Fight(control);
+                         try {
+                             fight.start(Fight.fightStage);
+                         } catch (Exception e) {
+                             e.printStackTrace();
+                         }
+                         constructStage.close();
+                         control.setNumRemainingPlayers(control.getNumPlayers() - 1);
                      }
-
-
                  }
              }
          }));
 
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
+        constructStage.setResizable(false);
+        constructStage.setScene(scene);
         Timeline finalTimeline1 = timeline;
-        primaryStage.setOnShown(windowEvent -> {
-            finalTimeline1.playFromStart();
+
+        constructStage.setOnShown(windowEvent -> {
+            finalTimeline1.play();
         });
-        primaryStage.show();
+        constructStage.show();
     }
 
     //Makes the confirm button that purchases a building
@@ -164,10 +156,9 @@ public class ConstructBuilding extends Application {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Make new building called!");
-                System.out.println("TEAM: " + player.getTeam());
                 CupCakeWarriorBuilding newbuild = new CupCakeWarriorBuilding(player);
                 newbuild.setGridCoords(gridCoords);
-                double[] coords = {50 * gridCoords[0] + player.getxOffset(), 50 * gridCoords[1] + player.getyOffset()};
+                double[] coords = {50 * gridCoords[0], 50 * gridCoords[1]};
                 newbuild.setScreenCoords(coords);
                 System.out.println("MADE NEW BUILDING");
                 System.out.println(player.getPlayerName());
@@ -180,7 +171,7 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the function panel */
-    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control, int playerIndex) {
+    private static VBox addFunctionPanel(Stage fightStage, Label timerLabel, GameController control) {
         VBox functionPanel = new VBox();
         functionPanel.setPadding(new Insets(10, 10, 10, 10));
         functionPanel.setSpacing(5);
@@ -198,7 +189,24 @@ public class ConstructBuilding extends Application {
         nextPlayerButton.setId("functionButton");
 
         nextPlayerButton.setOnAction(event -> {
-            finish(control, playerIndex);
+            if (control.getNumRemainingPlayers() > 0) {
+                control.setNumRemainingPlayers(control.getNumRemainingPlayers() - 1);
+                ConstructBuilding constructBuilding = new ConstructBuilding(control);
+                try {
+                    constructBuilding.start(ConstructBuilding.constructStage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Fight fight = new Fight(control);
+                try {
+                    fight.start(Fight.fightStage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                constructStage.close();
+                control.setNumRemainingPlayers(control.getNumPlayers() - 1);
+            }
         });
 
         nextPlayerButtonContainer.getChildren().addAll(nextPlayerButton);
@@ -339,20 +347,27 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the playerInfo panel */
-    private static VBox addPlayerInfoPanel(PlayerImpl curPlayer) {
+    private static VBox addPlayerInfoPanel(PlayerImpl player) {
         VBox playerInfoPanel = new VBox();
         playerInfoPanel.setSpacing(20);
         playerInfoPanel.setPadding(new Insets(10, 10, 10, 10));
         playerInfoPanel.setId("playerInfoPanel");
-        playerInfoPanel.setPrefSize(500, 400);
+        playerInfoPanel.setPrefSize(500, 800);
 
         Text titleText = new Text("Player Info: ");
         titleText.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
 
-        Text playerInfo = new Text("Player Name: " + curPlayer.getPlayerName() +
-                "\nPlayer Gold: " + curPlayer.getGold() +
-                "\nPlayer Score: " + curPlayer.getScore() +
-                "\nPlayer Team: " + curPlayer.getTeam());
+        String teamName = "";
+        if (player.getTeam() == 1) {
+            teamName = "Light";
+        } else if (player.getTeam() == 2) {
+            teamName = "Dark";
+        }
+
+        Text playerInfo = new Text("Player Name: " + player.getPlayerName() +
+                "\nPlayer Gold: " + player.getGold().toString() +
+                "\nPlayer Score: " + Integer.toString(player.getScore()) +
+                "\nPlayer Team: " + teamName);
 
         playerInfo.setLineSpacing(10);
         playerInfo.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 20));
@@ -403,25 +418,6 @@ public class ConstructBuilding extends Application {
         return currentBase;
     }
 
-//    private static GridPane addBaseGrid() {
-//        GridPane baseGrid = new GridPane();
-//
-//        baseGrid.getRowConstraints().add(new RowConstraints(100));
-//        baseGrid.getColumnConstraints().add(new ColumnConstraints(100));
-//
-//        for (int row = 0; row < 5; row ++) {
-//            for (int col = 0; col < 5; col ++) {
-//                Rectangle grid = new Rectangle(100, 100);
-//                grid.setFill(Color.TRANSPARENT);
-//                grid.setStroke(Color.BLACK);
-//                grid.getStrokeDashArray().addAll(5d, 5d, 5d, 5d);
-//                baseGrid.add(grid, col, row);
-//            }
-//        }
-//
-//        return baseGrid;
-//    }
-
     private static GridPane addBaseBuildings(int[] gridCoords) {
         GridPane baseBuildings = new GridPane();
 
@@ -469,15 +465,6 @@ public class ConstructBuilding extends Application {
         return clickable;
     }
 
-    private static void finish(GameController controller, int playerIndex) {
-        ConstructBuilding next = new ConstructBuilding(controller, playerIndex + 1);
-        finished = 1;
-        try {
-            next.start(ConstructBuilding.constructStage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 
 

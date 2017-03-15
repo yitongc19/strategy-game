@@ -402,7 +402,6 @@ public class Fight extends Application{
         return startFightButton;
     }
 
-
     public static class Console extends OutputStream {
 
         private TextArea output;
@@ -411,15 +410,11 @@ public class Fight extends Application{
             this.output = ta;
         }
 
-
-
         @Override
         public void write(int i) throws IOException {
             output.appendText(String.valueOf((char) i));
         }
     }
-
-
 
     public static void main(String[] args) {
         launch(args);

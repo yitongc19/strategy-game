@@ -60,11 +60,16 @@ public class WelcomeScreen extends Application{
         box.setAlignment(Pos.CENTER);
         box.setSpacing(300);
 //        Text sceneTitle = addTitle();
-        Text titleHolder = new Text("       ");
-        HBox buttonContainer = new HBox();
-        Button startGameButton = addButton(webView);
-        buttonContainer.getChildren().addAll(startGameButton);
-        box.getChildren().addAll(titleHolder, startGameButton);
+        Text titleHolder = new Text("       " + "\n          ");
+        VBox buttonContainer = new VBox();
+        buttonContainer.setSpacing(20);
+        buttonContainer.setAlignment(Pos.CENTER);
+        Button startGameButton = addStartButton(webView);
+        Button helpButton = addHelpButton();
+        helpButton.prefHeight(Double.MAX_VALUE);
+        helpButton.prefWidth(Double.MAX_VALUE);
+        buttonContainer.getChildren().addAll(startGameButton, helpButton);
+        box.getChildren().addAll(titleHolder, buttonContainer);
 
         return box;
     }
@@ -126,7 +131,7 @@ public class WelcomeScreen extends Application{
 
 
     /* construct the start game button */
-    private static Button addButton(WebView webView) {
+    private static Button addStartButton(WebView webView) {
         Button startGameButton = new StartButton("START", webView);
 
         startGameButton.setOnAction(event -> {
@@ -148,6 +153,22 @@ public class WelcomeScreen extends Application{
                 }
             });
         }
+    }
+
+    private static Button addHelpButton() {
+        Button helpButton = new Button("HELP");
+
+        helpButton.setOnAction(event -> {
+            Help help = new Help();
+            try {
+                help.start(Help.helpStage);
+            }
+            catch (Exception e) {
+            }
+            welcomeStage.close();
+        });
+
+        return helpButton;
     }
 
     public static void main(String[] args) {launch(args);}
