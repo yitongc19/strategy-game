@@ -46,7 +46,6 @@ public class MinionImpl implements Minion {
         return moveSpeed;
     }
 
-    //    static ArrayList<MinionImpl> instances = new ArrayList<MinionImpl>();
     public String typeName;
     public CombatManager manager;
     public PlayerImpl master;
@@ -419,25 +418,8 @@ public class MinionImpl implements Minion {
         double normalx = (xdiff/dist)*moveSpeed;
         double normaly = (ydiff/dist)*moveSpeed;
 
-//        double[] tempCoords = {this.Coords[0] + normalx, this.Coords[1] += normaly};
-//
-//        for (MinionImpl each:this.master.minions) {
-//            if (sqrt(pow(tempCoords[0] - each.Coords[0], 2)+pow(tempCoords[1] - each.Coords[1], 2)) < collisionDist) {
-//                collisonFlag = true;
-//                this.Coords[0] += normaly;
-//                this.Coords[1] += -normalx;
-//            } else {
-//                collisonFlag = false;
-//            }
-//        }
-
-//        if (collisonFlag == false) {
         this.Coords[0] += normalx;
         this.Coords[1] += normaly;
-//        }
-
-//        this.Coords[0] += normalx;
-//        this.Coords[1] += normaly;
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + "'s target is " + target.minionName);
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " moved " + normalx + "," + normaly);
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
@@ -473,7 +455,6 @@ public class MinionImpl implements Minion {
         }
 
 //        System.out.println(this.master.getPlayerName() + "'s " + this.minionName + " is at " + Arrays.toString(this.Coords));
-//        checkPortal();
     }
 
     public void performAttack(ArrayList<MinionImpl> enemies) {
@@ -547,7 +528,6 @@ public class MinionImpl implements Minion {
 //                    System.out.println(this.master.getPlayerName() + "'s " +
 //                            this.minionName + " dealt " + damage + " damage to " +
 //                            target.master.getPlayerName() + "'s " + target.minionName);
-//                    target.dieForHonor();
                     this.attackCounter = 0;
                 }
             }

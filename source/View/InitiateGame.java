@@ -99,7 +99,6 @@ public class InitiateGame extends Application{
             }
 
             InterPlayer interPlayer = new InterPlayer(this.controller, this.controller.getPlayers().get(0));
-//            this.controller.setNumRemainingPlayers(this.controller.getNumRemainingPlayers() - 1);
             try {
                 interPlayer.start(InterPlayer.interPlayerStage);
             } catch (Exception e) {

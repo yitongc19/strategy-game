@@ -52,15 +52,7 @@ public class CupCakeWarrior extends MeleeMinion {
             this.def = this.walk;
         }
 
-//        Image def = new Image(CupCakeWarrior.class.getResource("goodsmt1atk.gif").toExternalForm());
-//        Image walk = new Image(CupCakeWarrior.class.getResource("cupcakeWalk.png").toExternalForm());
-//        Image fight = new Image(CupCakeWarrior.class.getResource("cupcakeFight.png").toExternalForm());
         this.sprite.setImage(def);
-//        this.setDef(def);
-//        this.setFight(fight);
-//        this.setWalk(walk);
-
-
         this.portalReward = 12;
         this.killReward = 6;
         //set the Frames
