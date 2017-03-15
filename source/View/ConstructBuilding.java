@@ -160,23 +160,47 @@ public class ConstructBuilding extends Application {
         confirmButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                stagePopup.close();
-                player.setGold(player.getGold() - building.getCost());
-                String teamName;
-                if (player.getTeam() == 1) {
-                    teamName = "Light";
-                } else {
-                    teamName = "Dark";
-                }
-                playerInfo.setText("Player Name: " + player.getPlayerName() +
-                        "\nPlayer Gold: " + player.getGold().toString() +
-                        "\nPlayer Score: " + Integer.toString(player.getScore()) +
-                        "\nPlayer Team: " + teamName);
+                int goldAfterPurchase = player.getGold() - building.getCost();
+                if (goldAfterPurchase >= 0) {
+                    stagePopup.close();
+                    player.setGold(goldAfterPurchase);
+                    String teamName;
+                    if (player.getTeam() == 1) {
+                        teamName = "Light";
+                    } else {
+                        teamName = "Dark";
+                    }
+                    playerInfo.setText("Player Name: " + player.getPlayerName() +
+                            "\nPlayer Gold: " + player.getGold().toString() +
+                            "\nPlayer Score: " + Integer.toString(player.getScore()) +
+                            "\nPlayer Team: " + teamName);
 
-                if (building.getName().equals("Warrior Camp")) {
-                    baseBuilding.add(new Button(), currentGridCoords[0], currentGridCoords[1]);
-                } else if (building.getName().equals("Knight Academy")) {
-                    baseBuilding.add(new Button(), currentGridCoords[0], currentGridCoords[1]);
+                    if (building.getName().equals("Warrior Camp")) {
+                        Image cupcakeTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+                        ImageView cupcakeImg = new ImageView(cupcakeTemp);
+                        cupcakeImg.setFitHeight(125);
+                        cupcakeImg.setFitWidth(125);
+                        baseBuilding.add(addConstructed(cupcakeImg), currentGridCoords[0], currentGridCoords[1]);
+                    } else if (building.getName().equals("Knight Academy")) {
+                        Image knightTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+                        ImageView knightImg = new ImageView(knightTemp);
+                        knightImg.setFitHeight(125);
+                        knightImg.setFitWidth(125);
+                        baseBuilding.add(addConstructed(knightImg), currentGridCoords[0], currentGridCoords[1]);
+                    }
+                } else {
+                    VBox root = new VBox();
+                    root.setSpacing(20);
+                    root.setAlignment(Pos.CENTER);
+                    Button okay = new Button("ok");
+                    Text warning = new Text("You don't have enough gold!!");
+                    warning.setFont(Font.font(null, 16));
+                    root.getChildren().addAll(warning, okay);
+                    Scene scene = new Scene(root, 300, 200);
+                    stagePopup.setScene(scene);
+                    okay.setOnAction(event1 -> {
+                        stagePopup.close();
+                    });
                 }
             }
         });
@@ -276,10 +300,10 @@ public class ConstructBuilding extends Application {
         buildingImg.setFitWidth(180);
         buildingImg.setPreserveRatio(true);
 
-        Text buildingInfoBlock = new Text("Minions Spawned: " + building.getMinion().toString() +
-                "\nMinion Attack:" + Double.toString(building.getMinion().getAtk()) +
-                "\nMinion Move Speed:" + Double.toString(building.getMinion().getMoveSpeed()) +
-                "\nMinion Health :" + Double.toString(building.getMinion().getHP()));
+        Text buildingInfoBlock = new Text("Minions Spawned: " + building.getMinion().getTypeName() +
+                "\nMinion Attack:  " + Double.toString(building.getMinion().getAtk()) +
+                "\nMinion Move Speed:  " + Double.toString(building.getMinion().getMoveSpeed()) +
+                "\nMinion Health:  " + Double.toString(building.getMinion().getHP()));
         buildingInfoBlock.prefWidth(180);
         buildingInfoBlock.maxWidth(180);
         buildingInfoBlock.setFont(Font.font("Herculanum", 15));
@@ -334,7 +358,7 @@ public class ConstructBuilding extends Application {
                         buildingImgContainer.hoverProperty()
                 ).then(infoBlockContainer).otherwise(imageViewContainer));
 
-        VBox buildingInfoGen = addBuildingInfo();
+        VBox buildingInfoGen = addBuildingInfo(building);
 
         singleBuildingContainer.getChildren().addAll(buildingImgContainer, buildingInfoGen);
 
@@ -344,12 +368,12 @@ public class ConstructBuilding extends Application {
     }
 
     /* Construct the building info block */
-    private static VBox addBuildingInfo() {
+    private static VBox addBuildingInfo(BuildingImpl building) {
         VBox buildingInfo = new VBox();
         buildingInfo.setAlignment(Pos.CENTER);
 
-        Text buildingName = new Text("Cupcake House");
-        Text buildingPrice = new Text("$200");
+        Text buildingName = new Text(building.getName());
+        Text buildingPrice = new Text("$" + building.getCost().toString());
 
         buildingName.setFont(Font.font("Herculanum", 20));
         buildingPrice.setFont(Font.font("Herculanum", 20));
@@ -479,9 +503,12 @@ public class ConstructBuilding extends Application {
         return clickable;
     }
 
+    private static Button addConstructed(ImageView base) {
+        Button constructed = new Button("", base);
+        constructed.setStyle("-fx-background-color: transparent");
 
-
-
+        return constructed;
+    }
     private static class baseClickable extends Button {
         private baseClickable() {
 
