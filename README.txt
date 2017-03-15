@@ -9,7 +9,11 @@ Game Project: For the King
 
     Welcome to our game ForTheKing! This is a PVP game called “For the King” with elements of turn-based games, RPG and tower defense games.
 
-    
+    The game allows players to work as a team and fight for the same goal--protect their king and kill the enemy king. The game consists of two main phases, the construct phase, which allows players to construct buildings on their own bases and the fight phase, where minions spawned from the buildings that players built will automatically fight each other.
+
+    This is basically a strategy game, where players need to cooperate with each other and make tactful decisions about where on the base and when to build a building.
+
+
 - How to Play
 
     To start the game, run the file WelcomeScreen.java found in source/View. This will take the player to the welcome screen.
@@ -35,6 +39,9 @@ Game Project: For the King
     The game ends when one of the king dies. A window will popup once that happens and click on the see score will allow players to see their individual score. On this page, players can choose to play again or to quit game.
 
 
-- Known Bugs
+- Known Bugs and Things we wanted to implement but didn't get to
 
-    When the King dies, the message that informs the players about the death pops up for multiple times. We believe that's because that popUpWindow is constructed for each minion in the game.
+    - When the King dies, the message that informs the players about the death pops up for multiple times. We believe that's because that popUpWindow is constructed for each minion in the game.
+    - We hoped to have a variety of minions but were only able to implement two types, the knight and the cupcake warrior. Since we didn't have image for the knight, we didn't include options to build the knight in the current version of the game.
+    - Right now, there is a problem if we want to enter the second construct building phase. In the fight phase after the second construct building phase, the images of the buildings are not rendered to the correct place and will wander in the center of the lane. We were not sure what the problem was so we couldn't really fix that.
+    - If you initialze 8 players, you might see that the fourth lane has some image-rendering issues. The minions leave a trace where they have gone and the traces don't go away. This is weird because all the other three lanes worked fine.
