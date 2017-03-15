@@ -116,13 +116,13 @@ public class EndGame extends Application {
         Collections.sort(playerList, PlayerImpl.Comparators.SCORE);
 
         for (PlayerImpl player : playerList) {
-            String infoDisplay = player.getPlayerName() + "     " + Integer.toString(player.getScore());
+            String infoDisplay = player.getPlayerName() + "   " + Integer.toString(player.getScore());
             playersOrderedByScore.add(infoDisplay);
         }
 
         ListView<String> scoreList = new ListView<>();
         ObservableList<String> items = FXCollections.observableArrayList();
-        if (title.equals("Player Score")) {
+        if (title.equals("Score")) {
             items = FXCollections.observableArrayList(playersOrderedByScore);
         } else if (title.equals("Achievements")) {
 

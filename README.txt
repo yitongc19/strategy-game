@@ -8,6 +8,7 @@ Game Project: For the King
 - What this program does
 
     Welcome to our game ForTheKing! This is a PVP game called “For the King” with elements of turn-based games, RPG and tower defense games.
+
     
 - How to Play
 
@@ -23,4 +24,17 @@ Game Project: For the King
 
     Click on Play to initialize players. Choose the number of players and then enter the names of the players one by one. Remember to choose a color for your player. When you are done, click start to enter the construct building phase for player1.
 
-    
+    Each player has one minute at most each round to construct buildings. Click on the base in the current base panel and the available buildings will show up. Hover on the building to see what kind of minions the building will spawn. Click on the building and the system will ask whether you confirm constructing the selected building at the selected position. Each player starts with 500 gold at the beginning. Choose your buildings wisely.
+
+    The game will loop through all of the players so that everyone can construct their own buildings. Clicking finish before time is up jumps right next to the next player. After the last player finishes constructing building, the game enters the fight phase where minions will spawn from the buildings and fight each other automatically.
+
+    Minions from each side will march toward the enemy base on the same lane and fight anything on their way. If a minion reaches the base, it will be transported to the king lane to fight/protect the kings. Each team can click the buff button to add health to the king.
+
+    After all of the minions are dead for the currect round, the game enter another building phase for all of the players. Players earn gold by killing minions. After this construct phase, there is another fight phase with new minions spawned.
+
+    The game ends when one of the king dies. A window will popup once that happens and click on the see score will allow players to see their individual score. On this page, players can choose to play again or to quit game.
+
+
+- Known Bugs
+
+    When the King dies, the message that informs the players about the death pops up for multiple times. We believe that's because that popUpWindow is constructed for each minion in the game.
