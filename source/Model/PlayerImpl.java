@@ -27,13 +27,12 @@ public class PlayerImpl implements Player, Comparable<PlayerImpl> {
     private double yOffset;
 
     public PlayerImpl opponent;
-    public PlayerImpl(int teamNum, String playerName, Paint playerColor, King myKing) {
+    public PlayerImpl(int teamNum, String playerName, Paint playerColor) {
         this.gold = 500;
         this.playerName = playerName;
         this.teamNum = teamNum;
         this.playerColor = playerColor;
         this.myScore = 0;
-        this.myKing = myKing;
         this.opponent = opponent;
     }
 

@@ -50,8 +50,7 @@ public class Fight extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        System.out.println(controller.getNumPlayerTeam1());
-        System.out.println(controller.getPlayers().get(0).getBuildings().size());
+
         fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
@@ -60,7 +59,6 @@ public class Fight extends Application{
         CombatManager manager = new CombatManager();
 
         GameController newGame = this.controller;
-        newGame.setUpGame();
         List<PlayerImpl> players = newGame.getPlayers();
 
         control.setPlayers(players);

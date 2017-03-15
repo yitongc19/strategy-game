@@ -65,20 +65,33 @@ public class InitiateGame extends Application{
         start.setId("startButton");
 
         start.setOnAction(event -> {
+            double offsetOne = 0;
+            double offsetTwo = 0;
             for (Map<String, Object> player : playeInfoList) {
                 Paint color = (Paint) player.get("playerColor");
                 TextField nameInput = (TextField) player.get("playerNameInput");
                 Integer teamNum = (Integer) player.get("teamNum");
                 String name = nameInput.getText();
 
-                PlayerImpl newPlayer;
-                if (teamNum == 1) {
-                    newPlayer = new PlayerImpl(teamNum, name, color, lightKing);
-                } else {
-                    newPlayer = new PlayerImpl(teamNum, name, color, darkKing);
-                }
-
+                PlayerImpl newPlayer = new PlayerImpl(teamNum, name, color);
                 controller.addPlayer(newPlayer);
+                if (teamNum == 1) {
+                    newPlayer.myKing = lightKing;
+                    newPlayer.setyOffset(offsetOne * 220);
+                    newPlayer.setxOffset(0);
+                    if (offsetOne == 1) {
+                        offsetOne = offsetOne + 1.2;
+                    }
+                    offsetOne = offsetOne + 1;
+                } else {
+                    newPlayer.myKing = darkKing;
+                    newPlayer.setyOffset(offsetTwo * 220);
+                    newPlayer.setxOffset(1200);
+                    if (offsetTwo == 1) {
+                        offsetTwo = offsetTwo + 1.2;
+                    }
+                    offsetTwo = offsetTwo + 1;
+                }
             }
 
             System.out.println(controller.getPlayers().get(0).getPlayerName());

@@ -36,14 +36,17 @@ public class FightController implements FightControllerInterface {
             }
         }
 
-        for (int q = 0; q < players.size(); q = q + 1) {
-            for (int w = 0; w < players.size(); w = w + 1) {
-                if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
-                    players.get(q).setOpponent(players.get(w));
-                }
-            }
-        }
+//        for (int q = 0; q < players.size(); q = q + 1) {
+//            for (int w = 0; w < players.size(); w = w + 1) {
+//                if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
+//                    players.get(q).setOpponent(players.get(w));
+//                }
+//            }
+//        }
 
+        for (int i = 0; i <players.size()/2; i += 1) {
+            players.get(i).setOpponent(players.get(i+players.size()/2));
+        }
 
         new AnimationTimer() {
             @Override
@@ -54,13 +57,14 @@ public class FightController implements FightControllerInterface {
                 catch (InterruptedException e) {
                 }
 
-                for (int q = 0; q < players.size(); q = q + 1) {
-                    for (int w = 0; w < players.size(); w = w + 1) {
-                        if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
-                            manager.doCombat(players.get(q), players.get(w));
-                        }
-                    }
-                }
+//                for (int q = 0; q < players.size(); q = q + 1) {
+//                    for (int w = 0; w < players.size(); w = w + 1) {
+//                        if ((q != w) && (players.get(q).getyOffset() == players.get(w).getyOffset())) {
+//                            manager.doCombat(players.get(q), players.get(w));
+//                        }
+//                    }
+//                }
+                manager.doCombat(players.get(0), players.get(players.size()/2));
 
                 /*
                 try {
@@ -99,9 +103,9 @@ public class FightController implements FightControllerInterface {
                 graphics.fillRect(players.get(0).myKing.kingPos[0] -200, players.get(0).myKing.kingPos[1]+60, 210*players.get(0).myKing.getHpPercent(), 10);
 
                 graphics.setFill(Color.RED);
-                graphics.fillRect(players.get(1).myKing.kingPos[0] + 50, players.get(1).myKing.kingPos[1]+60, 210, 10);
+                graphics.fillRect(players.get(players.size()/2).myKing.kingPos[0] + 50, players.get(players.size()/2).myKing.kingPos[1]+60, 210, 10);
                 graphics.setFill(Color.GREEN);
-                graphics.fillRect(players.get(1).myKing.kingPos[0] + 50, players.get(1).myKing.kingPos[1]+60, 210*players.get(1).myKing.getHpPercent(), 10);
+                graphics.fillRect(players.get(players.size()/2).myKing.kingPos[0] + 50, players.get(players.size()/2).myKing.kingPos[1]+60, 210*players.get(players.size()/2).myKing.getHpPercent(), 10);
 
 //                for (int j = 0; j < player2.minions.size(); j = j + 1) {
 //                    MinionImpl minion = player2.minions.get(j);
