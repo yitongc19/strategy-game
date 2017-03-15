@@ -174,20 +174,42 @@ public class ConstructBuilding extends Application {
                             "\nPlayer Gold: " + player.getGold().toString() +
                             "\nPlayer Score: " + Integer.toString(player.getScore()) +
                             "\nPlayer Team: " + teamName);
+                        if (building.getName().equals("Warrior Camp")) {
+                            Image cupcakeTemp;
+                            if (player.getTeam() == 1) {
+                                cupcakeTemp = new Image("file:assets/swordmanT1/t1buildgood.gif");
+                            } else {
+                                cupcakeTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+                            }
 
-                    if (building.getName().equals("Warrior Camp")) {
-                        Image cupcakeTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
-                        ImageView cupcakeImg = new ImageView(cupcakeTemp);
-                        cupcakeImg.setFitHeight(125);
-                        cupcakeImg.setFitWidth(125);
-                        baseBuilding.add(addConstructed(cupcakeImg), currentGridCoords[0], currentGridCoords[1]);
-                    } else if (building.getName().equals("Knight Academy")) {
-                        Image knightTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
-                        ImageView knightImg = new ImageView(knightTemp);
-                        knightImg.setFitHeight(125);
-                        knightImg.setFitWidth(125);
-                        baseBuilding.add(addConstructed(knightImg), currentGridCoords[0], currentGridCoords[1]);
-                    }
+                            ImageView cupcakeImg = new ImageView(cupcakeTemp);
+                            cupcakeImg.setFitHeight(125);
+                            cupcakeImg.setFitWidth(125);
+                            baseBuilding.add(addConstructed(cupcakeImg), currentGridCoords[0], currentGridCoords[1]);
+
+                            BuildingImpl newBuild = new CupCakeWarriorBuilding(player);
+                            int[] buildCoords = {currentGridCoords[0], currentGridCoords[1]};
+                            newBuild.setGridCoords(buildCoords);
+                            player.add_Building(newBuild);
+
+                        } else if (building.getName().equals("Knight Academy")) {
+                            Image knightTemp;
+                            if (player.getTeam() == 1) {
+                                knightTemp = new Image("file:assets/swordmanT1/t1buildgood.gif");
+                            } else {
+                                knightTemp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+                            }
+                            ImageView knightImg = new ImageView(knightTemp);
+                            knightImg.setFitHeight(125);
+                            knightImg.setFitWidth(125);
+                            baseBuilding.add(addConstructed(knightImg), currentGridCoords[0], currentGridCoords[1]);
+
+                            BuildingImpl newBuild = new ShieldKnightBuilding(player);
+                            int[] buildCoords = {currentGridCoords[0], currentGridCoords[1]};
+                            newBuild.setGridCoords(buildCoords);
+                            player.add_Building(newBuild);
+                        }
+
                 } else {
                     VBox root = new VBox();
                     root.setSpacing(20);
@@ -294,7 +316,13 @@ public class ConstructBuilding extends Application {
     private static VBox addSingleBuilding(PlayerImpl player, BuildingImpl building) {
         VBox singleBuildingContainer = new VBox();
 
-        Image temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+        Image temp;
+        if (player.getTeam() == 1) {
+            temp = new Image("file:assets/swordmanT1/t1buildgood.gif");
+        } else {
+            temp = new Image("file:assets/swordmanT1/t1buildevil.gif");
+        }
+
         ImageView buildingImg = new ImageView(temp);
         buildingImg.setStyle("-fx-background-color: transparent");
         buildingImg.setFitWidth(180);
