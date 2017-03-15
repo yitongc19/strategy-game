@@ -29,7 +29,7 @@ public class FightController implements FightControllerInterface {
         this.players = players;
     }
 
-    public void runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
+    public AnimationTimer runFight(CombatManager manager, GraphicsContext graphics, GraphicsContext graphics1) {
 
 
 
@@ -61,13 +61,14 @@ public class FightController implements FightControllerInterface {
 //
 //            @Override
 //            public void handle(ActionEvent event) {
-////                try {
-////                    Thread.sleep(50);
-////                }
-////                catch (InterruptedException e) {
-////                }
+//                try {
+//                    Thread.sleep(50);
+//                }
+//                catch (InterruptedException e) {
+//                }
 //
 //                manager.doCombat(players.get(0), players.get(players.size()/2));
+//
 //
 //                graphics.clearRect(0,0,2000,1000);
 //                for (int i = 0; i < manager.getAllInstances().size(); i = i + 1) {
@@ -101,9 +102,9 @@ public class FightController implements FightControllerInterface {
 //            }
 //        }));
 //
-//        animationTimeLine.playFromStart();
-//
-        new AnimationTimer() {
+//        animationTimeLine.play();
+
+        AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 try {
@@ -170,7 +171,9 @@ public class FightController implements FightControllerInterface {
 //                }
 
             }
-        }.start();
+        };
+
+        return animationTimer;
     }
 
     public void showBuildings(GraphicsContext gc) {

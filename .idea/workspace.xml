@@ -4,6 +4,7 @@
     <list default="true" id="fa45f885-c153-4ddb-aed5-3419f644399a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Controller/FightController.java" afterPath="$PROJECT_DIR$/source/Controller/FightController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/Fight.java" afterPath="$PROJECT_DIR$/source/View/Fight.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,28 +40,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FightController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FightController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-435">
-              <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="103" selection-end-column="44" />
+            <state relative-caret-position="90">
+              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4337#7829#0" expanded="true" />
-                <element signature="e#7828#7829#0" expanded="true" />
+                <element signature="e#4361#7853#0" expanded="true" />
+                <element signature="e#7852#7853#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Fight.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+            <state relative-caret-position="210">
+              <caret line="81" column="75" lean-forward="false" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
               <folding>
-                <element signature="e#14935#14936#0" expanded="true" />
-                <element signature="e#15016#15017#0" expanded="true" />
+                <element signature="e#14943#14944#0" expanded="true" />
+                <element signature="e#15024#15025#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +134,6 @@
       <find>sc</find>
       <find>windoweven</find>
       <find>start</find>
-      <find>window</find>
       <find>currentplayer</find>
       <find>constructbuilding</find>
       <find>constructstage</find>
@@ -144,11 +144,12 @@
       <find>timeline.stop</find>
       <find>timeline.</find>
       <find>finish</find>
-      <find>animationtimer</find>
       <find>finished</find>
       <find>remainingplayer</find>
-      <find>fini</find>
       <find>startbu</find>
+      <find>fini</find>
+      <find>window</find>
+      <find>animationtimer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,12 +176,12 @@
         <option value="$PROJECT_DIR$/source/Model/CombatManager.java" />
         <option value="$PROJECT_DIR$/source/Model/MinionImpl.java" />
         <option value="$PROJECT_DIR$/source/View/EndGame.java" />
-        <option value="$PROJECT_DIR$/source/View/Fight.java" />
         <option value="$PROJECT_DIR$/source/Model/King.java" />
         <option value="$PROJECT_DIR$/source/View/InitiateGame.java" />
         <option value="$PROJECT_DIR$/source/View/InterPlayer.java" />
         <option value="$PROJECT_DIR$/source/View/ConstructBuilding.java" />
         <option value="$PROJECT_DIR$/source/Controller/FightController.java" />
+        <option value="$PROJECT_DIR$/source/View/Fight.java" />
       </list>
     </option>
   </component>
@@ -750,12 +751,12 @@
       <workItem from="1489560091665" duration="6618000" />
       <workItem from="1489571980207" duration="46000" />
       <workItem from="1489572053894" duration="1385000" />
-      <workItem from="1489593625591" duration="14360000" />
+      <workItem from="1489593625591" duration="15548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23072000" />
+    <option name="totallyTimeSpent" value="24260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="6" />
@@ -770,7 +771,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21582733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21582733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1251,25 +1252,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
+    <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="64" column="44" lean-forward="true" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+        <state relative-caret-position="90">
+          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
-            <element signature="e#14935#14936#0" expanded="true" />
-            <element signature="e#15016#15017#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4361#7853#0" expanded="true" />
+            <element signature="e#7852#7853#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Controller/FightController.java">
+    <entry file="file://$PROJECT_DIR$/source/View/Fight.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="103" selection-end-column="44" />
+        <state relative-caret-position="210">
+          <caret line="81" column="75" lean-forward="false" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4337#7829#0" expanded="true" />
-            <element signature="e#7828#7829#0" expanded="true" />
+            <element signature="e#14943#14944#0" expanded="true" />
+            <element signature="e#15024#15025#0" expanded="true" />
           </folding>
         </state>
       </provider>
