@@ -29,7 +29,7 @@ public class BuildingImpl {
     int[] gridCoords;
     double[] screenCoords;
 
-    public Sprite sprite;
+    public Sprite sprite = new Sprite();
 
     public MinionImpl getMinion() {return this.minion;}
 

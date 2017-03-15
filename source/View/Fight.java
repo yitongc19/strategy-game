@@ -50,7 +50,8 @@ public class Fight extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        System.out.print(controller.getNumPlayerTeam1());
+        System.out.println(controller.getNumPlayerTeam1());
+        System.out.println(controller.getPlayers().get(0).getBuildings().size());
         fightStage = primaryStage;
 
         BorderPane root = new BorderPane();
