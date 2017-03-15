@@ -2,13 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa45f885-c153-4ddb-aed5-3419f644399a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" afterPath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/View/EndGame.class" afterPath="$PROJECT_DIR$/build/production/Game Project/View/EndGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight.class" afterPath="$PROJECT_DIR$/build/production/Game Project/View/Fight.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Help.class" afterPath="$PROJECT_DIR$/build/production/Game Project/View/Help.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/production/Game Project/View/InitiateGame.class" afterPath="$PROJECT_DIR$/build/production/Game Project/View/InitiateGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/Model/PlayerImpl.java" afterPath="$PROJECT_DIR$/source/Model/PlayerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/View/InitiateGame.java" afterPath="$PROJECT_DIR$/source/View/InitiateGame.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/.DS_Store~5d02c1a21cd97a82db0dc228f9d261dfdba73413" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/.DS_Store~HEAD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/FightControllerInterface.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Controller/GameController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/JT_boss.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ArmorType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/AtkType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Building.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/BuildingImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CombatManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeBerserker.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarrior.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/CupCakeWarriorBuilding.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/King.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MeleeMinion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Minion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionGrunt.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionGrunt.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/MinionImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/Player.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/PlayerImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnight.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Model/ShieldKnightBuilding.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/Vez'nan_boss.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding$baseClickable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/ConstructBuilding.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/EndGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight$Console.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Fight.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/GameMap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/HealthBar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Help.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/InitiateGame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Map.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/Sprite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/TestInstantiate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen$StartButton$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen$StartButton.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/WelcomeScreen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/bootstrap2.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/bootstrap3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/digital-7.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/ALTEA.TTF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/Drifttype.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/resources/fonts/digital-7.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/returnScene.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/sample.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/ConstructBuilding.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/EndGame.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/Fight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/ForTheKingWelcome.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/Help.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/InitiateGame.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/WelcomeScreen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/backgroundFight.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbase1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbase2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/darkbd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbase3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/baseIslands/lightbd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/constructBuildingBg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/controlPanelBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/fight scene.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbase1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbase2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/darkbd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbase3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/islands/lightbd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/king1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/king2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/mapBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/quitButton.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/restartButton.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/road.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/static/welcomeBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/View/welcomeScreen.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/fight scene.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/left base texture 2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/left base texture.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/blood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmatk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmatkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmstl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwk1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwk2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/evilsmwkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmatk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmatkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmstl.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwk1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwk2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/legacy/goodsmwkx.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/ForTheKingWelcome.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/KingSim.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/backgroundFight.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/baseSimulation.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/constructBuildingBg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/controlPanelBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/fight scene.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/king1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/king2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/landscape.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/mapBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/quitButton.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/restartButton.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/road.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/resourcesImg/welcomeBackground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/Reverseevilsmt1atk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/Reversegoodsmt1atk.gif.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/badblood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/buildbase.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/evilsmt1atk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/evilsmt1wk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodblood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodsmt1atk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/goodsmt1wk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/t1buildevil.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/swordmanT1/t1buildgood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/badblood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/bdbase.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilbdt1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilsmt1atk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/evilsmt1wk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodbdt1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodblood.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodsmt1atk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/t1 swordman/goodsmt1wk.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/production/Game Project/walk scene.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/test/Game Project/Testing.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -631,12 +768,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489558666459</updated>
-      <workItem from="1489558667688" duration="492000" />
+      <workItem from="1489558667688" duration="663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492000" />
+    <option name="totallyTimeSpent" value="663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1915" height="1177" extended-state="6" />
