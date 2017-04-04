@@ -3,7 +3,6 @@
 >@author Xingfan Xia, Russel Smith, Yitong Cheng
 >@artist Jufei Luo
 >@Project for CS257 Software Desgin
->@Professor Eric Alexander
 
 ### Game Design and Concepts
 
